@@ -1,0 +1,34 @@
+.page {
+  &__news {
+    @include adaptiveValue("margin-bottom", 60, 28);
+  }
+}
+
+.news {
+  &__container {
+  }
+
+  &__box {
+  }
+
+  &__header {
+    margin-bottom: rem(13);
+  }
+
+  &__title {
+  }
+
+  &__slider {
+    overflow: hidden;
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+  }
+
+  &__card {
+    border: 1px solid #D0D6E4;
+  }
+}

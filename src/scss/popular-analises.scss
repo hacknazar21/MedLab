@@ -1,0 +1,76 @@
+.page {
+  &__popular-analises {
+    padding: rem(20) 0;
+
+  }
+}
+
+.popular-analises {
+  &__container {
+
+  }
+
+  &__box {
+    background: #EDF0F6;
+    border-radius: 20px;
+    padding: rem(30);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(10);
+  }
+
+  &__title {
+
+  }
+
+  &__types {
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight: 400;
+    font-size: rem(14);
+    line-height: math.div(12, 14);
+    @media(max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__type {
+    padding: rem(14) rem(20);
+    @media(any-hover: hover) {
+      &:hover {
+        background-color: #F1F1F1;
+      }
+    }
+
+    &.active {
+      background-color: #F1F1F1;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+  }
+
+  &__card {
+  }
+}
+
+

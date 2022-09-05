@@ -1,0 +1,88 @@
+.reviews {
+  &__slider {
+    margin-top: rem(20);
+    @include adaptiveValue("margin-bottom", 50, 25);
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF;
+      z-index: 10;
+      left: -100%;
+    }
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+  }
+
+  &__card {
+    padding: rem(30);
+    border: 1px solid #D0D6E4;
+    border-radius: 20px;
+  }
+
+  &__slider-buttons {
+    margin-top: rem(20);
+  }
+}
+
+.reviews-card {
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
+    margin-bottom: rem(30);
+
+  }
+
+  &__info-box {
+  }
+
+  &__info-name {
+    font-weight: 550;
+    font-size: rem(22);
+    line-height: 1;
+    /* identical to box height */
+    margin-bottom: rem(10);
+    letter-spacing: 0.03em;
+
+    color: #000000;
+
+  }
+
+  &__info-date {
+    font-weight: 400;
+    font-size: rem(16);
+    line-height: 1;
+    /* identical to box height */
+
+    letter-spacing: 0.03em;
+
+    color: #B6BFD5;
+
+  }
+
+  &__img-ibg {
+    padding-bottom: rem(60);
+    flex: 0 0 rem(60);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__text {
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: rem(16);
+    line-height: math.div(25, 16);
+    text-align: justify;
+    color: #363B48;
+  }
+}
+

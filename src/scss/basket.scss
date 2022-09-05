@@ -1,0 +1,108 @@
+.basket {
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: rem(15);
+    padding-bottom: rem(15);
+    border-bottom: 1px solid #D0D6E4;
+  } 
+
+  &__logo {
+    svg path{
+      stroke: #E87C24;
+    }
+  }
+
+  &__title {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 700;
+    font-size: rem(20);
+    line-height: math.div(25,20);
+    letter-spacing: 0.03em;
+    color: #363B48;
+  }
+  &__items {
+    padding-bottom: rem(15);
+    border-bottom: 1px solid #D0D6E4;
+  }
+
+  &__item {
+    display: flex;
+    padding-top: rem(15);
+  }
+  &__sum{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 700;
+    font-size: rem(20);
+    line-height: math.div(30,20);
+    letter-spacing: 0.02em;
+    color: #363B48;
+    padding: rem(15) 0;
+  }
+  &__checkout{
+    display: block;
+    text-align: center;
+    background-color: #E87C24;
+    border-radius: 5px;
+    padding: rem(5) 0;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: math.div(30,16);
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+  }
+  &__empty{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: math.div(30,16);
+    letter-spacing: 0.02em;
+    color: #363B48;
+    word-wrap: normal;
+    padding-top: rem(15);
+  }
+}
+.basket-window{
+  position: absolute;
+  padding: rem(15);
+  background-color: #FFFFFF;
+  border: 1px solid #D0D6E4;
+  border-radius: 10px;
+  top: 100%;
+  right: 0%;
+  z-index: 1000;
+  @include adaptiveValue("min-width", 393, 320);
+}
+.basket-item {
+  &__text {
+    flex: 1 1 auto;
+  }
+
+  &__id {
+  }
+
+  &__title {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: math.div(30,16);
+    letter-spacing: 0.02em;
+    color: #363B48;
+    word-wrap: normal;
+
+  }
+
+  &__remove {
+    display: flex;
+    svg{
+      pointer-events: none;
+    }
+  }
+}

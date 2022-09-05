@@ -1,0 +1,139 @@
+.page {
+  &__info {
+  }
+}
+
+.info {
+  &__container {
+  }
+
+  &__box {
+    display: flex;
+    background: radial-gradient(72.27% 72.27% at 50% 50%, #EDA218 0%, #E87B24 88.13%);
+    @include adaptiveValue("padding", 40, 10);
+    border-radius: 20px;
+    position: relative;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+  }
+
+  &__tabs-buttons {
+    display: flex;
+    gap: rem(10);
+    @include adaptiveValue("margin-bottom", 50, 10);
+  }
+
+  &__tabs-button {
+    font-weight: 500;
+    @include adaptiveValue("font-size", 22, 12);
+    line-height: math.div(25, 22);
+    padding: rem(17.5) rem(28);
+    @media(max-width: $tablet) {
+      padding: rem(7.5) rem(15);
+    }
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    @media(any-hover: hover) {
+      &:hover {
+        background-color: #272727;
+        border-color: rgba(0, 0, 0, 0);
+      }
+    }
+
+    &.active {
+      background-color: #272727;
+      border-color: rgba(0, 0, 0, 0);
+    }
+
+    color: #FFFFFF;
+  }
+
+  &__text {
+    color: #FFFFFF;
+    max-width: rem(759);
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__text-title {
+    font-weight: 500;
+    @include adaptiveValue("font-size", 40, 14);
+    line-height: math.div(35, 40);
+    letter-spacing: 0.02em;
+    @include adaptiveValue("margin-bottom", 50, 10);
+  }
+
+  &__text-subtitle {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 20, 12);
+    line-height: math.div(25, 20);
+    color: #FFFFFF;
+    @include adaptiveValue("margin-bottom", 131, 308);
+  }
+
+  &__text-footer {
+  }
+
+  &__image {
+    position: absolute;
+    width: rem(550);
+    @media(max-width: $tablet) {
+      width: rem(325);
+      top: initial;
+      right: rem(-10);
+      bottom: rem(-68);
+    }
+    height: 100%;
+    top: 0;
+    right: rem(90);
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: rem(28);
+    line-height: math.div(25, 28);
+
+    writing-mode: vertical-rl;
+
+    color: #FFFFFF;
+    align-items: center;
+    gap: rem(45);
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+
+    @media(max-width: $tablet) {
+      display: none !important;
+    }
+
+    span {
+      display: block;
+      width: rem(1);
+
+      flex: 1 1 auto;
+      background-color: #FFFFFF;
+    }
+  }
+}
