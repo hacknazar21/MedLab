@@ -2,9 +2,10 @@
   "port": 8081,
   "mariadb": {
     "database": "medlab_db",
-    "host": "localhost",
+    "host": "192.168.0.102",
     "port": "3306",
     "user": "root",
     "password": "bonevo01"
-  }
+  },
+  "jwtSecret":"jwt_token"
 }
