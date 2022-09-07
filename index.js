@@ -10,10 +10,17 @@ const request = require('request')
 httpServer.listen(PORT, 'localhost')
 
 app.get('/api/sendsms', async (req, res)=>{
-    request('https://smsc.kz/sys/send.php?login=v1lasce&psw=bonevo01&phones=+77476409907&mes="Hello World"', {}, function (error, response, body) {
+    const { phone } = req.params
+    request('https://smsc.kz/sys/send.php?login=v1lasce&psw=bonevo01&phones=+77712556435&mes=For register on MedLab - 2980', {}, function (error, response, body) {
         console.error('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         console.log('body:', body); // Print the HTML for the Google homepage.
+        if(response.statusCode === 200){
+            return res.status(200).json('delivered')
+        }
+        else{
+            return res.status(400).json('Cannot deliver')
+        }
     })
 })
 app.get('/api/news', (req,res)=> {
