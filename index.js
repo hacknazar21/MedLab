@@ -6,8 +6,16 @@ const app = express()
 const PORT = config.get('port') || 5000
 const httpServer = http.createServer(app)
 const connection = mariadb.createConnection(config.get('mariadb'))
-
+const request = require('request')
 httpServer.listen(PORT, 'localhost')
+
+app.get('/api/sendsms', async (req, res)=>{
+    request('https://smsc.kz/sys/send.php?login=v1lasce&psw=bonevo01&phones=+77476409907&mes="Hello World"', {}, function (error, response, body) {
+        console.error('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.log('body:', body); // Print the HTML for the Google homepage.
+    })
+})
 app.get('/api/news', (req,res)=> {
     connection.query('SELECT * FROM News LIMIT 0, 1000', (err, results, fields) => {
         if(err){
