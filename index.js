@@ -12,8 +12,32 @@ const {check, validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken')
 const {normalizeEmail} = require("validator");
 
+// Add headers before the routes are defined
+app.use(function (req, res, next) {
 
-httpServer.listen(PORT, 'localhost')
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://192.168.0.102:3000');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+
+app.use(express.json())
+app.use('/api/auth', require('./routes/auth_routes'))
+
+
+httpServer.listen(PORT, '192.168.0.118')
+
 app.get('/api/news', (req,res)=> {
     connection.query('SELECT * FROM News LIMIT 0, 1000', (err, results, fields) => {
         if(err){
@@ -50,97 +74,5 @@ app.get('/api/analysis', (req,res)=>{
         return res.send(JSON.stringify(results))
     })
 })
-
-app.post('/api/login',
-    [
-        check('email', 'Enter valid email').normalizeEmail().isEmail(),
-        check('password', 'Enter a password').exists()
-    ],
-    (req, res) => {
-    try {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-        return res.status(400).json({errors: errors.array(), message: 'Invalid data'})}
-
-
-    // Validate user input
-    if (!(email && password)) {
-        res.status(400).json({message: 'Input is required'})
-    }
-
-    //Validate if user exist in db
-    const user = User.findOne({email})
-    const isMatch = bcrypt.compare(password, user.password)
-    if ((!user || isMatch)) {
-        return res.status(400).json({message: 'Invalid login or password. Try again'})
-    }
-
-    //create token
-    const token = jwt.sign(
-        {userId: user.id},
-        config.get('jwtSecret'),
-        {expiresIn: '1h'}
-    )
-    res.json({token, userId:user.id})
-
-
-     } catch (e) {
-        res.status(500).json({message: "Something went wrong. Try again"})
-    }
-    }
-
-)
-
-app.post('/api/register',
-    [
-        check('firstName', 'Not a string').isString(),
-        check('lastName', 'Not a string').isString(),
-        check('email', 'Invalid email').isEmail(),
-        check('password', 'It has to be more than 6 symbols').isLength({min : 6})
-    ],
-    (req, res) => {
-    try {
-
-        //Validating input data
-        const {firstName, lastName, password, email} = req.body;
-        if (!(firstName && lastName && password && email)) {
-            res.status(400).json({message: 'All input is required'});
-        }
-
-        //creating new user
-        const hashedPassword = bcrypt.hash(password, 12)
-        const user = User.create(
-            {
-                firstName: firstName,
-                lastName: lastName,
-                email: email.toLowerCase(),
-                password: hashedPassword
-            })
-        user.save()
-        res.status(201).json({message: 'User created'})
-
-        // validating if user exists
-        const existedUser = User.findOne({email});
-        if (existedUser) {
-            return res.status(409).json({message: 'User already exists'})
-        }
-        {
-            res.status(500).json({message: "Something went wrong. Check input"})
-        }
-
-        //create token
-        let token;
-        token = jwt.sign(
-            {user_id: user.id, email},
-            config.get('jwtSecret'),
-            {expiresIn: '5h'}
-        ); //save user token
-        user.token = token
-        res.json({message: "Registration successful"})
-    } catch (e) {
-        res.status(500).json({message: "Something went wrong. Check input"})
-    }
-   }
-   )
 
 module.exports = app
