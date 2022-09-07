@@ -85,12 +85,12 @@ router.post('/login',
         })
 
         if (!user) {
-            return res.status(400).json({message: 'Invalid login or password. Try again1'})
+            return res.status(400).json({message: 'Invalid login or password. Try again'})
         }
 
         const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch) {
-            return res.status(400).json({message: 'Invalid login or password. Try again2'})
+            return res.status(400).json({message: 'Invalid login or password. Try again'})
         }
 
          const token = jwt.sign(
