@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import {IAnalys} from "../../Interfaces/IAnalys";
 import {Analys} from "./Analysis/Analys";
 import Filter from "./Analysis/Filter";
-import {useStorage} from "../../hooks/hooks.storage";
 import {HeaderContext} from "../../context/HeaderContext";
 interface OwnProps {
     analysis: IAnalys[]

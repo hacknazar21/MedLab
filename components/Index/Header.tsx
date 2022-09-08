@@ -4,6 +4,8 @@ import Logo from './Header/Logo';
 import Menu from './Header/Menu';
 import {Basket} from "../Basket";
 import {HeaderContext} from "../../context/HeaderContext";
+import Link from "next/link";
+import {AuthContext} from "../../context/AuthContext";
 interface Props {
     basket: any
 }
@@ -56,26 +58,38 @@ const contacts:any = [
 ]
 menuItems.push()
 export function Header (props:Props) {
-    const [classNameHeader, setClassNameHeader] = useState(['header'])
     const [basketClick, setBasketClick] = useState(false)
-    const {storageLength} = useContext(HeaderContext)
+    const {storageLength, addDynamicRefs} = useContext(HeaderContext)
+    const {isAuth} = useContext(AuthContext)
+    const dynamicRefs = useRef([])
     const basketRef = useRef(null)
     const headerRef = useRef(null)
     const [scroll, setScroll] = useState(false)
-    props.basket(basketRef)
     useEffect(() => {
-        window.addEventListener('scroll', scrollHandler);
+        dynamicRefs.current = new Array(0);
     }, []);
+
+
     useEffect(()=>{
+        if(headerRef !== null) window.addEventListener('scroll', scrollHandler);
     }, [headerRef])
+    useEffect(()=>{
+        addDynamicRefs(dynamicRefs.current)
+    }, [dynamicRefs.current])
+    useEffect(()=>{
+        if(basketRef !== null) {
+            props.basket(basketRef)
+            dynamicRefs.current = [...dynamicRefs.current, basketRef.current]
+        }
+    }, [basketRef])
     const scrollHandler = async (event:any) => {
        if(window.scrollY > 0 && !scroll) {
            await setScroll(true)
-           headerRef.current.classList.add('scroll')
+           headerRef?.current?.classList.add('scroll')
        }
        else if(window.scrollY <= 0) {
            await setScroll(false)
-           headerRef.current.classList.remove('scroll')
+           headerRef?.current?.classList.remove('scroll')
        }
     }
     const basketClickHandler = (event:any) => {
@@ -83,8 +97,9 @@ export function Header (props:Props) {
             return !prev
         })
     }
-
-
+    const menuClickHandler = (event:any) => {
+        headerRef.current.classList.toggle('menu-open')
+    }
     return (
         <header ref={headerRef} className='header'>
             <div className="header__container">
@@ -92,10 +107,11 @@ export function Header (props:Props) {
                     <Logo/>
                     <Menu menuItems={menuItems}/>
                     <Contacts contacts={contacts}/>
+                    <div className="menu__mobile" />
                 </div>
                 <div className="header__second">
                     <div className="header__actions">
-                        <div data-da=".menu__mobile, 990" className="header__action bg-orange br10">
+                        <div ref={el => dynamicRefs.current.push(el)} data-da=".menu__mobile, 990" className="header__action bg-orange br10">
                             <a href="" className="button ">Каталог анализов</a>
                         </div>
                         <div className="header__action search br10">
@@ -108,15 +124,15 @@ export function Header (props:Props) {
                                     </button>
                             </form>
                         </div>
-                        <button className="header__open-menu icon-menu">
+                        <button onClick={menuClickHandler} className="header__open-menu icon-menu">
                             <span></span>
                             <span></span>
                             <span></span>
                         </button>
-                        <div className="header__action bg-blue br10">
+                        <div ref={el => dynamicRefs.current.push(el)} data-da=".menu__mobile, 990" className="header__action bg-blue br10">
                             <a href="" className="button  _icon-result">результаты</a>
                         </div>
-                        <div ref={basketRef} className="header__action basket  ">
+                        <div data-da=".mobile__actions, 990" ref={basketRef} className="header__action basket  ">
                             <span>{storageLength}</span>
                             {basketClick && <Basket/>}
                             <button onClick={basketClickHandler} className="button bg-darkorange br10  _icon-basket">
@@ -135,14 +151,16 @@ export function Header (props:Props) {
                                 </svg>
                             </button>
                         </div>
-                        <div className="header__action br10 flx-1 bg-grey">
-                            <a href="" className="button  _icon-cabinet color-black">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18 18.875V17.125C18 16.1967 17.6313 15.3065 16.9749 14.6501C16.3185 13.9937 15.4283 13.625 14.5 13.625H7.5C6.57174 13.625 5.6815 13.9937 5.02513 14.6501C4.36875 15.3065 4 16.1967 4 17.125V18.875" stroke="#313131" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M11 10.125C12.933 10.125 14.5 8.558 14.5 6.625C14.5 4.692 12.933 3.125 11 3.125C9.067 3.125 7.5 4.692 7.5 6.625C7.5 8.558 9.067 10.125 11 10.125Z" stroke="#313131" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span>личный кабинет</span>
-                            </a>
+                        <div ref={el => dynamicRefs.current.push(el)} data-da=".mobile__actions, 990" className="header__action br10 flx-1 bg-grey">
+                            <Link href={isAuth ? '/profile/personal' : '/login'}>
+                                <a  className="button  _icon-cabinet color-black">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18 18.875V17.125C18 16.1967 17.6313 15.3065 16.9749 14.6501C16.3185 13.9937 15.4283 13.625 14.5 13.625H7.5C6.57174 13.625 5.6815 13.9937 5.02513 14.6501C4.36875 15.3065 4 16.1967 4 17.125V18.875" stroke="#313131" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 10.125C12.933 10.125 14.5 8.558 14.5 6.625C14.5 4.692 12.933 3.125 11 3.125C9.067 3.125 7.5 4.692 7.5 6.625C7.5 8.558 9.067 10.125 11 10.125Z" stroke="#313131" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>личный кабинет</span>
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

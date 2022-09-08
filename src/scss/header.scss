@@ -50,8 +50,8 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
       display: flex;
-      flex-direction: column-reverse;
-      justify-content: flex-end;
+      flex-direction: column;
+      justify-content: center;
       gap: rem(20);
       z-index: 1000;
       .menu-open & {
@@ -68,10 +68,12 @@
     gap: rem(20);
     @media(max-width: $tablet) {
       flex: 1 1 auto;
+
     }
     @media(max-width: $mobile) {
       flex-wrap: nowrap;
       gap: rem(10);
+
     }
   }
 
@@ -80,7 +82,7 @@
     align-items: center;
     column-gap: rem(12);
     font-weight: 550;
-    @include adaptiveValue("font-size", 16, 13);
+    @include adaptiveValue("font-size", 16, 10);
     line-height: math.div(20, 16);
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -88,14 +90,12 @@
 
     margin-left: auto;
     @media(max-width: $tablet) {
-      &:not(._icon-tel) {
-        margin-left: 0;
+      &:last-of-type{
+        display: none;
       }
     }
     @media(max-width: $mobile) {
-      &:not(._icon-tel) {
-        display: none;
-      }
+
     }
   }
 
@@ -113,7 +113,7 @@
       right: 11px;
     }
 
-    flex: 1 1 auto;
+    flex: 0 0 rem(66);
     background: linear-gradient(93.79deg, #E77725 0%, #EDAD13 100%);
     border: 1px solid #E77725;
     border-radius: 10px;
@@ -167,6 +167,10 @@
 
   &__actions {
     min-height: rem(60);
+    @media(max-width:$tablet){
+      min-height: rem(45);
+
+    }
     display: flex;
     gap: rem(10);
   }
@@ -178,21 +182,36 @@
 
     &.basket {
       position: relative;
+      @media(max-width:$tablet){
+        button {
+            background: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          }
+        svg{
+          width: rem(16);
+          height: rem(16);
+        }
+      }
       span {
         position: absolute;
         top: rem(7);
-        z-index: 1;
+        @include adaptiveValue("top", 7, 15);
         right: rem(10);
+        @include adaptiveValue("right", 10, 15);
+        z-index: 1;
         font-weight: 550;
-        font-size: rem(16);
+        @include adaptiveValue("font-size", 16, 10);
         line-height: 1;
         letter-spacing: 0.03em;
         color: #CD1212;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: rem(25);
-        height: rem(25);
+        @include adaptiveValue("width", 25, 12);
+        @include adaptiveValue("height", 25, 12);
         background-color: #FFFFFF;
         border-radius: 50%;
       }
@@ -233,12 +252,12 @@
       display: none;
     }
     display: flex;
+    flex-direction: column;
     gap: rem(10);
-    padding-top: rem(25);
 
     & > div {
       flex: 0 0 50%;
-      padding: rem(20);
+      padding: rem(10);
     }
   }
 }
@@ -254,7 +273,9 @@
     flex: 1 1 auto;
   }
   padding: rem(20) rem(30);
-
+  @media(max-width:$tablet){
+      padding: 0 rem(10);
+  }
   &__form {
     height: 100%;
     display: flex;
@@ -265,6 +286,10 @@
   &__input {
     height: 100%;
     width: 100%;
+    outline: none;
+    @media(max-width:$tablet){
+      font-size: rem(16);
+    }
   }
 }
 
@@ -297,5 +322,8 @@
 ._icon-basket {
   path {
     stroke: #FFFFFF;
+
   }
+
 }
+

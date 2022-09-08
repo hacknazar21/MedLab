@@ -61,6 +61,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: rem(16);
+    @include adaptiveValue("font-size", 16, 14);
     line-height: math.div(30,16);
     letter-spacing: 0.02em;
     color: #363B48;
@@ -91,7 +92,7 @@
     font-family: 'Gilroy';
     font-style: normal;
     font-weight: 600;
-    font-size: rem(16);
+    @include adaptiveValue("font-size", 16, 14);
     line-height: math.div(30,16);
     letter-spacing: 0.02em;
     color: #363B48;

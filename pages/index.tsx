@@ -20,6 +20,8 @@ import {IReview} from "../Interfaces/IReview";
 import {IAnalys} from "../Interfaces/IAnalys";
 import Link from "next/link";
 import {MainLayout} from "../layouts/mainLayout";
+import Head from "next/head";
+
 const banners:IBanners = {
     banners: [
         {
@@ -97,31 +99,38 @@ const info:IInfo = {
 }
 export default function Index({news, reviews, analysis}) {
     return (
-        <div className="wrapper">
-            <MainLayout>
-                <FirstScreen />
-                <Banners {...banners}/>
-                <Popular analysis={analysis}/>
-                <section className="page__main main">
-                    <div className="main__container"><Link href="/catalog" ><a className="main__button">Каталог анализов</a></Link></div>
-                </section>
-                <Analysis analysis={analysis.analys}/>
-                <Reviews reviews={reviews}/>
-                <News news={news}/>
-                <Info info={info}/>
-                <Map mapSrc={"https://yandex.kz/map-widget/v1/-/CCURqDxLOA"}/>
-            </MainLayout>
-        </div>
+        <>
+            <Head>
+                <title>Главная</title>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
+            <div className="wrapper">
+                <MainLayout>
+                    <FirstScreen />
+                    <Banners {...banners}/>
+                    <Popular analysis={analysis}/>
+                    <section className="page__main main">
+                        <div className="main__container"><Link href="/catalog" ><a className="main__button">Каталог анализов</a></Link></div>
+                    </section>
+                    <Analysis analysis={analysis.analys}/>
+                    <Reviews reviews={reviews}/>
+                    <News news={news}/>
+                    <Info info={info}/>
+                    <Map mapSrc={"https://yandex.kz/map-widget/v1/-/CCURqDxLOA"}/>
+                </MainLayout>
+            </div>
+        </>
     )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const response = await fetch('http://localhost:8081/api/news')
+    const response = await fetch('http://localhost:8082/api/news')
     const news:INews = await response.json() ?? []
-    const responseReviews = await fetch('http://localhost:8081/api/reviews')
+    const responseReviews = await fetch('http://localhost:8082/api/reviews')
     const reviews:IReview[] = await responseReviews.json() ?? []
-    const responseAnalysis = await fetch('http://localhost:8081/api/analysis?type=analys')
-    const responseComplexAnalysis = await fetch('http://localhost:8081/api/analysis?type=complex')
+    const responseAnalysis = await fetch('http://localhost:8082/api/analysis?type=analys')
+    const responseComplexAnalysis = await fetch('http://localhost:8082/api/analysis?type=complex')
     const analysis:IAnalys[] | any = await responseAnalysis.json() ?? []
     const complexAnalysis:IAnalys[] | any = await responseComplexAnalysis.json() ?? []
     return {props: {news, reviews, analysis: {complex: complexAnalysis, analys: analysis}}}

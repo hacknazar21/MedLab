@@ -6,5 +6,6 @@ export const HeaderContext = createContext({
     add: noop1,
     get: noop,
     removeById: noop1,
-    storageLength: 0
+    storageLength: 0,
+    addDynamicRefs: noop1
 })

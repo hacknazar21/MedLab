@@ -1,0 +1,131 @@
+.page {
+  &__auth {
+    background-color: #EDF0F6;
+    @include adaptiveValue("padding", 37, 10);
+    @media(max-width:$tablet){
+      padding: rem(10) 0;
+    }
+  }
+}
+
+.auth {
+  &__container {
+  }
+
+  &__form {
+  }
+}
+
+.auth-form {
+  &__wrapper {
+    padding: rem(15);
+    background-color: #FFFFFF;
+    border: 1px solid #D0D6E4;
+    box-shadow: 0px 2px 8px rgba(1, 39, 176, 0.15);
+    border-radius: 10px;
+    max-width: rem(500);
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 30, 16);
+    line-height: math.div(37,30);
+    letter-spacing: 0.02em;
+    color: #363B48;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: rem(30);
+  }
+
+  &__input-box {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: rem(10);
+  }
+  &__label{
+    display: block;
+    background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    cursor: pointer;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: rem(14);
+    line-height: math.div(17,14);
+    letter-spacing: 0.02em;
+  }
+  &__input {
+    font-family: 'Gilroy';
+    font-weight: 600;
+    font-size: rem(16);
+    padding: rem(16.5) rem(10);
+    border: 1px solid #D0D6E4;
+    border-radius: 5px;
+    &::placeholder{
+      font-style: normal;
+      font-size: rem(14);
+      line-height: math.div(17,14);
+      letter-spacing: 0.02em;
+      color: #717C97;
+    }
+    outline: none;
+    &.error{
+      & + label{
+        color: #d01818;
+      }
+      border: 1px solid #d01818;
+    }
+
+  }
+  &__submit-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(15);
+  }
+
+  &__submit {
+    position: relative;
+    padding: rem(16.5) 0;
+    display: block;
+    background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    border-radius: 5px;
+    width: 100%;
+
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: underline;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 700;
+    font-size: rem(14);
+    line-height: math.div(17,14);
+    
+    text-align: center;
+    letter-spacing: 0.02em;
+    background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+  }
+}

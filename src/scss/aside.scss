@@ -1,0 +1,106 @@
+.aside-profile {
+  flex: 0 0 rem(350);
+  background-color: #ffffff;
+  padding: rem(30);
+  .lds-roller div:after{
+    background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+  &__arrow{
+    width: rem(24);
+    flex: 0 0 rem(24);
+    height: rem(24);
+  }
+  &__link-arrow{
+    svg{
+      width: 100%;
+    }
+  }
+  &__avatar {
+    position: relative;
+    flex: 0 0 rem(50);
+    position: relative;
+    padding-bottom: rem(48);
+    border: 2px solid #CCCCCC;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    margin-right: rem(20);
+  }
+
+  &__name {
+    position: relative;
+    height: 100%;
+    width: auto;
+    background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin-right: rem(10);
+  }
+  &__menu {
+    margin-top: rem(30);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40);
+  }
+
+  &__item {
+    padding-bottom: rem(20);
+    border-bottom: 1px solid #EDF0F7;
+
+  }
+
+  &__link {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 500;
+    font-size: rem(16);
+    line-height: math.div(19,16);
+    
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #717C97;
+    display: flex;
+    align-items: center;
+    gap: rem(14);
+
+    @media(any-hover: hover){
+      &:hover{
+        background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        & path{
+          fill: #123cd0;
+        }
+      }
+    }
+  }
+}

@@ -58,6 +58,20 @@
 
       }
     }
+    @media(max-width:$tablet){
+      background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%);
+      color: #FFFFFF;
+      cursor: pointer;
+
+      .analysis-item__add {
+        display: block;
+
+      }
+
+      .analysis-item__title, .analysis-item__info-box, .analysis-item__price-id, .analysis-item__price-value {
+        color: #FFFFFF;
+      }
+    }
   }
 }
 
