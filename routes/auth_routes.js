@@ -6,9 +6,11 @@ const config = require("config");
 const express = require('express')
 const app = express()
 const {normalizeEmail} = require("validator");
+const passport = require('passport')
 const router = Router()
-const User = require('../models/User')
 const db = require('../config/Database')
+const {API_User} = require("../models/models");
+// const authController = require('../controlers/authController')
 
 
 //api/auth/register
@@ -80,23 +82,23 @@ router.post('/login',
             return res.status(400).json({message: 'Input is required'})
         }
 
-        const user = await User.findOne({
+        const user = await API_User.findOne({
             where: {phone_number}
         })
 
         if (!user) {
-            return res.status(400).json({message: 'Invalid login or password. Try again1'})
+            return res.status(400).json({message: 'Invalid login or password. Try again'})
         }
 
         const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch) {
-            return res.status(400).json({message: 'Invalid login or password. Try again2'})
+            return res.status(400).json({message: 'Invalid login or password. Try again'})
         }
 
          const token = jwt.sign(
         {userId: user.id},
         config.get('jwtSecret'),
-        {expiresIn: '1h'}
+        {expiresIn: '24h'}
     )
          res.json({token, userId: user.id})
     } catch (e) {
