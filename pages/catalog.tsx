@@ -8,14 +8,17 @@ import News from "../components/Index/News";
 import Info from "../components/Index/Info";
 import {Map} from "../components/Index/Map";
 import Footer from "../components/Index/Footer";
+// @ts-ignore
 import {GetServerSideProps} from "next";
 import {IAnalys} from "../Interfaces/IAnalys";
+// @ts-ignore
 import Link from "next/link";
 import {MainLayout} from "../layouts/mainLayout";
 import {Sugar} from "../layouts/sugarLayout";
+// @ts-ignore
 import Head from 'next/head'
 
-export default function Catalog({analysis}) {
+export default function CatalogPage({analysis}) {
     return (
         <>
             <Head>
@@ -46,8 +49,8 @@ export default function Catalog({analysis}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const responseAnalysis = await fetch('http://localhost:8081/api/analysis?type=analys')
-    const responseComplexAnalysis = await fetch('http://localhost:8081/api/analysis?type=complex')
+    const responseAnalysis = await fetch('http://localhost:8082/api/analysis?type=analys')
+    const responseComplexAnalysis = await fetch('http://localhost:8082/api/analysis?type=complex')
     const analysis:IAnalys[] | any = await responseAnalysis.json() ?? []
     const complexAnalysis:IAnalys[] | any = await responseComplexAnalysis.json() ?? []
     return {props: {analysis: {complex: complexAnalysis, analys: analysis}}}

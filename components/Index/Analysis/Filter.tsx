@@ -1,4 +1,5 @@
-import React, {PureComponent, useEffect} from 'react';
+import React from 'react';
+// @ts-ignore
 import {ISelect} from "../../Interfaces/ISelect";
 import Select from "../Select";
 

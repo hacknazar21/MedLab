@@ -1,0 +1,58 @@
+.about-card {
+  display: flex;
+  gap: rem(30);
+  font-family: 'Gilroy', serif;
+  color: #363B48;
+  &:not(:last-child){
+    @include adaptiveValue("margin-bottom", 40, 30);
+  }
+
+  &.normal{
+    @media(min-width:$tablet){
+      flex-direction: row;
+    }
+  }
+  &.reverse{
+    @media(min-width:$tablet){
+      flex-direction: row-reverse;
+    }
+  }
+  @media(max-width:$tablet){
+      flex-direction: column;
+      margin-top: rem(15);
+  }
+  &__content {
+  }
+
+  &__title {
+
+    @include adaptiveValue("margin-bottom", 20, 15);
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: rem(16);
+    line-height: math.div(25,16);
+    text-align: justify;
+    p{
+      &:not(:last-child){
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__image {
+    flex: 0 0 percent(753, 1860);
+    position: relative;
+    padding-bottom: rem(222);
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+  }
+}

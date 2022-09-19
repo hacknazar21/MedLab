@@ -1,5 +1,6 @@
 import React from 'react';
 import {INews} from "../../Interfaces/INews";
+// @ts-ignore
 import Swiper, {Autoplay, Navigation} from "swiper";
 interface Props{
     news: INews[]

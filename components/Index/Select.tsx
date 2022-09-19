@@ -1,4 +1,5 @@
 import React, {PureComponent, useState} from 'react';
+// @ts-ignore
 import {ISelect} from "../Interfaces/ISelect";
 
 

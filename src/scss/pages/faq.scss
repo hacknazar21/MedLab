@@ -1,0 +1,39 @@
+.page {
+  &__faq {
+    margin-top: rem(30);
+    @include adaptiveValue("margin-bottom", 90, 30);
+  }
+}
+
+.faq {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    @media(max-width:$mobile){
+        flex-direction: column-reverse;
+    }
+    gap: rem(30);
+  }
+
+  &__spoilers {
+    flex: 1 1 auto;
+  }
+
+  &__image {
+    flex: 0 0 percent(934,1860);
+    position: relative;
+    padding-bottom: percent(540, 1860);
+    @media(max-width:$mobile){
+      width: 100%;
+      padding-bottom: percent(200, 370);
+    }
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+  }
+}

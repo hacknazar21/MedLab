@@ -6,10 +6,43 @@ import {MainLayout} from "../../layouts/mainLayout";
 import {Sugar} from "../../layouts/sugarLayout";
 import Login from "../../components/Auth/Login";
 import {Aside} from "../../components/profile/Aside";
+import Personal from "../../components/profile/personal/Personal";
+import useHttp from "../../hooks/hooks.http";
 
-export default function Personal({}) {
+export default function PersonalPage({}) {
     const {isAuth} = useContext(AuthContext)
+    const [userInfo, setUserInfo] = useState({
+        'avatar': '',
+        'username': '',
+        'firstname': '',
+        'lastname': '',
+        'address': '',
+        'email': '',
+        'phone_number': ''
+    })
+    const {token}  = useContext(AuthContext)
+    const {request, error, clearError, clearSuccess, success, loading} = useHttp()
+    useEffect( ()=>{
+        if(token)
+        (async ()=>{
+            try{
+                const data = await request('http://192.168.0.118:8081/api/user/info', 'GET', null, {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+                })
 
+                if(data.username){
+                    setUserInfo(prev=>{return {...data}})
+                }
+
+            }catch (e) {
+                console.log(e.message)
+            }
+        })()
+    }, [token])
+    useEffect(() => {
+        console.log(userInfo)
+    }, [userInfo]);
 
     if(!isAuth) return <FourOhFour/>
 
@@ -24,7 +57,10 @@ export default function Personal({}) {
                 <MainLayout>
                     <Sugar sugar={[{title: 'Главная', href: '/'}, {title: 'Личная информация', href: ''}]}/>
                     <main className='page profile'>
-                        <Aside/>
+                        <Aside userInfo={{avatar: userInfo.avatar, name: userInfo.username}}/>
+                        <div className='profile__content'>
+                            <Personal userInfo={userInfo}/>
+                        </div>
                     </main>
                 </MainLayout>
             </div>

@@ -6,44 +6,23 @@ import useHttp from "../../hooks/hooks.http";
 import {Loading} from "../Loading";
 
 interface Props {
-
+    userInfo: {
+        avatar: string,
+        name: string,
+    }
 }
 
 export function Aside(props: Props) {
-    const [userInfo, setUserInfo] = useState({
-        'avatar': '',
-        'name': ''
-    })
-    const loadingLazy = ''
-    const {token, userId}  = useContext(AuthContext)
-    const {request, error, clearError, clearSuccess, success, loading} = useHttp()
 
-    // @ts-ignore
-    useEffect(async ()=>{
-        try{
-            const data = await request('http://192.168.0.118:8081/api/user/info', 'GET', null, {
-                'Authorization': `Bearer ${token}`,
-                'Accept': 'application/json'
-            })
-            if(data.name){
-                setUserInfo({avatar: data.avatar || '', name: data.name})
-            }
-        }catch (e) {
-            console.log(e.message)
-        }
-        return () => {
-            console.log("This will be logged on unmount");
-        }
-    }, [])
     return (
         <>
             <aside className="aside-profile">
                 <div className="aside-profile__header">
                     <div className="aside-profile__avatar">
-                        {userInfo.avatar === '' ? <div className='lazy'></div> : <img src={userInfo.avatar} alt="avatar"/>}
+                        {props.userInfo.avatar === '' || props.userInfo.avatar == null ? <div className='lazy'></div> : <img src={props.userInfo.avatar} alt="avatar"/>}
                     </div>
                     <div className="aside-profile__name">
-                        {userInfo.name === '' ? 'Фамилия и имя' : <p>{userInfo.name}</p>}
+                        {props.userInfo.name === '' ? 'Фамилия и имя' : <p>{props.userInfo.name}</p>}
                     </div>
                     <div className="aside-profile__arrow">
                         <Link href="/profile/personal">

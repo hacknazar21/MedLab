@@ -16,32 +16,32 @@ const menuItems:any = [
         'key': 0
     },
     {
-        'href': '/',
+        'href': '/faq',
         'title': 'F.A.Q.',
         'key': 1
     },
     {
-        'href': '/',
+        'href': '/reviews',
         'title': 'Отзывы',
         'key': 2
     },
     {
-        'href': '/',
+        'href': '/news',
         'title': 'Новости',
         'key': 3
     },
     {
-        'href': '/',
+        'href': '/actions',
         'title': 'Акции',
         'key': 4
     },
     {
-        'href': '/',
+        'href': '/about',
         'title': 'О нас',
         'key': 5
     },
     {
-        'href': '/',
+        'href': '/contacts',
         'title': 'Контакты',
         'key': 6
     }

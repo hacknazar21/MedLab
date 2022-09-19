@@ -4,6 +4,7 @@ import InputMask from "../InputMask";
 import useHttp from "../../hooks/hooks.http";
 import {Loading} from "../Loading";
 import {AuthContext} from "../../context/AuthContext";
+import {useRouter} from "next/router";
 
 interface OwnProps {}
 
@@ -12,6 +13,7 @@ type Props = OwnProps;
 const Login: FunctionComponent<Props> = (props) => {
   const {request, error, clearError, clearSuccess, success, loading} = useHttp()
   const { login } = useContext(AuthContext)
+  const router = useRouter()
   const [formLogin, setFormLogin] = useState({
     'phone_number': '',
     'password': ''
@@ -34,7 +36,7 @@ const Login: FunctionComponent<Props> = (props) => {
       })
       if(data.token){
         await login(data.token, data.userId)
-        location.replace('/profile/personal')
+        router.push('/profile/personal')
       }
     }
     catch (e) {

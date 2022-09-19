@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+// @ts-ignore
 import {IBanner} from "../../Interfaces/IBanner";
 
 

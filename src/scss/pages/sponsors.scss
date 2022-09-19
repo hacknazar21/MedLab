@@ -1,0 +1,36 @@
+.sponsors {
+  font-family: 'Gilroy';
+  color: #363B48;
+  @include adaptiveValue("margin-bottom", 60, 30);
+  @media(max-width:$tablet){
+    margin-top: rem(15);
+  }
+  &__title {
+    @media(max-width:$tablet){
+      margin: 0;
+    }
+  }
+
+  &__swiper {
+  }
+}
+
+.swiper {
+  &__slide {
+    position: relative;
+    padding-bottom: rem(143);
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: left;
+    }
+  }
+
+  &__silder-img {
+  }
+}
+

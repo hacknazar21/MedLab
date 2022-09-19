@@ -1,12 +1,13 @@
 .header {
-  &.scroll{
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: rem(10) 0;
-    background-color: #FFFFFF;
-    z-index: 1000000;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: rem(10) 0;
+  background-color: #FFFFFF;
+  z-index: 1000000;
+  width: 100%;
+  & + section{
+    margin-top: rem(155);
   }
   &__container {
   }

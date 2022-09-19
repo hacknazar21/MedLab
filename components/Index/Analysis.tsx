@@ -9,12 +9,11 @@ interface OwnProps {
 
 type Props = OwnProps;
 
-
-
 export function Analysis (props: Props) {
     const [analysis, setAnalysis] = useState(props.analysis)
     const [number, setNumber] = useState(props.analysis.length)
     const {basket, add} = useContext(HeaderContext)
+
     const handleButtonClick = (event:any) => {
         const analysId = event.target.parentElement.dataset.itemId
 
@@ -103,6 +102,7 @@ export function Analysis (props: Props) {
                                     <Analys analys={analys} key={analys.id} buttonClick={handleButtonClick}/>
                                 )
                             })}
+                            {number === 0 && 'По вашему запросу ничего не нашлось'}
                         </div>
                     </div>
                 </div>

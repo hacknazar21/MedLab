@@ -168,6 +168,11 @@ body {
 // Подключение стилей отдельных страниц
 @import "home";
 @import "auth";
-
+@import "personal";
+@import "pages/contacts";
+@import "pages/faq";
+@import "pages/about";
+@import "pages/mission";
+@import "pages/sponsors";
 
 @import "base/swiper.scss";

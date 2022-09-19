@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// @ts-ignore
 import Swiper, {Autoplay, Navigation} from "swiper";
 import {IReview} from "../../Interfaces/IReview";
 interface Props {
@@ -15,7 +16,7 @@ class Reviews extends React.Component<Props, any> {
             observeParents: true,
             slidesPerView: 2.7,
             spaceBetween: 20,
-            autoHeight: true,
+            autoHeight: false,
             speed: 800,
 
             // Эффекты

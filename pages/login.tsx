@@ -5,7 +5,7 @@ import Login from "../components/Auth/Login";
 import {Sugar} from "../layouts/sugarLayout";
 
 
-export default function Index({news, reviews, analysis}) {
+export default function LoginPage({news, reviews, analysis}) {
     return (
         <>
             <Head>

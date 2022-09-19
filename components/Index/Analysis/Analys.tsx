@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
+// @ts-ignore
 import {IAnalys} from "../../Interfaces/IAnalys";
+// @ts-ignore
+import Link from "next/link";
 
 interface Props{
   analys: IAnalys,
@@ -10,7 +13,8 @@ export function Analys (props: Props){
         <>
             {
                 !props.analys.hidden &&
-                  <div data-item-id={props.analys.id} className="analysis__item analysis-item">
+                <Link href={`/analysis/[id]`} as={`/analysis/${props.analys.id}`}>
+                  <a data-item-id={props.analys.id} className="analysis__item analysis-item">
                       <h3 className="analysis-item__title">{props.analys.title}</h3>
                       <div className="analysis-item__info-box">
                           <div className="analysis-item__info _icon-clock">{props.analys.date}</div>
@@ -21,7 +25,8 @@ export function Analys (props: Props){
                           <div className="analysis-item__price-value">{props.analys.price} ₸</div>
                       </div>
                       <button onClick={props.buttonClick} className="analysis-item__add"></button>
-                  </div>
+                  </a>
+                </Link>
             }
       </>
     );

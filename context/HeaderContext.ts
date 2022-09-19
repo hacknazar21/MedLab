@@ -1,4 +1,5 @@
 import {createContext} from 'react'
+import * as React from "react";
 function noop() {}
 function noop1(id) {}
 export const HeaderContext = createContext({

@@ -1,4 +1,6 @@
 import React, {Component, createRef, EventHandler, RefObject} from 'react';
+// @ts-ignore
+
 import {IInfo} from "../Interfaces/IInfo";
 
 interface Props {

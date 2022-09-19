@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+// @ts-ignore
+import Link from "next/link";
 
 interface OwnProps {
     menuItems: { href: string; title: string; key: any }[]
@@ -15,7 +17,7 @@ class Menu extends PureComponent<Props> {
                     {
                         this.props.menuItems.map(menuItem=>{
                             return(
-                                <li key={menuItem.key} className="menu__item"><a href={menuItem.href} className="menu__link">{menuItem.title}</a></li>
+                                <li key={menuItem.key} className="menu__item"><Link href={menuItem.href}><a className="menu__link">{menuItem.title}</a></Link></li>
                             )
                         })
                     }

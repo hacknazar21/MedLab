@@ -3,13 +3,15 @@ import Link from "next/link";
 import InputMask from "../InputMask";
 import useHttp from "../../hooks/hooks.http";
 import {Loading} from "../Loading";
+import {useRouter} from "next/router";
 
 interface OwnProps {}
 
 type Props = OwnProps;
 
 const Registration: FunctionComponent<Props> = (props) => {
-  const {request, error, clearError, clearSuccess, success, loading} = useHttp()
+  const {request, error, clearError, clearSuccess, success, loading, isOk} = useHttp()
+  const router = useRouter()
   const [formLogin, setFormLogin] = useState({
     'phone_number': '',
     'name': '',
@@ -49,9 +51,9 @@ const Registration: FunctionComponent<Props> = (props) => {
       const data = await request('http://192.168.0.118:8081/api/auth/register', 'POST', formLogin, {
         'Content-Type': 'application/json'
       })
-      console.log(success)
-      if(data.status === 201){
-        window.location.replace('/login')
+
+      if(isOk){
+        router.push('/login')
       }
     }catch (e) {
       console.log(e.message)
@@ -89,7 +91,7 @@ const Registration: FunctionComponent<Props> = (props) => {
                     Зарегистрироваться
                     {loading ?? <Loading/>}
                   </button>
-                  <Link href='/registration'><a className="auth-form__link">У меня нет аккаунта</a></Link>
+                  <Link href='/login'><a className="auth-form__link">У меня уже есть аккаунт</a></Link>
                 </div>
               </div>
             </div>

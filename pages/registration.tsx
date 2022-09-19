@@ -6,7 +6,7 @@ import {Sugar} from "../layouts/sugarLayout";
 import Registration from "../components/Auth/Registration";
 
 
-export default function Index({news, reviews, analysis}) {
+export default function RegistrationPage({news, reviews, analysis}) {
     return (
         <>
             <Head>

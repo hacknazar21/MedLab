@@ -16,6 +16,9 @@
   }
 
   &__title {
+    .news-page &{
+      display: none;
+    }
   }
 
   &__slider {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useStorage} from "../hooks/hooks.storage";
+// @ts-ignore
 import Link from "next/link";
 import {useContext, useEffect, useState} from "react";
 import {HeaderContext} from "../context/HeaderContext";
@@ -14,6 +14,7 @@ export function Basket(props: Props) {
     const {get, removeById, storageLength} = useContext(HeaderContext)
     useEffect(()=>{
         const prods = get()
+        // @ts-ignore
         setProducts(prods)
     }, [])
     useEffect(() => {
@@ -27,12 +28,15 @@ export function Basket(props: Props) {
     }, [products]);
     useEffect(()=>{
         const prods = get()
+        // @ts-ignore
         setProducts(prods)
     }, [storageLength])
     const closeClickHandler:React.MouseEventHandler<HTMLButtonElement> = (event) =>{
         setProducts(prev=>{
+            // @ts-ignore
            return prev.filter((prevProduct, index) => index != event.target.dataset.productId)
         })
+        // @ts-ignore
         removeById(event.target.dataset.productId)
     }
     return (

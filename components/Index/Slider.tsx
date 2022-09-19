@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import {ISlider} from "../../Interfaces/ISlider";
 import Slide from "./Slider/Slide";
+// @ts-ignore
 import Swiper, {Navigation, Autoplay} from "swiper";
 
 interface Props{

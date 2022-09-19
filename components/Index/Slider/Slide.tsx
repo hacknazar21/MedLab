@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
-import {ISlide} from "../../../Interfaces/ISilde";
 import {IAnalys} from "../../../Interfaces/IAnalys";
+
 interface Props{
     slide: IAnalys
 }
 class Slide extends PureComponent<Props, string> {
+
   render() {
     return (
         <div className="popular-analises__slide swiper-slide">

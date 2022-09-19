@@ -12,6 +12,7 @@
     padding-bottom: rem(66);
     @media(max-width: $tablet) {
       flex-direction: column;
+      gap: rem(30);
     }
   }
 
@@ -20,7 +21,8 @@
     position: relative;
     padding-bottom: rem(64);
     @media(max-width: $tablet) {
-      flex: 0 0 rem(200);
+      flex: 0 0 auto;
+      padding-bottom: rem(64);
     }
 
     img {

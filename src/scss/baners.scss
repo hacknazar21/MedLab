@@ -2,6 +2,9 @@
   &__baners {
     font-family: 'Gilroy';
     @include adaptiveValue("margin-top", 20, 9);
+    .actions-page &{
+      @include adaptiveValue("margin-bottom", 90, 30);
+    }
   }
 }
 
@@ -10,10 +13,11 @@
   }
 
   &__box {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: rem(20);
     @media(max-width: $tablet) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
   }
 
