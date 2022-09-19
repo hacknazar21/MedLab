@@ -1,16 +1,13 @@
 const config = require('config')
 const http = require('http')
-const mariadb = require('mysql2')
 const express = require('express')
 const app = express()
 const PORT = config.get('port') || 5000
 const httpServer = http.createServer(app)
-const connection = mariadb.createConnection(config.get('mariadb'))
+const sequelize = require('./config/Database')
+const {API_User, API_Results, API_Notifications, API_Appointments} = require('./models/models')
+const fileUpload = require('express-fileupload')
 
-const bcrypt = require('bcryptjs')
-const {check, validationResult} = require('express-validator')
-const jwt = require('jsonwebtoken')
-const {normalizeEmail} = require("validator");
 
 // Add headers before the routes are defined
 app.use(function (req, res, next) {
@@ -22,7 +19,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,authorization');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
@@ -33,46 +30,36 @@ app.use(function (req, res, next) {
 });
 
 app.use(express.json())
+app.use(fileUpload({}))
 app.use('/api/auth', require('./routes/auth_routes'))
+app.use('/api/user', require('./routes/userInfo_routes'))
+app.use('/api/front', require('./routes/frontInfo_routes'))
+app.use('/api/dashboard', require('./routes/dashboardInfo_routes'))
 
 
-httpServer.listen(PORT, '192.168.0.118')
 
-app.get('/api/news', (req,res)=> {
-    connection.query('SELECT * FROM News LIMIT 0, 1000', (err, results, fields) => {
-        if(err){
-            res.status(500)
-            res.contentType('application/json')
-            return res.send(JSON.stringify({error: err}))
-        }
-        res.status(200)
-        res.contentType('application/json')
-        return res.send(JSON.stringify(results))
-    })
-})
-app.get('/api/reviews', (req,res)=>{
-    connection.query('SELECT * FROM Reviews LIMIT 0, 1000', (err, results, fields) => {
-        if(err){
-            res.status(500)
-            res.contentType('application/json')
-            return res.send(JSON.stringify({error: err}))
-        }
-        res.status(200)
-        res.contentType('application/json')
-        return res.send(JSON.stringify(results))
-    })
-})
-app.get('/api/analysis', (req,res)=>{
-    connection.query(`SELECT * FROM Analysis WHERE type='${req.query.type}' LIMIT 0, 1000`, (err, results, fields) => {
-        if(err){
-            res.status(500)
-            res.contentType('application/json')
-            return res.send(JSON.stringify({error: err}))
-        }
-        res.status(200)
-        res.contentType('application/json')
-        return res.send(JSON.stringify(results))
-    })
-})
+const start = async () => {
+    try {
+        await sequelize.authenticate()
+        // await sequelize.sync({alter:true})
+        httpServer.listen(PORT, '192.168.0.118', ()=> console.log(`Server started on port ${PORT}`))
+    }  catch (e) {
+        console.log(e)
+    }
+}
+
+start()
+
+//association between tables
+
+API_User.hasMany(API_Results, {foreignKey: 'APIUserId', as: 'API_Result'})
+API_Results.belongsTo(API_User, {foreignKey: 'APIUserId', as: 'API_Result'})
+
+API_User.hasMany(API_Appointments)
+API_Appointments.belongsTo(API_User)
+
+API_User.hasMany(API_Notifications)
+API_Notifications.belongsTo(API_User)
+
 
 module.exports = app

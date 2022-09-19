@@ -7,5 +7,7 @@
     "user": "devG",
     "password": "123123"
   },
+
   "jwtSecret":"jwt_token"
 }
+
