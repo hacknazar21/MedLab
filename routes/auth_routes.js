@@ -7,8 +7,9 @@ const express = require('express')
 const app = express()
 const {normalizeEmail} = require("validator");
 const router = Router()
-const User = require('../models/User')
+const {API_User} = require('../models/models')
 const db = require('../config/Database')
+const sequelize = require('sequelize')
 
 
 //api/auth/register
@@ -22,14 +23,14 @@ router.post('/register',
     async (req, res) => {
     try {
         console.log(req.body)
-        const {name, email, password, phone_number} = req.body;
-        if (!name || !email || !password || !phone_number) {
+        const {username, email, password, phone_number} = req.body;
+        if (!username || !email || !password || !phone_number) {
             return res.status(400).json({message: 'All input is required'});
         }
 
         const hashedPassword = await bcrypt.hash(password, 12);
         await db.sync()
-        const existedUser = await User.findOne({
+        const existedUser = await API_User.findOne({
             where: {
                 phone_number
             }
@@ -38,9 +39,9 @@ router.post('/register',
             return res.status(409).json({message: 'User already exists'});
         }
          //creating new user
-        const user = await User.create(
+        const user = await API_User.create(
             {
-                name,
+                username,
                 email: email.toLowerCase(),
                 phone_number,
                 password: hashedPassword
@@ -80,7 +81,7 @@ router.post('/login',
             return res.status(400).json({message: 'Input is required'})
         }
 
-        const user = await User.findOne({
+        const user = await API_User.findOne({
             where: {phone_number}
         })
 
