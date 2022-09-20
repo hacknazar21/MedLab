@@ -120,12 +120,81 @@ const API_Analysis = db.define('API_Analysis', {
     },
 })
 
+const API_Reviews = db.define('API_Review', {
+        firstname: {
+            type: DataTypes.STRING,
+        },
+        lastname: {
+            type: DataTypes.STRING
+        },
+        avatar: {
+            type: DataTypes.STRING,
+        },
+        text_review: {
+            type: DataTypes.TEXT,
+        },
+        date: {
+            type: DataTypes.STRING
+        }
+})
+
+const API_News = db.define('API_News', {
+        img_news: {
+            type: DataTypes.STRING,
+        },
+        title: {
+            type: DataTypes.STRING(1000),
+        },
+        href: {
+            type: DataTypes.STRING,
+        },
+        date: {
+            type: DataTypes.STRING,
+        },
+})
+
+const UI_Analysis = db.define('UI_Analysis', {
+    tags: {
+        type: DataTypes.STRING(1000),
+    },
+    title: {
+        type: DataTypes.STRING(100),
+    },
+    date: {
+        type: DataTypes.STRING(100),
+    },
+    type: {
+        type: DataTypes.STRING(1000),
+    },
+    price: {
+        type: DataTypes.STRING(1000),
+    },
+    code: {
+        type: DataTypes.STRING(100),
+    },
+    title_long: {
+        type: DataTypes.STRING(1000),
+    },
+    additional: {
+        type: DataTypes.STRING(2000),
+    },
+    href: {
+        type: DataTypes.STRING(100)
+    },
+    image_analysis: {
+        type: DataTypes.STRING(100)
+    }
+})
+
 module.exports = {
      API_User,
      API_Results,
      API_Notifications,
      API_Appointments,
-     API_Analysis
+     API_Analysis,
+     API_Reviews,
+     API_News,
+     UI_Analysis
  }
 
 

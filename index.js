@@ -13,7 +13,7 @@ const fileUpload = require('express-fileupload')
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://192.168.1.5:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://192.168.0.118:3000');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -42,7 +42,7 @@ const start = async () => {
     try {
         await sequelize.authenticate()
         // await sequelize.sync({alter:true})
-        httpServer.listen(PORT, '192.168.1.5', ()=> console.log(`Server started on port ${PORT}`))
+        httpServer.listen(PORT, '192.168.0.118', ()=> console.log(`Server started on port ${PORT}`))
     }  catch (e) {
         console.log(e)
     }
@@ -52,8 +52,13 @@ start()
 
 //association between tables
 
-API_User.hasMany(API_Results, {foreignKey: 'APIUserId', as: 'API_Result'})
-API_Results.belongsTo(API_User, {foreignKey: 'APIUserId', as: 'API_Result'})
+API_User.hasMany(API_Results,
+    {foreignKey: 'APIUser_id',
+            as: 'API_Result'})
+
+API_Results.belongsTo(API_User,
+    {foreignKey: 'APIUser_id',
+            as: 'API_User'})
 
 API_User.hasMany(API_Appointments)
 API_Appointments.belongsTo(API_User)

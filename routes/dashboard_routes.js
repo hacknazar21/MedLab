@@ -8,6 +8,8 @@ const notificationController = require('../controllers/notificationControllers')
 router.post('/result/create', resultController.createResult)
 //api/dashboard/result/allResult
 router.get('/result/allResult', resultController.allResult)
+//api/dashboard/result/getUserResults
+router.get('/result/getUserResults', resultController.getUserResults)
 
 //api/dashboard/appointment/create
 router.post('/appointment/create', appointmentController.createAppointments)
