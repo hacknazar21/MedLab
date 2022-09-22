@@ -7,6 +7,7 @@ const httpServer = http.createServer(app)
 const sequelize = require('./config/Database')
 const {API_User, API_Results, API_Notifications, API_Appointments} = require('./models/models')
 const fileUpload = require('express-fileupload')
+const path = require('path')
 
 
 // Add headers before the routes are defined
@@ -29,6 +30,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(fileUpload({}))
 app.use('/api/auth', require('./routes/auth_routes'))

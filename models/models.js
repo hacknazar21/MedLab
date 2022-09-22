@@ -153,38 +153,7 @@ const API_News = db.define('API_News', {
         },
 })
 
-const UI_Analysis = db.define('UI_Analysis', {
-    tags: {
-        type: DataTypes.STRING(1000),
-    },
-    title: {
-        type: DataTypes.STRING(100),
-    },
-    date: {
-        type: DataTypes.STRING(100),
-    },
-    type: {
-        type: DataTypes.STRING(1000),
-    },
-    price: {
-        type: DataTypes.STRING(1000),
-    },
-    code: {
-        type: DataTypes.STRING(100),
-    },
-    title_long: {
-        type: DataTypes.STRING(1000),
-    },
-    additional: {
-        type: DataTypes.STRING(2000),
-    },
-    href: {
-        type: DataTypes.STRING(100)
-    },
-    image_analysis: {
-        type: DataTypes.STRING(100)
-    }
-})
+
 
 module.exports = {
      API_User,
@@ -194,7 +163,6 @@ module.exports = {
      API_Analysis,
      API_Reviews,
      API_News,
-     UI_Analysis
  }
 
 

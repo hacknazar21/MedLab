@@ -1,6 +1,6 @@
 const {API_News} = require("../models/models");
 
-class newsInfoControllers {
+class newsControllers {
     async getAllNews(req, res) {
         try {
             const allNews = API_News.findAll()
@@ -35,4 +35,4 @@ class newsInfoControllers {
     }
 }
 
-module.exports = new newsInfoControllers()
+module.exports = new newsControllers()
