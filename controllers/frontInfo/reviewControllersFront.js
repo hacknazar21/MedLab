@@ -1,7 +1,7 @@
-const {API_Reviews, API_User} = require('../models/models')
+const {API_Reviews, API_User} = require('../../models/models')
 
 
-class reviewControllers {
+class reviewControllersFront {
     async getAllReviews(req, res) {
         try{
             const allReviews = await API_Reviews.findAll()
@@ -35,10 +35,11 @@ class reviewControllers {
         } catch (e) {
             return res.status(500).json({message: e.message})
         }
-
     }
+
+
 }
 
 
 
-module.exports = new reviewControllers()
+module.exports = new reviewControllersFront()

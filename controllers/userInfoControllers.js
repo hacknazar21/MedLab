@@ -7,6 +7,7 @@ const bcrypt = require("bcryptjs");
 
 class userInfoControllers {
     '/api/user/updateInfo'
+    // FIXME avatarPath url doesn't lead anywhere
     async updateUserInfo(req, res) {
         try{
             const {lastname, firstname, phone_number, email, address, password, avatar} = req.body

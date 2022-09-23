@@ -62,11 +62,21 @@ API_Results.belongsTo(API_User,
     {foreignKey: 'APIUser_id',
             as: 'API_User'})
 
-API_User.hasMany(API_Appointments)
-API_Appointments.belongsTo(API_User)
+API_User.hasMany(API_Appointments,
+    {foreignKey: 'APIUser_id',
+              as: 'API_Appointment'})
 
-API_User.hasMany(API_Notifications)
-API_Notifications.belongsTo(API_User)
+API_Appointments.belongsTo(API_User,
+    {foreignKey: 'APIUser_id',
+             as: 'API_User'})
+
+API_User.hasMany(API_Notifications,
+    {foreignKey: 'APIUser_id',
+            as: 'API_Notification'})
+
+API_Notifications.belongsTo(API_User,
+    {foreignKey: 'APIUser_id',
+             as: 'API_User'})
 
 
 module.exports = app
