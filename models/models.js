@@ -3,13 +3,13 @@ const db = require("../config/Database");
 
  const API_User = db.define('API_User', {
     firstname: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(20),
     },
     lastname: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(20),
     },
     username: {
-     type: DataTypes.STRING,
+     type: DataTypes.STRING(20),
      allowNull: false
    },
    email: {
@@ -32,7 +32,7 @@ const db = require("../config/Database");
 
 const API_Results = db.define('API_Result', {
     title_result: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
     },
     isReady: {
         type: DataTypes.BOOLEAN
@@ -44,7 +44,7 @@ const API_Results = db.define('API_Result', {
 
 const API_Notifications = db.define('API_Notification', {
     title_notification: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
     },
     date: {
         type: DataTypes.STRING,
@@ -56,7 +56,7 @@ const API_Notifications = db.define('API_Notification', {
 
 const API_Appointments = db.define('API_Appointment', {
     title_appointment: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
     },
     date: {
         type: DataTypes.STRING,
@@ -65,7 +65,7 @@ const API_Appointments = db.define('API_Appointment', {
         type: DataTypes.STRING,
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1000),
     },
     qr_code: {
         type: DataTypes.STRING,
@@ -122,10 +122,13 @@ const API_Analysis = db.define('API_Analysis', {
 
 const API_Reviews = db.define('API_Review', {
         firstname: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(15),
         },
         lastname: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(15)
+        },
+        username: {
+            type: DataTypes.STRING(15)
         },
         avatar: {
             type: DataTypes.STRING,
@@ -153,6 +156,47 @@ const API_News = db.define('API_News', {
         },
 })
 
+const API_QaA = db.define('API_QaA', {
+       question: {
+           type: DataTypes.STRING(250),
+       },
+       answer: {
+           type: DataTypes.STRING(1000)
+       },
+})
+
+const API_aboutUs = db.define('API_aboutUs', {
+      title: {
+          type: DataTypes.STRING(250),
+      },
+      text: {
+          type: DataTypes.STRING(1000),
+      },
+})
+
+const API_promotion = db.define('API_promotion', {
+     title: {
+         type: DataTypes.STRING(250),
+     },
+     text: {
+         type: DataTypes.STRING(100),
+     },
+})
+
+//FIXME there have to be several phone number so we have to have several column for this?
+
+//Note in map is gonna be url
+const API_contacts = db.define('API_contacts', {
+    address: {
+        type: DataTypes.STRING(100),
+    },
+    phone_number: {
+        type: DataTypes.STRING(11)
+    },
+    map: {
+        type: DataTypes.STRING(250),
+    },
+})
 
 
 module.exports = {

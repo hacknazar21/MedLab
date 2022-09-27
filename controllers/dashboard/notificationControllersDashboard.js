@@ -87,6 +87,10 @@ class notificationControllersDashboard {
         try {
              const {title_notification} = req.body
              const notificationExists = await API_Notifications.findOne({where: {title_notification}})
+             if (!notificationExists) {
+                 return res.status(404).json({message: "Notification doesn't exist"})
+             }
+
              await notificationExists.destroy()
              return res.status(410).json({message: "Notification was deleted"})
         } catch (e) {

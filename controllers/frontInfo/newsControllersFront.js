@@ -42,17 +42,15 @@ class newsControllersFront {
             if (!img_news && !title && !href && !date) {
                 return res.status(400).json({message: "All input is required"})
             }
+            const titleExists = await API_News.findOne({
+                where: {
+                    title
+                }
+            })
 
-            // //I am not sure about this part of code
-            // const titleExists = await API_News.findOne({
-            //     where: {
-            //         title
-            //     }
-            // })
-            //
-            // if (!titleExists) {
-            //     return res.status(400).json({message: "News doesn't exist"})
-            // }
+            if (titleExists) {
+                return res.status(400).json({message: "News exists"})
+            }
 
             await API_News.update({img_news, title, href, date}, {where: {title}})
             return res.status(201).json({message: "News was updated"})
@@ -66,6 +64,9 @@ class newsControllersFront {
             const {title} = req.body
 
             const newsExists = await API_News.findOne({where: {title}})
+            if (!newsExists) {
+                return res.status(404).json({message: "News doesn't exist"})
+            }
             await newsExists.destroy()
             return res.status(410).json({message: "News was deleted"})
 

@@ -1,6 +1,6 @@
 const {API_Analysis} =  require('../../models/models')
 
-class analysiControllers {
+class analysisControllersFront {
     async getAllAnalysis(req, res) {
         try {
             const allAnalysis = await API_Analysis.findAll()
@@ -35,4 +35,4 @@ class analysiControllers {
     }
 }
 
-module.exports = new analysiControllers()
+module.exports = new analysisControllersFront()

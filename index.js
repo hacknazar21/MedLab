@@ -33,6 +33,7 @@ app.use(function (req, res, next) {
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(fileUpload({}))
+app.use(express.static('static'))
 app.use('/api/auth', require('./routes/auth_routes'))
 app.use('/api/user', require('./routes/userInfo_routes'))
 app.use('/api/front', require('./routes/frontInfo_routes'))
@@ -44,7 +45,7 @@ const start = async () => {
     try {
         await sequelize.authenticate()
         // await sequelize.sync({alter:true})
-        httpServer.listen(PORT, '192.168.0.118', ()=> console.log(`Server started on port ${PORT}`))
+        httpServer.listen(PORT, '192.168.0.108', ()=> console.log(`Server started on port ${PORT}`))
     }  catch (e) {
         console.log(e)
     }

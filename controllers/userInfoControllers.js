@@ -23,6 +23,7 @@ class userInfoControllers {
             const userExistsId = await API_User.findOne({
                  where: {id: decodedToken.userId}
             })
+            console.log(userExistsId.avatar, '/;;;')
             const hashedPassword = await bcrypt.hash(password, 12);
 
             if (avatarFile) {
@@ -33,7 +34,7 @@ class userInfoControllers {
 
                 await fs.promises.mkdir(`static/avatar-${userExistsId.id}`, {recursive: true})
                 await avatarFile.mv(path.resolve(__dirname, '..', `static/avatar-${userExistsId.id}`, avatarFile.name))
-                const avatarPath = `http://192.168.0.118:8081/api/user/static/avatar-${userExistsId.id}/${avatarFile.name}`
+                const avatarPath = `http://192.168.0.108:8081/api/user/static/avatar-${userExistsId.id}/${avatarFile.name}`
                 await API_User.update(
                     {lastname, firstname, phone_number, avatar: avatarPath, email, address, password: hashedPassword},
                     {

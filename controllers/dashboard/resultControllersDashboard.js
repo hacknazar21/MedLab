@@ -137,6 +137,9 @@ class resultControllersDashboard {
         try {
             const {title_result} = req.body
             const findResult = await API_Results.findOne({where:{title_result}})
+            if (!findResult) {
+                return res.status(404).json({message: "Result doesn't exist"})
+            }
             await findResult.destroy()
             return res.status(410).json({message: "The result was deleted"})
         } catch (e) {

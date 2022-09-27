@@ -19,7 +19,10 @@ router.delete('/news/delete', newsControllersFront.deleteNews)
 router.get('/review/allReviews', reviewControllersFront.getAllReviews)
 //api/front/review/createReview
 router.post('/review/createReview', reviewControllersFront.createReviews)
-
+//api/front/review/update
+router.post('/review/update', reviewControllersFront.updateReview)
+//api/front/review/delete
+router.delete('/review/delete', reviewControllersFront.deleteReviews)
 
 //api/front/analysis/allAnalysis
 router.get('/analysis/allAnalysis',analysisControllersFront.getAllAnalysis)

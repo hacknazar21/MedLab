@@ -99,6 +99,9 @@ class appointmentControllersDashboard {
         try {
             const {title_appointment} = req.body
             const deleteAppointment = await API_Appointments.findOne({where: {title_appointment}})
+            if (!deleteAppointment) {
+                return res.status(404).json({message: "Appointment doesn't exist"})
+            }
             await deleteAppointment.destroy()
             return res.status(410).json({message: "Appointment was deleted"})
         } catch (e) {
