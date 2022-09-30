@@ -9,6 +9,7 @@ const db = new Sequelize('medlab_db', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql'
 });
+
 db.authenticate().then(() => {
    console.log('Connection has been established successfully.');
 }).catch((error) => {

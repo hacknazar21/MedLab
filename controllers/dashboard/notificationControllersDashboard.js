@@ -1,6 +1,6 @@
 const {API_Notifications} =  require('../../models/models');
 
-class notificationControllersDashboard {
+class NotificationControllersDashboard {
 
     //api/dashboard/notification/create
     async createNotification(req, res) {
@@ -44,7 +44,22 @@ class notificationControllersDashboard {
             return res.status(500).json({message: e.message})
         }
     }
+    //api/dashboard/notification/:title
+    async oneNotification(req, res) {
+        try {
+            const {title_notification} = req.params
 
+            const notificationExists = await API_Notifications.findOne({where: title_notification})
+
+            if (!notificationExists) {
+                return res.status(404).json({message: "Notification doesnt' exist"})
+            }
+
+            return res.status(200).json(notificationExists)
+        } catch (e) {
+            return res.status(500).json({message: e.message})
+        }
+    }
     //api/dashboard/notification/getUserNotification
     async getUserNotification(req, res) {
         const {user_id} = req.body
@@ -72,8 +87,8 @@ class notificationControllersDashboard {
                     title_notification
                 }
             })
-            if (notificationExists) {
-                return res.status(400).json({message: "Notification already exists"})
+            if (!notificationExists) {
+                return res.status(400).json({message: "Notification doesn't exist"})
             }
 
             await API_Notifications.update({title_notification, date, result, APIUser_id}, {where: {title_notification}})
@@ -99,4 +114,4 @@ class notificationControllersDashboard {
     }
 }
 
-module.exports = new notificationControllersDashboard()
+module.exports = new NotificationControllersDashboard()

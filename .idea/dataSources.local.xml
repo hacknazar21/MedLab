@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="PY-213.6777.50">
-    <data-source name="medlab1" uuid="87106fcd-33b0-43bb-a619-c016535b0133">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
-      <schema-mapping />
-    </data-source>
     <data-source name="medlab_db@localhost" uuid="1b872dfc-da0a-43b4-af4c-2ead7840f253">
       <database-info product="MySQL" version="5.5.5-10.8.3-MariaDB" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MARIADB" exact-version="10.8.3" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
@@ -19,12 +15,6 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="medlab_db@localhost [2]" uuid="2aaad662-3947-48d4-8111-12f7db595f76">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>devG</user-name>
-      <schema-mapping />
-    </data-source>
     <data-source name="medlab_db@192.168.0.102" uuid="53207954-86b8-456a-aeee-c84a9e9e7c38">
       <database-info product="MySQL" version="8.0.30" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.30" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
@@ -38,6 +28,10 @@
           <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
+    </data-source>
+    <data-source name="medlab1" uuid="87106fcd-33b0-43bb-a619-c016535b0133">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <schema-mapping />
     </data-source>
   </component>
 </project>

@@ -4,7 +4,8 @@ const config = require("config");
 const {where} = require("sequelize");
 
 
-class reviewControllersFront {
+class ReviewControllersFront {
+    //api/front/review/allReviews
     async getAllReviews(req, res) {
         try {
             const allReviews = await API_Reviews.findAll()
@@ -13,7 +14,20 @@ class reviewControllersFront {
             return res.status(500).json({message: e.message})
         }
     }
+    //api/front/review/:text_review
+    async oneReview(req, res) {
+        const {text_review} = req.params
 
+        const reviewExists = await API_Reviews.findOne({where: {text_review}})
+
+        if (!reviewExists) {
+            return res.status(404).json({message: "Review doesn't exist"})
+        }
+
+        return res.status(200).json(reviewExists)
+    }
+
+    //api/front/review/createReview
     async createReviews(req, res) {
         try {
             const {firstname, lastname, username, avatar, text_review, date} = req.body
@@ -71,13 +85,15 @@ class reviewControllersFront {
             return res.status(500).json({message: e.message})
         }
     }
-
+    //api/front/review/update
     async updateReview(req, res) {
         try {
             const {firstname, lastname, username, avatar, text_review, date} = req.body
+            const {id} = req.params
             if (!firstname && !lastname && !username && !avatar && !text_review && !date) {
                 return res.status(400).json({message: "All input is required"})
             }
+
 
             const findUserbyFullName = await API_User.findOne({
                 where: {
@@ -102,7 +118,7 @@ class reviewControllersFront {
             return res.status(500).json({message: e.message})
         }
     }
-
+    //api/front/review/delete
     async deleteReviews(req, res) {
         try {
             const {text_review} = req.body
@@ -121,6 +137,4 @@ class reviewControllersFront {
     }
 }
 
-
-
-module.exports = new reviewControllersFront()
+module.exports = new ReviewControllersFront()

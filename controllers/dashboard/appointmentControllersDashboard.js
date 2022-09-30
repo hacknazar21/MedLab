@@ -2,8 +2,9 @@ const {API_Appointments, API_User} =  require('../../models/models');
 const {where} = require("sequelize");
 
 
-class appointmentControllersDashboard {
-    async createAppointments(req, res) {
+class AppointmentControllersDashboard {
+    //api/dashboard/appointment/create
+    async createAppointment(req, res) {
         try {
         const {title_appointment, date, time, description, qr_code, APIUser_id} = req.body
 
@@ -44,7 +45,7 @@ class appointmentControllersDashboard {
             return res.status(500).json({message: e.message})
         }
     }
-
+    //api/dashboard/appointment/allAppointment
     async allAppointments(req, res) {
         try{
             const allAppointments = await API_Appointments.findAll()
@@ -52,9 +53,25 @@ class appointmentControllersDashboard {
         } catch (e) {
             return res.status(500).json({message: e.message})
         }
-
     }
+    //api/dashboard/appointment/:title
+    async oneAppointment(req, res) {
+        try {
+            const {title_appointment} = req.params
+            const appointmentExists = await API_Appointments.findOne(
+                                                                    {where: title_appointment}
+                                                                    )
 
+            if (!appointmentExists) {
+                return res.status(404).json({message: "Appointment doesn't exist"})
+            }
+
+            return res.status(200).json(appointmentExists)
+        } catch (e) {
+            return res.status(500).json({message: e.message})
+        }
+    }
+    //api/dashboard/appointment/getUserAppointment
     async getUserAppointment(req, res) {
         try {
             const {user_id} = req.body
@@ -77,24 +94,25 @@ class appointmentControllersDashboard {
     }
 
     //TODO what to do with qr_code (like it'll be file or what?)
+    //api/dashboard/appointment/update/:id
     async updateAppointment(req, res) {
         try{
             const {title_appointment, date, time, description, qr_code} = req.body
-
-            const appointmentExists = await API_Appointments.findOne({where: {title_appointment}})
+            const {id} = req.params
+            const appointmentExists = await API_Appointments.findOne({where: {id}})
 
             if (!appointmentExists) {
                 return res.status(400).json({message: "Appointment doesn't exist"})
             }
 
-            await API_Appointments.update({title_appointment, date, time, description, qr_code}, {where: {title_appointment}})
+            await API_Appointments.update({title_appointment, date, time, description, qr_code}, {where: {id}})
             return res.status(202).json({message: "Appointment is updated"})
 
         } catch (e) {
             return res.status(500).json({message: e.message})
         }
     }
-
+    //api/dashboard/appointment/delete
     async deleteAppointment(req, res) {
         try {
             const {title_appointment} = req.body
@@ -110,4 +128,4 @@ class appointmentControllersDashboard {
     }
 }
 
-module.exports = new appointmentControllersDashboard()
+module.exports = new AppointmentControllersDashboard()

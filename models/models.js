@@ -72,6 +72,7 @@ const API_Appointments = db.define('API_Appointment', {
     },
 })
 
+//FIXME why short_title has 12 length of string?
 const API_Analysis = db.define('API_Analysis', {
     short_title: {
         type: DataTypes.STRING(12),
@@ -97,7 +98,7 @@ const API_Analysis = db.define('API_Analysis', {
     description_patient: {
         type: DataTypes.TEXT,
     },
-    desription_doctor: {
+    description_doctor: {
         type: DataTypes.TEXT,
     },
     preparation_patient: {
@@ -165,16 +166,19 @@ const API_QaA = db.define('API_QaA', {
        },
 })
 
-const API_aboutUs = db.define('API_aboutUs', {
+const API_AboutUs = db.define('API_AboutUs', {
       title: {
           type: DataTypes.STRING(250),
       },
       text: {
           type: DataTypes.STRING(1000),
       },
+      image: {
+          type: DataTypes.STRING(100),
+      },
 })
 
-const API_promotion = db.define('API_promotion', {
+const API_Promotion = db.define('API_Promotion', {
      title: {
          type: DataTypes.STRING(250),
      },
@@ -183,10 +187,11 @@ const API_promotion = db.define('API_promotion', {
      },
 })
 
-//FIXME there have to be several phone number so we have to have several column for this?
+//FIXME there have to be several phone number so we have to have several columns  for this?
 
 //Note in map is gonna be url
-const API_contacts = db.define('API_contacts', {
+
+const API_Contacts = db.define('API_Contact', {
     address: {
         type: DataTypes.STRING(100),
     },
@@ -207,6 +212,10 @@ module.exports = {
      API_Analysis,
      API_Reviews,
      API_News,
+     API_QaA,
+     API_AboutUs,
+     API_Promotion,
+     API_Contacts,
  }
 
 

@@ -1,10 +1,10 @@
 const {API_Results, API_User} =  require('../../models/models');
 const fs = require("fs");
 const path = require("path");
-const handfulThing = require('../test_refactoring')
+
 
 // FIXME resultPath url doesn't lead anywhere
-class resultControllersDashboard {
+class ResultControllersDashboard {
     //api/dashboard/result/create
     async createResult(req, res) {
         try {
@@ -39,28 +39,31 @@ class resultControllersDashboard {
 
             if (resultFile) {
                 try{
-                    await fs.accessSync(`resultFile/file-${APIUser_id}`, fs.constants.R_OK)
-                    await fs.promises.rm(`resultFile/file-${APIUser_id}`, {recursive: true})
+                    await fs.accessSync(`static/results/file-${APIUser_id}`, fs.constants.R_OK)
+                    await fs.promises.rm(`static/results/file-${APIUser_id}`, {recursive: true})
                 }catch (e) {}
 
-                await fs.promises.mkdir(`resultFile/file-${APIUser_id}`, {recursive: true})
-                await resultFile.mv(path.resolve(__dirname, '../../', `resultFile/file-${APIUser_id}`, resultFile.name))
-                const resultPath = `http://192.168.0.118:8081/api/dashboard/resultFile/file-${APIUser_id}/${resultFile.name}`
-                await API_Results.create(
+                await fs.promises.mkdir(`static/results/file-${APIUser_id}`, {recursive: true})
+                await resultFile.mv(path.resolve(__dirname, '../../', `static/results/file-${APIUser_id}`, resultFile.name))
+                const resultPath = `http://192.168.0.118:8081/api/dashboard/static/results/file-${APIUser_id}/${resultFile.name}`
+                const a = await API_Results.create(
                     {title_result, isReady, file: resultPath , APIUser_id},
                 )
                   return res.status(201).json({message: 'Result is created succesfully'})
+
             } else {
-                await API_Results.create(
+                const b = await API_Results.create(
                     {title_result, isReady, APIUser_id},
                 )
                   return res.status(201).json({message: 'Result is created succesfully1'})
+
             }
         } catch (e) {
            return  res.status(500).json({message: e.message})
         }
         }
 
+    //    TODO here is testing endpoint of filtering data
     //api/dashboard/result/allResult
     async allResult(req, res) {
         const allResult = await API_Results.findAll({
@@ -68,6 +71,24 @@ class resultControllersDashboard {
         })
         return res.json(allResult)
     }
+
+    //api/dashboard/result/:title
+    async oneResult(req, res) {
+        try {
+            const {title_result} = req.params
+
+            const resultExists = await API_Results.findOne({where: title_result})
+
+            if (!resultExists) {
+                return res.status(404).json({message: "Result doesn't exist"})
+            }
+
+            return res.status(200).json(resultExists)
+        } catch (e) {
+            return res.status(500).json({message: e.message})
+        }
+    }
+
 
     //api/dashboard/result/getUserResults
     async getUserResults(req, res) {
@@ -89,41 +110,39 @@ class resultControllersDashboard {
             return res.status(500).json({message: e.message})
         }
     }
-    //api/dashboard/result/update
+    //api/dashboard/result/update/:id
     async updateResult(req, res) {
-
         try{
             const {title_result, isReady, file, APIUser_id} = req.body
+            const {id} = req.params
+            console.log(id.APIUser_id, '11111')
 
-            const resultExists = await API_Results.findOne({where: {title_result}})
+            const resultExists = await API_Results.findOne({where: {id}})
 
             if (!resultExists) {
                 return res.status(400).json({message: "Result doesn't exist"})
             }
-
-            const result = handfulThing.uploadFile('sdsd')
-            console.log(result)
-
 
             let resultFile = file
             if(req.files) resultFile = req.files.file
 
             if (resultFile) {
                 try{
-                    await fs.accessSync(`resultFile/file-${APIUser_id}`, fs.constants.R_OK)
-                    await fs.promises.rm(`resultFile/file-${APIUser_id}`, {recursive: true})
+                    await fs.accessSync(`static/results/file-${APIUser_id}`, fs.constants.R_OK)
+                    await fs.promises.rm(`static/results/file-${APIUser_id}`, {recursive: true})
                 }catch (e) {}
 
-                await fs.promises.mkdir(`resultFile/file-${APIUser_id}`, {recursive: true})
-                await resultFile.mv(path.resolve(__dirname, '../../', `resultFile/file-${APIUser_id}`, resultFile.name))
-                const resultPath = `http://192.168.0.118:8081/api/dashboard/resultFile/file-${APIUser_id}/${resultFile.name}`
-                await API_Results.update(
-                    {title_result, isReady, file: resultPath , APIUser_id}, {where: {title_result}}
+                await fs.promises.mkdir(`static/results/file-${APIUser_id}`, {recursive: true})
+                await resultFile.mv(path.resolve(__dirname, '../../', `static/results/file-${APIUser_id}`, resultFile.name))
+                const resultPath = `http://192.168.0.118:8081/api/dashboard/static/results/file-${APIUser_id}/${resultFile.name}`
+                const a = await API_Results.update(
+                    {title_result, isReady, file: resultPath , APIUser_id}, {where: {id}}
                 )
-                  return res.status(202).json({message: "Result is updated"})
+                  // return res.status(202).json({message: "Result is updated"})
+                  return res.status(202).json(a)
             } else {
                 await API_Results.update(
-                    {title_result, isReady, APIUser_id}, {where: {title_result}}
+                    {title_result, isReady, APIUser_id}, {where: {id}}
                 )
                   return res.status(202).json({message: "Result is updated1"})
             }
@@ -135,12 +154,13 @@ class resultControllersDashboard {
      //api/dashboard/result/delete
     async deleteResult(req, res) {
         try {
-            const {title_result} = req.body
-            const findResult = await API_Results.findOne({where:{title_result}})
+            const {id} = req.body
+            const findResult = await API_Results.findOne({where:{id}})
             if (!findResult) {
                 return res.status(404).json({message: "Result doesn't exist"})
             }
             await findResult.destroy()
+
             return res.status(410).json({message: "The result was deleted"})
         } catch (e) {
             return res.status(500).json({message: e.message})
@@ -151,4 +171,4 @@ class resultControllersDashboard {
 }
 
 
-module.exports = new resultControllersDashboard()
+module.exports = new ResultControllersDashboard()

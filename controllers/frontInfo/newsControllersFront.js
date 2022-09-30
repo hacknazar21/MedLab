@@ -1,6 +1,6 @@
 const {API_News} =  require('../../models/models');
 
-class newsControllersFront {
+class NewsControllersFront {
     //api/front/news/allNews
     async getAllNews(req, res) {
         try {
@@ -24,8 +24,8 @@ class newsControllersFront {
                 }
             })
 
-            if (titleExists) {
-                return res.status(400).json({message: "News already exists"})
+            if (!titleExists) {
+                return res.status(404).json({message: "News doesn't exist"})
             }
 
             await API_News.create({img_news, title, href, date})
@@ -42,18 +42,19 @@ class newsControllersFront {
             if (!img_news && !title && !href && !date) {
                 return res.status(400).json({message: "All input is required"})
             }
-            const titleExists = await API_News.findOne({
+            const [titleExists] = await Promise.all([API_News.findOne({
                 where: {
                     title
                 }
-            })
+            })])
 
-            if (titleExists) {
-                return res.status(400).json({message: "News exists"})
+            if (!titleExists) {
+                return res.status(404).json({message: "News doesn't exist"})
             }
 
-            await API_News.update({img_news, title, href, date}, {where: {title}})
-            return res.status(201).json({message: "News was updated"})
+            const a = await API_News.update({img_news, title, href, date}, {where: {title}})
+            console.log(a)
+            return res.status(201).json(a)
         } catch (e) {
             return res.status(500).json({message: e.message})
         }
@@ -76,4 +77,4 @@ class newsControllersFront {
     }
 }
 
-module.exports = new newsControllersFront()
+module.exports = new NewsControllersFront()
