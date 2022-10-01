@@ -42,6 +42,8 @@ router.post('/analysis/createAnalysis', AnalysisControllersFront.createAnalysis)
 router.post('/analysis/update/:id', AnalysisControllersFront.updateAnalysis)
 //api/front/analysis/delete
 router.delete('/analysis/delete', AnalysisControllersFront.deleteAnalysis)
+//api/front/analysis/byName
+router.get('/analysis/filter/byName', AnalysisControllersFront.aboutSearchingByName)
 
 
 //api/front/qaa/allQaA

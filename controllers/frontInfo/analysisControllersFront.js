@@ -1,6 +1,32 @@
 const {API_Analysis} =  require('../../models/models')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 class AnalysisControllersFront {
+
+    //TODO what column here is need to be filtered?
+    //api/front/analysis/filter/byName
+    async aboutSearchingByName(req, res) {
+        try {
+            const {short_title} = req.body
+            const searchByName = await API_Analysis.findAll(
+                {where:
+                            {short_title:
+                                        {
+                                            [Op.like]: `%${short_title}%`
+                                        }
+                            }
+                        })
+
+            return res.status(200).json(searchByName)
+        } catch (e) {
+            return res.status(500).json({message: e.message})
+        }
+    }
+
+
+
+
     //api/front/analysis/allAnalysis
     async getAllAnalysis(req, res) {
         try {

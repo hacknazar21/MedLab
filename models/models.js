@@ -75,7 +75,7 @@ const API_Appointments = db.define('API_Appointment', {
 //FIXME why short_title has 12 length of string?
 const API_Analysis = db.define('API_Analysis', {
     short_title: {
-        type: DataTypes.STRING(12),
+        type: DataTypes.STRING(1000),
     },
     long_title: {
         type: DataTypes.STRING(1000),
