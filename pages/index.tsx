@@ -1,4 +1,3 @@
-import {Header} from "../components/Index/Header";
 import FirstScreen from "../components/Index/FirstScreen";
 import Banners from "../components/Index/Banners";
 import Popular from "../components/Index/Popular";
@@ -7,15 +6,12 @@ import Reviews from "../components/Index/Reviews";
 import News from "../components/Index/News";
 import Info from "../components/Index/Info";
 import {Map} from "../components/Index/Map";
-import Footer from "../components/Index/Footer";
 import {IBanners} from "../Interfaces/IBanner";
-import {ISlide} from "../Interfaces/ISilde";
 import {INews} from "../Interfaces/INews";
 import {IInfo} from "../Interfaces/IInfo";
 import banner1 from '../src/img/baners/01.png';
 import banner2 from '../src/img/baners/02.png';
 import Microscope from "../src/img/microscope.png";
-import {GetServerSideProps} from "next";
 import {IReview} from "../Interfaces/IReview";
 import {IAnalys} from "../Interfaces/IAnalys";
 import Link from "next/link";
@@ -125,11 +121,11 @@ export default function Index({news, reviews, analysis}) {
 }
 
 Index.getInitialProps = async ({ req }) => {
-    const response = await fetch('http://localhost:8082/api/news')
+    const response = await fetch('http://195.49.215.130:8081/api/front/news/allNews')
     const news:INews = await response.json() ?? []
-    const responseReviews = await fetch('http://localhost:8082/api/reviews')
+    const responseReviews = await fetch('http://195.49.215.130:8081/api/front/review/allReviews')
     const reviews:IReview[] = await responseReviews.json() ?? []
-    const responseAnalysis = await fetch('http://localhost:8082/api/analysis')
+    const responseAnalysis = await fetch('http://195.49.215.130:8081/api/front/analysis/allAnalysis')
     const analysis:IAnalys[] | any = await responseAnalysis.json() ?? []
     return {news, reviews, analysis}
 }

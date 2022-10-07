@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 80",
     "lint": "next lint",
     "mock": "json-server -w db.json --routes routes.json -p 8082 -d 500"
   },
+  "proxy": "http://195.49.215.130:8081",
   "dependencies": {
     "json-server": "^0.17.0",
     "mariadb": "^3.0.1",

@@ -49,8 +49,8 @@ export default function CatalogPage({analysis}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const responseAnalysis = await fetch('http://localhost:8082/api/analysis?type=analys')
-    const responseComplexAnalysis = await fetch('http://localhost:8082/api/analysis?type=complex')
+    const responseAnalysis = await fetch('http://195.49.215.130:8081/api/front/analysis/allAnalysis')
+    const responseComplexAnalysis = await fetch('http://195.49.215.130:8081/api/front/analysis/allAnalysis')
     const analysis:IAnalys[] | any = await responseAnalysis.json() ?? []
     const complexAnalysis:IAnalys[] | any = await responseComplexAnalysis.json() ?? []
     return {props: {analysis: {complex: complexAnalysis, analys: analysis}}}

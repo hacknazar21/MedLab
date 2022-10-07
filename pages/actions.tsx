@@ -88,11 +88,11 @@ export default function ActionsPage({}) {
 }
 
 ActionsPage.getInitialProps = async ({ req }) => {
-    const response = await fetch('http://localhost:8082/news')
+    const response = await fetch('http://195.49.215.130:8081/api/front/news/allNews')
     const news:INews = await response.json() ?? []
-    const responseReviews = await fetch('http://localhost:8082/reviews')
+    const responseReviews = await fetch('http://195.49.215.130:8081/api/front/review/allReviews')
     const reviews:IReview[] = await responseReviews.json() ?? []
-    const responseAnalysis = await fetch('http://localhost:8082/analysis')
+    const responseAnalysis = await fetch('http://195.49.215.130:8081/api/front/analysis/allAnalysis')
     const analysis:IAnalys[] | any = await responseAnalysis.json() ?? []
     return {news, reviews, analysis}
 }

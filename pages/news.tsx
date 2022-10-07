@@ -37,8 +37,12 @@ export default function NewsPage({news}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const response = await fetch('http://localhost:8082/news')
-    const news:INews = await response.json() ?? []
-
-    return {props: {news}}
+    try {
+        const response = await fetch('http://195.49.215.130:8081/news/allNews')
+        console.log(response)
+        const news:INews = await response.json() ?? []
+        return {props: {news}}
+    }catch (e) {
+        return {props: {news: []}}
+    }
 }

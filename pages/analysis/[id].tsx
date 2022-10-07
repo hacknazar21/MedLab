@@ -52,7 +52,7 @@ export async function getServerSideProps(context) {
     const id = context.query.id;
     let oneAnalysis = {}
     try{
-        const responseOneAnalysis = await fetch(`http://localhost:8082/analysis/${id}`)
+        const responseOneAnalysis = await fetch(`http://195.49.215.130:8081/api/front/analysis/${id}`)
         oneAnalysis = await responseOneAnalysis.json()
     }catch (e) {
         console.log(e.message)

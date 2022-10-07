@@ -1,8 +1,6 @@
-// @ts-ignore
 import Link from "next/link";
 import {MainLayout} from "../layouts/mainLayout";
 import {Sugar} from "../layouts/sugarLayout";
-// @ts-ignore
 import Head from 'next/head'
 import {About} from "../components/About/About";
 

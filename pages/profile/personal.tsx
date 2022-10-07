@@ -26,7 +26,7 @@ export default function PersonalPage({}) {
         if(token)
         (async ()=>{
             try{
-                const data = await request('http://192.168.0.118:8081/api/user/info', 'GET', null, {
+                const data = await request('/api/user/info', 'GET', null, {
                     'Authorization': `Bearer ${token}`,
                     'Accept': 'application/json'
                 })

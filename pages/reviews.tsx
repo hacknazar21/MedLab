@@ -1,15 +1,5 @@
-import {Header} from "../components/Index/Header";
-import FirstScreen from "../components/Index/FirstScreen";
-import Banners from "../components/Index/Banners";
-import Popular from "../components/Index/Popular";
-import {Analysis} from "../components/Index/Analysis";
 import Reviews from "../components/Index/Reviews";
-import News from "../components/Index/News";
-import Info from "../components/Index/Info";
-import {Map} from "../components/Index/Map";
-import Footer from "../components/Index/Footer";
 import {GetServerSideProps} from "next";
-import {IAnalys} from "../Interfaces/IAnalys";
 import Link from "next/link";
 import {MainLayout} from "../layouts/mainLayout";
 import {Sugar} from "../layouts/sugarLayout";
@@ -50,7 +40,7 @@ export default function ReviewsPage({reviews}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const responseReviews = await fetch('http://localhost:8082/reviews')
+    const responseReviews = await fetch('http://195.49.215.130:8081/api/front/review/allReviews')
     const reviews:IReview[] = await responseReviews.json() ?? []
 
     return {props: {reviews}}
