@@ -113,10 +113,10 @@ class Slider extends React.Component<Props> {
        return  (
            <>
                {!this.props.slider.hidden &&
-                  <div className={this.props.slider.className + "__slider popular-analises-swiper active"}>
+                  <div key={this.props.slider.key} className={this.props.slider.className + "__slider popular-analises-swiper active"}>
                       <div className={this.props.slider.className + "__wrapper swiper-wrapper"}>
                           {this.props.slider.slides.map((slide)=>{
-                              return <Slide slide={slide}/>
+                              return <Slide research={slide}/>
                           })}
                       </div>
                       <div className={this.props.slider.className + "__slider-buttons swiper-buttons"}>

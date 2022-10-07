@@ -50,7 +50,7 @@ export default function ReviewsPage({reviews}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const responseReviews = await fetch('http://localhost:8082/api/reviews')
+    const responseReviews = await fetch('http://localhost:8082/reviews')
     const reviews:IReview[] = await responseReviews.json() ?? []
 
     return {props: {reviews}}

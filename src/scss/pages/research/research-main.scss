@@ -1,0 +1,211 @@
+.research {
+  &__main {
+    display: flex;
+    @media(max-width:$tablet){
+        flex-direction: column;
+    }
+    font-family: 'Gilroy';
+    gap: rem(21);
+    margin-bottom: rem(60);
+  }
+}
+
+.research-main {
+  &__aside {
+    padding: rem(40);
+    @include adaptiveValue("padding", 40, 20);
+    padding-right: rem(34);
+    @media(max-width:$tablet){
+      padding: rem(20);
+    }
+    flex: 0 0 percent(740, 1820);
+    background: #1E4AE4;
+    border: 1px solid #AFAFAF;
+    border-radius: 20px;
+    color: #FFFFFF;
+    align-self: flex-start;
+  }
+  &__content-box {
+    flex: 1 1 auto;
+    padding: rem(20) rem(40);
+    @media(max-width:$tablet){
+      padding: rem(15);
+    }
+    background: #EDF0F7;
+    border-radius: 20px;
+  }
+
+  &__content-header {
+    display: flex;
+    margin-bottom: rem(20);
+  }
+
+  &__content-header-action {
+    border-radius: 10px;
+    padding: rem(18) 0;
+    @include adaptiveValue("width", 301, 100);
+    @media(max-width:$tablet){
+        flex: 1 1 auto;
+    }
+    color: #1E4AE4;
+    font-weight: 700;
+    font-family: 'Helvetica';
+    @include adaptiveValue("font-size", 14, 12);
+    @media(max-width:$tablet){
+      padding: rem(10) 0;
+    }
+    line-height: math.div(24,14);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    &.active{
+      background: linear-gradient(92.28deg, #3A93EB 0%, #3282FA 0.01%, #0D3BB0 100%);
+      color: #FFFFFF;
+      border: none;
+    }
+    border: solid 1px #0D3BB0;
+    &:first-child{
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    &:last-child{
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
+
+  &__content-main {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 20, 15);
+  }
+
+  &__content-main-item {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 15, 10);
+    &:not(:last-child){
+      .research-main__content-main-description{
+        @include adaptiveValue("padding-bottom", 20, 15);
+        border-bottom: 1px solid rgba(175, 175, 175, 0.5);
+      }
+    }
+  }
+
+  &__content-main-title {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 22, 16);
+    line-height: math.div(40,22);
+
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
+
+  &__content-main-description {
+    font-weight: 500;
+    @include adaptiveValue("font-size", 18, 14);
+    line-height: math.div(22,18);
+    letter-spacing: 0.02em;
+    color: #4C4D54;
+  }
+}
+
+
+.research-aside {
+  &__header {
+    @include adaptiveValue("padding-bottom", 40, 20);
+    border-bottom: 1px solid #3B5FD9;
+  }
+
+  &__title {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 30, 16);
+    line-height: math.div(40,30);
+    letter-spacing: 0.02em;
+    margin-bottom: rem(10);
+  }
+
+  &__subtitile {
+    font-weight: 400;
+    font-size:rem(18);
+    line-height: math.div(22,18);
+    letter-spacing: 0.02em;
+  }
+
+  &__content {
+    margin-top: rem(40);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include adaptiveValue("padding-bottom", 40, 20);
+    border-bottom: 1px solid #3B5FD9;
+    @include adaptiveValue("margin-bottom", 40, 20);
+  }
+
+  &__info-items {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+  }
+
+  &__info-item {
+    font-weight: 400;
+    font-size:rem(18);
+    line-height: math.div(22,18);
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    span{
+      font-weight: 600;
+    }
+  }
+
+  &__info-scalable-img {
+    position: relative;
+    flex: 0 0 rem(150);
+    padding-bottom: rem(200);
+    border-radius: 5px;
+    overflow: hidden;
+    @media(max-width:$tablet){
+      display: none;
+    }
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    };
+  }
+
+  &__footer {
+
+  }
+
+  &__price {
+    font-weight: 400;
+    font-size:rem(18);
+    line-height: math.div(22,18);
+    letter-spacing: 0.02em;
+    @include adaptiveValue("margin-bottom", 20, 15);
+    span{
+      font-weight: 600;
+      font-size: rem(30);
+      line-height: math.div(37,30);
+    }
+  }
+  &__add{
+    padding: rem(16.5) 0;
+    width: 100%;
+    text-align: center;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: rem(22);
+    @include adaptiveValue("font-size", 22, 16);
+    line-height: math.div(27,22);
+    
+    letter-spacing: 0.02em;
+    color: #0E32AE;
+  }
+
+}

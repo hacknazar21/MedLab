@@ -23,7 +23,7 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  
+  "moduleResolution":"node",
   "exclude": [
     "node_modules"
   ]

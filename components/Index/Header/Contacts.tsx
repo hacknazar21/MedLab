@@ -11,9 +11,9 @@ class Contacts extends PureComponent<Props> {
     return (
         <div className="header__contacts">
             {
-                this.props.contacts.map(contact => {
+                this.props.contacts.map((contact, id) => {
                     return (
-                        <a href={'tel:'+contact.number.trim()} className="header__contact _icon-tel">{contact.number}</a>
+                        <a key={id} href={'tel:'+contact.number.trim()} className="header__contact _icon-tel">{contact.number}</a>
                     )
                 })
             }

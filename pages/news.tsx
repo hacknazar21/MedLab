@@ -1,20 +1,9 @@
-import {Header} from "../components/Index/Header";
-import FirstScreen from "../components/Index/FirstScreen";
-import Banners from "../components/Index/Banners";
-import Popular from "../components/Index/Popular";
-import {Analysis} from "../components/Index/Analysis";
-import Reviews from "../components/Index/Reviews";
 import News from "../components/Index/News";
-import Info from "../components/Index/Info";
-import {Map} from "../components/Index/Map";
-import Footer from "../components/Index/Footer";
 import {GetServerSideProps} from "next";
-import {IAnalys} from "../Interfaces/IAnalys";
 import Link from "next/link";
 import {MainLayout} from "../layouts/mainLayout";
 import {Sugar} from "../layouts/sugarLayout";
 import Head from 'next/head'
-import {IReview} from "../Interfaces/IReview";
 import {INews} from "../Interfaces/INews";
 
 export default function NewsPage({news}) {
@@ -48,7 +37,7 @@ export default function NewsPage({news}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const response = await fetch('http://localhost:8082/api/news')
+    const response = await fetch('http://localhost:8082/news')
     const news:INews = await response.json() ?? []
 
     return {props: {news}}

@@ -6,11 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mock": "json-server -w db.json --routes routes.json -p 8082 -d 500"
   },
   "dependencies": {
+    "json-server": "^0.17.0",
     "mariadb": "^3.0.1",
     "next": "12.2.5",
+    "nextjs-progressbar": "^0.0.14",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.54.5",

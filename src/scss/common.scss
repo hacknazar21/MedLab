@@ -193,10 +193,12 @@
     display: flex;
     align-items: center;
     gap: rem(5);
+      flex-wrap: wrap;
     span{
       font-size: 18px;
       line-height: 22px;
       letter-spacing: 0.03em;
+      transform: translateY(-3px);
     }
   }
   &__item{

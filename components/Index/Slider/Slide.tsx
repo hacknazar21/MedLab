@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import {IAnalys} from "../../../Interfaces/IAnalys";
+import Link from "next/link";
 
 interface Props{
-    slide: IAnalys
+    research: IAnalys
 }
 class Slide extends PureComponent<Props, string> {
 
@@ -11,17 +12,19 @@ class Slide extends PureComponent<Props, string> {
         <div className="popular-analises__slide swiper-slide">
             <div className="popular-analises__card card">
                 <div className="card__img-ibg">
-                    <img src={this.props.slide.image} alt="" />
+                    <img src={this.props.research.main_img} alt="" />
                 </div>
                 <div className="card__text">
                     <h3 className="card__title">
-                        <a href={this.props.slide.href} className="card__title-link">
-                            {this.props.slide.title_long}
-                        </a>
+                        <Link href={`/analysis/[id]`} as={`/analysis/${this.props.research.id}`}>
+                            <a className="card__title-link">
+                                {this.props.research.long_title}
+                            </a>
+                        </Link>
                     </h3>
                     <div className="card__desc">
                         {
-                            this.props.slide.additional.split(',').map(descItem=>{
+                            this.props.research.additional.split(',').map(descItem=>{
                                 return(
                                     <div className="card__desc-item">{descItem}</div>
                                 )
@@ -30,9 +33,11 @@ class Slide extends PureComponent<Props, string> {
                     </div>
                 </div>
                 <div className="card__info">
-                    <div className="card__info-item">{ this.props.slide.price } ₸ </div>
+                    <div className="card__info-item">{ this.props.research.price } ₸ </div>
                     <div className="card__info-item">
-                        <a href={this.props.slide.href} className="card__info-link baner__button">Узнать подробнее</a>
+                        <Link href={`/analysis/[id]`} as={`/analysis/${this.props.research.id}`}>
+                            <a className="card__info-link baner__button">Узнать подробнее</a>
+                        </Link>
                     </div>
                 </div>
             </div>

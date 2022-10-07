@@ -229,7 +229,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    font-size: rem(16);
+    @include adaptiveValue("font-size", 16, 10);
     line-height: math.div(11, 16);
     font-weight: 550;
     letter-spacing: 0.03em;

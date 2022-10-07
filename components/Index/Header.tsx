@@ -11,8 +11,8 @@ interface Props {
 }
 const menuItems:any = [
     {
-        'href': '/',
-        'title': 'Пакет анализов',
+        'href': '/analysis/packages/',
+        'title': 'Пакеты анализов',
         'key': 0
     },
     {

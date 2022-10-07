@@ -64,7 +64,7 @@ const Personal: FunctionComponent<Props> = (props) => {
           formData.set(formPersonalKey, formPersonal[formPersonalKey])
         }
       }
-      const data = await request('http://192.168.0.118:8081/api/user/updateinfo', 'POST', formData, {
+      const data = await request('http://192.168.0.108:8081/api/user/updateinfo', 'POST', formData, {
         'Authorization': `Bearer ${token}`
       }, true)
     }catch (e) {

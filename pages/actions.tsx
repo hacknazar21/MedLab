@@ -21,6 +21,7 @@ import {IReview} from "../Interfaces/IReview";
 import {IBanners} from "../Interfaces/IBanner";
 import banner1 from "../src/img/baners/01.png";
 import banner2 from "../src/img/baners/02.png";
+import {INews} from "../Interfaces/INews";
 const banners:IBanners = {
     banners: [
         {
@@ -86,6 +87,12 @@ export default function ActionsPage({}) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    return {props: {}}
+ActionsPage.getInitialProps = async ({ req }) => {
+    const response = await fetch('http://localhost:8082/news')
+    const news:INews = await response.json() ?? []
+    const responseReviews = await fetch('http://localhost:8082/reviews')
+    const reviews:IReview[] = await responseReviews.json() ?? []
+    const responseAnalysis = await fetch('http://localhost:8082/analysis')
+    const analysis:IAnalys[] | any = await responseAnalysis.json() ?? []
+    return {news, reviews, analysis}
 }

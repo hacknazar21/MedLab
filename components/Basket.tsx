@@ -10,20 +10,19 @@ interface Props {
 
 export function Basket(props: Props) {
     const [products, setProducts] = useState([])
-    const [totalPrice, setTotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState('0')
     const {get, removeById, storageLength} = useContext(HeaderContext)
     useEffect(()=>{
         const prods = get()
-        // @ts-ignore
         setProducts(prods)
     }, [])
     useEffect(() => {
         if(products !== null){
             let newPrice = 0
             for (const product of products) {
-                newPrice += parseInt(product.price.replace(' ', ''))
+                newPrice += product.price * product.count
             }
-            setTotalPrice(newPrice)
+            setTotalPrice(newPrice.toLocaleString('en').replaceAll(',', ' '))
         }
     }, [products]);
     useEffect(()=>{
@@ -65,7 +64,7 @@ export function Basket(props: Props) {
                         <div key={index} className="basket__item basket-item">
                             <div className="basket-item__text">
                                 <div className="basket-item__id">{product.code}</div>
-                                <div className="basket-item__title">{product.title} - {product.price} тг</div>
+                                <div className="basket-item__title">{product.short_title} - {product.price.toLocaleString('en').replace(',', ' ')} тг x {product.count}</div>
                             </div>
                             <button data-product-id={index} onClick={closeClickHandler} className="basket-item__remove">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

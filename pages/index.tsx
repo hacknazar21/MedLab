@@ -113,7 +113,7 @@ export default function Index({news, reviews, analysis}) {
                     <section className="page__main main">
                         <div className="main__container"><Link href="/catalog" ><a className="main__button">Каталог анализов</a></Link></div>
                     </section>
-                    <Analysis analysis={analysis.analys}/>
+                    <Analysis analysis={analysis}/>
                     <Reviews reviews={reviews}/>
                     <News news={news}/>
                     <Info info={info}/>
@@ -124,14 +124,12 @@ export default function Index({news, reviews, analysis}) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+Index.getInitialProps = async ({ req }) => {
     const response = await fetch('http://localhost:8082/api/news')
     const news:INews = await response.json() ?? []
     const responseReviews = await fetch('http://localhost:8082/api/reviews')
     const reviews:IReview[] = await responseReviews.json() ?? []
-    const responseAnalysis = await fetch('http://localhost:8082/api/analysis?type=analys')
-    const responseComplexAnalysis = await fetch('http://localhost:8082/api/analysis?type=complex')
+    const responseAnalysis = await fetch('http://localhost:8082/api/analysis')
     const analysis:IAnalys[] | any = await responseAnalysis.json() ?? []
-    const complexAnalysis:IAnalys[] | any = await responseComplexAnalysis.json() ?? []
-    return {props: {news, reviews, analysis: {complex: complexAnalysis, analys: analysis}}}
+    return {news, reviews, analysis}
 }

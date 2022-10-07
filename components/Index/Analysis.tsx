@@ -15,11 +15,11 @@ export function Analysis (props: Props) {
     const {basket, add} = useContext(HeaderContext)
 
     const handleButtonClick = (event:any) => {
-        const analysId = event.target.parentElement.dataset.itemId
+        const analysisId = event.target.parentElement.dataset.itemId
 
-        for (const analys of analysis) {
-            if(analys.id == analysId){
-                add(analys)
+        for (const analysisItem of analysis) {
+            if(analysisItem.id == analysisId){
+                add(analysisItem)
             }
         }
         animateAdd(event.target.parentElement)
@@ -51,8 +51,8 @@ export function Analysis (props: Props) {
 
     useEffect(() => {
         let counter = 0
-        analysis.forEach((analys:IAnalys)=>{
-            if(!analys.hidden){
+        analysis.forEach((analysisItem:IAnalys)=>{
+            if(!analysisItem.hidden){
                 counter++
             }
         })
@@ -67,25 +67,25 @@ export function Analysis (props: Props) {
         }
         setAnalysis(
             (state:any) => {
-                return state.map((analys:IAnalys)=>{
+                return state.map((analysisItem:IAnalys)=>{
                     if (!tagsFilter) { // условие #1
-                        analys.hidden = true
-                        return analys
+                        analysisItem.hidden = true
+                        return analysisItem
                     }
 
                     for (let i = 0; i < tagsFilter.length; i++) {
-                        for (let j = 0; j < analys.tags.split(',').length; j++) {
-                            if (analys.tags.split(',')[j].toLowerCase().split(/\s+/).join('').indexOf(tagsFilter[i] != undefined ? tagsFilter[i].toLowerCase().split(/\s+/).join(''):'') !== -1) {
+                        for (let j = 0; j < analysisItem.tags.split(',').length; j++) {
+                            if (analysisItem.tags.split(',')[j].toLowerCase().split(/\s+/).join('').indexOf(tagsFilter[i] != undefined ? tagsFilter[i].toLowerCase().split(/\s+/).join(''):'') !== -1) {
                                 break;
                             }
-                            if (j === analys.tags.split(',').length - 1) {
-                                analys.hidden = true
-                                return analys
+                            if (j === analysisItem.tags.split(',').length - 1) {
+                                analysisItem.hidden = true
+                                return analysisItem
                             }
                         }
                     }
-                     analys.hidden = false
-                    return analys
+                    analysisItem.hidden = false
+                    return analysisItem
                 })
             }
         )
@@ -99,7 +99,7 @@ export function Analysis (props: Props) {
                         <div className="analysis__grid">
                             {analysis.map((analys:IAnalys)=>{
                                 return(
-                                    <Analys analys={analys} key={analys.id} buttonClick={handleButtonClick}/>
+                                    <Analys research={analys} key={analys.id} buttonClick={handleButtonClick}/>
                                 )
                             })}
                             {number === 0 && 'По вашему запросу ничего не нашлось'}

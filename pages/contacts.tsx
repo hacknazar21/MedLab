@@ -40,7 +40,7 @@ export default function ContactsPage({news}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const response = await fetch('http://localhost:8082/api/news')
+    const response = await fetch('http://localhost:8082/news')
     const news:INews = await response.json() ?? []
 
     return {props: {news}}

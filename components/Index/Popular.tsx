@@ -4,10 +4,7 @@ import Slider from "./Slider";
 import {IAnalys} from "../../Interfaces/IAnalys";
 
 interface OwnProps {
-    analysis: {
-        analys: IAnalys[],
-        complex: IAnalys[]
-    }
+    analysis: IAnalys[]
 }
 
 type Props = OwnProps;
@@ -41,8 +38,12 @@ class Popular extends React.Component<Props, any> {
     }
     componentWillMount() {
         this.setState((state: any)=>{
-            state.sliders[0].slides = this.props.analysis.analys
-            state.sliders[1].slides = this.props.analysis.complex
+            state.sliders[0].slides = []
+            state.sliders[1].slides = []
+            for (const analysis of this.props.analysis) {
+                if(analysis.is_complex) state.sliders[1].slides.push(analysis)
+                else state.sliders[0].slides.push(analysis)
+            }
             return {sliders: state.sliders}
         })
     }
@@ -82,7 +83,7 @@ class Popular extends React.Component<Props, any> {
                         </div>
                     </div>
                     {
-                        this.state.sliders.map((slider:ISlider)=>{ return <Slider key={slider.key} slider={slider}/>})
+                        this.state.sliders.map((slider:ISlider)=>{ return <Slider slider={slider}/>})
                     }
                 </div>
             </div>

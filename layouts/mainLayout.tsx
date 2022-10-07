@@ -8,11 +8,11 @@ export function MainLayout(props){
     const [basket, setBasket] = useState(null)
     const {add, get, removeById, storageLength} = useStorage('basket')
     const {addDynamicRefs} = useDynamicAdaptive()
-        return (
-            <HeaderContext.Provider value={{basket: basket, add, get, removeById, storageLength, addDynamicRefs }}>
-                <Header basket={setBasket}/>
-                    {props.children}
-                <Footer />
-            </HeaderContext.Provider>
-        )
+    return (
+        <HeaderContext.Provider value={{basket: basket, add, get, removeById, storageLength, addDynamicRefs }}>
+            <Header basket={setBasket}/>
+                {props.children}
+            <Footer />
+        </HeaderContext.Provider>
+    )
 }

@@ -1,0 +1,51 @@
+.research {
+  &__popular{
+    margin-bottom: rem(150);
+  }
+  &__popular-title {
+    font-weight: 500;
+    font-size: rem(30);
+    line-height: math.div(37,30);
+    letter-spacing: 0.03em;
+    color: #363B48;
+    margin-bottom: rem(13);
+  }
+  
+  &__popular-slider {
+  }
+
+  &__popular-slider-wrapper {
+  }
+
+  &__popular-slider-slide {
+  }
+
+  .analysis {
+    &__item {
+    }
+  }
+
+  .analysis-item {
+    &__title {
+    }
+
+    &__info-box {
+    }
+
+    &__info {
+    }
+
+    &__price-box {
+    }
+
+    &__price-id {
+    }
+
+    &__price-value {
+    }
+
+    &__add {
+    }
+  }
+}
+

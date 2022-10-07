@@ -31,7 +31,7 @@ const Login: FunctionComponent<Props> = (props) => {
       }
     }
     try{
-      const data = await request('http://192.168.0.118:8081/api/auth/login', 'POST', formLogin, {
+      const data = await request('http://192.168.0.108:8081/api/auth/login', 'POST', formLogin, {
         'Content-Type': 'application/json'
       })
       if(data.token){
