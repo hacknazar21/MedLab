@@ -19,6 +19,9 @@ const db = require("../config/Database");
    password: {
      type: DataTypes.STRING,
    },
+   password2: {
+     type: DataTypes.STRING,
+   },
    phone_number: {
      type: DataTypes.STRING,
    },

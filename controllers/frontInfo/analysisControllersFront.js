@@ -2,6 +2,8 @@ const {API_Analysis} =  require('../../models/models')
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
+
+
 class AnalysisControllersFront {
 
     //TODO what column here is need to be filtered?
@@ -75,6 +77,7 @@ class AnalysisControllersFront {
             if (!research_id) {
                 return res.status(401).json({message: "Analysis doesn't exist"});
             }
+
 
             await API_Analysis.create({ short_title, long_title, is_unique, research_id, research_time
                 , biomaterial, preparation_doctor, banner_img, document_img,

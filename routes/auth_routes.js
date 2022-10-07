@@ -10,8 +10,8 @@ const router = Router()
 const {API_User} = require('../models/models')
 const db = require('../config/Database')
 const sequelize = require('sequelize')
-
-
+const request = require('request')
+const Test_refactoring = require('../controllers/test_refactoring')
 //api/auth/register
 router.post('/register',
     [
@@ -105,5 +105,8 @@ router.post('/login',
     }
     }
     )
+
+
+// router.post('/verification/:pn/:msg', Test_refactoring.verification)
 
 module.exports = router

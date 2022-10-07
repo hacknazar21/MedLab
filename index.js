@@ -5,7 +5,7 @@ const app = express()
 const PORT = config.get('port') || 5000
 const httpServer = http.createServer(app)
 const sequelize = require('./config/Database')
-const {API_User, API_Results, API_Notifications, API_Appointments} = require('./models/models')
+const {API_User, API_Results, API_Notifications, API_Appointments, API_Analysis} = require('./models/models')
 const fileUpload = require('express-fileupload')
 const path = require('path')
 
@@ -51,7 +51,7 @@ const start = async () => {
     }
 }
 
-// 192.168.1.5
+// 192.168.1.2
 // 192.168.0.108
 
 start()

@@ -4,7 +4,7 @@ class NewsControllersFront {
     //api/front/news/allNews
     async getAllNews(req, res) {
         try {
-            const allNews = API_News.findAll()
+            const allNews = await API_News.findAll()
             return res.status(200).json(allNews)
         } catch (e) {
             return res.status(500).json({message: e.message})
