@@ -18,17 +18,23 @@ router.post('/register',
         check('name', 'Not a string').isString(),
         check('email', 'Invalid email').isEmail(),
         check('phone_number', 'Invalid phone number').isString(),
-        check('password', 'It has to be more than 6 symbols').isLength({min : 6})
+        check('password', 'It has to be more than 6 symbols').isLength({min : 6}),
+        check('password2', 'Password is not similar').isLength({min: 6})
     ],
     async (req, res) => {
     try {
         console.log(req.body)
-        const {username, email, password, phone_number} = req.body;
-        if (!username || !email || !password || !phone_number) {
+        const {username, email, password, password2, phone_number} = req.body;
+        if (!username || !email || !password || !phone_number || !password2) {
             return res.status(400).json({message: 'All input is required'});
         }
 
+        if (password !== password2) {
+            return res.status(400).json({message: "Passwords is not similar, try again"})
+        }
+
         const hashedPassword = await bcrypt.hash(password, 12);
+        const hashedPassword2 = await bcrypt.hash(password2, 12)
         await db.sync()
         const existedUser = await API_User.findOne({
             where: {
@@ -44,7 +50,8 @@ router.post('/register',
                 username,
                 email: email.toLowerCase(),
                 phone_number,
-                password: hashedPassword
+                password: hashedPassword,
+                password2: hashedPassword2,
             });
 
         //create token
