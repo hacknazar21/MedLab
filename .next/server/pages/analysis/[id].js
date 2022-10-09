@@ -95,7 +95,7 @@ function ResearchMain(props) {
                                     }),
                                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
                                         children: [
-                                            parseFloat(props.research.price).toLocaleString("en").replaceAll(",", " "),
+                                            props.research.price,
                                             " тг"
                                         ]
                                     })
