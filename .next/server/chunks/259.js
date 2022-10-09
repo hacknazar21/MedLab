@@ -59,7 +59,7 @@ function Analys(props) {
                         /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                             className: "analysis-item__price-value",
                             children: [
-                                props.research.price.toLocaleString("en").replaceAll(",", " "),
+                                props.research.price,
                                 " ₸"
                             ]
                         })
