@@ -42,9 +42,20 @@ const Registration: FunctionComponent<Props> = (props) => {
   }
   const formSubmitHandler = async (event)=>{
     for (const formLoginKey in formLogin) {
-      console.log(formLoginKey, formLogin[formLoginKey])
       if(formLogin[formLoginKey] === ''){
         return
+      }
+      else if(formLoginKey === 'phone_number'){
+        setFormLogin(prevState =>
+            ({
+              ...prevState,
+              phone_number: formLogin[formLoginKey]
+                  .replaceAll('(', '')
+                  .replaceAll(')', '')
+                  .replaceAll(' ', '')
+                  .replaceAll('-', '')
+            })
+        )
       }
     }
     try{
@@ -56,7 +67,7 @@ const Registration: FunctionComponent<Props> = (props) => {
         router.push('/login')
       }
     }catch (e) {
-      console.log(e.message)
+
     }
   }
   return (

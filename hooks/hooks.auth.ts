@@ -5,8 +5,6 @@ const useAuth = ()=>{
     const [token, setToken] = useState(null)
     const [userId, setUserId] = useState(null)
 
-
-
     const login = useCallback(async (jwtToken, id)=>{
         console.log(jwtToken, id)
         await setToken(jwtToken)

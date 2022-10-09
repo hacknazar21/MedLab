@@ -317,3 +317,24 @@
     margin-bottom: rem(15);
   }
 }
+.profile-link {
+  font-weight: 500;
+  @include adaptiveValue("font-size", 16, 14);
+  line-height: math.div(30,16);
+  letter-spacing: 0.02em;
+  color: #254DCC;
+  padding: rem(5) rem(15);
+  background: rgba(48, 126, 246, 0.2);
+  border-radius: 5px;
+  @media(max-width:$tablet){
+    padding: rem(11.5) 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+.no-found{
+  font-size: rem(24);
+  width: 100%;
+  text-align: center;
+  padding: rem(20) 0;
+}

@@ -15,6 +15,356 @@ exports.modules = {
 
 /***/ }),
 
+/***/ 4737:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "u": () => (/* binding */ Analysis)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(6689);
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+// EXTERNAL MODULE: ./components/Index/Analysis/Analys.tsx
+var Analys = __webpack_require__(5259);
+;// CONCATENATED MODULE: ./components/Index/Select.tsx
+
+
+class Select extends (external_react_default()).Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            open: true,
+            height: 0
+        };
+        this.clickHandler = this.clickHandler.bind(this);
+        this.selectHandler = this.selectHandler.bind(this);
+    }
+    wrapper = /*#__PURE__*/ external_react_default().createRef();
+    head = /*#__PURE__*/ external_react_default().createRef();
+    componentDidMount() {
+        const height = this.wrapper.current?.getBoundingClientRect().height;
+        this.setState((state)=>{
+            return state.height = height;
+        });
+        this.wrapper.current?.setAttribute("style", `max-height:0px;`);
+    }
+    clickHandler(event) {
+        this.setState((state)=>{
+            return {
+                open: !state.open
+            };
+        });
+        if (this.wrapper.current && this.state.open) {
+            this.wrapper.current.setAttribute("style", `max-height:${this.state.height}px;`);
+        } else if (this.wrapper.current && !this.state.open) {
+            this.wrapper.current.setAttribute("style", `max-height:0px;`);
+        }
+    }
+    selectHandler(event) {
+        if (this.wrapper.current && this.head.current) {
+            this.setState((state)=>{
+                return {
+                    open: !state.open
+                };
+            });
+            this.wrapper.current.setAttribute("style", `max-height:0px;`);
+            this.head.current.innerText = event.target.innerText;
+            this.props.callback(event);
+        }
+    }
+    render() {
+        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            className: "select" + " " + this.props.className,
+            id: "select-" + this.props.name + "-" + this.props.key,
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    ref: this.head,
+                    onClick: this.clickHandler,
+                    className: "select__head",
+                    children: this.props.title
+                }),
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("ul", {
+                    ref: this.wrapper,
+                    className: "select__list",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                            onClick: this.selectHandler,
+                            "data-name": this.props.name,
+                            "data-value": "all",
+                            className: "select__option",
+                            children: this.props.title
+                        }),
+                        this.props.items.map((item)=>{
+                            return /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                onClick: this.selectHandler,
+                                "data-name": this.props.name,
+                                "data-value": item,
+                                className: "select__option",
+                                children: item
+                            });
+                        })
+                    ]
+                })
+            ]
+        });
+    }
+}
+/* harmony default export */ const Index_Select = (Select);
+
+;// CONCATENATED MODULE: ./components/Index/Analysis/Filter.tsx
+
+
+
+class Filter extends (external_react_default()).Component {
+    constructor(props){
+        super(props);
+        this.state = {};
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+    componentDidMount() {}
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked ? target.value : null : target.value || target.dataset.value;
+        const name = target.name || target.dataset.name;
+    }
+    selects = [
+        {
+            key: 0,
+            name: "category",
+            items: [
+                "Артрит",
+                "Генетические расстройства",
+                "Гипертония",
+                "Беременность", 
+            ],
+            title: "Все категории",
+            callback: this.handleInputChange.bind(this),
+            className: "filter-form__input-box"
+        },
+        {
+            key: 1,
+            name: "bio",
+            items: [
+                "Кровь",
+                "Моча",
+                "Кал"
+            ],
+            title: "Любой биоматериал",
+            callback: this.handleInputChange.bind(this)
+        }, 
+    ];
+    render() {
+        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            className: "analysis__filter-box analysis-filter",
+            children: [
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: "analysis-filter__header",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                            className: "analysis-filter__title",
+                            children: "Поиск исследований"
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "analysis-filter__value",
+                            children: [
+                                "Найдено: ",
+                                /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                    children: this.props.number
+                                })
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: "analysis-filter__form filter-form",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "filter-form__input-box",
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                type: "text",
+                                name: "search",
+                                placeholder: "Поиск исследования",
+                                className: "filter-form__input",
+                                onInput: this.handleInputChange
+                            })
+                        }),
+                        this.selects.map((select)=>{
+                            return /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: "filter-form__input-box ",
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(Index_Select, {
+                                    ...select
+                                })
+                            });
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "filter-form__input-box",
+                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                className: "filter-form__input-checkboxes",
+                                children: [
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        className: "filter-form__input-checkbox",
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                                name: "adult",
+                                                type: "checkbox",
+                                                id: "amateur",
+                                                value: "Взрослым",
+                                                onChange: this.handleInputChange
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("label", {
+                                                htmlFor: "amateur",
+                                                className: "filter-form__input",
+                                                children: "Взрослым"
+                                            })
+                                        ]
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        className: "filter-form__input-checkbox",
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                                name: "child",
+                                                type: "checkbox",
+                                                id: "child",
+                                                value: "Детям",
+                                                onChange: this.handleInputChange
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("label", {
+                                                htmlFor: "child",
+                                                className: "filter-form__input",
+                                                children: "Детям"
+                                            })
+                                        ]
+                                    })
+                                ]
+                            })
+                        })
+                    ]
+                })
+            ]
+        });
+    }
+}
+/* harmony default export */ const Analysis_Filter = (Filter);
+
+// EXTERNAL MODULE: ./context/HeaderContext.ts
+var HeaderContext = __webpack_require__(1680);
+;// CONCATENATED MODULE: ./components/Index/Analysis.tsx
+
+
+
+
+
+function Analysis(props) {
+    const { 0: analysis , 1: setAnalysis  } = (0,external_react_.useState)(props.analysis);
+    const { 0: number , 1: setNumber  } = (0,external_react_.useState)(props.analysis.length);
+    const { basket , add  } = (0,external_react_.useContext)(HeaderContext/* HeaderContext */.p);
+    const handleButtonClick = (event)=>{
+        const analysisId = event.target.parentElement.dataset.itemId;
+        for (const analysisItem of analysis){
+            if (analysisItem.id == analysisId) {
+                add(analysisItem);
+            }
+        }
+        animateAdd(event.target.parentElement);
+    };
+    const animateAdd = (product)=>{
+        const cloneProduct = product.cloneNode(true);
+        cloneProduct.style.position = "fixed";
+        cloneProduct.style.pointerEvents = "none";
+        const productPosition = getPosition(product);
+        cloneProduct.style.top = `${productPosition.top}px`;
+        cloneProduct.style.left = `${productPosition.left}px`;
+        cloneProduct.style.transition = "transform 0.8s ease, opacity 0.8s ease";
+        cloneProduct.style.transform = `translate3d(0px, 0px, 0px) scale(1)`;
+        cloneProduct.style.zIndex = `1000001`;
+        product.parentElement.insertAdjacentElement("beforeend", cloneProduct);
+        const basketPosition = getPosition(basket.current);
+        const cloneProductPosition = getPosition(cloneProduct);
+        cloneProduct.style.transformOrigin = "top right";
+        cloneProduct.style.transform = `translate3d(${basketPosition.x - cloneProductPosition.x - cloneProductPosition.width / 1.2}px, ${basketPosition.y - cloneProductPosition.y}px, 0px) scale(0)`;
+        cloneProduct.style.opacity = `0`;
+        setTimeout(()=>{
+            cloneProduct.remove();
+        }, 500);
+    };
+    const getPosition = (element)=>{
+        return element.getClientRects()[0];
+    };
+    (0,external_react_.useEffect)(()=>{
+        let counter = 0;
+        analysis.forEach((analysisItem)=>{
+            if (!analysisItem.hidden) {
+                counter++;
+            }
+        });
+        setNumber(counter);
+    }, [
+        analysis
+    ]);
+    const callback = (data)=>{
+        const tagsFilter = [];
+        for(const dataKey in data){
+            if (tagsFilter.indexOf(data[dataKey]) === -1) tagsFilter.push(data[dataKey]);
+        }
+        setAnalysis((state)=>{
+            return state.map((analysisItem)=>{
+                if (!tagsFilter) {
+                    analysisItem.hidden = true;
+                    return analysisItem;
+                }
+                for(let i = 0; i < tagsFilter.length; i++){
+                    for(let j = 0; j < analysisItem.tags.split(",").length; j++){
+                        if (analysisItem.tags.split(",")[j].toLowerCase().split(/\s+/).join("").indexOf(tagsFilter[i] != undefined ? tagsFilter[i].toLowerCase().split(/\s+/).join("") : "") !== -1) {
+                            break;
+                        }
+                        if (j === analysisItem.tags.split(",").length - 1) {
+                            analysisItem.hidden = true;
+                            return analysisItem;
+                        }
+                    }
+                }
+                analysisItem.hidden = false;
+                return analysisItem;
+            });
+        });
+    };
+    return /*#__PURE__*/ jsx_runtime_.jsx("section", {
+        className: "page__analysis analysis",
+        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: "analysis__container",
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "analysis__box",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx(Analysis_Filter, {
+                        callback: callback,
+                        number: number
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: "analysis__grid",
+                        children: [
+                            analysis.map((analys)=>{
+                                return /*#__PURE__*/ jsx_runtime_.jsx(Analys/* Analys */.H, {
+                                    research: analys,
+                                    buttonClick: handleButtonClick
+                                }, analys.id);
+                            }),
+                            number === 0 && "По вашему запросу ничего не нашлось"
+                        ]
+                    })
+                ]
+            })
+        })
+    });
+}
+
+
+/***/ }),
+
 /***/ 9935:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -737,7 +1087,7 @@ class Slide extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                 className: "card__desc",
-                                children: this.props.research.additional.split(",").map((descItem)=>{
+                                children: this.props.research?.additional?.split(",").map((descItem)=>{
                                     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                         className: "card__desc-item",
                                         children: descItem
@@ -753,7 +1103,8 @@ class Slide extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
                                 className: "card__info-item",
                                 children: [
                                     this.props.research.price,
-                                    " ₸ "
+                                    " ₸",
+                                    " "
                                 ]
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -792,7 +1143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Index_FirstScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9935);
 /* harmony import */ var _components_Index_Banners__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1294);
 /* harmony import */ var _components_Index_Popular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(976);
-/* harmony import */ var _components_Index_Analysis__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5528);
+/* harmony import */ var _components_Index_Analysis__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4737);
 /* harmony import */ var _components_Index_Reviews__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(75);
 /* harmony import */ var _components_Index_News__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5197);
 /* harmony import */ var _components_Index_Info__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1762);
@@ -841,7 +1192,7 @@ const banners = {
                 href: "",
                 key: 1
             }
-        }
+        }, 
     ]
 };
 const info = {
@@ -861,7 +1212,7 @@ const info = {
         {
             key: 3,
             title: "Сроки"
-        }
+        }, 
     ],
     tabs: [
         {
@@ -869,7 +1220,7 @@ const info = {
             title: "Лучшее оборудования для проверки",
             text: [
                 "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
             ],
             button: "Удобство",
             footer: "Работаем с 1988 года"
@@ -879,7 +1230,7 @@ const info = {
             title: "Лучшее оборудования для проверки",
             text: [
                 "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
             ],
             button: "Качество",
             footer: "Работаем с 1388 года"
@@ -889,7 +1240,7 @@ const info = {
             title: "Лучшее оборудования для проверки",
             text: [
                 "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
             ],
             button: "Надежность",
             footer: "Работаем с 1588 года"
@@ -899,11 +1250,11 @@ const info = {
             title: "Лучшее оборудования для проверки",
             text: [
                 "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
             ],
             button: "Сроки",
             footer: "Работаем с 1688 года"
-        }
+        }, 
     ],
     image: _src_img_microscope_png__WEBPACK_IMPORTED_MODULE_11__/* ["default"].src */ .Z.src
 };
@@ -976,6 +1327,7 @@ Index.getInitialProps = async ({ req  })=>{
     const reviews = await responseReviews.json() ?? [];
     const responseAnalysis = await fetch("http://195.49.215.130:8081/api/front/analysis/allAnalysis");
     const analysis = await responseAnalysis.json() ?? [];
+    console.log(news);
     return {
         news,
         reviews,
@@ -1184,7 +1536,7 @@ module.exports = import("swiper");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [952,664,49,528,971,75,205], () => (__webpack_exec__(5075)));
+var __webpack_exports__ = __webpack_require__.X(0, [952,664,49,971,75,205,259], () => (__webpack_exec__(5075)));
 module.exports = __webpack_exports__;
 
 })();

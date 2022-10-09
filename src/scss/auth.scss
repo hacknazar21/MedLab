@@ -36,7 +36,17 @@
     letter-spacing: 0.02em;
     color: #363B48;
   }
-
+  &__subtitle {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: rem(14);
+    line-height: math.div(17,14);
+    letter-spacing: 0.02em;
+    color: #717C97;
+    margin-top: rem(15);
+    margin-bottom: rem(30);
+  }
   &__inputs {
     display: flex;
     flex-direction: column;
@@ -47,6 +57,40 @@
     display: flex;
     flex-direction: column-reverse;
     gap: rem(10);
+  }
+  &__input-code{
+    width: 25%;
+    height: rem(90);
+    position: relative;
+    &:before{
+      content: "";
+      position: absolute;
+      width: calc(100% - 20px);
+      height: 1px;
+      background-color: #717C97;
+      bottom: rem(10);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__inputs-code{
+    display: flex;
+    width: 100%;
+    gap: rem(10);
+    input{
+      width: 100%;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      text-align: center;
+      
+      font-size: rem(50);
+      -moz-appearance: textfield;
+
+    }
   }
   &__label{
     display: block;
@@ -92,7 +136,9 @@
     align-items: center;
     gap: rem(15);
   }
-
+  &__submit-info{
+    width: 100%;
+  }
   &__submit {
     position: relative;
     padding: rem(16.5) 0;
@@ -118,14 +164,16 @@
     font-weight: 700;
     font-size: rem(14);
     line-height: math.div(17,14);
-    
+    &:disabled{
+      color: #5C6477 ;
+    }
+    @media(any-hover: hover){
+      &:hover{
+            text-decoration: underline;
+      }
+    }
     text-align: center;
     letter-spacing: 0.02em;
-    background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-
+    color: #1C43C1;
   }
 }

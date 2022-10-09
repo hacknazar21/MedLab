@@ -1436,7 +1436,28 @@ class Router {
             }
             if (shouldResolveHref && pathname !== "/_error") {
                 options._shouldResolveHref = true;
-                if (false) {} else {
+                if ( true && as.startsWith("/")) {
+                    const rewritesResult = (0, _resolveRewrites).default((0, _addBasePath).addBasePath((0, _addLocale).addLocale(cleanedAs, nextState.locale), true), pages, rewrites, query, (p)=>resolveDynamicRoute(p, pages), _this.locales);
+                    if (rewritesResult.externalDest) {
+                        handleHardNavigation({
+                            url: as,
+                            router: _this
+                        });
+                        return true;
+                    }
+                    if (!isMiddlewareMatch) {
+                        resolvedAs = rewritesResult.asPath;
+                    }
+                    if (rewritesResult.matchedPage && rewritesResult.resolvedHref) {
+                        // if this directly matches a page we need to update the href to
+                        // allow the correct page chunk to be loaded
+                        pathname = rewritesResult.resolvedHref;
+                        parsed.pathname = (0, _addBasePath).addBasePath(pathname);
+                        if (!isMiddlewareMatch) {
+                            url = (0, _formatUrl).formatWithValidation(parsed);
+                        }
+                    }
+                } else {
                     parsed.pathname = resolveDynamicRoute(pathname, pages);
                     if (parsed.pathname !== pathname) {
                         pathname = parsed.pathname;
@@ -1951,7 +1972,24 @@ class Router {
                 locale: locale,
                 router: _this
             });
-            if (false) {}
+            if ( true && asPath.startsWith("/")) {
+                let rewrites;
+                ({ __rewrites: rewrites  } = yield (0, _routeLoader).getClientBuildManifest());
+                const rewritesResult = (0, _resolveRewrites).default((0, _addBasePath).addBasePath((0, _addLocale).addLocale(asPath, _this.locale), true), pages, rewrites, parsed.query, (p)=>resolveDynamicRoute(p, pages), _this.locales);
+                if (rewritesResult.externalDest) {
+                    return;
+                }
+                resolvedAs = (0, _removeLocale).removeLocale((0, _removeBasePath).removeBasePath(rewritesResult.asPath), _this.locale);
+                if (rewritesResult.matchedPage && rewritesResult.resolvedHref) {
+                    // if this directly matches a page we need to update the href to
+                    // allow the correct page chunk to be loaded
+                    pathname = rewritesResult.resolvedHref;
+                    parsed.pathname = pathname;
+                    if (!isMiddlewareMatch) {
+                        url = (0, _formatUrl).formatWithValidation(parsed);
+                    }
+                }
+            }
             parsed.pathname = resolveDynamicRoute(parsed.pathname, pages);
             if ((0, _isDynamic).isDynamicRoute(parsed.pathname)) {
                 pathname = parsed.pathname;
@@ -2203,7 +2241,7 @@ class Router {
         // back from external site
         this.isSsr = true;
         this.isLocaleDomain = false;
-        this.isReady = !!(self.__NEXT_DATA__.gssp || self.__NEXT_DATA__.gip || self.__NEXT_DATA__.appGip && !self.__NEXT_DATA__.gsp || !autoExportDynamic && !self.location.search && !false);
+        this.isReady = !!(self.__NEXT_DATA__.gssp || self.__NEXT_DATA__.gip || self.__NEXT_DATA__.appGip && !self.__NEXT_DATA__.gsp || !autoExportDynamic && !self.location.search && !true);
         if (false) {}
         this.state = {
             route,
@@ -2282,12 +2320,14 @@ function getMiddlewareData(source, response, options) {
                     as = (0, _addBasePath).addBasePath(parsedSource.pathname);
                     parsedRewriteTarget.pathname = as;
                 }
-                if (false) {} else if (!pages.includes(fsPathname)) {
-                    const resolvedPathname = resolveDynamicRoute(fsPathname, pages);
-                    if (resolvedPathname !== fsPathname) {
-                        fsPathname = resolvedPathname;
+                if (true) {
+                    const result = (0, _resolveRewrites).default(as, pages, rewrites, parsedRewriteTarget.query, (path)=>resolveDynamicRoute(path, pages), options.router.locales);
+                    if (result.matchedPage) {
+                        parsedRewriteTarget.pathname = result.parsedAs.pathname;
+                        as = parsedRewriteTarget.pathname;
+                        Object.assign(parsedRewriteTarget.query, result.parsedAs.query);
                     }
-                }
+                } else {}
                 const resolvedHref = !pages.includes(fsPathname) ? resolveDynamicRoute((0, _normalizeLocalePath).normalizeLocalePath((0, _removeBasePath).removeBasePath(parsedRewriteTarget.pathname), options.router.locales).pathname, pages) : fsPathname;
                 if ((0, _isDynamic).isDynamicRoute(resolvedHref)) {
                     const matches = (0, _routeMatcher).getRouteMatcher((0, _routeRegex).getRouteRegex(resolvedHref))(as);
