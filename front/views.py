@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, generics
 from rest_framework.response import Response
 
 from .models import Api_Analyses
@@ -19,7 +19,21 @@ class RetrieveAnalyse(viewsets.ModelViewSet):
 
     def post(self, request):
         serializer = AnalyseSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class AnalyseGetCreate(generics.ListCreateAPIView):
+    queryset = Api_Analyses.objects.all()
+    serializer_class = AnalyseSerializer
+
+class AnalyseOne(generics.RetrieveAPIView):
+    queryset = Api_Analyses.objects.all()
+    serializer_class = AnalyseSerializer
+
+
+class AnalyseDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Api_Analyses.objects.all()
+    serializer_class = AnalyseSerializer
+    lookup_field = 'link'
+    lookup_url_kwarg = 'short_title_link'
