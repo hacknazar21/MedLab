@@ -1,7 +1,9 @@
 export interface IReview {
-    title: string,
-    avatar: string,
-    text: string,
-    href: string,
-    date: string
+  firstname: string;
+  lastname: string;
+  username: string;
+  avatar: string;
+  text_review: string;
+  href: string;
+  date: string;
 }

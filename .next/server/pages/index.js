@@ -1327,7 +1327,7 @@ Index.getInitialProps = async ({ req  })=>{
     const reviews = await responseReviews.json() ?? [];
     const responseAnalysis = await fetch("http://195.49.215.130:8081/api/front/analysis/allAnalysis");
     const analysis = await responseAnalysis.json() ?? [];
-    console.log(news);
+    console.log(news, analysis, reviews);
     return {
         news,
         reviews,

@@ -24,6 +24,7 @@ swiper__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (aw
 class Reviews extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
     componentDidMount() {
         return new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".reviews-swiper", {
+            // Указываем скласс нужного слайдера
             // Подключаем модули слайдера
             // для конкретного случая
             modules: [
@@ -97,35 +98,30 @@ class Reviews extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                                             children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                                 className: "reviews__card reviews-card",
                                                 children: [
-                                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                         className: "reviews-card__header",
-                                                        children: [
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                                className: "reviews-card__img-ibg",
-                                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                                                    src: review.avatar,
-                                                                    alt: ""
+                                                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                                            className: "reviews-card__info-box",
+                                                            children: [
+                                                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                                                    className: "reviews-card__info-name",
+                                                                    children: [
+                                                                        review.firstname,
+                                                                        " ",
+                                                                        review.lastname
+                                                                    ]
+                                                                }),
+                                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                                                    className: "reviews-card__info-date",
+                                                                    children: date
                                                                 })
-                                                            }),
-                                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                                                className: "reviews-card__info-box",
-                                                                children: [
-                                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                                        className: "reviews-card__info-name",
-                                                                        children: review.title
-                                                                    }),
-                                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                                        className: "reviews-card__info-date",
-                                                                        children: date
-                                                                    })
-                                                                ]
-                                                            })
-                                                        ]
+                                                            ]
+                                                        })
                                                     }),
                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                         className: "reviews-card__text",
                                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                                            children: review.text
+                                                            children: review.text_review
                                                         })
                                                     })
                                                 ]

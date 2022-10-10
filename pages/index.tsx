@@ -151,6 +151,6 @@ Index.getInitialProps = async ({ req }) => {
     "http://195.49.215.130:8081/api/front/analysis/allAnalysis"
   );
   const analysis: IAnalys[] | any = (await responseAnalysis.json()) ?? [];
-  console.log(news);
+  console.log(news, analysis, reviews);
   return { news, reviews, analysis };
 };
