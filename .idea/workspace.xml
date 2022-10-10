@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/helpers/management/commands/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/helpers/management/commands/generate_links.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0fefa083-3e84-4844-adce-bc5b4c24012b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0fefa083-3e84-4844-adce-bc5b4c24012b/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a57d42e-303b-42e4-849d-179c8e6c27c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4a57d42e-303b-42e4-849d-179c8e6c27c7.xml" afterDir="false" />
+    <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="CRUD for Analyse">
+      <change beforePath="$PROJECT_DIR$/.idea/MedLab_Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MedLab_Django.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MedLab_Django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedLab_Django/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MedLab_Django/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedLab_Django/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/migrations/0002_remove_api_analyses_id_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +87,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="MedLab_Django.settings" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/.pyenv/versions/kkm-env/bin/python" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -125,11 +114,23 @@
       <updated>1665328615868</updated>
       <workItem from="1665328624327" duration="3836000" />
       <workItem from="1665344633481" duration="754000" />
-      <workItem from="1665378191298" duration="9988000" />
+      <workItem from="1665378191298" duration="12024000" />
     </task>
+    <task id="LOCAL-00001" summary="CRUD for Analyse">
+      <created>1665389030230</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665389030231</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="CRUD for Analyse" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD for Analyse" />
   </component>
 </project>

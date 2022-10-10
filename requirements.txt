@@ -5,7 +5,7 @@ asgiref==3.5.2
 attrs==22.1.0
 django-filter==22.1
 djangorestframework-simplejwt==5.2.0
-drf-spectacular==0.23.1
+drf-spectacular==0.24.1
 inflection==0.5.1
 jsonschema==4.15.0
 PyJWT==2.4.0

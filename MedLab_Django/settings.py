@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
     'front.helpers',
 
-    # 'drf_spectacular',
+    'drf_spectacular',
 
 ]
 
