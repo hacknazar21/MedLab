@@ -890,6 +890,7 @@ swiper__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (aw
 class Slider extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
     componentDidMount() {
         return new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]("." + this.props.slider.className + "-swiper", {
+            // Указываем скласс нужного слайдера
             // Подключаем модули слайдера
             // для конкретного случая
             modules: [
@@ -916,7 +917,7 @@ class Slider extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
             // Брейкпоинты
             breakpoints: {
                 320: {
-                    slidesPerView: 1,
+                    slidesPerView: 2.2,
                     spaceBetween: 20
                 },
                 770: {
@@ -938,6 +939,7 @@ class Slider extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         return new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]("." + this.props.slider.className + "-swiper", {
+            // Указываем скласс нужного слайдера
             // Подключаем модули слайдера
             // для конкретного случая
             modules: [
