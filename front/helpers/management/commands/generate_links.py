@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
-from front.models import Api_Analyses
-# from front.common.services import generate_link
+from front.models import Api_Analyses, API_News
+
 from transliterate import translit
 import re
 
@@ -14,14 +14,12 @@ def generate_link(text):
 class Command(BaseCommand):
     help = 'Generate link for all models with link'
 
-
-
-
     def set_link(self, obj, get_link_callable=None):
         if get_link_callable:
             link = get_link_callable(obj)
         else:
-            link = obj.short_title
+            link = obj.title
+
         obj.link = f"{generate_link(link)}-{obj.pk}"
         obj.save()
 
@@ -32,7 +30,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.set_model_links(Api_Analyses)
-
+        self.set_model_links(API_News)
 
         # self.set_model_links(Category, lambda c: str(c).replace('-', ''))
         # self.set_model_links(Brand)

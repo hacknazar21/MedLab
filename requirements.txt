@@ -15,4 +15,6 @@ PyYAML==6.0
 sqlparse==0.4.2
 uritemplate==4.1.1
 transliterate==1.10.2
+django-jazzmin==2.5.0
+
 
