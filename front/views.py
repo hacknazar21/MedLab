@@ -4,7 +4,8 @@ from rest_framework import  generics
 
 from .models import Api_Analyses, API_News, API_QaA, API_AboutUs, API_Contacts, API_Promotions
 
-from .serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutUsSerializer, ContactSerializer
+from .serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutUsSerializer, \
+                        ContactSerializer, PromotionSerializer
 
 #
 # class RetrieveAnalyse(viewsets.ModelViewSet):
@@ -76,3 +77,16 @@ class ContactsDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ContactSerializer
     lookup_field = 'link'
     lookup_url_kwarg = 'contacts_link'
+
+
+class PromotionListView(generics.ListCreateAPIView):
+    queryset = API_Promotions.objects.all()
+    serializer_class = PromotionSerializer
+
+
+
+class PromotionDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = API_Promotions.objects.all()
+    serializer_class = PromotionSerializer
+    lookup_field = 'link'
+    lookup_url_kwarg = 'promotion_link'

@@ -1,7 +1,8 @@
 from django.urls import path, include
 
 from .views import AnalyseListView, AnalyseDetailView, NewsListView, NewsDetailView, QaAListView, QaADetailView, \
-    AboutUsListView, AboutUsDetailView, ContactsListView, ContactsDetailView
+    AboutUsListView, AboutUsDetailView, ContactsListView, ContactsDetailView, PromotionListView, PromotionDetailView
+
 
 analysepatterns = [
     path('allAnalyse', AnalyseListView.as_view(), name='allAnalyses'),
@@ -28,6 +29,11 @@ contactspatterns = [
     path('<str:contacts_link>', ContactsDetailView.as_view(), name='Contacts-RUD')
 ]
 
+promotionpatterns = [
+    path('allPromotions', PromotionListView.as_view(), name='allPromotions'),
+    path('<str:promotion_link>', PromotionDetailView.as_view(), name='Promotion-RUD')
+]
+
 
 urlpatterns = [
     path('analyse/', include(analysepatterns)),
@@ -35,4 +41,5 @@ urlpatterns = [
     path('qaa/', include(qaapatterns)),
     path('aboutus/', include(aboutuspatterns)),
     path('contact/', include(contactspatterns)),
+    path('promotion/', include(promotionpatterns))
 ]

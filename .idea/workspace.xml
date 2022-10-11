@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="CRUD for Analyse">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a57d42e-303b-42e4-849d-179c8e6c27c7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a57d42e-303b-42e4-849d-179c8e6c27c7/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+    <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="CRUD for front">
+      <change afterPath="$PROJECT_DIR$/authenticate/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MedLab_Django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedLab_Django/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/helpers/management/commands/generate_links.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/helpers/management/commands/generate_links.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/urls.py" afterDir="false" />
@@ -120,7 +117,7 @@
       <workItem from="1665328624327" duration="3836000" />
       <workItem from="1665344633481" duration="754000" />
       <workItem from="1665378191298" duration="23288000" />
-      <workItem from="1665465016977" duration="352000" />
+      <workItem from="1665465016977" duration="12775000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD for Analyse">
       <created>1665389030230</created>
@@ -136,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665390899114</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="CRUD for front">
+      <created>1665465385578</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665465385578</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +148,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="CRUD for Analyse" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD for Analyse" />
+    <MESSAGE value="CRUD for front" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD for front" />
   </component>
 </project>

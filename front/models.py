@@ -1,13 +1,14 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
+from django.core.validators import MaxValueValidator
 
 class Api_Analyses(models.Model):
     title = models.CharField(max_length=1000, blank=True, verbose_name='Короткий заголовок')
     long_title = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Длинный заголовк')
     is_unique = models.BooleanField(blank=True, null=False, verbose_name='Уникальный')
     research_id = models.CharField(max_length=250, blank=True, primary_key=True, verbose_name='Код анализа')
-    biomaterial = models.ForeignKey('API_Biomaterial', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Биоматериал')
+    biomaterial = models.ForeignKey('API_Biomaterial', on_delete=models.CASCADE, blank=True, null=True,
+                                    verbose_name='Биоматериал')
     price = models.FloatField(blank=True, null=True, verbose_name='Цена')
     preparation_doctor = models.TextField(blank=True, null=True, verbose_name='Инструкция для врача ')
     banner_img = models.ImageField(max_length=1000, blank=True, null=True, upload_to='imgAnalyse',
@@ -26,7 +27,7 @@ class Api_Analyses(models.Model):
     vendor_code = models.CharField(max_length=250, verbose_name='Артикул анализа')
     terms_of_analyzes = models.ForeignKey('API_TermsAnalyses', on_delete=models.CASCADE, db_column='terms_of_analyzes',
                                           verbose_name='Сроки анализов')
-    link = models.CharField(max_length=250, verbose_name='Cсылка для новости (Пример: Короткий заголовок-Код анализа)', null=True)
+    link = models.CharField(max_length=250, verbose_name='Cсылка для анализа (Пример: Короткий заголовок-Код анализа (на латинице))', null=True)
 
     class Meta:
         db_table = 'API_Analyses'
@@ -81,7 +82,7 @@ class API_Biomaterial(models.Model):
 
 
 class API_News(models.Model):
-    img_news = models.FileField(max_length=255, blank=True, null=True, upload_to='imgNews', verbose_name='Картинка новости')
+    img_news = models.ImageField(max_length=255, blank=True, null=True, upload_to='imgNews', verbose_name='Картинка новости')
     title = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Заголовок новости')
     href = models.CharField(max_length=255, blank=True, null=True, verbose_name="Ссылка")
     date = models.CharField(max_length=255, blank=True, null=True, verbose_name="Дата")
@@ -130,24 +131,23 @@ class API_Promotions(models.Model):
         return self.title
 
 
-# class API_Review(models.Model):
-#     firstname = models.CharField(max_length=15, blank=True, null=True, verbose_name='Имя')
-#     lastname = models.CharField(max_length=15, blank=True, null=True, verbose_name='Фамилия')
-#     avatar = models.FileField(max_length=255, blank=True, null=True, upload_to='imgAvatar')
-#     text_review = models.TextField(blank=True, null=True)
-#     date = models.CharField(max_length=255, blank=True, null=True, verbose_name='Дата')
-#     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
-#     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-#     username = models.CharField(max_length=15, blank=True, null=True)
-#     link = models.CharField(max_length=250, verbose_name='Ссылка для отзывов')
-#
-#     class Meta:
-#         db_table = 'API_Reviews'
-#         verbose_name = _('Отзыв')
-#         verbose_name_plural = _('Отзывы')
-#
-#     def __str__(self):
-#         return '{} {} {} {}'.format(self.firstname, self.lastname, self.username, self.date)
+class API_Review(models.Model):
+    created_by = models.ForeignKey('authenticate.API_Users', on_delete=models.DO_NOTHING, verbose_name='Автор отзыва')
+    text_review = models.TextField(blank=True, null=True)
+    ratings = models.IntegerField(validators=[MaxValueValidator(5)], verbose_name='Рейтинг')
+    date = models.CharField(max_length=255, blank=True, null=True, verbose_name='Дата')
+    createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
+    updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
+
+    link = models.CharField(max_length=250, verbose_name='Ссылка для отзывов')
+
+    class Meta:
+        db_table = 'API_Reviews'
+        verbose_name = _('Отзыв')
+        verbose_name_plural = _('Отзывы')
+
+    def __str__(self):
+        return '{} {}'.format(self.created_by, self.date)
 
 class API_QaA(models.Model):
     title = models.CharField(max_length=250, blank=True, null=True)
@@ -180,25 +180,3 @@ class API_AboutUs(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class API_Users(models.Model):
-    email = models.CharField(max_length=255, verbose_name='Электронная почта')
-    password = models.CharField(max_length=255, blank=True, null=True, verbose_name='Пароль')
-    password2 = models.CharField(max_length=255, blank=True, null=True, verbose_name='Повторите пароль')
-    phone_number = models.CharField(max_length=255, blank=True, null=True, verbose_name='Номер телефона')
-    avatar = models.ImageField(max_length=255, blank=True, null=True, verbose_name="Картинка пользователя")
-    createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
-    updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-    address = models.CharField(max_length=255, blank=True, null=True, verbose_name='Адрес')
-    username = models.CharField(max_length=20, verbose_name='Имя пользователя', unique=True)
-    firstname = models.CharField(max_length=20, blank=True, null=True, verbose_name='Имя')
-    lastname = models.CharField(max_length=20, blank=True, null=True, verbose_name='Фамилия')
-
-    class Meta:
-        db_table = 'API_Users'
-        verbose_name = _('Пользователь')
-        verbose_name_plural = _('Пользователи')
-
-    def __str__(self):
-        return '{} {} {}'.format(self.firstname, self.lastname, self.username)

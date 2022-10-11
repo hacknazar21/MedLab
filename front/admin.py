@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from front.models import Api_Analyses,API_TermsAnalyses, API_CategoryAnalyses, \
-    API_Biomaterial, API_News, API_QaA, API_Contacts, API_AboutUs, API_Promotions, API_Users
+    API_Biomaterial, API_News, API_QaA, API_Contacts, API_AboutUs, API_Promotions, API_Review
 
 
 
@@ -14,7 +14,7 @@ admin.site.register(API_Contacts)
 admin.site.register(Api_Analyses)
 admin.site.register(API_AboutUs)
 admin.site.register(API_Promotions)
-admin.site.register(API_Users)
+admin.site.register(API_Review)
 
 
 

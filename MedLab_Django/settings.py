@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,9 +43,12 @@ INSTALLED_APPS = [
     'front',
     'front.helpers',
 
+    'authenticate',
+
+    'dashboard',
+
 
     'rest_framework',
-
     'drf_spectacular',
 
 
