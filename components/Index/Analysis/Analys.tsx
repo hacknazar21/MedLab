@@ -14,11 +14,9 @@ export function Analys(props: Props) {
           data-item-id={props.research.id}
           className="analysis__item analysis-item"
         >
-          <Link href={`/analysis/[id]`} as={`/analysis/${props.research.id}`}>
+          <Link href={`/analysis/[id]`} as={`/analysis/${props.research.link}`}>
             <a href="">
-              <h3 className="analysis-item__title">
-                {props.research.short_title}
-              </h3>
+              <h3 className="analysis-item__title">{props.research.title}</h3>
             </a>
           </Link>
           <div className="analysis-item__info-box">

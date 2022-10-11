@@ -17,7 +17,7 @@ class Slide extends PureComponent<Props, string> {
             <h3 className="card__title">
               <Link
                 href={`/analysis/[id]`}
-                as={`/analysis/${this.props.research.id}`}
+                as={`/analysis/${this.props.research.link}`}
               >
                 <a className="card__title-link">
                   {this.props.research.long_title}

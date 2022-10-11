@@ -180,7 +180,7 @@ function CatalogPage({ analysis  }) {
     });
 };
 const getServerSideProps = async (context)=>{
-    const responseAnalysis = await fetch("http://195.49.215.130:8081/api/front/analysis/allAnalysis");
+    const responseAnalysis = await fetch("http://195.49.215.130:8082/api/front/analyse/allAnalyse");
     const analysis = await responseAnalysis.json() ?? [];
     return {
         props: {

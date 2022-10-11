@@ -69,7 +69,7 @@ export default function CatalogPage({ analysis }) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const responseAnalysis = await fetch(
-    "http://195.49.215.130:8081/api/front/analysis/allAnalysis"
+    "http://195.49.215.130:8082/api/front/analyse/allAnalyse"
   );
   const analysis: IAnalys[] | any = (await responseAnalysis.json()) ?? [];
 

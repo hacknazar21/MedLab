@@ -15,7 +15,7 @@ export default function ResearchMain(props: Props) {
         <div className="research-aside__header">
           <h2 className="research-aside__title">{props.research.long_title}</h2>
           <div className="research-aside__subtitile">
-            <p>{props.research.short_title}</p>
+            <p>{props.research.title}</p>
           </div>
         </div>
         <div className="research-aside__content">
@@ -59,16 +59,7 @@ export default function ResearchMain(props: Props) {
           <div className="research-main__content-main-item">
             <h2 className="research-main__content-main-title">Описание:</h2>
             <div className="research-main__content-main-description">
-              <p>
-                Белок в суточной моче - показатель выведения белков с мочой за
-                сутки, отражающий функциональное состояние почек. Небольшое
-                количество белка в моче обнаруживается и у вполне здоровых лиц.
-                Основной причиной повышенного содержания белка в моче является
-                повышение проницаемости мембраны клубочков. Заболевания
-                увеличивающие проницаемость мембраны способствуют развитию
-                нефротического синдрома, характеризующегося существенными
-                потерями белка с мочой.
-              </p>
+              <p>{props.research.description_patient}</p>
             </div>
           </div>
           <div className="research-main__content-main-item">
@@ -76,17 +67,7 @@ export default function ResearchMain(props: Props) {
               Подготовка к анализу:
             </h2>
             <div className="research-main__content-main-description">
-              <p>
-                Перед сбором мочи произвести гигиенический туалет половых
-                органов без применения мыла, гелей, антисептиков. Накануне не
-                употреблять овощи и фрукты, изменяющие цвет мочи (свекла,
-                морковь и пр.), не принимать диуретики. Женщинам не
-                рекомендуется сдавать анализ во время и после менструации (2-3
-                дня), но в случае необходимости, во избежание попадания в мочу
-                выделений из влагалища, во время сбора, рекомендуется ввести во
-                влагалище тампон. Моча должна быть доставлена в
-                Приемный/Заборный Пункт утром в день сбора.
-              </p>
+              <p>{props.research.preparation_patient}</p>
             </div>
           </div>
         </div>

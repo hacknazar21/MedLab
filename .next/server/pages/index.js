@@ -1080,7 +1080,7 @@ class Slide extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
                                 className: "card__title",
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
                                     href: `/analysis/[id]`,
-                                    as: `/analysis/${this.props.research.id}`,
+                                    as: `/analysis/${this.props.research.link}`,
                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                         className: "card__title-link",
                                         children: this.props.research.long_title
@@ -1323,17 +1323,28 @@ function Index({ news , reviews , analysis  }) {
     });
 };
 Index.getInitialProps = async ({ req  })=>{
-    const response = await fetch("http://195.49.215.130:8081/api/front/news/allNews");
-    const news = await response.json() ?? [];
-    const responseReviews = await fetch("http://195.49.215.130:8081/api/front/review/allReviews");
-    const reviews = await responseReviews.json() ?? [];
-    const responseAnalysis = await fetch("http://195.49.215.130:8081/api/front/analysis/allAnalysis");
-    const analysis = await responseAnalysis.json() ?? [];
-    console.log(news, analysis, reviews);
+    try {
+        const response = await fetch("http://195.49.215.130:8082/api/front/news/allNews");
+        const news = await response.json() ?? [];
+        // const responseReviews = await fetch(
+        //   "http://195.49.215.130:8082/api/front/review/allReviews"
+        // );
+        // const reviews: IReview[] = (await responseReviews.json()) ?? [];
+        const responseAnalysis = await fetch("http://195.49.215.130:8082/api/front/analyse/allAnalyse");
+        const analysis = await responseAnalysis.json() ?? [];
+        console.log(news, analysis);
+        return {
+            news,
+            analysis,
+            reviews: []
+        };
+    } catch (e) {
+        console.log(e.message);
+    }
     return {
-        news,
-        reviews,
-        analysis
+        news: [],
+        reviews: [],
+        analysis: []
     };
 };
 

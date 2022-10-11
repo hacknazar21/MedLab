@@ -139,18 +139,23 @@ export default function Index({ news, reviews, analysis }) {
 }
 
 Index.getInitialProps = async ({ req }) => {
-  const response = await fetch(
-    "http://195.49.215.130:8081/api/front/news/allNews"
-  );
-  const news: INews = (await response.json()) ?? [];
-  const responseReviews = await fetch(
-    "http://195.49.215.130:8081/api/front/review/allReviews"
-  );
-  const reviews: IReview[] = (await responseReviews.json()) ?? [];
-  const responseAnalysis = await fetch(
-    "http://195.49.215.130:8081/api/front/analysis/allAnalysis"
-  );
-  const analysis: IAnalys[] | any = (await responseAnalysis.json()) ?? [];
-  console.log(news, analysis, reviews);
-  return { news, reviews, analysis };
+  try {
+    const response = await fetch(
+      "http://195.49.215.130:8082/api/front/news/allNews"
+    );
+    const news: INews = (await response.json()) ?? [];
+    // const responseReviews = await fetch(
+    //   "http://195.49.215.130:8082/api/front/review/allReviews"
+    // );
+    // const reviews: IReview[] = (await responseReviews.json()) ?? [];
+    const responseAnalysis = await fetch(
+      "http://195.49.215.130:8082/api/front/analyse/allAnalyse"
+    );
+    const analysis: IAnalys[] | any = (await responseAnalysis.json()) ?? [];
+    console.log(news, analysis);
+    return { news, analysis, reviews: [] };
+  } catch (e) {
+    console.log(e.message);
+  }
+  return { news: [], reviews: [], analysis: [] };
 };

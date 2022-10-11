@@ -35,7 +35,7 @@ function ResearchMain(props) {
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                 className: "research-aside__subtitile",
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                    children: props.research.short_title
+                                    children: props.research.title
                                 })
                             })
                         ]
@@ -138,7 +138,7 @@ function ResearchMain(props) {
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                         className: "research-main__content-main-description",
                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                            children: "Белок в суточной моче - показатель выведения белков с мочой за сутки, отражающий функциональное состояние почек. Небольшое количество белка в моче обнаруживается и у вполне здоровых лиц. Основной причиной повышенного содержания белка в моче является повышение проницаемости мембраны клубочков. Заболевания увеличивающие проницаемость мембраны способствуют развитию нефротического синдрома, характеризующегося существенными потерями белка с мочой."
+                                            children: props.research.description_patient
                                         })
                                     })
                                 ]
@@ -153,7 +153,7 @@ function ResearchMain(props) {
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                         className: "research-main__content-main-description",
                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                            children: "Перед сбором мочи произвести гигиенический туалет половых органов без применения мыла, гелей, антисептиков. Накануне не употреблять овощи и фрукты, изменяющие цвет мочи (свекла, морковь и пр.), не принимать диуретики. Женщинам не рекомендуется сдавать анализ во время и после менструации (2-3 дня), но в случае необходимости, во избежание попадания в мочу выделений из влагалища, во время сбора, рекомендуется ввести во влагалище тампон. Моча должна быть доставлена в Приемный/Заборный Пункт утром в день сбора."
+                                            children: props.research.preparation_patient
                                         })
                                     })
                                 ]
@@ -345,17 +345,26 @@ function ResearchSlider(props) {
         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
             ref: (ref)=>setSlider(ref),
             className: "research__slider research-swiper",
-            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                 className: "research__wrapper swiper-wrapper",
-                children: props.banner_img.map((banner, id)=>{
-                    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                children: [
+                    typeof props.banner_img === "Array" && props.banner_img.map((banner, id)=>{
+                        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            className: "research__slide swiper-slide",
+                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                                src: banner,
+                                alt: props.long_title
+                            })
+                        }, id);
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                         className: "research__slide swiper-slide",
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                            src: banner,
+                            src: props.banner_img,
                             alt: props.long_title
                         })
-                    }, id);
-                })
+                    })
+                ]
             })
         })
     });
@@ -430,7 +439,7 @@ function AnalysisOne(props) {
                                 {
                                     title: props.oneAnalysis.long_title,
                                     href: ""
-                                }
+                                }, 
                             ]
                         }),
                         /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("main", {
@@ -471,11 +480,12 @@ function AnalysisOne(props) {
     });
 };
 async function getServerSideProps(context) {
-    const id = context.query.id;
+    const link = context.query.id;
     let oneAnalysis = {};
     try {
-        const responseOneAnalysis = await fetch(`http://195.49.215.130:8081/api/front/analysis/${id}`);
+        const responseOneAnalysis = await fetch(`http://195.49.215.130:8082/api/front/analyse/${link}`);
         oneAnalysis = await responseOneAnalysis.json();
+        console.log(oneAnalysis);
     } catch (e) {
         console.log(e.message);
     }

@@ -27,12 +27,12 @@ function Analys(props) {
             children: [
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
                     href: `/analysis/[id]`,
-                    as: `/analysis/${props.research.id}`,
+                    as: `/analysis/${props.research.link}`,
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                         href: "",
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
                             className: "analysis-item__title",
-                            children: props.research.short_title
+                            children: props.research.title
                         })
                     })
                 }),
