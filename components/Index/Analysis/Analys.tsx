@@ -24,7 +24,7 @@ export function Analys(props: Props) {
               {props.research.research_time}
             </div>
             <div className="analysis-item__info _icon-blood">
-              {props.research.biomaterial}
+              {props.research.biomaterial.title}
             </div>
           </div>
           <div className="analysis-item__price-box">

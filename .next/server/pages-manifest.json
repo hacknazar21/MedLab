@@ -1,21 +1,21 @@
 {
+  "/_error": "pages/_error.js",
   "/_app": "pages/_app.js",
   "/404": "pages/404.html",
-  "/_error": "pages/_error.js",
   "/about": "pages/about.html",
   "/actions": "pages/actions.js",
-  "/faq": "pages/faq.js",
   "/": "pages/index.js",
-  "/profile/notifications": "pages/profile/notifications.html",
+  "/faq": "pages/faq.js",
   "/profile/personal": "pages/profile/personal.html",
-  "/contacts": "pages/contacts.js",
-  "/news": "pages/news.js",
+  "/profile/notifications": "pages/profile/notifications.html",
   "/analysis/packages": "pages/analysis/packages.js",
   "/catalog": "pages/catalog.js",
+  "/contacts": "pages/contacts.js",
   "/analysis/[id]": "pages/analysis/[id].js",
   "/login": "pages/login.html",
+  "/news": "pages/news.js",
   "/registration": "pages/registration.html",
-  "/verification": "pages/verification.html",
   "/reviews": "pages/reviews.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/verification": "pages/verification.html"
 }

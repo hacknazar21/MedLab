@@ -70,7 +70,7 @@ function ResearchMain(props) {
                                         children: [
                                             "биоматериал: ",
                                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                                                children: props.research.biomaterial
+                                                children: props.research.biomaterial.title
                                             })
                                         ]
                                     })
@@ -352,26 +352,17 @@ function ResearchSlider(props) {
         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
             ref: (ref)=>setSlider(ref),
             className: "research__slider research-swiper",
-            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: "research__wrapper swiper-wrapper",
-                children: [
-                    typeof props.banner_img === "Array" && props.banner_img.map((banner, id)=>{
-                        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                            className: "research__slide swiper-slide",
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                src: banner,
-                                alt: props.long_title
-                            })
-                        }, id);
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                children: props.banner_images?.map((banner, id)=>{
+                    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                         className: "research__slide swiper-slide",
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                            src: props.banner_img,
+                            src: banner.banner_image,
                             alt: props.long_title
                         })
-                    })
-                ]
+                    }, id);
+                })
             })
         })
     });
@@ -457,7 +448,7 @@ function AnalysisOne(props) {
                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                         className: "research__container",
                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Research_ResearchSlider__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                                            banner_img: props.oneAnalysis.banner_img,
+                                            banner_images: props.oneAnalysis.banner_images,
                                             long_title: props.oneAnalysis.long_title
                                         })
                                     })

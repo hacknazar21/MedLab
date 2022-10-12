@@ -28,7 +28,7 @@ export default function ResearchMain(props: Props) {
               срок исследования: <span>{props.research.research_time}</span>
             </div>
             <div className="research-aside__info-item">
-              биоматериал: <span>{props.research.biomaterial}</span>
+              биоматериал: <span>{props.research.biomaterial.title}</span>
             </div>
           </div>
           <div className="research-aside__info-scalable-img">

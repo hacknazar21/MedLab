@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Swiper, { Autoplay } from "swiper";
 
 interface OwnProps {
-  banner_img: any;
+  banner_images: any;
   long_title: string;
 }
 
@@ -39,17 +39,13 @@ export default function ResearchSlider(props: Props) {
         className="research__slider research-swiper"
       >
         <div className="research__wrapper swiper-wrapper">
-          {typeof props.banner_img === "Array" &&
-            props.banner_img.map((banner, id) => {
-              return (
-                <div key={id} className="research__slide swiper-slide">
-                  <img src={banner} alt={props.long_title} />
-                </div>
-              );
-            })}
-          <div className="research__slide swiper-slide">
-            <img src={props.banner_img} alt={props.long_title} />
-          </div>
+          {props.banner_images?.map((banner, id) => {
+            return (
+              <div key={id} className="research__slide swiper-slide">
+                <img src={banner.banner_image} alt={props.long_title} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

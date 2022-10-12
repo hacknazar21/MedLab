@@ -45,7 +45,7 @@ function Analys(props) {
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                             className: "analysis-item__info _icon-blood",
-                            children: props.research.biomaterial
+                            children: props.research.biomaterial.title
                         })
                     ]
                 }),

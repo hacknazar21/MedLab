@@ -5,13 +5,15 @@ export interface IAnalys {
   is_unique: boolean;
   research_id: string;
   research_time: string;
-  biomaterial: string;
+  biomaterial: {
+    title: string;
+  };
   price: string;
   description_patient: string;
   description_doctor: string;
   preparation_patient: string;
   preparation_doctor: string;
-  banner_img: string[];
+  banner_images: string[];
   document_img: string;
   main_img: string;
   is_complex: false;

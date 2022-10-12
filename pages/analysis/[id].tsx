@@ -32,7 +32,7 @@ export default function AnalysisOne(props: Props) {
               <section className="research__section">
                 <div className="research__container">
                   <ResearchSlider
-                    banner_img={props.oneAnalysis.banner_img}
+                    banner_images={props.oneAnalysis.banner_images}
                     long_title={props.oneAnalysis.long_title}
                   />
                 </div>
