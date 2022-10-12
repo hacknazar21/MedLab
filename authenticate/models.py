@@ -1,15 +1,19 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import RegexValidator
 
 class API_Users(AbstractUser):
     USERNAME_FIELD = 'phone_number'
     REQUIRED_FIELDS = ['email', 'firstname', 'lastname', 'username']
 
-    email = models.CharField(max_length=255, verbose_name='Электронная почта')
+    email = models.EmailField(max_length=255, verbose_name='Электронная почта')
     password = models.CharField(max_length=255, blank=True, null=True, verbose_name='Пароль')
     password2 = models.CharField(max_length=255, blank=True, null=True, verbose_name='Повторите пароль')
-    phone_number = models.CharField(max_length=255, blank=True, null=True, verbose_name='Номер телефона', unique=True)
+    phone_regex = RegexValidator(regex=r'^\+?77(\d{9})$', message='Введен неправильный номер телефноа')
+    phone_number = models.CharField(max_length=255, blank=True, null=True, verbose_name='Номер телефона', unique=True,
+                                    validators=[phone_regex])
+
     avatar = models.ImageField(max_length=255, blank=True, null=True, verbose_name="Картинка пользователя")
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.

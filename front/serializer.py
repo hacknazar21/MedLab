@@ -29,7 +29,6 @@ class AnalyseSerializer(serializers.ModelSerializer):
     category = CategoryAnalysesSerializer(read_only=True)
     terms_of_analyzes = TermsAnalysesSerializer(read_only=True)
     biomaterial = BiomaterialSerializer(read_only=True)
-
     banner_images = ImageSerializer(read_only=True, many=True)
 
     class Meta:

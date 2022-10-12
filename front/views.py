@@ -2,10 +2,10 @@
 from rest_framework import  generics
 
 
-from .models import API_Analyses, API_News, API_QaA, API_AboutUs, API_Contacts, API_Promotions
+from .models import API_Analyses, API_News, API_QaA, API_AboutUs, API_Contacts, API_Promotions, API_Review
 
 from .serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutUsSerializer, \
-                        ContactSerializer, PromotionSerializer
+                        ContactSerializer, PromotionSerializer, ReviewSerializer
 
 #
 # class RetrieveAnalyse(viewsets.ModelViewSet):
@@ -90,3 +90,14 @@ class PromotionDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PromotionSerializer
     lookup_field = 'link'
     lookup_url_kwarg = 'promotion_link'
+
+
+class ReviewListView(generics.ListCreateAPIView):
+    queryset = API_Review.objects.all()
+    serializer_class = ReviewSerializer
+
+class ReviewdDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = API_Review.objects.all()
+    serializer_class = ReviewSerializer
+    lookup_field = 'link'
+    lookup_url_kwarg = 'review_link'

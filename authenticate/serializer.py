@@ -5,4 +5,4 @@ from authenticate.models import API_Users
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = API_Users
-        fields = '__all__'
+        exclude = ('password', 'password2', 'avatar', 'address')

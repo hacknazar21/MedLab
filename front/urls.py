@@ -1,7 +1,8 @@
 from django.urls import path, include
 
-from .views import AnalyseListView, AnalyseDetailView, NewsListView, NewsDetailView, QaAListView, QaADetailView, \
-    AboutUsListView, AboutUsDetailView, ContactsListView, ContactsDetailView, PromotionListView, PromotionDetailView
+from front.views import AnalyseListView, AnalyseDetailView, NewsListView, NewsDetailView, QaAListView, QaADetailView, \
+    AboutUsListView, AboutUsDetailView, ContactsListView, ContactsDetailView, PromotionListView, PromotionDetailView, \
+    ReviewListView, ReviewdDetailView
 
 
 analysepatterns = [
@@ -34,6 +35,13 @@ promotionpatterns = [
     path('<str:promotion_link>', PromotionDetailView.as_view(), name='Promotion-RUD')
 ]
 
+reviewpatterns = [
+    path('allReviews', ReviewListView.as_view(), name='allReviews'),
+    path('<str:review_link>', ReviewdDetailView.as_view(), name='Review-RUD')
+]
+
+
+
 
 urlpatterns = [
     path('analyse/', include(analysepatterns)),
@@ -41,5 +49,6 @@ urlpatterns = [
     path('qaa/', include(qaapatterns)),
     path('aboutus/', include(aboutuspatterns)),
     path('contact/', include(contactspatterns)),
-    path('promotion/', include(promotionpatterns))
+    path('promotion/', include(promotionpatterns)),
+    path('review/', include(reviewpatterns))
 ]
