@@ -18,6 +18,7 @@ exports.modules = {
 
 
 function ResearchMain(props) {
+    const { 0: isPatient , 1: setIsPatient  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "research__main research-main",
         children: [
@@ -116,11 +117,17 @@ function ResearchMain(props) {
                         className: "research-main__content-header",
                         children: [
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                className: "research-main__content-header-action _icon-lab active",
+                                onClick: ()=>{
+                                    setIsPatient(true);
+                                },
+                                className: "research-main__content-header-action _icon-lab " + (isPatient ? "active" : ""),
                                 children: "Для пациентов"
                             }),
                             props.research.is_unique ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                className: "research-main__content-header-action _icon-lab",
+                                onClick: ()=>{
+                                    setIsPatient(false);
+                                },
+                                className: "research-main__content-header-action _icon-lab " + (!isPatient ? "active" : ""),
                                 children: "Для врачей"
                             }) : ""
                         ]
@@ -138,7 +145,7 @@ function ResearchMain(props) {
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                         className: "research-main__content-main-description",
                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                            children: props.research.description_patient
+                                            children: isPatient ? props.research.description_patient : props.research.description_doctor
                                         })
                                     })
                                 ]
@@ -153,7 +160,7 @@ function ResearchMain(props) {
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                         className: "research-main__content-main-description",
                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                            children: props.research.preparation_patient
+                                            children: isPatient ? props.research.preparation_patient : props.research.preparation_doctor
                                         })
                                     })
                                 ]

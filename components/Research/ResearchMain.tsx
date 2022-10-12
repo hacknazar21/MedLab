@@ -9,6 +9,7 @@ interface OwnProps {
 type Props = OwnProps;
 
 export default function ResearchMain(props: Props) {
+  const [isPatient, setIsPatient] = useState(true);
   return (
     <div className="research__main research-main">
       <div data-item-id={1} className="research-main__aside research-aside">
@@ -44,11 +45,27 @@ export default function ResearchMain(props: Props) {
       </div>
       <div className="research-main__content-box">
         <div className="research-main__content-header">
-          <button className="research-main__content-header-action _icon-lab active">
+          <button
+            onClick={() => {
+              setIsPatient(true);
+            }}
+            className={
+              "research-main__content-header-action _icon-lab " +
+              (isPatient ? "active" : "")
+            }
+          >
             Для пациентов
           </button>
           {props.research.is_unique ? (
-            <button className="research-main__content-header-action _icon-lab">
+            <button
+              onClick={() => {
+                setIsPatient(false);
+              }}
+              className={
+                "research-main__content-header-action _icon-lab " +
+                (!isPatient ? "active" : "")
+              }
+            >
               Для врачей
             </button>
           ) : (
@@ -59,7 +76,11 @@ export default function ResearchMain(props: Props) {
           <div className="research-main__content-main-item">
             <h2 className="research-main__content-main-title">Описание:</h2>
             <div className="research-main__content-main-description">
-              <p>{props.research.description_patient}</p>
+              <p>
+                {isPatient
+                  ? props.research.description_patient
+                  : props.research.description_doctor}
+              </p>
             </div>
           </div>
           <div className="research-main__content-main-item">
@@ -67,7 +88,11 @@ export default function ResearchMain(props: Props) {
               Подготовка к анализу:
             </h2>
             <div className="research-main__content-main-description">
-              <p>{props.research.preparation_patient}</p>
+              <p>
+                {isPatient
+                  ? props.research.preparation_patient
+                  : props.research.preparation_doctor}
+              </p>
             </div>
           </div>
         </div>
