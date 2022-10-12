@@ -50,10 +50,9 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'drf_spectacular',
-
-
-
 ]
+
+AUTH_USER_MODEL = 'authenticate.API_Users'
 
 
 

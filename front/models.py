@@ -7,7 +7,7 @@ class API_Analyses(models.Model):
     long_title = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Длинный заголовк')
     is_unique = models.BooleanField(blank=True, null=False, verbose_name='Уникальный')
     research_id = models.CharField(max_length=250, blank=True, primary_key=True, verbose_name='Код анализа')
-    biomaterial = models.ForeignKey('API_Biomaterial', on_delete=models.CASCADE, blank=True, null=True,
+    biomaterial = models.ForeignKey('API_Biomaterial', on_delete=models.CASCADE,
                                     verbose_name='Биоматериал')
     price = models.FloatField(blank=True, null=True, verbose_name='Цена')
     preparation_doctor = models.TextField(blank=True, null=True, verbose_name='Инструкция для врача ')
