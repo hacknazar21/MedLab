@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MaxValueValidator
 
-class Api_Analyses(models.Model):
+class API_Analyses(models.Model):
     title = models.CharField(max_length=1000, blank=True, verbose_name='Короткий заголовок')
     long_title = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Длинный заголовк')
     is_unique = models.BooleanField(blank=True, null=False, verbose_name='Уникальный')
@@ -11,8 +11,6 @@ class Api_Analyses(models.Model):
                                     verbose_name='Биоматериал')
     price = models.FloatField(blank=True, null=True, verbose_name='Цена')
     preparation_doctor = models.TextField(blank=True, null=True, verbose_name='Инструкция для врача ')
-    banner_img = models.ImageField(max_length=1000, blank=True, null=True, upload_to='imgAnalyse',
-                                  verbose_name='Картинка для баннера')
     document_img = models.ImageField(max_length=1000, blank=True, null=True, upload_to='imgAnalyse',
                                     verbose_name='Картинка для документа')
     main_img = models.ImageField(max_length=1000, blank=True, null=True, upload_to='imgAnalyse',
@@ -38,6 +36,16 @@ class Api_Analyses(models.Model):
         return self.title
 
 
+class API_Image(models.Model):
+    analyse = models.ForeignKey('API_Analyses', on_delete=models.CASCADE, related_name='banner_images')
+    banner_image = models.ImageField(upload_to='imgAnalyse')
+
+    class Meta:
+        db_table = 'API_Image'
+        verbose_name = _('Картинка')
+        verbose_name_plural = _('Картинки')
+
+
 class API_CategoryAnalyses(models.Model):
     title = models.CharField(max_length=250, blank=True, null=True)
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
@@ -50,6 +58,7 @@ class API_CategoryAnalyses(models.Model):
 
     def __str__(self):
         return self.title
+
 
 
 

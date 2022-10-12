@@ -1,9 +1,14 @@
-from .models import Api_Analyses, API_News, API_QaA, API_Promotions, API_AboutUs, API_Contacts, API_Review, \
-    API_CategoryAnalyses, API_TermsAnalyses, API_Biomaterial
+from .models import API_Analyses, API_News, API_QaA, API_Promotions, API_AboutUs, API_Contacts, API_Review, \
+    API_CategoryAnalyses, API_TermsAnalyses, API_Biomaterial, API_Image
 from authenticate.serializer import UserSerializer
 
 from rest_framework import serializers
 
+
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = API_Image
+        fields = '__all__'
 
 class CategoryAnalysesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,8 +29,11 @@ class AnalyseSerializer(serializers.ModelSerializer):
     category = CategoryAnalysesSerializer(read_only=True)
     terms_of_analyzes = TermsAnalysesSerializer(read_only=True)
     biomaterial = BiomaterialSerializer(read_only=True)
+
+    banner_images = ImageSerializer(read_only=True, many=True)
+
     class Meta:
-        model = Api_Analyses
+        model = API_Analyses
         fields = '__all__'
 
 
@@ -61,3 +69,4 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = API_Review
         fields = '__all__'
+
