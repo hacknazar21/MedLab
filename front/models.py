@@ -21,11 +21,13 @@ class API_Analyses(models.Model):
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
     category = models.ForeignKey('API_CategoryAnalyses', on_delete=models.CASCADE, verbose_name='Категорий анализов',
-                                 db_column='category')
+                                 db_column='category', null=True)
     vendor_code = models.CharField(max_length=250, verbose_name='Артикул анализа')
     terms_of_analyzes = models.ForeignKey('API_TermsAnalyses', on_delete=models.CASCADE, db_column='terms_of_analyzes',
-                                          verbose_name='Сроки анализов')
-    link = models.CharField(max_length=250, verbose_name='Cсылка для анализа (Пример: Короткий заголовок-Код анализа (на латинице))', null=True)
+                                          verbose_name='Сроки анализов', null=True)
+    link = models.CharField(max_length=250,
+                            verbose_name='Cсылка для анализа (Пример: Короткий заголовок-Код анализа (на латинице))',
+                            null=True)
 
     class Meta:
         db_table = 'API_Analyses'
@@ -36,8 +38,22 @@ class API_Analyses(models.Model):
         return self.title
 
 
+class API_PackageAnalyses(models.Model):
+    package = models.ManyToManyField(API_Analyses,
+                                      related_name='packages')
+    name_of_package = models.CharField(max_length=250, verbose_name='Название пакетов анализов')
+    price_of_package = models.FloatField(verbose_name='Цена пакетов')
+
+    class Meta:
+        db_table = 'API_PackageAnalyses'
+        verbose_name = _('Пакет анализа')
+        verbose_name_plural = _('Пакеты анализов')
+
+    def __str__(self):
+        return self.name_of_package
+
 class API_Image(models.Model):
-    analyse = models.ForeignKey('API_Analyses', on_delete=models.CASCADE, related_name='banner_images')
+    analyse = models.ForeignKey('API_Analyses', on_delete=models.CASCADE, related_name='banner_images', null=True)
     banner_image = models.ImageField(upload_to='imgAnalyse')
 
     class Meta:

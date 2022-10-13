@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/authenticate/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticate/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticate/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticate/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticate/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticate/migrations/0002_alter_api_users_email_alter_api_users_phone_number.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticate/migrations/0003_alter_api_users_phone_number.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/migrations/0002_alter_api_analyses_biomaterial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/views.py" afterDir="false" />
@@ -114,7 +120,8 @@
       <workItem from="1665344633481" duration="754000" />
       <workItem from="1665378191298" duration="23288000" />
       <workItem from="1665465016977" duration="18891000" />
-      <workItem from="1665550712288" duration="8613000" />
+      <workItem from="1665550712288" duration="12999000" />
+      <workItem from="1665639012027" duration="819000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD for Analyse">
       <created>1665389030230</created>
@@ -158,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665555548217</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="regexValidator for phone number, review's endpoints">
+      <created>1665568882103</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665568882103</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +182,7 @@
     <MESSAGE value="CRUD for Analyse" />
     <MESSAGE value="CRUD for front" />
     <MESSAGE value="custom user, checked analyse" />
-    <option name="LAST_COMMIT_MESSAGE" value="custom user, checked analyse" />
+    <MESSAGE value="regexValidator for phone number, review's endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="regexValidator for phone number, review's endpoints" />
   </component>
 </project>

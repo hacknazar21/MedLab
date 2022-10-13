@@ -2,10 +2,11 @@
 from rest_framework import  generics
 
 
-from .models import API_Analyses, API_News, API_QaA, API_AboutUs, API_Contacts, API_Promotions, API_Review
+from .models import API_Analyses, API_News, API_QaA, API_AboutUs, \
+                    API_Contacts, API_Promotions, API_Review,  API_PackageAnalyses
 
 from .serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutUsSerializer, \
-                        ContactSerializer, PromotionSerializer, ReviewSerializer
+                        ContactSerializer, PromotionSerializer, ReviewSerializer, PackageAnalysesSerializer
 
 #
 # class RetrieveAnalyse(viewsets.ModelViewSet):
@@ -35,6 +36,9 @@ class AnalyseDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'link'
     lookup_url_kwarg = 'title_analyse_link'
 
+class PackageListView(generics.ListCreateAPIView):
+    queryset = API_PackageAnalyses.objects.all()
+    serializer_class = PackageAnalysesSerializer
 
 class NewsListView(generics.ListCreateAPIView):
     queryset = API_News.objects.all()
