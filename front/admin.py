@@ -20,6 +20,7 @@ admin.site.register(API_Review)
 
 class BannerImg(admin.StackedInline):
     model = API_Image
+    fk_name = 'analyse'
 
 
 @admin.register(API_Analyses)
@@ -27,10 +28,10 @@ class AnalysesAdmin(admin.ModelAdmin):
     list_display = ('title', 'research_id', 'biomaterial')
     list_per_page = 20
     list_filter = ('biomaterial',)
-    exclude = ('main_img',)
+    exclude = ('main_img', 'id')
     inlines = [BannerImg,]
 
     class Meta:
         model = API_Analyses
 
-admin.site.register(API_Image)
+

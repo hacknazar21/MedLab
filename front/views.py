@@ -37,8 +37,10 @@ class AnalyseDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_url_kwarg = 'title_analyse_link'
 
 class PackageListView(generics.ListCreateAPIView):
-    queryset = API_PackageAnalyses.objects.all()
+    queryset = API_PackageAnalyses.objects.prefetch_related('package')
     serializer_class = PackageAnalysesSerializer
+
+
 
 class NewsListView(generics.ListCreateAPIView):
     queryset = API_News.objects.all()
