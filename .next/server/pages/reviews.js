@@ -61,7 +61,7 @@ function ReviewsPage({ reviews  }) {
                                 {
                                     title: "Отзывы",
                                     href: ""
-                                }
+                                }, 
                             ]
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
@@ -118,8 +118,8 @@ function ReviewsPage({ reviews  }) {
     });
 };
 const getServerSideProps = async (context)=>{
-    const responseReviews = await fetch("http://195.49.215.130:8081/api/front/review/allReviews");
-    const reviews = await responseReviews.json() ?? [];
+    const responseReviews = await fetch("http://195.49.215.130:8082/api/front/review/allReviews");
+    const reviews = await responseReviews.json() || [];
     return {
         props: {
             reviews

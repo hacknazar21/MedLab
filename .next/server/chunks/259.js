@@ -22,7 +22,7 @@ exports.modules = {
 function Analys(props) {
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: !props.research.hidden && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            "data-item-id": props.research.id,
+            "data-item-id": props.research.research_id,
             className: "analysis__item analysis-item",
             children: [
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
@@ -41,7 +41,7 @@ function Analys(props) {
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                             className: "analysis-item__info _icon-clock",
-                            children: props.research.research_time
+                            children: props.research.terms_of_analyzes.title
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                             className: "analysis-item__info _icon-blood",

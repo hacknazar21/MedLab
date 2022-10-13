@@ -59,9 +59,10 @@ function ResearchMain(props) {
                                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                         className: "research-aside__info-item",
                                         children: [
-                                            "срок исследования: ",
+                                            "срок исследования:",
+                                            " ",
                                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                                                children: props.research.research_time
+                                                children: props.research.terms_of_analyzes.title
                                             })
                                         ]
                                     }),
@@ -76,7 +77,9 @@ function ResearchMain(props) {
                                     })
                                 ]
                             }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                href: props.research.document_img,
+                                target: "_blank",
                                 className: "research-aside__info-scalable-img",
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                     src: props.research.document_img,

@@ -25,15 +25,20 @@ export default function ResearchMain(props: Props) {
               исследование: <span>{props.research.research_id}</span>
             </div>
             <div className="research-aside__info-item">
-              срок исследования: <span>{props.research.research_time}</span>
+              срок исследования:{" "}
+              <span>{props.research.terms_of_analyzes.title}</span>
             </div>
             <div className="research-aside__info-item">
               биоматериал: <span>{props.research.biomaterial.title}</span>
             </div>
           </div>
-          <div className="research-aside__info-scalable-img">
+          <a
+            href={props.research.document_img}
+            target="_blank"
+            className="research-aside__info-scalable-img"
+          >
             <img src={props.research.document_img} alt="" />
-          </div>
+          </a>
         </div>
         <div className="research-aside__footer">
           <div className="research-aside__price">

@@ -11,7 +11,7 @@ class Slide extends PureComponent<Props, string> {
       <div className="popular-analises__slide swiper-slide">
         <div className="popular-analises__card card">
           <div className="card__img-ibg">
-            <img src={this.props.research.main_img} alt="" />
+            {/*<img src={this.props.research.main_img} alt="" />*/}
           </div>
           <div className="card__text">
             <h3 className="card__title">
@@ -37,7 +37,7 @@ class Slide extends PureComponent<Props, string> {
             <div className="card__info-item">
               <Link
                 href={`/analysis/[id]`}
-                as={`/analysis/${this.props.research.id}`}
+                as={`/analysis/${this.props.research.link}`}
               >
                 <a className="card__info-link baner__button">
                   Узнать подробнее

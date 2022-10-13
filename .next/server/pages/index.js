@@ -266,7 +266,7 @@ function Analysis(props) {
     const handleButtonClick = (event)=>{
         const analysisId = event.target.parentElement.dataset.itemId;
         for (const analysisItem of analysis){
-            if (analysisItem.id == analysisId) {
+            if (analysisItem.research_id == analysisId) {
                 add(analysisItem);
             }
         }
@@ -314,6 +314,7 @@ function Analysis(props) {
         setAnalysis((state)=>{
             return state.map((analysisItem)=>{
                 if (!tagsFilter) {
+                    // условие #1
                     analysisItem.hidden = true;
                     return analysisItem;
                 }
@@ -347,11 +348,12 @@ function Analysis(props) {
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: "analysis__grid",
                         children: [
-                            analysis.map((analys)=>{
+                            analysis.map((analys, id)=>{
                                 return /*#__PURE__*/ jsx_runtime_.jsx(Analys/* Analys */.H, {
+                                    id: id,
                                     research: analys,
                                     buttonClick: handleButtonClick
-                                }, analys.id);
+                                }, id);
                             }),
                             number === 0 && "По вашему запросу ничего не нашлось"
                         ]
@@ -1067,11 +1069,7 @@ class Slide extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
                 className: "popular-analises__card card",
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        className: "card__img-ibg",
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                            src: this.props.research.main_img,
-                            alt: ""
-                        })
+                        className: "card__img-ibg"
                     }),
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                         className: "card__text",
@@ -1113,7 +1111,7 @@ class Slide extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
                                 className: "card__info-item",
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
                                     href: `/analysis/[id]`,
-                                    as: `/analysis/${this.props.research.id}`,
+                                    as: `/analysis/${this.props.research.link}`,
                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                         className: "card__info-link baner__button",
                                         children: "Узнать подробнее"

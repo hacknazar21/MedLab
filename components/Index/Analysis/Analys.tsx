@@ -5,13 +5,14 @@ import Link from "next/link";
 interface Props {
   research: IAnalys;
   buttonClick: (event: any) => void;
+  id: number;
 }
 export function Analys(props: Props) {
   return (
     <>
       {!props.research.hidden && (
         <div
-          data-item-id={props.research.id}
+          data-item-id={props.research.research_id}
           className="analysis__item analysis-item"
         >
           <Link href={`/analysis/[id]`} as={`/analysis/${props.research.link}`}>
@@ -21,7 +22,7 @@ export function Analys(props: Props) {
           </Link>
           <div className="analysis-item__info-box">
             <div className="analysis-item__info _icon-clock">
-              {props.research.research_time}
+              {props.research.terms_of_analyzes.title}
             </div>
             <div className="analysis-item__info _icon-blood">
               {props.research.biomaterial.title}

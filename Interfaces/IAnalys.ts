@@ -8,6 +8,9 @@ export interface IAnalys {
   biomaterial: {
     title: string;
   };
+  terms_of_analyzes: {
+    title: string;
+  };
   price: string;
   description_patient: string;
   description_doctor: string;

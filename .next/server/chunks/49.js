@@ -251,15 +251,17 @@ function Basket(props) {
                                     children: [
                                         /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                             className: "basket-item__id",
-                                            children: product.code
+                                            children: product.vendor_code
                                         }),
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             className: "basket-item__title",
                                             children: [
-                                                product.short_title,
-                                                " - ",
+                                                product.title,
+                                                " -",
+                                                " ",
                                                 product.price.toLocaleString("en").replace(",", " "),
-                                                " тг x ",
+                                                " тг x",
+                                                " ",
                                                 product.count
                                             ]
                                         })
