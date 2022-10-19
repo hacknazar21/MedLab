@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticate/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticate/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +114,11 @@
       <workItem from="1665378191298" duration="23288000" />
       <workItem from="1665465016977" duration="18891000" />
       <workItem from="1665550712288" duration="12999000" />
-      <workItem from="1665639012027" duration="8358000" />
+      <workItem from="1665639012027" duration="15392000" />
+      <workItem from="1665724442222" duration="3841000" />
+      <workItem from="1665981886692" duration="2444000" />
+      <workItem from="1666070001214" duration="2068000" />
+      <workItem from="1666154826306" duration="2061000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD for Analyse">
       <created>1665389030230</created>
@@ -174,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665640053774</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="UUID instead bigint id, prefetch_related instead all for package view">
+      <created>1665647886701</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665647886701</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +195,7 @@
     <MESSAGE value="custom user, checked analyse" />
     <MESSAGE value="regexValidator for phone number, review's endpoints" />
     <MESSAGE value="CRUD, url, serializer, model for PackageAnalyses" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD, url, serializer, model for PackageAnalyses" />
+    <MESSAGE value="UUID instead bigint id, prefetch_related instead all for package view" />
+    <option name="LAST_COMMIT_MESSAGE" value="UUID instead bigint id, prefetch_related instead all for package view" />
   </component>
 </project>

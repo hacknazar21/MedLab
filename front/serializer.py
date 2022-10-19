@@ -71,7 +71,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PackageAnalysesSerializer(serializers.ModelSerializer):
-    analyses = AnalyseSerializer(read_only=True)
+    package = AnalyseSerializer(read_only=True, many=True)
     class Meta:
         model = API_PackageAnalyses
         fields = '__all__'

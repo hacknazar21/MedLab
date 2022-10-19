@@ -3,9 +3,46 @@ from django.utils.translation import gettext_lazy as _
 from django.core.validators import MaxValueValidator
 
 import uuid
+import abc
+from transliterate import translit
+import re
 
 
-class API_Analyses(models.Model):
+def generate_link(text, pk):
+    link = translit(text.replace(' ', '-'), 'ru', reversed=True).lower()
+    link = re.sub(r'[^A-Za-z0-9\-]+', '', link)
+    return f'{link}-{pk}'
+
+
+class LinkModel(models.Model):
+    link = models.CharField(max_length=255, blank=True, null=True, verbose_name='Ссылка')
+
+    class Meta:
+        abstract = True
+
+    @abc.abstractmethod
+    def get_link_base(self):
+        pass
+
+    def save(self, *args, **kwargs):
+        if self.id is None:
+            super(LinkModel, self).save(*args, **kwargs)
+        if not self.link:
+            self.link = generate_link(self.get_link_base(), self.id)
+        super(LinkModel, self).save()
+
+
+class UUIDModel(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    class Meta:
+        abstract = True
+
+class Executor(UUIDModel):
+    pass
+
+
+class API_Analyses(Executor, LinkModel):
     title = models.CharField(max_length=1000, blank=True, verbose_name='Короткий заголовок')
     long_title = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Длинный заголовк')
     is_unique = models.BooleanField(blank=True, null=False, verbose_name='Уникальный')
@@ -28,9 +65,7 @@ class API_Analyses(models.Model):
     vendor_code = models.CharField(max_length=250, verbose_name='Артикул анализа')
     terms_of_analyzes = models.ForeignKey('API_TermsAnalyses', on_delete=models.CASCADE, db_column='terms_of_analyzes',
                                           verbose_name='Сроки анализов', null=True)
-    link = models.CharField(max_length=250,
-                            verbose_name='Cсылка для анализа (Пример: Короткий заголовок-Код анализа (на латинице))',
-                            null=True)
+
 
     class Meta:
         db_table = 'API_Analyses'
@@ -40,9 +75,11 @@ class API_Analyses(models.Model):
     def __str__(self):
         return self.title
 
+    def get_link_base(self):
+        return self.title
 
-class API_PackageAnalyses(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+
+class API_PackageAnalyses(Executor):
     package = models.ManyToManyField(API_Analyses,
                                       related_name='packages', verbose_name='Какие анализы входят')
     name_of_package = models.CharField(max_length=250, verbose_name='Название пакетов анализов')
@@ -56,7 +93,7 @@ class API_PackageAnalyses(models.Model):
     def __str__(self):
         return self.name_of_package
 
-class API_Image(models.Model):
+class API_Image(Executor, LinkModel):
     analyse = models.ForeignKey('API_Analyses', on_delete=models.CASCADE, related_name='banner_images',
                                 null=True, verbose_name='Анализы' )
 
@@ -68,8 +105,8 @@ class API_Image(models.Model):
         verbose_name_plural = _('Картинки')
 
 
-class API_CategoryAnalyses(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+class API_CategoryAnalyses(Executor):
+
     title = models.CharField(max_length=250, blank=True, null=True, verbose_name='Название категорий')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
@@ -85,8 +122,7 @@ class API_CategoryAnalyses(models.Model):
 
 
 
-class API_TermsAnalyses(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+class API_TermsAnalyses(Executor):
     title = models.CharField(max_length=15, blank=True, null=True, verbose_name='Сроки анализов')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
@@ -99,8 +135,8 @@ class API_TermsAnalyses(models.Model):
     def __str__(self):
         return self.title
 
-class API_Biomaterial(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID' , editable=False)
+
+class API_Biomaterial(Executor):
     title = models.CharField(max_length=250, null=True, verbose_name='Биоматериалы')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
@@ -115,15 +151,14 @@ class API_Biomaterial(models.Model):
         return self.title
 
 
-class API_News(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+class API_News(Executor, LinkModel):
     img_news = models.ImageField(max_length=255, blank=True, null=True, upload_to='imgNews', verbose_name='Картинка новости')
     title = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Заголовок новости')
     href = models.CharField(max_length=255, blank=True, null=True, verbose_name="Ссылка")
     date = models.CharField(max_length=255, blank=True, null=True, verbose_name="Дата")
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-    link = models.CharField(max_length=250, null=True, verbose_name='Cсылка для новости (Пример: Заголовок новости-)')
+
 
     class Meta:
         db_table = 'API_News'
@@ -134,14 +169,13 @@ class API_News(models.Model):
         return self.title
 
 
-class API_Contacts(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+class API_Contacts(Executor, LinkModel):
     address = models.CharField(max_length=100, blank=True, verbose_name='Адрес')
     phone_number = models.CharField(max_length=11, blank=True, null=True, verbose_name='Номер телефона')
     map = models.CharField(max_length=250, blank=True, null=True, verbose_name='Карта')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-    link = models.CharField(max_length=250, verbose_name='Ссылка для контактов')
+
     class Meta:
         db_table = 'API_Contacts'
         verbose_name = _('Контакт')
@@ -150,14 +184,15 @@ class API_Contacts(models.Model):
     def __str__(self):
         return '{} {} {}'.format(self.address, self.phone_number, self.map)
 
+    def get_link_base(self):
+        return self.address
 
-class API_Promotions(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+class API_Promotions(Executor, LinkModel):
     title = models.CharField(max_length=250, blank=True, null=True, verbose_name='Заголовок акций')
     text = models.CharField(max_length=100, blank=True, null=True, verbose_name='Текст акций')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-    link = models.CharField(max_length=250, verbose_name='Ссылка для скидок')
+
 
     class Meta:
         db_table = 'API_Promotions'
@@ -167,17 +202,17 @@ class API_Promotions(models.Model):
     def __str__(self):
         return self.title
 
+    def get_link_base(self):
+        return self.title
 
-class API_Review(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
-    created_by = models.ForeignKey('authenticate.API_Users', on_delete=models.DO_NOTHING, verbose_name='Автор отзыва')
+
+class API_Review(Executor, LinkModel):
+    created_by = models.ForeignKey('authenticate.API_Users', on_delete=models.SET_NULL, verbose_name='Автор отзыва', null=True)
     text_review = models.TextField(blank=True, null=True, verbose_name='Текст отзыва')
-    ratings = models.IntegerField(validators=[MaxValueValidator(5)], verbose_name='Рейтинг')
+    ratings = models.IntegerField(validators=[MaxValueValidator(5)], verbose_name='Рейтинг', null=True)
     date = models.CharField(max_length=255, blank=True, null=True, verbose_name='Дата')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-
-    link = models.CharField(max_length=250, verbose_name='Ссылка для отзывов')
 
     class Meta:
         db_table = 'API_Reviews'
@@ -187,13 +222,15 @@ class API_Review(models.Model):
     def __str__(self):
         return '{} {}'.format(self.created_by, self.date)
 
-class API_QaA(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+    def get_link_base(self):
+        return self.created_by
+
+class API_QaA(Executor, LinkModel):
     title = models.CharField(max_length=250, blank=True, null=True, verbose_name='Вопрос')
     answer = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Ответ')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-    link = models.CharField(max_length=250, verbose_name='Ссылка для вопросов и ответов')
+
 
     class Meta:
         db_table = 'API_QaA'
@@ -203,15 +240,16 @@ class API_QaA(models.Model):
     def __str__(self):
         return '{} {}'.format(self.title, self.answer)
 
+    def get_link_base(self):
+        return self.title
 
-class API_AboutUs(models.Model):
-    id = models.UUIDField(default=uuid.uuid4(), primary_key=True, verbose_name='ID', editable=False)
+class API_AboutUs(Executor, LinkModel):
     title = models.CharField(max_length=250, blank=True, verbose_name='Заголовок')
     text = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Текст')
     image = models.ImageField(max_length=100, blank=True, null=True, upload_to='imgAboutUs', verbose_name='Картинка')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-    link = models.CharField(max_length=250, verbose_name='Ссылка для О нас')
+
 
     class Meta:
         db_table = 'API_AboutUs'
@@ -219,4 +257,7 @@ class API_AboutUs(models.Model):
         verbose_name_plural = _('О нас')
 
     def __str__(self):
+        return self.title
+
+    def get_link_base(self):
         return self.title
