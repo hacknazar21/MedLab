@@ -93,7 +93,7 @@ class API_PackageAnalyses(Executor):
     def __str__(self):
         return self.name_of_package
 
-class API_Image(Executor, LinkModel):
+class API_Image(Executor):
     analyse = models.ForeignKey('API_Analyses', on_delete=models.CASCADE, related_name='banner_images',
                                 null=True, verbose_name='Анализы' )
 
@@ -168,6 +168,9 @@ class API_News(Executor, LinkModel):
     def __str__(self):
         return self.title
 
+    def get_link_base(self):
+        return self.title[:10]
+
 
 class API_Contacts(Executor, LinkModel):
     address = models.CharField(max_length=100, blank=True, verbose_name='Адрес')
@@ -203,11 +206,12 @@ class API_Promotions(Executor, LinkModel):
         return self.title
 
     def get_link_base(self):
-        return self.title
+        return self.title[:10]
 
 
 class API_Review(Executor, LinkModel):
-    created_by = models.ForeignKey('authenticate.API_Users', on_delete=models.SET_NULL, verbose_name='Автор отзыва', null=True)
+    # created_by = models.ForeignKey('authenticate.API_Users', on_delete=models.SET_NULL, verbose_name='Автор отзыва', null=True)
+    name = models.CharField(max_length=100, null=True, verbose_name='Имя Фамилия')
     text_review = models.TextField(blank=True, null=True, verbose_name='Текст отзыва')
     ratings = models.IntegerField(validators=[MaxValueValidator(5)], verbose_name='Рейтинг', null=True)
     date = models.CharField(max_length=255, blank=True, null=True, verbose_name='Дата')
@@ -220,10 +224,10 @@ class API_Review(Executor, LinkModel):
         verbose_name_plural = _('Отзывы')
 
     def __str__(self):
-        return '{} {}'.format(self.created_by, self.date)
+        return '{} {}'.format(self.name, self.date)
 
     def get_link_base(self):
-        return self.created_by
+        return self.name
 
 class API_QaA(Executor, LinkModel):
     title = models.CharField(max_length=250, blank=True, null=True, verbose_name='Вопрос')
@@ -241,7 +245,7 @@ class API_QaA(Executor, LinkModel):
         return '{} {}'.format(self.title, self.answer)
 
     def get_link_base(self):
-        return self.title
+        return self.title[:10]
 
 class API_AboutUs(Executor, LinkModel):
     title = models.CharField(max_length=250, blank=True, verbose_name='Заголовок')
@@ -260,4 +264,4 @@ class API_AboutUs(Executor, LinkModel):
         return self.title
 
     def get_link_base(self):
-        return self.title
+        return self.title[:10]

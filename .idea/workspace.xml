@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/serializer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +115,7 @@
       <workItem from="1665724442222" duration="3841000" />
       <workItem from="1665981886692" duration="2444000" />
       <workItem from="1666070001214" duration="2068000" />
-      <workItem from="1666154826306" duration="2061000" />
+      <workItem from="1666154826306" duration="4689000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD for Analyse">
       <created>1665389030230</created>
@@ -183,7 +180,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665647886701</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="uuid instead id for front, generating link for front/models">
+      <created>1666164466138</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666164466138</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added gitignore">
+      <created>1666164605517</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666164605517</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +207,8 @@
     <MESSAGE value="regexValidator for phone number, review's endpoints" />
     <MESSAGE value="CRUD, url, serializer, model for PackageAnalyses" />
     <MESSAGE value="UUID instead bigint id, prefetch_related instead all for package view" />
-    <option name="LAST_COMMIT_MESSAGE" value="UUID instead bigint id, prefetch_related instead all for package view" />
+    <MESSAGE value="uuid instead id for front, generating link for front/models" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
 </project>
