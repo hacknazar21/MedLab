@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +36,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/authenticate/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authenticate/tests.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MedLab_Django/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/front/serializer.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/front/views.py" root0="FORCE_HIGHLIGHTING" />
@@ -43,6 +46,8 @@
     <setting file="file://$PROJECT_DIR$/front/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MedLab_Django/settings.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/requirements.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authenticate/models.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authenticate/serializer.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -115,7 +120,11 @@
       <workItem from="1665724442222" duration="3841000" />
       <workItem from="1665981886692" duration="2444000" />
       <workItem from="1666070001214" duration="2068000" />
-      <workItem from="1666154826306" duration="4689000" />
+      <workItem from="1666154826306" duration="6275000" />
+      <workItem from="1666240728152" duration="598000" />
+      <workItem from="1666327949166" duration="598000" />
+      <workItem from="1666333017168" duration="598000" />
+      <workItem from="1666672644564" duration="2144000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD for Analyse">
       <created>1665389030230</created>
@@ -194,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666164605517</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix link in models">
+      <created>1666175179717</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666175179717</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +225,7 @@
     <MESSAGE value="UUID instead bigint id, prefetch_related instead all for package view" />
     <MESSAGE value="uuid instead id for front, generating link for front/models" />
     <MESSAGE value="added gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
+    <MESSAGE value="fix link in models" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix link in models" />
   </component>
 </project>

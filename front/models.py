@@ -79,11 +79,20 @@ class API_Analyses(Executor, LinkModel):
         return self.title
 
 
-class API_PackageAnalyses(Executor):
+class API_PackageAnalyses(Executor, LinkModel):
     package = models.ManyToManyField(API_Analyses,
                                       related_name='packages', verbose_name='Какие анализы входят')
     name_of_package = models.CharField(max_length=250, verbose_name='Название пакетов анализов')
     price_of_package = models.FloatField(verbose_name='Цена пакетов')
+    main_img = models.ImageField(max_length=1000, blank=True, null=True, upload_to='imgAnalyse',
+                                    verbose_name='Главная картинка')
+    terms_of_analyzes = models.ForeignKey('API_TermsAnalyses', null=True, on_delete=models.CASCADE,
+                                          verbose_name='Сроки анализов',
+                                          db_column='terms_of_analyzes')
+
+    createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
+    updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
+
 
     class Meta:
         db_table = 'API_PackageAnalyses'
@@ -91,6 +100,9 @@ class API_PackageAnalyses(Executor):
         verbose_name_plural = _('Пакеты анализов')
 
     def __str__(self):
+        return self.name_of_package
+
+    def get_link_base(self):
         return self.name_of_package
 
 class API_Image(Executor):
@@ -191,8 +203,9 @@ class API_Contacts(Executor, LinkModel):
         return self.address
 
 class API_Promotions(Executor, LinkModel):
+    image = models.ImageField(upload_to='imgPromotion', verbose_name='Картинка для акций')
     title = models.CharField(max_length=250, blank=True, null=True, verbose_name='Заголовок акций')
-    text = models.CharField(max_length=100, blank=True, null=True, verbose_name='Текст акций')
+    text = models.TextField(blank=True, null=True, verbose_name='Текст акций')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
 
@@ -206,12 +219,11 @@ class API_Promotions(Executor, LinkModel):
         return self.title
 
     def get_link_base(self):
-        return self.title[:10]
-
+        return self.title
 
 class API_Review(Executor, LinkModel):
     # created_by = models.ForeignKey('authenticate.API_Users', on_delete=models.SET_NULL, verbose_name='Автор отзыва', null=True)
-    name = models.CharField(max_length=100, null=True, verbose_name='Имя Фамилия')
+    name = models.CharField(max_length=30, verbose_name='Имя', null=True)
     text_review = models.TextField(blank=True, null=True, verbose_name='Текст отзыва')
     ratings = models.IntegerField(validators=[MaxValueValidator(5)], verbose_name='Рейтинг', null=True)
     date = models.CharField(max_length=255, blank=True, null=True, verbose_name='Дата')
@@ -227,14 +239,13 @@ class API_Review(Executor, LinkModel):
         return '{} {}'.format(self.name, self.date)
 
     def get_link_base(self):
-        return self.name
+        return self.text_review[:10]
 
 class API_QaA(Executor, LinkModel):
     title = models.CharField(max_length=250, blank=True, null=True, verbose_name='Вопрос')
     answer = models.CharField(max_length=1000, blank=True, null=True, verbose_name='Ответ')
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
-
 
     class Meta:
         db_table = 'API_QaA'
@@ -245,7 +256,7 @@ class API_QaA(Executor, LinkModel):
         return '{} {}'.format(self.title, self.answer)
 
     def get_link_base(self):
-        return self.title[:10]
+        return self.title
 
 class API_AboutUs(Executor, LinkModel):
     title = models.CharField(max_length=250, blank=True, verbose_name='Заголовок')
@@ -264,4 +275,4 @@ class API_AboutUs(Executor, LinkModel):
         return self.title
 
     def get_link_base(self):
-        return self.title[:10]
+        return self.title
