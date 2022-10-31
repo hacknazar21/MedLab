@@ -484,7 +484,7 @@ async function getServerSideProps(context) {
     const link = context.query.id;
     let oneAnalysis = {};
     try {
-        const responseOneAnalysis = await fetch(`http://195.49.215.130:8082/api/front/analyse/${link}`);
+        const responseOneAnalysis = await fetch(`http://195.49.215.130/api/front/analyse/${link}`);
         oneAnalysis = await responseOneAnalysis.json();
         console.log(oneAnalysis);
     } catch (e) {
