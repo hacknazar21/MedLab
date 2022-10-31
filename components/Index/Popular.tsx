@@ -1,95 +1,105 @@
-import React from 'react';
-import { ISlider } from '../../Interfaces/ISlider';
-import Slider from "./Slider";
-import {IAnalys} from "../../Interfaces/IAnalys";
+import React, { useEffect } from "react";
+import { IAnalys } from "../../Interfaces/IAnalys";
+import { ResearchCard } from "../common/ResearchCard";
+import Swiper, { Navigation, Autoplay } from "swiper";
 
 interface OwnProps {
-    analysis: IAnalys[]
+  analysis: IAnalys[];
 }
 
 type Props = OwnProps;
 
-const sliders:ISlider[] = [
-        {
-            key: 1124,
-            tab: 'Анализы',
-            className: 'popular-analises',
-            slides: [],
-            hidden: false
+export function Popular(props: Props) {
+  useEffect(() => {
+    new Swiper(".popular-analises__slider.popular-analises-swiper", {
+      // Указываем скласс нужного слайдера
+      // Подключаем модули слайдера
+      // для конкретного случая
+      modules: [Navigation, Autoplay],
+
+      observer: true,
+      observeParents: true,
+      slidesPerView: 4,
+      spaceBetween: 20,
+      autoHeight: true,
+      speed: 800,
+
+      // Эффекты
+      effect: "fade",
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      // Кнопки "влево/вправо"
+      navigation: {
+        prevEl: `.popular-analises__slider.popular-analises-swiper .swiper-button-prev`,
+        nextEl: `.popular-analises__slider.popular-analises-swiper .swiper-button-next`,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 11,
         },
-        {
-            key: 32532,
-            tab: 'Комплексы анализов',
-            className: 'popular-analises',
-            slides: [],
-            hidden: true
-        }
-]
+        770: {
+          slidesPerView: 3,
+          spaceBetween: 15,
+        },
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1920: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+      },
 
-
-class Popular extends React.Component<Props, any> {
-
-    constructor(props:Props) {
-        super(props);
-
-        this.state = {
-            sliders: sliders
-        }
-    }
-    componentWillMount() {
-        this.setState((state: any)=>{
-            state.sliders[0].slides = []
-            state.sliders[1].slides = []
-            for (const analysis of this.props.analysis) {
-                if(analysis.is_complex) state.sliders[1].slides.push(analysis)
-                else state.sliders[0].slides.push(analysis)
-            }
-            return {sliders: state.sliders}
-        })
-    }
-
-    buttonClickHandler = (event:any) => {
-        this.setState((state:any) => {
-           return {
-               sliders: state.sliders.map(
-                   (slider:ISlider) => {
-                       if(event.target.innerText !== slider.tab)  slider.hidden = true
-                       else slider.hidden = false
-                       return slider
-                   })
-           }
-        })
-        event.target.parentElement.querySelector('.active').classList.remove('active')
-        event.target.classList.add('active')
-    }
-    componentDidUpdate() {
-    }
-
-    render() {
-    return (
-        <section className="page__popular-analises popular-analises">
-            <div className="popular-analises__container">
-                <div data-tabs className="popular-analises__box">
-                    <div className="popular-analises__header">
-                        <h2 className="popular-analises__title section-title">Популярные анализы</h2>
-                        <div className="popular-analises__mobile"></div>
-                        <div data-da=".popular-analises__mobile-types, 990" className="popular-analises__types">
-                            <button onClick={this.buttonClickHandler} className="popular-analises__type active">
-                                Анализы
-                            </button>
-                            <button onClick={this.buttonClickHandler} className="popular-analises__type">
-                                Комплексы анализов
-                            </button>
-                        </div>
-                    </div>
-                    {
-                        this.state.sliders.map((slider:ISlider)=>{ return <Slider slider={slider}/>})
-                    }
-                </div>
+      // События
+      on: {},
+    });
+  }, []);
+  return (
+    <section className="page__popular-analises popular-analises">
+      <div className="popular-analises__container">
+        <div className="popular-analises__box">
+          <div className="popular-analises__header">
+            <h2 className="popular-analises__title section-title">
+              Популярные анализы
+            </h2>
+            <a href="" className="popular-analises__show-all-pc show-all-pc">
+              <span>смотреть все анализы</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="29"
+                viewBox="0 0 28 29"
+                fill="none"
+              >
+                <path
+                  d="M22.3145 14.1455C22.3145 13.873 22.2002 13.6094 21.998 13.416L16.2236 7.6416C15.9951 7.42188 15.7578 7.3252 15.5117 7.3252C14.9492 7.3252 14.5449 7.7207 14.5449 8.25684C14.5449 8.53809 14.6592 8.77539 14.835 8.95117L16.8125 10.9551L19.3613 13.2842L17.3223 13.1611H6.66992C6.08105 13.1611 5.67676 13.5654 5.67676 14.1455C5.67676 14.7168 6.08105 15.1211 6.66992 15.1211H17.3223L19.3613 14.998L16.8125 17.3271L14.835 19.3311C14.6592 19.5068 14.5449 19.7441 14.5449 20.0254C14.5449 20.5615 14.9492 20.957 15.5117 20.957C15.7578 20.957 15.9951 20.8604 16.2061 20.6582L21.998 14.8662C22.2002 14.6729 22.3145 14.4092 22.3145 14.1455Z"
+                  fill="#337FF9"
+                />
+              </svg>
+            </a>
+          </div>
+          <div className="popular-analises__slider popular-analises-swiper">
+            <div className="popular-analises__wrapper swiper-wrapper">
+              {props.analysis.map((research: IAnalys, id) => {
+                return (
+                  <div className="popular-analises__slide swiper-slide">
+                    <ResearchCard research={research} id={id} />
+                  </div>
+                );
+              })}
             </div>
-        </section>
-    );
-  }
+          </div>
+          <a href="" className="popular-analises__show-all show-all">
+            смотреть все анализы
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Popular;

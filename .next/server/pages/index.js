@@ -5,23 +5,33 @@ exports.id = 405;
 exports.ids = [405];
 exports.modules = {
 
-/***/ 616:
+/***/ 6913:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/microscope.70f6bf15.png","height":2308,"width":2201,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+klEQVR42mNwsnaVTIhMkI8Pj7diAIJZU+aJMiADJxvnYjNDi3uGOiaPIkNiJnk4+WwCCgvOYWDQS00MVQIr0lTVnCbAK/RfUUHj/9LZC87dP7tl4ZezR/9v0GHoQTKL23PNkpWPbl+99//N2V0X321ZdGO2JkMpg72ausKE5lrr/y+XcTSUlzdN7J/+6e61B7PPbt1lDtZ3aO3MwPWLZ5UDmZV1peULDu45tu7iyQtvvrz7lg1W8HGTc8GnXSnX9yxoOF2Wm/lfR8vyf0FWwcvYiLibQGk5hqM1DIJPpzKo/P9bI1aQEj0RKPijsaru5+bVG7cxMDCwAwCGUGi1hIVk9gAAAABJRU5ErkJggg=="});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/01.c7d2f7ce.png","height":1160,"width":1072,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAA20lEQVR42mMQ7//HxAAFuz5+h7ERQKT1nxFH278lMl3/H+u0fmoFCzb/Z2awnPHPymLKv/+O0//9l+v5/58h+/47BgYGFrACx7n/9TTm/P1hu/TfX4b2/z8rpt/5f+bU4TIGGFh26NORdSe//L906+2v1y/u/z987OwDBqv1vGDJ9+/fzfr+9dP/9x8//161982f2hmX/j949HA2w8f3r6uv3n37aPb+b/9dFv3/y1D5/49s/rX/yXVbpzG8e/ch5/PH1+trln75Ljzz/3/zyf//sBQ9+V/dt+swAL96eWLB1DNIAAAAAElFTkSuQmCC"});
 
 /***/ }),
 
-/***/ 4737:
+/***/ 1400:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/02.3b38ca07.png","height":940,"width":1132,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAA1ElEQVR42mNABlevXmOGscVn/Yewnzx5InXv3r3Ky5cv64P4t27eYmFg+M4IYofN/efG8OHDhyNv3rz5f+vWrV/Hjx83gpmQtPRfbuiKf/8Z3r17d/HLly//X79+DVR0+/OvZ6vFzGf+j0tc9/9/yOr/vxkeP36s+fbt2w9fv379/+TJ0/9XL59rX7Lj7gafxb//C3T9+s8AAkDd5i9fvnx15cqVr2fOnnt3/cqZHwu3P/3FUHh7N8iRYNf29/dzPX36NPzmzZv3gPj/m5f33BkYGBgADjd/tK5sWLkAAAAASUVORK5CYII="});
+
+/***/ }),
+
+/***/ 4087:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "u": () => (/* binding */ Analysis)
+  "g": () => (/* binding */ Catalog)
 });
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
@@ -29,8 +39,6 @@ var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(6689);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
-// EXTERNAL MODULE: ./components/Index/Analysis/Analys.tsx
-var Analys = __webpack_require__(5259);
 ;// CONCATENATED MODULE: ./components/Index/Select.tsx
 
 
@@ -64,6 +72,7 @@ class Select extends (external_react_default()).Component {
         } else if (this.wrapper.current && !this.state.open) {
             this.wrapper.current.setAttribute("style", `max-height:0px;`);
         }
+        this.head.current.classList.toggle("open");
     }
     selectHandler(event) {
         if (this.wrapper.current && this.head.current) {
@@ -120,6 +129,7 @@ class Select extends (external_react_default()).Component {
 
 
 
+
 class Filter extends (external_react_default()).Component {
     constructor(props){
         super(props);
@@ -159,207 +169,88 @@ class Filter extends (external_react_default()).Component {
         }, 
     ];
     render() {
-        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        return /*#__PURE__*/ jsx_runtime_.jsx("div", {
             className: "analysis__filter-box analysis-filter",
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: "analysis-filter__header",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("h2", {
-                            className: "analysis-filter__title",
-                            children: "Поиск исследований"
-                        }),
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                            className: "analysis-filter__value",
-                            children: [
-                                "Найдено: ",
-                                /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                    children: this.props.number
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "analysis-filter__form filter-form",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: "filter-form__input-box",
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("svg", {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
+                                    d: "M21.7099 20.2904L17.9999 16.6104C19.44 14.8148 20.1374 12.5357 19.9487 10.2417C19.76 7.94769 18.6996 5.81318 16.9854 4.27704C15.2713 2.7409 13.0337 1.9199 10.7328 1.98286C8.43194 2.04582 6.24263 2.98795 4.61505 4.61553C2.98747 6.24311 2.04534 8.43243 1.98237 10.7333C1.91941 13.0342 2.74041 15.2718 4.27655 16.9859C5.81269 18.7001 7.94721 19.7605 10.2412 19.9492C12.5352 20.1379 14.8143 19.4405 16.6099 18.0004L20.2899 21.6804C20.3829 21.7741 20.4935 21.8485 20.6153 21.8993C20.7372 21.9501 20.8679 21.9762 20.9999 21.9762C21.1319 21.9762 21.2626 21.9501 21.3845 21.8993C21.5063 21.8485 21.6169 21.7741 21.7099 21.6804C21.8901 21.4939 21.9909 21.2447 21.9909 20.9854C21.9909 20.7261 21.8901 20.4769 21.7099 20.2904ZM10.9999 18.0004C9.61544 18.0004 8.26206 17.5899 7.11091 16.8207C5.95977 16.0515 5.06256 14.9583 4.53275 13.6792C4.00293 12.4001 3.86431 10.9926 4.13441 9.63476C4.4045 8.27689 5.07119 7.02961 6.05016 6.05065C7.02912 5.07168 8.27641 4.40499 9.63427 4.1349C10.9921 3.8648 12.3996 4.00342 13.6787 4.53324C14.9578 5.06305 16.051 5.96026 16.8202 7.1114C17.5894 8.26255 17.9999 9.61592 17.9999 11.0004C17.9999 12.8569 17.2624 14.6374 15.9497 15.9501C14.6369 17.2629 12.8564 18.0004 10.9999 18.0004Z",
+                                    fill: "#1A4DCA"
                                 })
-                            ]
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: "analysis-filter__form filter-form",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "filter-form__input-box",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
                                 type: "text",
                                 name: "search",
                                 placeholder: "Поиск исследования",
                                 className: "filter-form__input",
                                 onInput: this.handleInputChange
                             })
-                        }),
-                        this.selects.map((select)=>{
-                            return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: "filter-form__input-box ",
-                                children: /*#__PURE__*/ jsx_runtime_.jsx(Index_Select, {
-                                    ...select
-                                })
-                            });
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "filter-form__input-box",
-                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                className: "filter-form__input-checkboxes",
-                                children: [
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                        className: "filter-form__input-checkbox",
-                                        children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                                                name: "adult",
-                                                type: "checkbox",
-                                                id: "amateur",
-                                                value: "Взрослым",
-                                                onChange: this.handleInputChange
-                                            }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("label", {
-                                                htmlFor: "amateur",
-                                                className: "filter-form__input",
-                                                children: "Взрослым"
-                                            })
-                                        ]
-                                    }),
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                        className: "filter-form__input-checkbox",
-                                        children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                                                name: "child",
-                                                type: "checkbox",
-                                                id: "child",
-                                                value: "Детям",
-                                                onChange: this.handleInputChange
-                                            }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("label", {
-                                                htmlFor: "child",
-                                                className: "filter-form__input",
-                                                children: "Детям"
-                                            })
-                                        ]
-                                    })
-                                ]
+                        ]
+                    }),
+                    this.selects.map((select, id)=>{
+                        return /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "filter-form__input-box ",
+                            children: /*#__PURE__*/ (0,external_react_.createElement)(Index_Select, {
+                                ...select,
+                                key: id
                             })
-                        })
-                    ]
-                })
-            ]
+                        });
+                    })
+                ]
+            })
         });
     }
 }
 /* harmony default export */ const Analysis_Filter = (Filter);
 
-// EXTERNAL MODULE: ./context/HeaderContext.ts
-var HeaderContext = __webpack_require__(1680);
-;// CONCATENATED MODULE: ./components/Index/Analysis.tsx
+// EXTERNAL MODULE: ./components/common/ResearchCard.tsx
+var ResearchCard = __webpack_require__(7524);
+;// CONCATENATED MODULE: ./components/Index/Catalog.tsx
 
 
 
 
-
-function Analysis(props) {
-    const { 0: analysis , 1: setAnalysis  } = (0,external_react_.useState)(props.analysis);
+function Catalog(props) {
     const { 0: number , 1: setNumber  } = (0,external_react_.useState)(props.analysis.length);
-    const { basket , add  } = (0,external_react_.useContext)(HeaderContext/* HeaderContext */.p);
-    const handleButtonClick = (event)=>{
-        const analysisId = event.target.parentElement.dataset.itemId;
-        for (const analysisItem of analysis){
-            if (analysisItem.research_id == analysisId) {
-                add(analysisItem);
-            }
-        }
-        animateAdd(event.target.parentElement);
-    };
-    const animateAdd = (product)=>{
-        const cloneProduct = product.cloneNode(true);
-        cloneProduct.style.position = "fixed";
-        cloneProduct.style.pointerEvents = "none";
-        const productPosition = getPosition(product);
-        cloneProduct.style.top = `${productPosition.top}px`;
-        cloneProduct.style.left = `${productPosition.left}px`;
-        cloneProduct.style.transition = "transform 0.8s ease, opacity 0.8s ease";
-        cloneProduct.style.transform = `translate3d(0px, 0px, 0px) scale(1)`;
-        cloneProduct.style.zIndex = `1000001`;
-        product.parentElement.insertAdjacentElement("beforeend", cloneProduct);
-        const basketPosition = getPosition(basket.current);
-        const cloneProductPosition = getPosition(cloneProduct);
-        cloneProduct.style.transformOrigin = "top right";
-        cloneProduct.style.transform = `translate3d(${basketPosition.x - cloneProductPosition.x - cloneProductPosition.width / 1.2}px, ${basketPosition.y - cloneProductPosition.y}px, 0px) scale(0)`;
-        cloneProduct.style.opacity = `0`;
-        setTimeout(()=>{
-            cloneProduct.remove();
-        }, 500);
-    };
-    const getPosition = (element)=>{
-        return element.getClientRects()[0];
-    };
-    (0,external_react_.useEffect)(()=>{
-        let counter = 0;
-        analysis.forEach((analysisItem)=>{
-            if (!analysisItem.hidden) {
-                counter++;
-            }
-        });
-        setNumber(counter);
-    }, [
-        analysis
-    ]);
     const callback = (data)=>{
-        const tagsFilter = [];
-        for(const dataKey in data){
-            if (tagsFilter.indexOf(data[dataKey]) === -1) tagsFilter.push(data[dataKey]);
-        }
-        setAnalysis((state)=>{
-            return state.map((analysisItem)=>{
-                if (!tagsFilter) {
-                    // условие #1
-                    analysisItem.hidden = true;
-                    return analysisItem;
-                }
-                for(let i = 0; i < tagsFilter.length; i++){
-                    for(let j = 0; j < analysisItem.tags.split(",").length; j++){
-                        if (analysisItem.tags.split(",")[j].toLowerCase().split(/\s+/).join("").indexOf(tagsFilter[i] != undefined ? tagsFilter[i].toLowerCase().split(/\s+/).join("") : "") !== -1) {
-                            break;
-                        }
-                        if (j === analysisItem.tags.split(",").length - 1) {
-                            analysisItem.hidden = true;
-                            return analysisItem;
-                        }
-                    }
-                }
-                analysisItem.hidden = false;
-                return analysisItem;
-            });
-        });
+    // запрос на бэк
     };
     return /*#__PURE__*/ jsx_runtime_.jsx("section", {
-        className: "page__analysis analysis",
-        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            className: "analysis__container",
-            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "analysis__box",
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx(Analysis_Filter, {
-                        callback: callback,
-                        number: number
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: "analysis__grid",
-                        children: [
-                            analysis.map((analys, id)=>{
-                                return /*#__PURE__*/ jsx_runtime_.jsx(Analys/* Analys */.H, {
-                                    id: id,
-                                    research: analys,
-                                    buttonClick: handleButtonClick
-                                }, id);
-                            }),
-                            number === 0 && "По вашему запросу ничего не нашлось"
-                        ]
+        className: "page__catalog catalog",
+        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            className: "catalog__container",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                    className: "catalog__title",
+                    children: "Каталог анализов"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx(Analysis_Filter, {
+                    callback: callback,
+                    number: number
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "catalog__box",
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "catalog__grid",
+                        children: props.analysis.map((research, id)=>{
+                            return /*#__PURE__*/ jsx_runtime_.jsx(ResearchCard/* ResearchCard */.Q, {
+                                research: research,
+                                id: id
+                            });
+                        })
                     })
-                ]
-            })
+                })
+            ]
         })
     });
 }
@@ -420,17 +311,11 @@ class FirstScreen extends (external_react_default()).Component {
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             className: "fscreen__info-item fscreen-item",
                                             children: [
-                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                                     className: "fscreen-item__name",
-                                                    children: [
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                            children: "covid - 19"
-                                                        }),
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                            className: "fscreen-item__value",
-                                                            children: "(120)"
-                                                        })
-                                                    ]
+                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                        children: "Анализы"
+                                                    })
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                                     className: "fscreen-item__border",
@@ -459,17 +344,11 @@ class FirstScreen extends (external_react_default()).Component {
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             className: "fscreen__info-item fscreen-item",
                                             children: [
-                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                                     className: "fscreen-item__name",
-                                                    children: [
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                            children: "врачи"
-                                                        }),
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                            className: "fscreen-item__value",
-                                                            children: "(120)"
-                                                        })
-                                                    ]
+                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                        children: "пакеты анализов"
+                                                    })
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                                     className: "fscreen-item__border",
@@ -498,17 +377,11 @@ class FirstScreen extends (external_react_default()).Component {
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             className: "fscreen__info-item fscreen-item",
                                             children: [
-                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                                     className: "fscreen-item__name",
-                                                    children: [
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                            children: "Анализы"
-                                                        }),
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                            className: "fscreen-item__value",
-                                                            children: "(120)"
-                                                        })
-                                                    ]
+                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                        children: "акции"
+                                                    })
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                                     className: "fscreen-item__border",
@@ -537,17 +410,11 @@ class FirstScreen extends (external_react_default()).Component {
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             className: "fscreen__info-item fscreen-item",
                                             children: [
-                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                                     className: "fscreen-item__name",
-                                                    children: [
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                            children: "препараты"
-                                                        }),
-                                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                                            className: "fscreen-item__value",
-                                                            children: "(120)"
-                                                        })
-                                                    ]
+                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                        children: "о нас"
+                                                    })
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                                     className: "fscreen-item__border",
@@ -595,120 +462,200 @@ class FirstScreen extends (external_react_default()).Component {
 
 /***/ }),
 
-/***/ 1762:
+/***/ 3376:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "ZP": () => (/* binding */ Index_Info)
+});
+
+// UNUSED EXPORTS: Info, getServerSideProps
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(6689);
+;// CONCATENATED MODULE: ./src/img/microscope.png
+/* harmony default export */ const microscope = ({"src":"/_next/static/media/microscope.70f6bf15.png","height":2308,"width":2201,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+klEQVR42mNwsnaVTIhMkI8Pj7diAIJZU+aJMiADJxvnYjNDi3uGOiaPIkNiJnk4+WwCCgvOYWDQS00MVQIr0lTVnCbAK/RfUUHj/9LZC87dP7tl4ZezR/9v0GHoQTKL23PNkpWPbl+99//N2V0X321ZdGO2JkMpg72ausKE5lrr/y+XcTSUlzdN7J/+6e61B7PPbt1lDtZ3aO3MwPWLZ5UDmZV1peULDu45tu7iyQtvvrz7lg1W8HGTc8GnXSnX9yxoOF2Wm/lfR8vyf0FWwcvYiLibQGk5hqM1DIJPpzKo/P9bI1aQEj0RKPijsaru5+bVG7cxMDCwAwCGUGi1hIVk9gAAAABJRU5ErkJggg=="});
+;// CONCATENATED MODULE: ./components/Index/Info.tsx
 
 
-class Info extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
-    constructor(props){
-        super(props);
-        this.state = {
-            currentActive: null
-        };
+
+function Info(props) {
+    function clickHandler(event) {
+        const buttonId = event.currentTarget.dataset.buttonId;
+        const tabsBox = event.currentTarget.closest(".info__main");
+        if (tabsBox) {
+            const actives = tabsBox.querySelectorAll(".active");
+            if (actives.length) {
+                actives.forEach((active)=>{
+                    active.classList.remove("active");
+                });
+            }
+            const activeCurrent = tabsBox.querySelector(`.info__text[data-content-id="${buttonId}"]`);
+            if (activeCurrent) {
+                activeCurrent.classList.add("active");
+            }
+        }
+        event.currentTarget.classList.add("active");
     }
-    componentDidMount() {
-        this.setState({
-            currentActive: this.buttons[0]
-        }, ()=>{
-            this.state.currentActive?.classList.add("active");
-        });
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        prevState.currentActive?.classList.remove("active");
-    }
-    clickHandler(event) {
-        this.setState({
-            currentActive: event.target
-        }, ()=>{
-            this.state.currentActive?.classList.add("active");
-        });
-    }
-    buttons = [];
-    render() {
-        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
-            className: "page__info info",
-            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "info__container",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                    className: "info__box",
-                    children: [
-                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                            className: "info__main",
-                            children: [
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                    className: "info__tabs-buttons",
-                                    children: this.props.info.buttons.map(({ key , title  })=>{
-                                        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                            className: "info__tabs-button",
-                                            ref: (element)=>{
-                                                this.buttons.push(element);
-                                            },
-                                            onClick: this.clickHandler.bind(this),
-                                            children: title
-                                        }, key);
+    return /*#__PURE__*/ jsx_runtime_.jsx("section", {
+        className: "page__info info",
+        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: "info__container",
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "info__box",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: "info__main",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                className: "info__tabs-buttons",
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                        className: "info__tabs-button active",
+                                        onClick: clickHandler,
+                                        "data-button-id": "0",
+                                        children: "Удобство"
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                        "data-button-id": "1",
+                                        className: "info__tabs-button",
+                                        onClick: clickHandler,
+                                        children: "Качество"
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                        "data-button-id": "2",
+                                        className: "info__tabs-button",
+                                        onClick: clickHandler,
+                                        children: "Надежность"
                                     })
-                                }),
-                                this.props.info.tabs.map((tab)=>{
-                                    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                                        children: this.state.currentActive?.innerText === tab.button && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                            className: "info__text active",
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                "data-content-id": "0",
+                                className: "info__text active",
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-title",
+                                        children: "Лучшее оборудования для проверки"
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-subtitle",
+                                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
                                             children: [
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                    className: "info__text-title",
-                                                    children: tab.title
-                                                }),
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                    className: "info__text-subtitle",
-                                                    children: tab.text.map((paragraph)=>{
-                                                        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                                            children: paragraph
-                                                        });
-                                                    })
-                                                }),
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                    className: "info__text-footer",
-                                                    children: tab.footer
-                                                })
+                                                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+                                                " ",
+                                                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+                                                " Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
                                             ]
-                                        }, tab.key)
-                                    });
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                            className: "info__image active",
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                src: this.props.info.image,
-                                alt: ""
+                                        })
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-footer",
+                                        children: "Работаем с 1988 года"
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        className: "info__name",
+                                        children: [
+                                            "Удобство",
+                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {})
+                                        ]
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                "data-content-id": "1",
+                                className: "info__text",
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-title",
+                                        children: "Лучшее оборудования для проверки"
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-subtitle",
+                                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                            children: [
+                                                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+                                                " ",
+                                                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+                                                " Amet minim mollit non deewgwegewt sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+                                            ]
+                                        })
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-footer",
+                                        children: "Работаем с 1988 года"
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        className: "info__name",
+                                        children: [
+                                            "Качество",
+                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {})
+                                        ]
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                "data-content-id": "2",
+                                className: "info__text",
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-title",
+                                        children: "Лучшее оборудования для проверки"
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-subtitle",
+                                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                            children: [
+                                                "w4gwegewrgewrgerunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ",
+                                                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+                                                " Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+                                            ]
+                                        })
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                        className: "info__text-footer",
+                                        children: "Работаем с 1988 года"
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                        className: "info__name",
+                                        children: [
+                                            "Надежность",
+                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {})
+                                        ]
+                                    })
+                                ]
                             })
-                        }),
-                        this.props.info.buttons.map(({ key , title  })=>{
-                            return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                                children: this.state.currentActive?.innerText === title && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                    "data-tab": title,
-                                    className: "info__name active",
-                                    children: [
-                                        title,
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {})
-                                    ]
-                                }, key)
-                            });
+                        ]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "info__image active",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                            src: microscope.src,
+                            alt: ""
                         })
-                    ]
-                })
+                    })
+                ]
             })
-        });
-    }
+        })
+    });
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Info);
+/* harmony default export */ const Index_Info = (Info);
+const getServerSideProps = async ()=>{
+    try {
+        return {
+            props: {}
+        };
+    } catch (e) {
+        console.log(e.message);
+    }
+    return {
+        props: {}
+    };
+};
 
 
 /***/ }),
@@ -747,6 +694,138 @@ function Map(props) {
 
 /***/ }),
 
+/***/ 2339:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (/* binding */ Packages)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3877);
+/* harmony import */ var _common_ResearchPackageCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5541);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([swiper__WEBPACK_IMPORTED_MODULE_2__]);
+swiper__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+function Packages(props) {
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".popular-analises__slider.popular-analises-swiper.packages", {
+            modules: [
+                swiper__WEBPACK_IMPORTED_MODULE_2__.Navigation,
+                swiper__WEBPACK_IMPORTED_MODULE_2__.Autoplay
+            ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 4,
+            spaceBetween: 20,
+            autoHeight: true,
+            speed: 800,
+            // Эффекты
+            effect: "fade",
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            // Кнопки "влево/вправо"
+            navigation: {
+                prevEl: `.popular-analises__slider.popular-analises-swiper.packages .swiper-button-prev`,
+                nextEl: `.popular-analises__slider.popular-analises-swiper.packages .swiper-button-next`
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 11
+                },
+                770: {
+                    slidesPerView: 3,
+                    spaceBetween: 15
+                },
+                1280: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1920: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                }
+            },
+            // События
+            on: {}
+        });
+    }, []);
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
+        className: "page__popular-analises popular-analises packages",
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+            className: "popular-analises__container",
+            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: "popular-analises__box",
+                children: [
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: "popular-analises__header",
+                        children: [
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                                className: "popular-analises__title section-title",
+                                children: "Пакеты анализов"
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
+                                href: "",
+                                className: "popular-analises__show-all-pc show-all-pc",
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                        children: "смотреть все анализы"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "28",
+                                        height: "29",
+                                        viewBox: "0 0 28 29",
+                                        fill: "none",
+                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                            d: "M22.3145 14.1455C22.3145 13.873 22.2002 13.6094 21.998 13.416L16.2236 7.6416C15.9951 7.42188 15.7578 7.3252 15.5117 7.3252C14.9492 7.3252 14.5449 7.7207 14.5449 8.25684C14.5449 8.53809 14.6592 8.77539 14.835 8.95117L16.8125 10.9551L19.3613 13.2842L17.3223 13.1611H6.66992C6.08105 13.1611 5.67676 13.5654 5.67676 14.1455C5.67676 14.7168 6.08105 15.1211 6.66992 15.1211H17.3223L19.3613 14.998L16.8125 17.3271L14.835 19.3311C14.6592 19.5068 14.5449 19.7441 14.5449 20.0254C14.5449 20.5615 14.9492 20.957 15.5117 20.957C15.7578 20.957 15.9951 20.8604 16.2061 20.6582L21.998 14.8662C22.2002 14.6729 22.3145 14.4092 22.3145 14.1455Z",
+                                            fill: "#337FF9"
+                                        })
+                                    })
+                                ]
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        className: "popular-analises__slider popular-analises-swiper",
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            className: "popular-analises__wrapper swiper-wrapper",
+                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                className: "popular-analises__slide swiper-slide",
+                                children: props.packages?.map((packageItem)=>{
+                                    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_common_ResearchPackageCard__WEBPACK_IMPORTED_MODULE_3__/* .ResearchPackageCard */ .q, {
+                                        id: 1,
+                                        package: packageItem
+                                    });
+                                })
+                            })
+                        })
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                        href: "",
+                        className: "popular-analises__show-all show-all",
+                        children: "смотреть все пакеты анализов"
+                    })
+                ]
+            })
+        })
+    });
+};
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
 /***/ 976:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -754,113 +833,128 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* unused harmony export Popular */
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4905);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Slider__WEBPACK_IMPORTED_MODULE_2__]);
-_Slider__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _common_ResearchCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7524);
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3877);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([swiper__WEBPACK_IMPORTED_MODULE_3__]);
+swiper__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
-const sliders = [
-    {
-        key: 1124,
-        tab: "Анализы",
-        className: "popular-analises",
-        slides: [],
-        hidden: false
-    },
-    {
-        key: 32532,
-        tab: "Комплексы анализов",
-        className: "popular-analises",
-        slides: [],
-        hidden: true
-    }
-];
-class Popular extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
-    constructor(props){
-        super(props);
-        this.state = {
-            sliders: sliders
-        };
-    }
-    componentWillMount() {
-        this.setState((state)=>{
-            state.sliders[0].slides = [];
-            state.sliders[1].slides = [];
-            for (const analysis of this.props.analysis){
-                if (analysis.is_complex) state.sliders[1].slides.push(analysis);
-                else state.sliders[0].slides.push(analysis);
-            }
-            return {
-                sliders: state.sliders
-            };
+
+function Popular(props) {
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](".popular-analises__slider.popular-analises-swiper", {
+            // Указываем скласс нужного слайдера
+            // Подключаем модули слайдера
+            // для конкретного случая
+            modules: [
+                swiper__WEBPACK_IMPORTED_MODULE_3__.Navigation,
+                swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay
+            ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 4,
+            spaceBetween: 20,
+            autoHeight: true,
+            speed: 800,
+            // Эффекты
+            effect: "fade",
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            // Кнопки "влево/вправо"
+            navigation: {
+                prevEl: `.popular-analises__slider.popular-analises-swiper .swiper-button-prev`,
+                nextEl: `.popular-analises__slider.popular-analises-swiper .swiper-button-next`
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 11
+                },
+                770: {
+                    slidesPerView: 3,
+                    spaceBetween: 15
+                },
+                1280: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1920: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                }
+            },
+            // События
+            on: {}
         });
-    }
-    buttonClickHandler = (event)=>{
-        this.setState((state)=>{
-            return {
-                sliders: state.sliders.map((slider)=>{
-                    if (event.target.innerText !== slider.tab) slider.hidden = true;
-                    else slider.hidden = false;
-                    return slider;
-                })
-            };
-        });
-        event.target.parentElement.querySelector(".active").classList.remove("active");
-        event.target.classList.add("active");
-    };
-    componentDidUpdate() {}
-    render() {
-        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
-            className: "page__popular-analises popular-analises",
-            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "popular-analises__container",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                    "data-tabs": true,
-                    className: "popular-analises__box",
-                    children: [
-                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                            className: "popular-analises__header",
-                            children: [
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
-                                    className: "popular-analises__title section-title",
-                                    children: "Популярные анализы"
-                                }),
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                    className: "popular-analises__mobile"
-                                }),
-                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                    "data-da": ".popular-analises__mobile-types, 990",
-                                    className: "popular-analises__types",
-                                    children: [
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                            onClick: this.buttonClickHandler,
-                                            className: "popular-analises__type active",
-                                            children: "Анализы"
-                                        }),
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                            onClick: this.buttonClickHandler,
-                                            className: "popular-analises__type",
-                                            children: "Комплексы анализов"
+    }, []);
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
+        className: "page__popular-analises popular-analises",
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+            className: "popular-analises__container",
+            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: "popular-analises__box",
+                children: [
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: "popular-analises__header",
+                        children: [
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                                className: "popular-analises__title section-title",
+                                children: "Популярные анализы"
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
+                                href: "",
+                                className: "popular-analises__show-all-pc show-all-pc",
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                        children: "смотреть все анализы"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "28",
+                                        height: "29",
+                                        viewBox: "0 0 28 29",
+                                        fill: "none",
+                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                            d: "M22.3145 14.1455C22.3145 13.873 22.2002 13.6094 21.998 13.416L16.2236 7.6416C15.9951 7.42188 15.7578 7.3252 15.5117 7.3252C14.9492 7.3252 14.5449 7.7207 14.5449 8.25684C14.5449 8.53809 14.6592 8.77539 14.835 8.95117L16.8125 10.9551L19.3613 13.2842L17.3223 13.1611H6.66992C6.08105 13.1611 5.67676 13.5654 5.67676 14.1455C5.67676 14.7168 6.08105 15.1211 6.66992 15.1211H17.3223L19.3613 14.998L16.8125 17.3271L14.835 19.3311C14.6592 19.5068 14.5449 19.7441 14.5449 20.0254C14.5449 20.5615 14.9492 20.957 15.5117 20.957C15.7578 20.957 15.9951 20.8604 16.2061 20.6582L21.998 14.8662C22.2002 14.6729 22.3145 14.4092 22.3145 14.1455Z",
+                                            fill: "#337FF9"
                                         })
-                                    ]
-                                })
-                            ]
-                        }),
-                        this.state.sliders.map((slider)=>{
-                            return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Slider__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                                slider: slider
-                            });
+                                    })
+                                ]
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        className: "popular-analises__slider popular-analises-swiper",
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            className: "popular-analises__wrapper swiper-wrapper",
+                            children: props.analysis.map((research, id)=>{
+                                return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                    className: "popular-analises__slide swiper-slide",
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_common_ResearchCard__WEBPACK_IMPORTED_MODULE_2__/* .ResearchCard */ .Q, {
+                                        research: research,
+                                        id: id
+                                    })
+                                });
+                            })
                         })
-                    ]
-                })
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                        href: "",
+                        className: "popular-analises__show-all show-all",
+                        children: "смотреть все анализы"
+                    })
+                ]
             })
-        });
-    }
+        })
+    });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popular);
 
@@ -869,188 +963,76 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 4905:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Slider_Slide__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1135);
-/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3877);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([swiper__WEBPACK_IMPORTED_MODULE_3__]);
-swiper__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/***/ 8657:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Z": () => (/* binding */ Index_Promotion)
+});
 
-// @ts-ignore
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(6689);
+;// CONCATENATED MODULE: ./components/common/PromotionCard.tsx
 
-class Slider extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
-    componentDidMount() {
-        return new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]("." + this.props.slider.className + "-swiper", {
-            // Указываем скласс нужного слайдера
-            // Подключаем модули слайдера
-            // для конкретного случая
-            modules: [
-                swiper__WEBPACK_IMPORTED_MODULE_3__.Navigation,
-                swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay
-            ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 4,
-            spaceBetween: 20,
-            autoHeight: true,
-            speed: 800,
-            // Эффекты
-            effect: "fade",
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            // Кнопки "влево/вправо"
-            navigation: {
-                prevEl: `.${this.props.slider.className}-swiper .swiper-button-prev`,
-                nextEl: `.${this.props.slider.className}-swiper .swiper-button-next`
-            },
-            // Брейкпоинты
-            breakpoints: {
-                320: {
-                    slidesPerView: 2.2,
-                    spaceBetween: 20
-                },
-                770: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                1920: {
-                    slidesPerView: 4,
-                    spaceBetween: 20
-                }
-            },
-            // События
-            on: {}
-        });
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        return new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]("." + this.props.slider.className + "-swiper", {
-            // Указываем скласс нужного слайдера
-            // Подключаем модули слайдера
-            // для конкретного случая
-            modules: [
-                swiper__WEBPACK_IMPORTED_MODULE_3__.Navigation,
-                swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay
-            ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 4,
-            spaceBetween: 20,
-            autoHeight: true,
-            speed: 800,
-            // Эффекты
-            effect: "fade",
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            // Кнопки "влево/вправо"
-            navigation: {
-                prevEl: ".popular-analises-swiper .swiper-button-prev",
-                nextEl: ".popular-analises-swiper .swiper-button-next"
-            },
-            // Брейкпоинты
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
-                },
-                770: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                1920: {
-                    slidesPerView: 4,
-                    spaceBetween: 20
-                }
-            },
-            // События
-            on: {}
-        });
-    }
-    render() {
-        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-            children: !this.props.slider.hidden && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: this.props.slider.className + "__slider popular-analises-swiper active",
-                children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        className: this.props.slider.className + "__wrapper swiper-wrapper",
-                        children: this.props.slider.slides.map((slide)=>{
-                            return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Slider_Slide__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                                research: slide
-                            });
-                        })
-                    }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: this.props.slider.className + "__slider-buttons swiper-buttons",
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                className: "swiper-button-prev",
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "8",
-                                    height: "14",
-                                    viewBox: "0 0 8 14",
-                                    fill: "none",
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
-                                        d: "M0.499997 7.79999L6.2 13.4C6.6 13.8 7.2 13.8 7.6 13.4C8 13 8 12.4 7.6 12L2.7 6.99999L7.6 1.99999C8 1.59999 8 0.999987 7.6 0.599988C7.4 0.399988 7.2 0.299988 6.9 0.299988C6.6 0.299988 6.4 0.399988 6.2 0.599988L0.499997 6.19999C0.099997 6.69999 0.099997 7.29999 0.499997 7.79999C0.499997 7.69999 0.499997 7.69999 0.499997 7.79999Z",
-                                        fill: "none"
-                                    })
-                                })
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                className: "swiper-button-next",
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "8",
-                                    height: "14",
-                                    viewBox: "0 0 8 14",
-                                    fill: "none",
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
-                                        d: "M0.499997 7.79999L6.2 13.4C6.6 13.8 7.2 13.8 7.6 13.4C8 13 8 12.4 7.6 12L2.7 6.99999L7.6 1.99999C8 1.59999 8 0.999987 7.6 0.599988C7.4 0.399988 7.2 0.299988 6.9 0.299988C6.6 0.299988 6.4 0.399988 6.2 0.599988L0.499997 6.19999C0.099997 6.69999 0.099997 7.29999 0.499997 7.79999C0.499997 7.69999 0.499997 7.69999 0.499997 7.79999Z",
-                                        fill: "none"
-                                    })
-                                })
-                            })
-                        ]
-                    })
-                ]
-            }, this.props.slider.key)
-        });
-    }
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Slider);
 
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+const PromotionCard = (props)=>{
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("article", {
+        className: "promotion-card",
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: "promotion-card__image",
+                children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                    src: "",
+                    alt: ""
+                })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                className: "promotion-card__title",
+                children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                    href: "",
+                    children: "Клинический анализ крови: общий анализ, лейкоформула, СОЭ (с микроскопией мазка крови при наличии патологических сдвигов)"
+                })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                href: "",
+                className: "promotion-card__more more-card",
+                children: "Подробнее"
+            })
+        ]
+    });
+};
+/* harmony default export */ const common_PromotionCard = (PromotionCard);
+
+;// CONCATENATED MODULE: ./components/Index/Promotion.tsx
+
+
+
+const Promotion = (props)=>{
+    return /*#__PURE__*/ jsx_runtime_.jsx("section", {
+        className: "page__promotion promotion",
+        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            className: "promotion__container promotion__container_grid",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx(common_PromotionCard, {}),
+                /*#__PURE__*/ jsx_runtime_.jsx(common_PromotionCard, {})
+            ]
+        })
+    });
+};
+/* harmony default export */ const Index_Promotion = (Promotion);
+
 
 /***/ }),
 
-/***/ 1135:
+/***/ 7524:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "Q": () => (/* binding */ ResearchCard)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
@@ -1058,74 +1040,195 @@ __webpack_async_result__();
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1664);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _context_HeaderContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1680);
 
 
 
-class Slide extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
-    render() {
-        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-            className: "popular-analises__slide swiper-slide",
-            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: "popular-analises__card card",
-                children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        className: "card__img-ibg"
-                    }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: "card__text",
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
-                                className: "card__title",
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
-                                    href: `/analysis/[id]`,
-                                    as: `/analysis/${this.props.research.link}`,
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                        className: "card__title-link",
-                                        children: this.props.research.long_title
-                                    })
-                                })
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                className: "card__desc",
-                                children: this.props.research?.additional?.split(",").map((descItem)=>{
-                                    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                        className: "card__desc-item",
-                                        children: descItem
-                                    });
-                                })
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: "card__info",
-                        children: [
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                className: "card__info-item",
-                                children: [
-                                    this.props.research.price,
-                                    " ₸",
-                                    " "
-                                ]
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                className: "card__info-item",
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
-                                    href: `/analysis/[id]`,
-                                    as: `/analysis/${this.props.research.link}`,
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                        className: "card__info-link baner__button",
-                                        children: "Узнать подробнее"
-                                    })
-                                })
-                            })
-                        ]
-                    })
-                ]
-            })
-        });
+
+function ResearchCard(props) {
+    const { basket , add  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context_HeaderContext__WEBPACK_IMPORTED_MODULE_3__/* .HeaderContext */ .p);
+    function addToBasketHandler(event) {
+        add(props.research);
+        animateAdd(event.target.parentElement);
     }
+    const animateAdd = (product)=>{
+        const cloneProduct = product.cloneNode(true);
+        cloneProduct.style.position = "fixed";
+        cloneProduct.style.pointerEvents = "none";
+        const productPosition = getPosition(product);
+        cloneProduct.style.top = `${productPosition.top}px`;
+        cloneProduct.style.left = `${productPosition.left}px`;
+        cloneProduct.style.transition = "transform 0.8s ease, opacity 1s ease";
+        cloneProduct.style.transform = `translate3d(0px, 0px, 0px) scale(1)`;
+        cloneProduct.style.height = `auto`;
+        cloneProduct.style.zIndex = `1000001`;
+        product.parentElement.insertAdjacentElement("beforeend", cloneProduct);
+        const basketPosition = getPosition(basket.current);
+        const cloneProductPosition = getPosition(cloneProduct);
+        cloneProduct.style.transformOrigin = "top right";
+        cloneProduct.style.transform = `translate3d(${basketPosition.x - cloneProductPosition.x - cloneProductPosition.width / 1.2}px, ${basketPosition.y - cloneProductPosition.y}px, 0px) scale(0)`;
+        cloneProduct.style.opacity = `0`;
+        console.log(Math.abs(basketPosition.x - cloneProductPosition.x));
+        setTimeout(()=>{
+            cloneProduct.remove();
+        }, 1000 + Math.abs(basketPosition.x - cloneProductPosition.x));
+    };
+    const getPosition = (element)=>{
+        return element.getClientRects()[0];
+    };
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            "data-item-id": props.research.research_id,
+            className: "analysis__item analysis-item",
+            children: [
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+                    className: "analysis-item__title",
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
+                        href: `/analysis/[id]`,
+                        as: `/analysis/${props.research.link}`,
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                            children: props.research.title
+                        })
+                    })
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "analysis-item__info-box",
+                    children: [
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: "analysis-item__info _icon-clock",
+                            children: [
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                        d: "M15 11H13V7C13 6.73478 12.8946 6.48043 12.7071 6.29289C12.5196 6.10536 12.2652 6 12 6C11.7348 6 11.4804 6.10536 11.2929 6.29289C11.1054 6.48043 11 6.73478 11 7V12C11 12.2652 11.1054 12.5196 11.2929 12.7071C11.4804 12.8946 11.7348 13 12 13H15C15.2652 13 15.5196 12.8946 15.7071 12.7071C15.8946 12.5196 16 12.2652 16 12C16 11.7348 15.8946 11.4804 15.7071 11.2929C15.5196 11.1054 15.2652 11 15 11ZM12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20Z"
+                                    })
+                                }),
+                                props.research.terms_of_analyzes.title
+                            ]
+                        }),
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: "analysis-item__info _icon-blood",
+                            children: [
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                        d: "M12 22C9.87827 22 7.84344 21.1571 6.34315 19.6569C4.84285 18.1566 4 16.1217 4 14C4 10.498 6.71 7.697 9.093 5.13L12 2L14.907 5.13C17.29 7.698 20 10.499 20 14C20 16.1217 19.1571 18.1566 17.6569 19.6569C16.1566 21.1571 14.1217 22 12 22V22Z",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                    })
+                                }),
+                                props.research.biomaterial.title
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "analysis-item__price-box",
+                    children: [
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            className: "analysis-item__price-id",
+                            children: props.research.research_id
+                        }),
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: "analysis-item__price-value",
+                            children: [
+                                props.research.price,
+                                " ₸"
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                    onClick: addToBasketHandler,
+                    className: "analysis-item__add"
+                })
+            ]
+        })
+    });
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Slide);
+
+
+/***/ }),
+
+/***/ 5541:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "q": () => (/* binding */ ResearchPackageCard)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function ResearchPackageCard(props) {
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("article", {
+            "data-item-id": props.package.id,
+            className: "analysis-package__item analysis-package",
+            children: [
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                    className: "analysis-package__image",
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                        src: "",
+                        alt: ""
+                    })
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "analysis-package__number",
+                    children: [
+                        "Анализов: ",
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                            children: props.package.package.length
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                    href: "",
+                    className: "analysis-package__title",
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+                        children: props.package.name_of_package
+                    })
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                    className: "analysis-package__date",
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                        children: "2 — 4 дня"
+                    })
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "analysis-package__actions",
+                    children: [
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            className: "analysis-package__price",
+                            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                                children: [
+                                    props.package.price_of_package,
+                                    " тг"
+                                ]
+                            })
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                            href: "",
+                            className: "analysis-package__more more-card",
+                            children: "Подробнее"
+                        })
+                    ]
+                })
+            ]
+        })
+    });
+}
 
 
 /***/ }),
@@ -1136,29 +1239,27 @@ class Slide extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Index)
+/* harmony export */   "default": () => (/* binding */ Index),
+/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Index_FirstScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9935);
-/* harmony import */ var _components_Index_Banners__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1294);
-/* harmony import */ var _components_Index_Popular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(976);
-/* harmony import */ var _components_Index_Analysis__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4737);
-/* harmony import */ var _components_Index_Reviews__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(75);
-/* harmony import */ var _components_Index_News__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5197);
-/* harmony import */ var _components_Index_Info__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1762);
-/* harmony import */ var _components_Index_Map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1218);
-/* harmony import */ var _src_img_baners_01_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6913);
-/* harmony import */ var _src_img_baners_02_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(1400);
-/* harmony import */ var _src_img_microscope_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(616);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(1664);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _layouts_mainLayout__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(49);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(968);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_14__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_Index_Popular__WEBPACK_IMPORTED_MODULE_3__, _components_Index_Reviews__WEBPACK_IMPORTED_MODULE_5__, _components_Index_News__WEBPACK_IMPORTED_MODULE_6__]);
-([_components_Index_Popular__WEBPACK_IMPORTED_MODULE_3__, _components_Index_Reviews__WEBPACK_IMPORTED_MODULE_5__, _components_Index_News__WEBPACK_IMPORTED_MODULE_6__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
-
+/* harmony import */ var _components_Index_Popular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(976);
+/* harmony import */ var _components_Index_Catalog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4087);
+/* harmony import */ var _components_Index_Reviews__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(75);
+/* harmony import */ var _components_Index_News__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5197);
+/* harmony import */ var _components_Index_Info__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(3376);
+/* harmony import */ var _components_Index_Map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1218);
+/* harmony import */ var _src_img_baners_01_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6913);
+/* harmony import */ var _src_img_baners_02_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(1400);
+/* harmony import */ var _layouts_mainLayout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(49);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(968);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_Index_Packages__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(2339);
+/* harmony import */ var _components_Index_Promotion__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(8657);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_Index_Popular__WEBPACK_IMPORTED_MODULE_2__, _components_Index_Reviews__WEBPACK_IMPORTED_MODULE_4__, _components_Index_News__WEBPACK_IMPORTED_MODULE_5__, _components_Index_Packages__WEBPACK_IMPORTED_MODULE_12__]);
+([_components_Index_Popular__WEBPACK_IMPORTED_MODULE_2__, _components_Index_Reviews__WEBPACK_IMPORTED_MODULE_4__, _components_Index_News__WEBPACK_IMPORTED_MODULE_5__, _components_Index_Packages__WEBPACK_IMPORTED_MODULE_12__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -1179,7 +1280,7 @@ const banners = {
             banner: {
                 title: "Проверка симптомов Covid - 18",
                 text: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint." + " Velit officia consequat duis enim velit mollit.",
-                src: _src_img_baners_01_png__WEBPACK_IMPORTED_MODULE_9__/* ["default"].src */ .Z.src,
+                src: _src_img_baners_01_png__WEBPACK_IMPORTED_MODULE_8__/* ["default"].src */ .Z.src,
                 href: "",
                 key: 0
             }
@@ -1188,80 +1289,17 @@ const banners = {
             banner: {
                 title: "Назначения правильного лечения",
                 text: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint." + " Velit officia consequat duis enim velit mollit.",
-                src: _src_img_baners_02_png__WEBPACK_IMPORTED_MODULE_10__/* ["default"].src */ .Z.src,
+                src: _src_img_baners_02_png__WEBPACK_IMPORTED_MODULE_9__/* ["default"].src */ .Z.src,
                 href: "",
                 key: 1
             }
         }, 
     ]
 };
-const info = {
-    buttons: [
-        {
-            key: 0,
-            title: "Удобство"
-        },
-        {
-            key: 1,
-            title: "Качество"
-        },
-        {
-            key: 2,
-            title: "Надежность"
-        },
-        {
-            key: 3,
-            title: "Сроки"
-        }, 
-    ],
-    tabs: [
-        {
-            key: 4,
-            title: "Лучшее оборудования для проверки",
-            text: [
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
-            ],
-            button: "Удобство",
-            footer: "Работаем с 1988 года"
-        },
-        {
-            key: 5,
-            title: "Лучшее оборудования для проверки",
-            text: [
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
-            ],
-            button: "Качество",
-            footer: "Работаем с 1388 года"
-        },
-        {
-            key: 6,
-            title: "Лучшее оборудования для проверки",
-            text: [
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
-            ],
-            button: "Надежность",
-            footer: "Работаем с 1588 года"
-        },
-        {
-            key: 7,
-            title: "Лучшее оборудования для проверки",
-            text: [
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-                "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.", 
-            ],
-            button: "Сроки",
-            footer: "Работаем с 1688 года"
-        }, 
-    ],
-    image: _src_img_microscope_png__WEBPACK_IMPORTED_MODULE_11__/* ["default"].src */ .Z.src
-};
-function Index({ news , reviews , analysis  }) {
+function Index({ news , reviews , analysis , packages  }) {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_14___default()), {
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_11___default()), {
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("title", {
                         children: "Главная"
@@ -1277,41 +1315,27 @@ function Index({ news , reviews , analysis  }) {
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: "wrapper",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_13__/* .MainLayout */ .Z, {
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_10__/* .MainLayout */ .Z, {
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_FirstScreen__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {}),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Banners__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                            ...banners
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Promotion__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .Z, {}),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Packages__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {
+                            packages: packages
                         }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Popular__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Popular__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                             analysis: analysis
                         }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
-                            className: "page__main main",
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                className: "main__container",
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_12___default()), {
-                                    href: "/catalog",
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                        className: "main__button",
-                                        children: "Каталог анализов"
-                                    })
-                                })
-                            })
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Analysis__WEBPACK_IMPORTED_MODULE_4__/* .Analysis */ .u, {
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Catalog__WEBPACK_IMPORTED_MODULE_3__/* .Catalog */ .g, {
                             analysis: analysis
                         }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Reviews__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Reviews__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
                             reviews: reviews
                         }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_News__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_News__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                             news: news
                         }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Info__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
-                            info: info
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Map__WEBPACK_IMPORTED_MODULE_8__/* .Map */ .D, {
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Info__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .ZP, {}),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Index_Map__WEBPACK_IMPORTED_MODULE_7__/* .Map */ .D, {
                             mapSrc: "https://yandex.kz/map-widget/v1/-/CCURqDxLOA"
                         })
                     ]
@@ -1320,29 +1344,34 @@ function Index({ news , reviews , analysis  }) {
         ]
     });
 };
-Index.getInitialProps = async ({ req  })=>{
+const getServerSideProps = async ()=>{
     try {
-        const response = await fetch("http://195.49.215.130:8082/api/front/news/allNews");
+        const response = await fetch("http://195.49.215.130/api/front/news/allNews");
         const news = await response.json() ?? [];
-        // const responseReviews = await fetch(
-        //   "http://195.49.215.130:8082/api/front/review/allReviews"
-        // );
-        // const reviews: IReview[] = (await responseReviews.json()) ?? [];
-        const responseAnalysis = await fetch("http://195.49.215.130:8082/api/front/analyse/allAnalyse");
+        const responseReviews = await fetch("http://195.49.215.130/api/front/review/allReviews");
+        const reviews = await responseReviews.json() ?? [];
+        const responseAnalysis = await fetch("http://195.49.215.130/api/front/analyse/allAnalyse");
         const analysis = await responseAnalysis.json() ?? [];
-        console.log(news, analysis);
+        const responsePackages = await fetch("http://195.49.215.130/api/front/package/allPackages");
+        const packages = await responsePackages.json() ?? [];
+        //console.log(reviews);
         return {
-            news,
-            analysis,
-            reviews: []
+            props: {
+                news,
+                analysis,
+                reviews,
+                packages
+            }
         };
     } catch (e) {
         console.log(e.message);
     }
     return {
-        news: [],
-        reviews: [],
-        analysis: []
+        props: {
+            news: [],
+            reviews: [],
+            analysis: []
+        }
     };
 };
 
@@ -1526,6 +1555,13 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ 6419:
+/***/ ((module) => {
+
+module.exports = require("react-rating");
+
+/***/ }),
+
 /***/ 997:
 /***/ ((module) => {
 
@@ -1547,7 +1583,7 @@ module.exports = import("swiper");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [952,664,49,971,75,205,259], () => (__webpack_exec__(5075)));
+var __webpack_exports__ = __webpack_require__.X(0, [952,664,49,75,971], () => (__webpack_exec__(5075)));
 module.exports = __webpack_exports__;
 
 })();

@@ -307,6 +307,13 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ 6419:
+/***/ ((module) => {
+
+module.exports = require("react-rating");
+
+/***/ }),
+
 /***/ 997:
 /***/ ((module) => {
 

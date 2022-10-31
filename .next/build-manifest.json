@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/n4njVMllFUG2j0zjHUJWQ/_buildManifest.js",
-    "static/n4njVMllFUG2j0zjHUJWQ/_ssgManifest.js"
+    "static/hH7bdHvRsyFCs-lJhXgUR/_buildManifest.js",
+    "static/hH7bdHvRsyFCs-lJhXgUR/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -17,7 +17,8 @@
       "static/chunks/664-fe1f0ac1dd157bd4.js",
       "static/chunks/857-358e670e11be153b.js",
       "static/chunks/49-6b71e7cfec0ac3bf.js",
-      "static/chunks/pages/index-d44c7600e8e2ba52.js"
+      "static/chunks/206-a3514c056183c55e.js",
+      "static/chunks/pages/index-3940d246346cef1c.js"
     ],
     "/404": [
       "static/chunks/webpack-d7b038a63b619762.js",
@@ -30,7 +31,7 @@
       "static/chunks/webpack-d7b038a63b619762.js",
       "static/chunks/framework-4556c45dd113b893.js",
       "static/chunks/main-f033754391b5c2e4.js",
-      "static/css/2174ab90478a3110.css",
+      "static/css/f262955a06580ad5.css",
       "static/chunks/pages/_app-fc89675f0b80d7ad.js"
     ],
     "/_error": [
@@ -54,7 +55,7 @@
       "static/chunks/main-f033754391b5c2e4.js",
       "static/chunks/664-fe1f0ac1dd157bd4.js",
       "static/chunks/49-6b71e7cfec0ac3bf.js",
-      "static/chunks/pages/actions-cdecb94b0c91366a.js"
+      "static/chunks/pages/actions-60aafe1563b35450.js"
     ],
     "/analysis/[id]": [
       "static/chunks/webpack-d7b038a63b619762.js",
@@ -79,7 +80,7 @@
       "static/chunks/main-f033754391b5c2e4.js",
       "static/chunks/664-fe1f0ac1dd157bd4.js",
       "static/chunks/49-6b71e7cfec0ac3bf.js",
-      "static/chunks/pages/catalog-d7afb9e261cf739f.js"
+      "static/chunks/pages/catalog-cca73f90d38922ff.js"
     ],
     "/contacts": [
       "static/chunks/webpack-d7b038a63b619762.js",
@@ -112,7 +113,7 @@
       "static/chunks/664-fe1f0ac1dd157bd4.js",
       "static/chunks/857-358e670e11be153b.js",
       "static/chunks/49-6b71e7cfec0ac3bf.js",
-      "static/chunks/pages/news-d5d8c3312a376eb3.js"
+      "static/chunks/pages/news-92b2165139973e65.js"
     ],
     "/profile/notifications": [
       "static/chunks/webpack-d7b038a63b619762.js",
@@ -147,7 +148,8 @@
       "static/chunks/664-fe1f0ac1dd157bd4.js",
       "static/chunks/857-358e670e11be153b.js",
       "static/chunks/49-6b71e7cfec0ac3bf.js",
-      "static/chunks/pages/reviews-ddd682ab2431f806.js"
+      "static/chunks/206-a3514c056183c55e.js",
+      "static/chunks/pages/reviews-335ae6de95bd35ac.js"
     ],
     "/verification": [
       "static/chunks/webpack-d7b038a63b619762.js",

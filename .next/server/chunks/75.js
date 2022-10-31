@@ -15,11 +15,14 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3877);
+/* harmony import */ var react_rating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6419);
+/* harmony import */ var react_rating__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_rating__WEBPACK_IMPORTED_MODULE_3__);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([swiper__WEBPACK_IMPORTED_MODULE_2__]);
 swiper__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 // @ts-ignore
+
 
 class Reviews extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
     componentDidMount() {
@@ -92,7 +95,6 @@ class Reviews extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                     className: "reviews__wrapper swiper-wrapper",
                                     children: this.props.reviews.map((review)=>{
-                                        const date = `${review.date.split("T")[0].split("-").reverse().join(".")}`;
                                         return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                             className: "reviews__slide swiper-slide",
                                             children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -103,20 +105,34 @@ class Reviews extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                                                         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                                             className: "reviews-card__info-box",
                                                             children: [
-                                                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                     className: "reviews-card__info-name",
-                                                                    children: [
-                                                                        review.firstname,
-                                                                        " ",
-                                                                        review.lastname
-                                                                    ]
+                                                                    children: review.name
                                                                 }),
                                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                     className: "reviews-card__info-date",
-                                                                    children: date
+                                                                    children: review.date
                                                                 })
                                                             ]
                                                         })
+                                                    }),
+                                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                                        className: "reviews-card__rating",
+                                                        children: [
+                                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                                                className: "reviews-card__rating-value",
+                                                                children: [
+                                                                    review.ratings,
+                                                                    "/5"
+                                                                ]
+                                                            }),
+                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((react_rating__WEBPACK_IMPORTED_MODULE_3___default()), {
+                                                                initialRating: review.ratings,
+                                                                readonly: true,
+                                                                emptySymbol: "rating-item",
+                                                                fullSymbol: "rating-item-fill"
+                                                            })
+                                                        ]
                                                     }),
                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                         className: "reviews-card__text",

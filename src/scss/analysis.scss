@@ -1,6 +1,5 @@
 .page {
   &__analysis {
-    background-color: #EDF0F6;
     @include adaptiveValue("margin-bottom", 50, 25);
     padding: rem(25) 0;
     font-family: 'Gilroy';
@@ -13,6 +12,8 @@
 
   &__box {
     display: flex;
+
+    flex-direction: column;
     justify-content: space-between;
     gap: rem(10);
     @media(max-width: $tablet) {
@@ -21,14 +22,15 @@
   }
 
   &__filter-box {
-    flex: 0 0 percent(540, 1860);
-
+    flex: 1 1 auto;
   }
 
   &__grid {
     flex: 0 0 percent(1080, 1860);
-
+    background-color: #EDF0F6;
+    padding: rem(30);
     @include gridCards(fit, 250px, 353px, 10px); //$type: fit, $min: 280px, $max: 1fr, $gap: 30px
+    border-radius: 20px;
     align-items: flex-start;
     @media(max-width:$tablet){
       display: block;
@@ -38,6 +40,9 @@
 
   &__item {
     padding: rem(20) rem(30);
+    @media(max-width:$tablet){
+      padding: rem(15);
+    }
     background-color: #FFFFFF;
     border: 1px solid #D0D6E4;
     border-radius: 10px;
@@ -45,6 +50,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     @media(max-width:$tablet){
       &:not(:last-child){
         margin-bottom: rem(10);
@@ -52,6 +58,7 @@
     }
     @media(any-hover: hover) {
       &:hover {
+        @media(min-width:$tablet){
         background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%);
         color: #FFFFFF;
         cursor: pointer;
@@ -60,26 +67,24 @@
           display: block;
 
         }
-
+        .analysis-item__info{
+          &:nth-child(1){
+            svg path{
+              fill:  #E1E1E1;
+            }
+          }
+          &:nth-child(2){
+            svg path{
+              stroke:  #E1E1E1;
+            }
+          }
+        }
         .analysis-item__title, .analysis-item__info-box, .analysis-item__price-id, .analysis-item__price-value {
           color: #FFFFFF;
         }
 
+        }
 
-      }
-    }
-    @media(max-width:$tablet){
-      background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%);
-      color: #FFFFFF;
-      cursor: pointer;
-
-      .analysis-item__add {
-        display: block;
-
-      }
-
-      .analysis-item__title, .analysis-item__info-box, .analysis-item__price-id, .analysis-item__price-value {
-        color: #FFFFFF;
       }
     }
   }
@@ -123,8 +128,11 @@
 
   &__form {
     display: flex;
-    flex-direction: column;
-    gap: rem(18);
+    width: 100%;
+    @include adaptiveValue("gap", 20, 10);
+    @media(max-width:$tablet){
+        flex-direction: column;
+    }
   }
 }
 
@@ -135,7 +143,13 @@
     font-size: rem(18);
     line-height: math.div(35, 18);
     color: #242328;
-
+    flex: 1 1 auto;
+    & > svg{
+      position: absolute;
+      top: 50%;
+      left: rem(20);
+      transform: translateY(-50%);
+    }
     &:focus {
 
     }
@@ -167,9 +181,9 @@
     width: 100%;
     background-color: #FFFFFF;
     border-radius: 10px;
-    padding: rem(20);
+    padding: rem(18.5) rem(60);
     border: 1px solid #AFAFAF;
-
+    height: 100%;
     &:focus {
       outline: none;
       border: 1px solid #1C43C1;
@@ -199,7 +213,6 @@
           cursor: pointer;
           background: radial-gradient(48.05% 101.92% at 84.71% 73.75%, #0528A3 0%, #244CCB 100%);
           color: #FFFFFF;
-
           &:after {
             border-color: #FFFFFF;
             background-color: #8EA8FF;
@@ -258,6 +271,19 @@
   }
 
   &__info {
+    display: flex;
+    align-items: center;
+    gap: rem(15);
+    &:nth-child(1){
+      svg path{
+        fill:  #7E91D6;
+      }
+    }
+    &:nth-child(2){
+      svg path{
+        stroke:  #7E91D6;
+      }
+    }
   }
 
   &__price-box {

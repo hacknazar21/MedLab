@@ -1,3 +1,4 @@
+@import "promotion-card";
 // Заголовки, общие БЄМ блоки и проче...
 .bg-orange {
   background: linear-gradient(93.79deg, #E77725 0%, #EDAD13 100%);
@@ -180,7 +181,7 @@
 
 .section-title {
   font-weight: 550;
-  @include adaptiveValue("font-size", 30, 14);
+  @include adaptiveValue("font-size", 30, 22);
   line-height: 1;
   letter-spacing: 0.03em;
   color: #363B48;
@@ -337,4 +338,77 @@
   width: 100%;
   text-align: center;
   padding: rem(20) 0;
+}
+.show-all{
+  display: block;
+  text-align: center;
+  padding: rem(8) 0;
+  border: 1px solid #337FF9;
+  border-radius: 10px;
+  margin-top: rem(15);
+
+  font-weight: 700;
+  font-size: rem(12);
+  line-height: math.div(24,12);
+  
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #337FF9;
+  @media(min-width:$tablet){
+    display: none;
+  }
+}
+.show-all-pc {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: rem(8) rem(15);
+  border: 1px solid #337FF9;
+  border-radius: 10px;
+  margin-top: rem(15);
+
+  font-weight: 700;
+  font-size: rem(12);
+  line-height: math.div(24,12);
+  span{
+    transform: translateY(4%);
+  }
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #337FF9;
+  svg{
+    margin-left: rem(15);
+  }
+  @media(max-width:$tablet){
+    display: none;
+  }
+}
+
+.more-card {
+  display: block;
+  background-color: #3282FA;
+  transition: background-color 0.3s ease;
+  @media(any-hover: hover){
+    &:hover{
+      background-color: #1E4AE4;
+      text-decoration: none;
+    }
+  }
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: rem(18);
+  line-height: math.div(22,18);
+  padding: rem(14) rem(25);
+
+}
+.rating-item, .rating-item-fill{
+  color: #CBCBCB;
+  &:before{
+    content: "★";
+    font-size: 20px;
+  }
+}
+.rating-item-fill {
+  color:  #E4AD1E;
 }

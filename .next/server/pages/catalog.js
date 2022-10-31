@@ -5,7 +5,7 @@ exports.id = 65;
 exports.ids = [65];
 exports.modules = {
 
-/***/ 2787:
+/***/ 6346:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -31,8 +31,66 @@ var head_ = __webpack_require__(968);
 var head_default = /*#__PURE__*/__webpack_require__.n(head_);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(6689);
-// EXTERNAL MODULE: ./components/Index/Analysis/Analys.tsx
-var Analys = __webpack_require__(5259);
+;// CONCATENATED MODULE: ./components/Index/Analysis/Analys.tsx
+
+
+
+function Analys(props) {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: !props.research.hidden && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            "data-item-id": props.research.research_id,
+            className: "analysis__item analysis-item",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                    href: `/analysis/[id]`,
+                    as: `/analysis/${props.research.link}`,
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                        href: "",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                            className: "analysis-item__title",
+                            children: props.research.title
+                        })
+                    })
+                }),
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: "analysis-item__info-box",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "analysis-item__info _icon-clock",
+                            children: props.research.terms_of_analyzes.title
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "analysis-item__info _icon-blood",
+                            children: props.research.biomaterial.title
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: "analysis-item__price-box",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "analysis-item__price-id",
+                            children: props.research.research_id
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "analysis-item__price-value",
+                            children: [
+                                props.research.price,
+                                " ₸"
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                    onClick: props.buttonClick,
+                    className: "analysis-item__add"
+                })
+            ]
+        })
+    });
+}
+/* harmony default export */ const Analysis_Analys = (Analys);
+
 ;// CONCATENATED MODULE: ./components/Catalog/Catalog.tsx
 
 
@@ -71,7 +129,7 @@ function Catalog(props) {
                         /*#__PURE__*/ jsx_runtime_.jsx("div", {
                             className: "catalog__items",
                             children: props.researches.map((research)=>{
-                                return /*#__PURE__*/ jsx_runtime_.jsx(Analys/* default */.Z, {
+                                return /*#__PURE__*/ jsx_runtime_.jsx(Analysis_Analys, {
                                     research: research,
                                     buttonClick: onResearchClick
                                 });
@@ -381,7 +439,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [952,664,49,794,259], () => (__webpack_exec__(2787)));
+var __webpack_exports__ = __webpack_require__.X(0, [952,664,49,794], () => (__webpack_exec__(6346)));
 module.exports = __webpack_exports__;
 
 })();

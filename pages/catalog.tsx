@@ -2,7 +2,6 @@ import { Header } from "../components/Index/Header";
 import FirstScreen from "../components/Index/FirstScreen";
 import Banners from "../components/Index/Banners";
 import Popular from "../components/Index/Popular";
-import { Analysis } from "../components/Index/Analysis";
 import Reviews from "../components/Index/Reviews";
 import News from "../components/Index/News";
 import Info from "../components/Index/Info";

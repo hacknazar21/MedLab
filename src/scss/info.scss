@@ -112,7 +112,11 @@
     font-weight: 500;
     font-size: rem(28);
     line-height: math.div(25, 28);
-
+    position: absolute;
+    top: 0;
+    right: rem(40);
+    height: 100%;
+    padding: rem(40) 0;
     writing-mode: vertical-rl;
 
     color: #FFFFFF;
@@ -120,7 +124,7 @@
     gap: rem(45);
     display: none;
 
-    &.active {
+    .active > & {
       display: flex;
     }
 

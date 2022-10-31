@@ -1,0 +1,19 @@
+.page {
+  &__promotion {
+    margin: rem(20) 0;
+  }
+}
+
+.promotion {
+  &__container {
+    &_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: rem(20);
+      @media(max-width:$mobile){
+        grid-template-columns: 1fr;
+        gap: rem(10);
+      }
+    }
+  }
+}

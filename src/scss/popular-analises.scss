@@ -13,7 +13,7 @@
   &__box {
     background: #EDF0F6;
     border-radius: 20px;
-    padding: rem(30);
+    @include adaptiveValue("padding", 30, 15);
   }
 
   &__header {
@@ -56,10 +56,8 @@
 
   &__slider {
     overflow: hidden;
-    display: none;
-
-    &.active {
-      display: block;
+    @media(max-width:$mobile){
+      width: 100vw;
     }
   }
 
@@ -67,6 +65,7 @@
   }
 
   &__slide {
+    height: 100%;
   }
 
   &__card {

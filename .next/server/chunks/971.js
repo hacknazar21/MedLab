@@ -19,11 +19,11 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([swip
 swiper__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
-// @ts-ignore
 
 class News extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
     componentDidMount() {
         return new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".news-swiper", {
+            // Указываем скласс нужного слайдера
             // Подключаем модули слайдера
             // для конкретного случая
             modules: [
@@ -53,12 +53,16 @@ class News extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                     slidesPerView: 1,
                     spaceBetween: 20
                 },
-                770: {
+                480: {
                     slidesPerView: 2,
                     spaceBetween: 20
                 },
-                992: {
+                770: {
                     slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 4,
                     spaceBetween: 20
                 },
                 1920: {
@@ -91,7 +95,6 @@ class News extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                     className: "news__wrapper swiper-wrapper",
                                     children: this.props.news.map((news)=>{
-                                        const date = `${news.date.split("T")[0].split("-").reverse().join(".")}`;
                                         return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                             className: "news__slide swiper-slide",
                                             children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -100,7 +103,7 @@ class News extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                         className: "card__img-ibg",
                                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                                            src: news.image,
+                                                            src: news.img_news,
                                                             alt: ""
                                                         })
                                                     }),
@@ -111,13 +114,13 @@ class News extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                                                                 className: "card__desc",
                                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                                     className: "card__desc-item",
-                                                                    children: date
+                                                                    children: news.date
                                                                 })
                                                             }),
                                                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
                                                                 className: "card__title",
                                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                                                    href: "/news/" + news.href,
+                                                                    href: "/news/" + news.link,
                                                                     className: "card__title-link",
                                                                     children: news.title
                                                                 })
@@ -129,7 +132,7 @@ class News extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
                                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                                             className: "card__info-item",
                                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                                                href: "/news/" + news.href,
+                                                                href: "/news/" + news.link,
                                                                 className: "card__info-link baner__button",
                                                                 children: "Узнать подробнее"
                                                             })

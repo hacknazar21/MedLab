@@ -1,0 +1,46 @@
+.page {
+  &__catalog {
+    
+  }
+}
+
+.catalog {
+  &__container {
+  }
+
+  &__title {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 28, 18);
+    line-height: math.div(34,28);
+    display: block;
+    text-align: center;
+    padding: rem(23) 0;
+    background-color: #1E4AE4;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin-bottom: rem(20);
+  }
+
+  &__box {
+    @include adaptiveValue("padding", 30, 0);
+    background-color: #EDF0F6;
+    @media(max-width:$mobile){
+      background-color: initial;
+      padding: 0;
+    }
+    border-radius: 20px;
+    margin: rem(20) 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media(max-width:$tablet){
+      grid-template-columns: 1fr 1fr;
+    }
+    @media(max-width:$mobile){
+      grid-template-columns: 1fr;
+    }
+    gap: rem(10);
+  }
+}

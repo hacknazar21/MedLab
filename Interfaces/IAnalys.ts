@@ -1,27 +1,31 @@
+import { IBiomaterial } from "./IBiomaterial";
+import { ICategory } from "./ICategory";
+
 export interface IAnalys {
   id: string;
+  category: ICategory;
+  terms_of_analyzes: {
+    id: string;
+    title: string;
+    createdat: string;
+    updatedat: string;
+  };
+  biomaterial: IBiomaterial;
+  banner_images: string[];
+  link: string;
   title: string;
   long_title: string;
   is_unique: boolean;
   research_id: string;
-  research_time: string;
-  biomaterial: {
-    title: string;
-  };
-  terms_of_analyzes: {
-    title: string;
-  };
-  price: string;
-  description_patient: string;
-  description_doctor: string;
-  preparation_patient: string;
+  price: number;
   preparation_doctor: string;
-  banner_images: string[];
   document_img: string;
   main_img: string;
-  is_complex: false;
-  additional: string;
-  tags: string;
-  link: string;
+  description_patient: string;
+  preparation_patient: string;
+  description_doctor: string;
+  createdat: string;
+  updatedat: string;
+  vendor_code: string;
   hidden?: boolean;
 }

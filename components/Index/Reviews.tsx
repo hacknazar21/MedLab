@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // @ts-ignore
 import Swiper, { Autoplay, Navigation } from "swiper";
 import { IReview } from "../../Interfaces/IReview";
+import Rating from "react-rating";
 interface Props {
   reviews: IReview[];
 }
@@ -68,26 +69,29 @@ class Reviews extends React.Component<Props, any> {
             <div className="reviews__slider reviews-swiper">
               <div className="reviews__wrapper swiper-wrapper">
                 {this.props.reviews.map((review) => {
-                  const date = `${review.date
-                    .split("T")[0]
-                    .split("-")
-                    .reverse()
-                    .join(".")}`;
                   return (
                     <div className="reviews__slide swiper-slide">
                       <div className="reviews__card reviews-card">
                         <div className="reviews-card__header">
-                          {/*<div className="reviews-card__img-ibg">*/}
-                          {/*  <img src={review.avatar} alt="" />*/}
-                          {/*</div>*/}
                           <div className="reviews-card__info-box">
                             <div className="reviews-card__info-name">
-                              {review.firstname} {review.lastname}
+                              {review.name}
                             </div>
                             <div className="reviews-card__info-date">
-                              {date}
+                              {review.date}
                             </div>
                           </div>
+                        </div>
+                        <div className="reviews-card__rating">
+                          <div className="reviews-card__rating-value">
+                            {review.ratings}/5
+                          </div>
+                          <Rating
+                            initialRating={review.ratings}
+                            readonly={true}
+                            emptySymbol={"rating-item"}
+                            fullSymbol={"rating-item-fill"}
+                          />
                         </div>
                         <div className="reviews-card__text">
                           <p>{review.text_review}</p>

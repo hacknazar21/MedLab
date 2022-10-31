@@ -51,6 +51,17 @@
     
 
   }
+  &__rating{
+    display: flex;
+    gap: rem(7);
+    align-items: center;
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: math.div(25,20);
+    
+    text-align: justify;
+    color: #363B48;
+  }
 
   &__info-box {
   }

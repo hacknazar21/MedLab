@@ -1,0 +1,33 @@
+.promotion-card {
+  padding: rem(15);
+  background: #FFFFFF;
+  border: 1px solid #D0D6E4;
+  border-radius: 20px;
+  &__image {
+    position: relative;
+    padding-bottom: rem(150);
+    width: 100%;
+    margin-bottom: rem(20);
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 20, 14);
+    line-height: math.div(24,20);
+    color: #363B48;
+    margin-bottom: rem(20);
+  }
+
+  &__more {
+    max-width: rem(250);
+    text-align: center;
+  }
+}

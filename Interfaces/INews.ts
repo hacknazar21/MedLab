@@ -1,7 +1,9 @@
-export interface INews{
-        id: any,
-        image: string,
-        date: string,
-        title: string,
-        href: string
+export interface INews {
+  id: string;
+  link: string;
+  img_news: string;
+  title: string;
+  date: string;
+  createdat: string;
+  updatedat: string;
 }

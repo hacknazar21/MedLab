@@ -1,22 +1,23 @@
 import FirstScreen from "../components/Index/FirstScreen";
 import Banners from "../components/Index/Banners";
 import Popular from "../components/Index/Popular";
-import { Analysis } from "../components/Index/Analysis";
+import { Catalog } from "../components/Index/Catalog";
 import Reviews from "../components/Index/Reviews";
 import News from "../components/Index/News";
 import Info from "../components/Index/Info";
 import { Map } from "../components/Index/Map";
 import { IBanners } from "../Interfaces/IBanner";
 import { INews } from "../Interfaces/INews";
-import { IInfo } from "../Interfaces/IInfo";
 import banner1 from "../src/img/baners/01.png";
 import banner2 from "../src/img/baners/02.png";
-import Microscope from "../src/img/microscope.png";
 import { IReview } from "../Interfaces/IReview";
 import { IAnalys } from "../Interfaces/IAnalys";
-import Link from "next/link";
 import { MainLayout } from "../layouts/mainLayout";
 import Head from "next/head";
+import Packages from "../components/Index/Packages";
+import { IPackage } from "../Interfaces/IPackage";
+import { GetServerSideProps } from "next";
+import Promotion from "../components/Index/Promotion";
 
 const banners: IBanners = {
   banners: [
@@ -44,70 +45,8 @@ const banners: IBanners = {
     },
   ],
 };
-const info: IInfo = {
-  buttons: [
-    {
-      key: 0,
-      title: "Удобство",
-    },
-    {
-      key: 1,
-      title: "Качество",
-    },
-    {
-      key: 2,
-      title: "Надежность",
-    },
-    {
-      key: 3,
-      title: "Сроки",
-    },
-  ],
-  tabs: [
-    {
-      key: 4,
-      title: "Лучшее оборудования для проверки",
-      text: [
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-      ],
-      button: "Удобство",
-      footer: "Работаем с 1988 года",
-    },
-    {
-      key: 5,
-      title: "Лучшее оборудования для проверки",
-      text: [
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-      ],
-      button: "Качество",
-      footer: "Работаем с 1388 года",
-    },
-    {
-      key: 6,
-      title: "Лучшее оборудования для проверки",
-      text: [
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-      ],
-      button: "Надежность",
-      footer: "Работаем с 1588 года",
-    },
-    {
-      key: 7,
-      title: "Лучшее оборудования для проверки",
-      text: [
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-      ],
-      button: "Сроки",
-      footer: "Работаем с 1688 года",
-    },
-  ],
-  image: Microscope.src,
-};
-export default function Index({ news, reviews, analysis }) {
+
+export default function Index({ news, reviews, analysis, packages }) {
   return (
     <>
       <Head>
@@ -118,19 +57,13 @@ export default function Index({ news, reviews, analysis }) {
       <div className="wrapper">
         <MainLayout>
           <FirstScreen />
-          <Banners {...banners} />
+          <Promotion />
+          <Packages packages={packages} />
           <Popular analysis={analysis} />
-          <section className="page__main main">
-            <div className="main__container">
-              <Link href="/catalog">
-                <a className="main__button">Каталог анализов</a>
-              </Link>
-            </div>
-          </section>
-          <Analysis analysis={analysis} />
+          <Catalog analysis={analysis} />
           <Reviews reviews={reviews} />
           <News news={news} />
-          <Info info={info} />
+          <Info />
           <Map mapSrc={"https://yandex.kz/map-widget/v1/-/CCURqDxLOA"} />
         </MainLayout>
       </div>
@@ -138,24 +71,35 @@ export default function Index({ news, reviews, analysis }) {
   );
 }
 
-Index.getInitialProps = async ({ req }) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const response = await fetch(
-      "http://195.49.215.130:8082/api/front/news/allNews"
+      "http://195.49.215.130/api/front/news/allNews"
     );
     const news: INews = (await response.json()) ?? [];
-    // const responseReviews = await fetch(
-    //   "http://195.49.215.130:8082/api/front/review/allReviews"
-    // );
-    // const reviews: IReview[] = (await responseReviews.json()) ?? [];
+    const responseReviews = await fetch(
+      "http://195.49.215.130/api/front/review/allReviews"
+    );
+    const reviews: IReview[] = (await responseReviews.json()) ?? [];
     const responseAnalysis = await fetch(
-      "http://195.49.215.130:8082/api/front/analyse/allAnalyse"
+      "http://195.49.215.130/api/front/analyse/allAnalyse"
     );
     const analysis: IAnalys[] | any = (await responseAnalysis.json()) ?? [];
-    console.log(news, analysis);
-    return { news, analysis, reviews: [] };
+    const responsePackages = await fetch(
+      "http://195.49.215.130/api/front/package/allPackages"
+    );
+    const packages: IPackage[] | any = (await responsePackages.json()) ?? [];
+    //console.log(reviews);
+    return {
+      props: {
+        news,
+        analysis,
+        reviews,
+        packages,
+      },
+    };
   } catch (e) {
     console.log(e.message);
   }
-  return { news: [], reviews: [], analysis: [] };
+  return { props: { news: [], reviews: [], analysis: [] } };
 };
