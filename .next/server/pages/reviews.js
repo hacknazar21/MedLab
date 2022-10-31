@@ -118,8 +118,8 @@ function ReviewsPage({ reviews  }) {
     });
 };
 const getServerSideProps = async (context)=>{
-    const responseReviews = await fetch("http://195.49.215.130:8082/api/front/review/allReviews");
-    const reviews = await responseReviews.json() || [];
+    const responseReviews = await fetch("http://195.49.215.130/api/front/review/allReviews");
+    const reviews = (await responseReviews.json())?.results || [];
     return {
         props: {
             reviews

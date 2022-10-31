@@ -238,16 +238,8 @@ function ActionsPage({}) {
     });
 };
 ActionsPage.getInitialProps = async ({ req  })=>{
-    const response = await fetch("http://195.49.215.130:8081/api/front/news/allNews");
-    const news = await response.json() ?? [];
-    const responseReviews = await fetch("http://195.49.215.130:8081/api/front/review/allReviews");
-    const reviews = await responseReviews.json() ?? [];
-    const responseAnalysis = await fetch("http://195.49.215.130:8081/api/front/analysis/allAnalysis");
-    const analysis = await responseAnalysis.json() ?? [];
     return {
-        news,
-        reviews,
-        analysis
+        props: {}
     };
 };
 

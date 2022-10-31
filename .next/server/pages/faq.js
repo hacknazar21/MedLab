@@ -218,8 +218,8 @@ function FAQPage({ faq  }) {
 };
 FAQPage.getInitialProps = async ({ req  })=>{
     try {
-        const response = await fetch("http://195.49.215.130:8082/api/front/qaa/allQaA");
-        const faq = await response.json() ?? [];
+        const response = await fetch("http://195.49.215.130/api/front/qaa/allQaA");
+        const faq = (await response.json())?.results ?? [];
         console.log(faq);
         return {
             faq

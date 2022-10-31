@@ -65,9 +65,9 @@ export default function ReviewsPage({ reviews }) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const responseReviews = await fetch(
-    "http://195.49.215.130:8082/api/front/review/allReviews"
+    "http://195.49.215.130/api/front/review/allReviews"
   );
-  const reviews: IReview[] = (await responseReviews.json()) || [];
+  const reviews: IReview[] = (await responseReviews.json())?.results || [];
 
   return { props: { reviews } };
 };

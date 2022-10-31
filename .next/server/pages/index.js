@@ -1347,14 +1347,13 @@ function Index({ news , reviews , analysis , packages  }) {
 const getServerSideProps = async ()=>{
     try {
         const response = await fetch("http://195.49.215.130/api/front/news/allNews");
-        const news = await response.json() ?? [];
+        const news = (await response.json())?.results ?? [];
         const responseReviews = await fetch("http://195.49.215.130/api/front/review/allReviews");
-        const reviews = await responseReviews.json() ?? [];
+        const reviews = (await responseReviews.json())?.results ?? [];
         const responseAnalysis = await fetch("http://195.49.215.130/api/front/analyse/allAnalyse");
-        const analysis = await responseAnalysis.json() ?? [];
+        const analysis = (await responseAnalysis.json())?.results ?? [];
         const responsePackages = await fetch("http://195.49.215.130/api/front/package/allPackages");
-        const packages = await responsePackages.json() ?? [];
-        //console.log(reviews);
+        const packages = (await responsePackages.json())?.results ?? [];
         return {
             props: {
                 news,

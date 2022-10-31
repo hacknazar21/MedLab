@@ -237,8 +237,8 @@ function ContactsPage({ news  }) {
     });
 };
 const getServerSideProps = async (context)=>{
-    const response = await fetch("http://195.49.215.130:8082/api/front/news/allNews");
-    const news = await response.json() ?? [];
+    const response = await fetch("http://195.49.215.130/api/front/news/allNews");
+    const news = (await response.json())?.results ?? [];
     return {
         props: {
             news

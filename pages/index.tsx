@@ -76,20 +76,21 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const response = await fetch(
       "http://195.49.215.130/api/front/news/allNews"
     );
-    const news: INews = (await response.json()) ?? [];
+    const news: INews = (await response.json())?.results ?? [];
     const responseReviews = await fetch(
       "http://195.49.215.130/api/front/review/allReviews"
     );
-    const reviews: IReview[] = (await responseReviews.json()) ?? [];
+    const reviews: IReview[] = (await responseReviews.json())?.results ?? [];
     const responseAnalysis = await fetch(
       "http://195.49.215.130/api/front/analyse/allAnalyse"
     );
-    const analysis: IAnalys[] | any = (await responseAnalysis.json()) ?? [];
+    const analysis: IAnalys[] | any =
+      (await responseAnalysis.json())?.results ?? [];
     const responsePackages = await fetch(
       "http://195.49.215.130/api/front/package/allPackages"
     );
-    const packages: IPackage[] | any = (await responsePackages.json()) ?? [];
-    //console.log(reviews);
+    const packages: IPackage[] | any =
+      (await responsePackages.json())?.results ?? [];
     return {
       props: {
         news,
