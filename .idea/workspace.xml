@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedLab_Django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedLab_Django/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +40,13 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/authenticate/views.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/authenticate/tests.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/MedLab_Django/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/front/serializer.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/front/views.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/front/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authenticate/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/authenticate/tests.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MedLab_Django/wsgi.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MedLab_Django/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/front/admin.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/front/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MedLab_Django/settings.py" root0="FORCE_HIGHLIGHTING" />
@@ -124,7 +129,12 @@
       <workItem from="1666240728152" duration="598000" />
       <workItem from="1666327949166" duration="598000" />
       <workItem from="1666333017168" duration="598000" />
-      <workItem from="1666672644564" duration="2144000" />
+      <workItem from="1666672644564" duration="8096000" />
+      <workItem from="1666758310855" duration="1197000" />
+      <workItem from="1666845799135" duration="598000" />
+      <workItem from="1666930919559" duration="2992000" />
+      <workItem from="1667052499517" duration="320000" />
+      <workItem from="1667189240853" duration="3516000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD for Analyse">
       <created>1665389030230</created>
@@ -210,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666175179717</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix models from test_medlab">
+      <created>1666675729932</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666675729932</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +243,7 @@
     <MESSAGE value="uuid instead id for front, generating link for front/models" />
     <MESSAGE value="added gitignore" />
     <MESSAGE value="fix link in models" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix link in models" />
+    <MESSAGE value="fix models from test_medlab" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix models from test_medlab" />
   </component>
 </project>

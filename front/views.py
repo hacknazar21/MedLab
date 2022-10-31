@@ -1,12 +1,12 @@
 
-from rest_framework import  generics
-
+from rest_framework import  generics, filters
+from rest_framework.permissions import AllowAny
 
 from .models import API_Analyses, API_News, API_QaA, API_AboutUs, \
-                    API_Contacts, API_Promotions, API_Review,  API_PackageAnalyses
+                    API_Contacts, API_Promotions, API_Review,  API_PackageAnalyses, API_CategoryAnalyses
 
 from .serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutUsSerializer, \
-                        ContactSerializer, PromotionSerializer, ReviewSerializer, PackageAnalysesSerializer
+                        ContactSerializer, PromotionSerializer, ReviewSerializer, PackageAnalysesSerializer, CategoryAnalysesSerializer
 
 #
 # class RetrieveAnalyse(viewsets.ModelViewSet):
@@ -26,7 +26,7 @@ from .serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutU
 
 
 class AnalyseListView(generics.ListCreateAPIView):
-    queryset = API_Analyses.objects.all()
+    queryset = API_Analyses.objects.prefetch_related('biomaterial', 'category', 'terms_of_analyzes')
     serializer_class = AnalyseSerializer
 
 
@@ -107,3 +107,15 @@ class ReviewdDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ReviewSerializer
     lookup_field = 'link'
     lookup_url_kwarg = 'review_link'
+
+class SearchForAnalyzes(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+    queryset = API_Analyses.objects.all()
+    serializer_class = AnalyseSerializer
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
+
+class CategoryListView(generics.ListCreateAPIView):
+    queryset = API_CategoryAnalyses.objects.prefetch_related('child_category')
+    serializer_class = CategoryAnalysesSerializer
+    permission_classes = (AllowAny,)

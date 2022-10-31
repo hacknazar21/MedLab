@@ -11,10 +11,15 @@ class ImageSerializer(serializers.ModelSerializer):
         model = API_Image
         fields = '__all__'
 
-class CategoryAnalysesSerializer(serializers.ModelSerializer):
+class BaseCategoryAnalysesSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = API_CategoryAnalyses
         fields = '__all__'
+
+
+class CategoryAnalysesSerializer(BaseCategoryAnalysesSerializer):
+    parent = BaseCategoryAnalysesSerializer(read_only=True)
 
 class TermsAnalysesSerializer(serializers.ModelSerializer):
     class Meta:

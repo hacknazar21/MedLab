@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-36l%1l*#)lex1-6cznzwik9^)#+^n6iz0gjm0+m6027l8=dfpt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -42,9 +42,7 @@ INSTALLED_APPS = [
 
     'front',
     'front.helpers',
-
     'authenticate',
-
     'dashboard',
 
 
@@ -58,6 +56,8 @@ AUTH_USER_MODEL = 'authenticate.API_Users'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 12,
 
 }
 
