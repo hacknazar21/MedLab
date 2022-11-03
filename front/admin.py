@@ -8,7 +8,7 @@ from front.models import API_Analyses,API_TermsAnalyses, API_CategoryAnalyses, \
 
 admin.site.register(API_CategoryAnalyses)
 admin.site.register(API_TermsAnalyses)
-admin.site.register(API_Biomaterial)
+
 admin.site.register(API_News)
 admin.site.register(API_QaA)
 admin.site.register(API_Contacts)
@@ -25,13 +25,19 @@ class BannerImg(admin.StackedInline):
 
 @admin.register(API_Analyses)
 class AnalysesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'research_id', 'biomaterial')
+    search_fields = ('biomaterial__title',)
+    list_display = ('title', 'research_id', 'biomaterial',)
+    list_filter = ('biomaterial__title',)
     list_per_page = 20
-    list_filter = ('biomaterial',)
-    exclude = ('main_img', 'id')
-    inlines = [BannerImg,]
-
+    exclude = ('main_img', 'id', )
+    inlines = (BannerImg,)
     class Meta:
         model = API_Analyses
 
 
+
+@admin.register(API_Biomaterial)
+class BiomaterialAdmin(admin.ModelAdmin):
+    search_fields = ['title']
+    list_display = ['title']
+    list_filter = ['title']
