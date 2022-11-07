@@ -1,5 +1,5 @@
 from front.models import API_Analyses, API_News, API_QaA, API_Promotions, API_AboutUs, API_Contacts, API_Review, \
-    API_CategoryAnalyses, API_TermsAnalyses, API_Biomaterial, API_Image, API_PackageAnalyses
+    API_CategoryAnalyses, API_TermsAnalyses, API_Biomaterial, API_Image, API_PackageAnalyses, API_Partners
 from authenticate.serializer import UserSerializer
 
 from rest_framework import serializers
@@ -79,4 +79,11 @@ class PackageAnalysesSerializer(serializers.ModelSerializer):
     package = AnalyseSerializer(read_only=True, many=True)
     class Meta:
         model = API_PackageAnalyses
+        fields = '__all__'
+
+
+class PartnersSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = API_Partners
         fields = '__all__'

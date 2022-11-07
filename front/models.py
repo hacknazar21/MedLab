@@ -109,6 +109,11 @@ class API_PackageAnalyses(Executor, LinkModel):
     def get_link_base(self):
         return self.name_of_package
 
+    @classmethod
+    def filter(cls, content):
+        pass
+
+
 class API_Image(Executor):
     analyse = models.ForeignKey('API_Analyses', on_delete=models.CASCADE, related_name='banner_images',
                                 null=True, verbose_name=_('Анализы'))
@@ -284,3 +289,17 @@ class API_AboutUs(Executor, LinkModel):
 
     def get_link_base(self):
         return self.title
+
+
+class API_Partners(models.Model):
+    images = models.ImageField(upload_to='imgPartners', verbose_name=_('Картинка'))
+    url = models.URLField(max_length=250, verbose_name=_("Ссылка"))
+
+    class Meta:
+        db_table = 'API_Partners'
+        verbose_name = _('Партнер')
+        verbose_name_plural = _('Партнеры')
+
+    def __str__(self):
+        return self.url
+

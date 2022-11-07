@@ -27,7 +27,7 @@ load_dotenv()
 SECRET_KEY = os.getenv('MedLab_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('MedLab_DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = [os.getenv('MedLab_HOST_URL'), '0.0.0.0']
 

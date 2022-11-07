@@ -2,66 +2,71 @@ from django.urls import path, include
 
 from front.views import AnalyseListView, AnalyseDetailView, NewsListView, NewsDetailView, QaAListView, QaADetailView, \
     AboutUsListView, AboutUsDetailView, ContactsListView, ContactsDetailView, PromotionListView, PromotionDetailView, \
-    ReviewListView, ReviewdDetailView, PackageListView, SearchForAnalyzes, CategoryListView
+    ReviewListView, ReviewdDetailView, PackageListView, SearchForAnalyzes, CategoryListView, PartnersListView
 
 
-analysepatterns = [
+analyse_patterns = [
     path('allAnalyse', AnalyseListView.as_view(), name='allAnalyses'),
     path('<str:title_analyse_link>', AnalyseDetailView.as_view(), name='analyse-RUD')
 ]
 
-newspatterns = [
+news_patterns = [
     path('allNews', NewsListView.as_view(), name='allNews'),
     path('<str:title_news_link>', NewsDetailView.as_view(), name='news-RUD')
 ]
 
-qaapatterns = [
+qaa_patterns = [
     path('allQaA', QaAListView.as_view(), name='allQaA'),
     path('<str:question_link>', QaADetailView.as_view(), name='QaA-RUD')
 ]
 
-aboutuspatterns = [
+aboutus_patterns = [
     path('allAboutUs', AboutUsListView.as_view(), name='allAboutUs'),
     path('<str:aboutus_link>', AboutUsDetailView.as_view(), name='AboutUs-RUD')
 ]
 
-contactspatterns = [
+contacts_patterns = [
     path('allContacts', ContactsListView.as_view(), name='allContacts'),
     path('<str:contacts_link>', ContactsDetailView.as_view(), name='Contacts-RUD')
 ]
 
-promotionpatterns = [
+promotion_patterns = [
     path('allPromotions', PromotionListView.as_view(), name='allPromotions'),
     path('<str:promotion_link>', PromotionDetailView.as_view(), name='Promotion-RUD')
 ]
 
-reviewpatterns = [
+review_patterns = [
     path('allReviews', ReviewListView.as_view(), name='allReviews'),
     path('<str:review_link>', ReviewdDetailView.as_view(), name='Review-RUD')
 ]
 
 
-packageanalysepatterns = [
+packageanalyse_patterns = [
     path('allPackages', PackageListView.as_view(), name='allPackages')
 ]
 
-searchpatterns = [
+search_patterns = [
     path('', SearchForAnalyzes.as_view(), name='search')
 ]
 
-categotypatterns = [
+categoty_patterns = [
     path('allCategories/', CategoryListView.as_view(), name='allCategory')
 ]
 
+partners_patterns = [
+    path('allPartners/', PartnersListView.as_view(), name='allPartners')
+]
+
 urlpatterns = [
-    path('analyse/', include(analysepatterns)),
-    path('news/', include(newspatterns)),
-    path('qaa/', include(qaapatterns)),
-    path('aboutus/', include(aboutuspatterns)),
-    path('contact/', include(contactspatterns)),
-    path('promotion/', include(promotionpatterns)),
-    path('review/', include(reviewpatterns)),
-    path('package/', include(packageanalysepatterns)),
-    path('search/', include(searchpatterns)),
-    path('category/', include(categotypatterns)),
+    path('analyse/', include(analyse_patterns)),
+    path('news/', include(news_patterns)),
+    path('qaa/', include(qaa_patterns)),
+    path('aboutus/', include(aboutus_patterns)),
+    path('contact/', include(contacts_patterns)),
+    path('promotion/', include(promotion_patterns)),
+    path('review/', include(review_patterns)),
+    path('package/', include(packageanalyse_patterns)),
+    path('search/', include(search_patterns)),
+    path('category/', include(categoty_patterns)),
+    path('partners/', include(partners_patterns)),
 ]

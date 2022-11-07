@@ -8,8 +8,6 @@ class API_Users(AbstractUser):
     REQUIRED_FIELDS = ['email', 'firstname', 'lastname', 'username']
 
     email = models.EmailField(max_length=255, verbose_name='Электронная почта')
-    password = models.CharField(max_length=255, blank=True, null=True, verbose_name='Пароль')
-    password2 = models.CharField(max_length=255, blank=True, null=True, verbose_name='Повторите пароль')
     phone_regex = RegexValidator(regex=r'^\+?77(\d{9})$', message='Введен неправильный номер телефноа')
     phone_number = models.CharField(max_length=255, blank=True, null=True, verbose_name='Номер телефона', unique=True,
                                     validators=[phone_regex])

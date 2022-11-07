@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from front.models import API_Analyses,API_TermsAnalyses, API_CategoryAnalyses, \
     API_Biomaterial, API_News, API_QaA, API_Contacts, API_AboutUs, API_Promotions, API_Review, API_Image, \
-    API_PackageAnalyses
+    API_PackageAnalyses, API_Partners
 
 
 
@@ -41,3 +41,9 @@ class BiomaterialAdmin(admin.ModelAdmin):
     search_fields = ['title']
     list_display = ['title']
     list_filter = ['title']
+
+@admin.register(API_Partners)
+class PartnerAdmin(admin.ModelAdmin):
+    list_display = ('url',)
+    search_fields = ('url',)
+    list_filter = ('url',)
