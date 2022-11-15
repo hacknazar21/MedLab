@@ -137,6 +137,7 @@ class API_CategoryAnalyses(Executor):
         db_table = 'API_CategoryAnalyses'
         verbose_name = _('Категория')
         verbose_name_plural = _('Категории')
+        ordering = ['-createdat']
 
     def __str__(self):
         if not self.parent:

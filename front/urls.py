@@ -2,7 +2,7 @@ from django.urls import path, include
 
 from front.views import AnalyseListView, AnalyseDetailView, NewsListView, NewsDetailView, QaAListView, QaADetailView, \
     AboutUsListView, AboutUsDetailView, ContactsListView, ContactsDetailView, PromotionListView, PromotionDetailView, \
-    ReviewListView, ReviewdDetailView, PackageListView, SearchForAnalyzes, CategoryListView, PartnersListView
+    ReviewListView, ReviewdDetailView, PackageListView, SearchForAnalyzes, CategoryListView, PartnersListView, CategoryDetailView
 
 
 analyse_patterns = [
@@ -50,7 +50,8 @@ search_patterns = [
 ]
 
 categoty_patterns = [
-    path('allCategories/', CategoryListView.as_view(), name='allCategory')
+    path('allCategories/', CategoryListView.as_view(), name='allCategory'),
+    path('delete/<str:title>', CategoryDetailView.as_view(), name='delete')
 ]
 
 partners_patterns = [

@@ -128,6 +128,13 @@ class CategoryListView(generics.ListCreateAPIView):
     serializer_class = CategoryAnalysesSerializer
     permission_classes = (AllowAny,)
 
+class CategoryDetailView(generics.DestroyAPIView):
+    queryset =  API_CategoryAnalyses.objects.prefetch_related('child_category')
+    serializer_class = CategoryAnalysesSerializer
+    permission_classes = (AllowAny,)
+    lookup_field = 'title'
+    lookup_url_kwarg = 'title'
+
 
 class PartnersListView(generics.ListCreateAPIView):
     queryset = API_Partners.objects.all()
