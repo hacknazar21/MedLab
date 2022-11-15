@@ -128,7 +128,7 @@ class CategoryListView(generics.ListCreateAPIView):
     serializer_class = CategoryAnalysesSerializer
     permission_classes = (AllowAny,)
 
-class CategoryDetailView(generics.DestroyAPIView):
+class CategoryDetailView(generics.RetrieveDestroyAPIView):
     queryset =  API_CategoryAnalyses.objects.prefetch_related('child_category')
     serializer_class = CategoryAnalysesSerializer
     permission_classes = (AllowAny,)
