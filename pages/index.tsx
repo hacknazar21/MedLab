@@ -73,21 +73,19 @@ export default function Index({ news, reviews, analysis, packages }) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const response = await fetch(
-      "http://195.49.215.130/api/front/news/allNews"
-    );
+    const response = await fetch("http://srllab.kz/api/front/news/allNews");
     const news: INews = (await response.json())?.results ?? [];
     const responseReviews = await fetch(
-      "http://195.49.215.130/api/front/review/allReviews"
+      "http://srllab.kz/api/front/review/allReviews"
     );
     const reviews: IReview[] = (await responseReviews.json())?.results ?? [];
     const responseAnalysis = await fetch(
-      "http://195.49.215.130/api/front/analyse/allAnalyse"
+      "http://srllab.kz/api/front/analyse/allAnalyse"
     );
     const analysis: IAnalys[] | any =
       (await responseAnalysis.json())?.results ?? [];
     const responsePackages = await fetch(
-      "http://195.49.215.130/api/front/package/allPackages"
+      "http://srllab.kz/api/front/package/allPackages"
     );
     const packages: IPackage[] | any =
       (await responsePackages.json())?.results ?? [];

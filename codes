@@ -3,6 +3,7 @@ IP-адрес сервера: 195.49.215.130
 Пользователь: ubuntu
 Пароль: #brymW3dbquo
 
+npm run build
 git add .
 git commit -m 'builded'
 git push

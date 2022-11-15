@@ -60,7 +60,7 @@ export async function getServerSideProps(context) {
   let oneAnalysis = {};
   try {
     const responseOneAnalysis = await fetch(
-      `http://195.49.215.130/api/front/analyse/${link}`
+      `http://srllab.kz/api/front/analyse/${link}`
     );
     oneAnalysis = await responseOneAnalysis.json();
     console.log(oneAnalysis);
