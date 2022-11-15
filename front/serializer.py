@@ -11,7 +11,14 @@ class ImageSerializer(serializers.ModelSerializer):
         model = API_Image
         fields = '__all__'
 
+
 class BaseCategoryAnalysesSerializer(serializers.ModelSerializer):
+    child_categories = serializers.SerializerMethodField('get_child_categories')
+
+    def get_child_categories(self, instance):
+        if instance.child_category.all():
+            return BaseCategoryAnalysesSerializer(instance.child_category.all(), many=True).data
+        return None
 
     class Meta:
         model = API_CategoryAnalyses
