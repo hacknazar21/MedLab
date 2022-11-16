@@ -49,9 +49,9 @@ INSTALLED_APPS = [
     'authenticate',
     'dashboard',
 
-
     'rest_framework',
     'drf_spectacular',
+    'django_extensions',
 ]
 
 AUTH_USER_MODEL = 'authenticate.API_Users'
