@@ -26,7 +26,7 @@ class BannerImg(admin.StackedInline):
 @admin.register(API_Analyses)
 class AnalysesAdmin(admin.ModelAdmin):
     search_fields = ('biomaterial__title',)
-    list_display = ('title', 'research_id', 'biomaterial',)
+    list_display = ('title', 'research_id', 'biomaterial', 'category', 'terms_of_analyzes')
     list_filter = ('biomaterial__title',)
     list_per_page = 20
     exclude = ('main_img', 'id', )
