@@ -88,6 +88,7 @@ class API_PackageAnalyses(Executor, LinkModel):
     package = models.ManyToManyField(API_Analyses,
                                       related_name='packages', verbose_name='Какие анализы входят')
     name_of_package = models.CharField(max_length=250, verbose_name='Название пакетов анализов')
+    description = models.CharField(max_length=1000, blank=True, null=True, verbose_name=_('Описание пакетов анализов'))
     price_of_package = models.FloatField(verbose_name='Цена пакетов')
     main_img = models.ImageField(max_length=1000, blank=True, null=True, upload_to='imgAnalyse',
                                     verbose_name='Главная картинка')
