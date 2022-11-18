@@ -47,6 +47,13 @@ class PackageListView(generics.ListCreateAPIView):
     serializer_class = PackageAnalysesSerializer
     pagination_class = CustomPaginationEight
 
+
+class PackageDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = API_PackageAnalyses.objects.prefetch_related('package')
+    serializer_class = PackageAnalysesSerializer
+    lookup_field = 'link'
+    lookup_url_kwarg = 'name_of_package_link'
+
 class NewsListView(generics.ListCreateAPIView):
     queryset = API_News.objects.all()
     serializer_class = NewsSerializer
