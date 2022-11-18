@@ -5,8 +5,10 @@ import Head from "next/head";
 import { INews } from "../../Interfaces/INews";
 import PageTitle from "../../components/common/PageTitle";
 import News from "../../components/News/News";
+import { useState } from "react";
 
 export default function NewsPage({ news }) {
+  const [objects, setObjects] = useState([...news.results]);
   return (
     <>
       <Head>
@@ -23,7 +25,7 @@ export default function NewsPage({ news }) {
             ]}
           />
           <PageTitle title={"Новости"} />
-          <News news={news} />
+          <News pageCount={news.count} setter={setObjects} news={objects} />
         </MainLayout>
       </div>
     </>
@@ -35,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const response = await fetch(
       `${process.env.API_HOST}/api/front/news/allNews`
     );
-    const news: INews[] = (await response.json())?.results ?? [];
+    const news: INews[] = (await response.json()) ?? [];
     return { props: { news } };
   } catch (e) {
     return { props: { news: [] } };

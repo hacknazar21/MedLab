@@ -4,14 +4,13 @@ import Analys from "../Index/Analysis/Analys";
 import { useEffect } from "react";
 import Select from "../Index/Select";
 import { ResearchCard } from "../common/ResearchCard";
+import Pagination from "../common/Pagination";
 interface Props {
   researches: IAnalys[];
+  pageCount: number;
+  setter: Function;
 }
 export function Catalog(props: Props) {
-  function onResearchClick(event) {
-    console.log(event);
-  }
-
   useEffect(() => {
     console.log(props.researches);
   }, []);
@@ -37,6 +36,13 @@ export function Catalog(props: Props) {
             ) : (
               ""
             )}
+            <Pagination
+              pageCount={Math.ceil(props.pageCount) / 8}
+              setter={(data) => {
+                props.setter([...data]);
+              }}
+              link={"/api/front/analyse/allAnalyse?page="}
+            />
           </div>
         </div>
       </div>

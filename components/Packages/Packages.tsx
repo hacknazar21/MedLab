@@ -1,14 +1,21 @@
 import React, { FunctionComponent } from "react";
 import { IPackage } from "../../Interfaces/IPackage";
 import { ResearchPackageCard } from "../common/ResearchPackageCard";
+import Pagination from "../common/Pagination";
 
 interface OwnProps {
   packages: IPackage[];
+  pageCount: number;
+  setter: Function;
 }
 
 type Props = OwnProps;
 
-const Packages: FunctionComponent<Props> = ({ packages }) => {
+const Packages: FunctionComponent<Props> = ({
+  packages,
+  pageCount,
+  setter,
+}) => {
   return (
     <section className="page__packages packages single-page">
       <div className="packages__container">
@@ -23,7 +30,13 @@ const Packages: FunctionComponent<Props> = ({ packages }) => {
               );
             })}
           </div>
-          <div className="promotions__pagination single-page-pagination"></div>
+          <Pagination
+            pageCount={Math.ceil(pageCount) / 8}
+            setter={(data) => {
+              setter([...data]);
+            }}
+            link={"/api/front/package/allPackages?page="}
+          />
         </div>
       </div>
     </section>

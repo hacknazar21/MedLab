@@ -1,21 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IAnalys } from "../../Interfaces/IAnalys";
-import { Analys } from "./Analysis/Analys";
 import Filter from "./Analysis/Filter";
-import { HeaderContext } from "../../context/HeaderContext";
 import { ResearchCard } from "../common/ResearchCard";
+import Pagination from "../common/Pagination";
 interface OwnProps {
   analysis: IAnalys[];
+  pageCount: number;
+  setter: Function;
 }
 
 type Props = OwnProps;
 
 export function Catalog(props: Props) {
   const [number, setNumber] = useState(props.analysis.length);
-
-  const callback = (data: any) => {
-    // запрос на бэк
-  };
+  const callback = () => {};
+  useEffect(() => {
+    console.log("render");
+  }, []);
 
   return (
     <section className="page__catalog catalog">
@@ -24,10 +25,17 @@ export function Catalog(props: Props) {
         <Filter callback={callback} number={number} />
         <div className="catalog__box">
           <div className="catalog__grid">
-            {props.analysis.map((research, id) => {
-              return <ResearchCard research={research} id={id} />;
+            {props.analysis.map((research) => {
+              return <ResearchCard research={research} key={research.id} />;
             })}
           </div>
+          <Pagination
+            pageCount={Math.ceil(props.pageCount) / 8}
+            setter={(data) => {
+              props.setter([...data]);
+            }}
+            link={"/api/front/analyse/allAnalyse?page="}
+          />
         </div>
       </div>
     </section>

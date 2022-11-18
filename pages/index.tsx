@@ -18,34 +18,8 @@ import Packages from "../components/Index/Packages";
 import { IPackage } from "../Interfaces/IPackage";
 import { GetServerSideProps } from "next";
 import Promotion from "../components/Index/Promotion";
-import { useEffect } from "react";
-
-const banners: IBanners = {
-  banners: [
-    {
-      banner: {
-        title: "Проверка симптомов Covid - 18",
-        text:
-          "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint." +
-          " Velit officia consequat duis enim velit mollit.",
-        src: banner1.src,
-        href: "",
-        key: 0,
-      },
-    },
-    {
-      banner: {
-        title: "Назначения правильного лечения",
-        text:
-          "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint." +
-          " Velit officia consequat duis enim velit mollit.",
-        src: banner2.src,
-        href: "",
-        key: 1,
-      },
-    },
-  ],
-};
+import { useEffect, useState } from "react";
+import useHttp from "../hooks/hooks.http";
 
 export default function Index({
   news,
@@ -54,9 +28,8 @@ export default function Index({
   packages,
   promotions,
 }) {
-  useEffect(() => {
-    console.log(news, analysis, reviews, packages, promotions);
-  }, []);
+  const [researches, setResearches] = useState([...analysis.results]);
+
   return (
     <>
       <Head>
@@ -69,8 +42,12 @@ export default function Index({
           <FirstScreen />
           <Promotion promotions={promotions} />
           <Packages packages={packages} />
-          <Popular analysis={analysis} />
-          <Catalog analysis={analysis} />
+          <Popular analysis={analysis.results} />
+          <Catalog
+            pageCount={analysis.count}
+            setter={setResearches}
+            analysis={researches}
+          />
           <Reviews reviews={reviews} />
           <News news={news} />
           <Info />
@@ -96,8 +73,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const responseAnalysis = await fetch(
       process.env.API_HOST + "/api/front/analyse/allAnalyse"
     );
-    const analysis: IAnalys[] | any =
-      (await responseAnalysis.json())?.results ?? [];
+    const analysis = (await responseAnalysis.json()) ?? [];
 
     const responsePackages = await fetch(
       process.env.API_HOST + "/api/front/package/allPackages"

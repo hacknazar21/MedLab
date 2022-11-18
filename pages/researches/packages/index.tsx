@@ -6,8 +6,10 @@ import Head from "next/head";
 import { Catalog } from "../../../components/Catalog/Catalog";
 import PageTitle from "../../../components/common/PageTitle";
 import Packages from "../../../components/Packages/Packages";
+import { useState } from "react";
 
 export default function CatalogPage({ packages }) {
+  const [objects, setObjects] = useState([...packages.results]);
   return (
     <>
       <Head>
@@ -24,7 +26,11 @@ export default function CatalogPage({ packages }) {
             ]}
           />
           <PageTitle title={"Пакеты анализов"} />
-          <Packages packages={packages} />
+          <Packages
+            pageCount={packages.count}
+            setter={setObjects}
+            packages={objects}
+          />
         </MainLayout>
       </div>
     </>
@@ -35,8 +41,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const responsePackages = await fetch(
     `${process.env.API_HOST}/api/front/package/allPackages`
   );
-  const packages: IAnalys[] | any =
-    (await responsePackages.json())?.results ?? [];
+  const packages: IAnalys[] | any = (await responsePackages.json()) ?? [];
   return {
     props: { packages },
   };

@@ -5,8 +5,10 @@ import { Sugar } from "../../layouts/sugarLayout";
 import Head from "next/head";
 import { Catalog } from "../../components/Catalog/Catalog";
 import PageTitle from "../../components/common/PageTitle";
+import { useState } from "react";
 
 export default function CatalogPage({ analysis }) {
+  const [researches, setResearches] = useState([...analysis.results]);
   return (
     <>
       <Head>
@@ -23,7 +25,11 @@ export default function CatalogPage({ analysis }) {
             ]}
           />
           <PageTitle title={"Каталог анализов"} />
-          <Catalog researches={analysis} />
+          <Catalog
+            setter={setResearches}
+            pageCount={analysis.count}
+            researches={researches}
+          />
         </MainLayout>
       </div>
     </>
@@ -34,8 +40,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const responseAnalysis = await fetch(
     `${process.env.API_HOST}/api/front/analyse/allAnalyse`
   );
-  const analysis: IAnalys[] | any =
-    (await responseAnalysis.json())?.results ?? [];
+  const analysis: IAnalys[] | any = (await responseAnalysis.json()) ?? [];
   return {
     props: { analysis },
   };

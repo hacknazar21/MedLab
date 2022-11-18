@@ -5,11 +5,12 @@ import { Sugar } from "../../layouts/sugarLayout";
 import Head from "next/head";
 import Promotions from "../../components/Promotions/Promotions";
 import { IPackage } from "../../Interfaces/IPackage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import PageTitle from "../../components/common/PageTitle";
 
 export default function PromotionsPage({ promotions }) {
+  const [objects, setObjects] = useState([...promotions.results]);
   return (
     <>
       <Head>
@@ -26,7 +27,11 @@ export default function PromotionsPage({ promotions }) {
             ]}
           />
           <PageTitle title={"Акции"} />
-          <Promotions promotions={promotions} />
+          <Promotions
+            pageCount={promotions.count}
+            setter={setObjects}
+            promotions={objects}
+          />
         </MainLayout>
       </div>
     </>
@@ -37,7 +42,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const responsePromotions = await fetch(
     process.env.API_HOST + "/api/front/promotion/allPromotions"
   );
-  const promotions: IPackage[] | any =
-    (await responsePromotions.json())?.results ?? [];
+  const promotions: IPackage[] | any = (await responsePromotions.json()) ?? [];
   return { props: { promotions } };
 };

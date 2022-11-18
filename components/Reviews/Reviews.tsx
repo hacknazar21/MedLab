@@ -2,14 +2,21 @@ import React, { FunctionComponent } from "react";
 import PromotionCard from "../common/PromotionCard";
 import { IReview } from "../../Interfaces/IReview";
 import ReviewCard from "../common/ReviewCard";
+import Pagination from "../common/Pagination";
 
 interface OwnProps {
   reviews: IReview[];
+  pageCount: number;
+  setter: Function;
 }
 
 type Props = OwnProps;
 
-const Promotions: FunctionComponent<Props> = ({ reviews }) => {
+const Promotions: FunctionComponent<Props> = ({
+  reviews,
+  setter,
+  pageCount,
+}) => {
   return (
     <section className="page__promotions promotions single-page">
       <div className="promotions__container">
@@ -19,7 +26,13 @@ const Promotions: FunctionComponent<Props> = ({ reviews }) => {
               return <ReviewCard key={review.id} review={review} />;
             })}
           </div>
-          <div className="promotions__pagination single-page-pagination"></div>
+          <Pagination
+            pageCount={Math.ceil(pageCount) / 8}
+            setter={(data) => {
+              setter([...data]);
+            }}
+            link={"/api/front/review/allReviews?page="}
+          />
         </div>
       </div>
     </section>

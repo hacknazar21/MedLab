@@ -43,4 +43,43 @@
 }
 
 .single-page-pagination {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: rem(6);
+  font-weight: 500;
+  font-size: rem(14);
+  line-height: math.div(20,14);
+  color: #1B1B1E;
+  text-align: center;
+  letter-spacing: 0.1px;
+  margin-top: rem(30);
+  li{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+    a{
+      padding: rem(6);
+      width: rem(20);
+      height: rem(20);
+      box-sizing: content-box;
+    }
+
+    &.selected{
+      background-color: #3282FA;
+      color: #FFFFFF;
+    }
+    @media(any-hover: hover){
+      &:hover{
+        cursor: pointer;
+        background-color: #3282FA;
+        color: #FFFFFF;
+        a{
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
