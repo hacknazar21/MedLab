@@ -1,17 +1,13 @@
 .research {
   &__popular{
-    margin-bottom: rem(150);
+    margin: rem(15) 0;
   }
   &__popular-title {
-    font-weight: 500;
-    font-size: rem(30);
-    line-height: math.div(37,30);
-    letter-spacing: 0.03em;
-    color: #363B48;
-    margin-bottom: rem(13);
+
   }
   
   &__popular-slider {
+    overflow: hidden;
   }
 
   &__popular-slider-wrapper {

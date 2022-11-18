@@ -35,15 +35,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/login.js"
     ],
-    "/news": [
+    "/researches": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/news.js"
+      "static/chunks/pages/researches.js"
     ],
-    "/researches/packages": [
+    "/researches/[link]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/researches/packages.js"
+      "static/chunks/pages/researches/[link].js"
     ]
   },
   "ampFirstPages": []

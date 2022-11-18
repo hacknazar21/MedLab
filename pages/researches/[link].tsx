@@ -10,6 +10,7 @@ import { GetServerSideProps } from "next";
 
 interface Props {
   oneAnalysis: IAnalys;
+  sameResearches: IAnalys[];
 }
 export default function AnalysisOne(props: Props) {
   return (
@@ -46,7 +47,7 @@ export default function AnalysisOne(props: Props) {
             </section>
             <section className="research__section">
               <div className="research__container">
-                <ResearchPopular />
+                <ResearchPopular researches={props.sameResearches} />
               </div>
             </section>
           </main>
@@ -63,7 +64,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       `${process.env.API_HOST}/api/front/analyse/${link}`
     );
     const oneAnalysis = await responseOneAnalysis.json();
-    return { props: { oneAnalysis } };
+    const responseSameResearches = await fetch(
+      `${process.env.API_HOST}/api/front/analyse/allAnalyse`
+    );
+    const sameResearches = (await responseSameResearches.json())?.results ?? [];
+    return { props: { oneAnalysis, sameResearches } };
   } catch (e) {
     console.log(e.message);
     return { props: { oneAnalysis: {} } };
