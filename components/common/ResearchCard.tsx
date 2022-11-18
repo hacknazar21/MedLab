@@ -5,7 +5,6 @@ import { HeaderContext } from "../../context/HeaderContext";
 
 interface Props {
   research: IAnalys;
-  id: number;
 }
 
 export function ResearchCard(props: Props) {
@@ -37,7 +36,6 @@ export function ResearchCard(props: Props) {
       cloneProductPosition.width / 1.2
     }px, ${basketPosition.y - cloneProductPosition.y}px, 0px) scale(0)`;
     cloneProduct.style.opacity = `0`;
-    console.log(Math.abs(basketPosition.x - cloneProductPosition.x));
     setTimeout(() => {
       cloneProduct.remove();
     }, 1000 + Math.abs(basketPosition.x - cloneProductPosition.x));
@@ -52,7 +50,10 @@ export function ResearchCard(props: Props) {
         className="analysis__item analysis-item"
       >
         <h3 className="analysis-item__title">
-          <Link href={`/analysis/[id]`} as={`/analysis/${props.research.link}`}>
+          <Link
+            href={`/researches/[link]`}
+            as={`/researches/${props.research.link}`}
+          >
             <a>{props.research.title}</a>
           </Link>
         </h3>
@@ -79,9 +80,9 @@ export function ResearchCard(props: Props) {
             >
               <path
                 d="M12 22C9.87827 22 7.84344 21.1571 6.34315 19.6569C4.84285 18.1566 4 16.1217 4 14C4 10.498 6.71 7.697 9.093 5.13L12 2L14.907 5.13C17.29 7.698 20 10.499 20 14C20 16.1217 19.1571 18.1566 17.6569 19.6569C16.1566 21.1571 14.1217 22 12 22V22Z"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             {props.research.biomaterial.title}

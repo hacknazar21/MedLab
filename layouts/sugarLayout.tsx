@@ -16,7 +16,9 @@ export function Sugar(props: Props) {
               return (
                 <React.Fragment key={id}>
                   <div className="sugar__item">
-                    <a href={sugarItem.href}>{sugarItem.title}</a>
+                    <Link href={sugarItem.href}>
+                      <a>{sugarItem.title}</a>
+                    </Link>
                   </div>
                   <span>/</span>
                 </React.Fragment>
@@ -24,7 +26,9 @@ export function Sugar(props: Props) {
             }
             return (
               <div key={id} className="sugar__item">
-                <a href={sugarItem.href}>{sugarItem.title}</a>
+                <Link href={sugarItem.href}>
+                  <a>{sugarItem.title}</a>
+                </Link>
               </div>
             );
           })}

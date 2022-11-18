@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Swiper, { Autoplay, Navigation } from "swiper";
 import { IReview } from "../../Interfaces/IReview";
 import Rating from "react-rating";
+import ReviewCard from "../common/ReviewCard";
 interface Props {
   reviews: IReview[];
 }
@@ -71,32 +72,7 @@ class Reviews extends React.Component<Props, any> {
                 {this.props.reviews.map((review) => {
                   return (
                     <div className="reviews__slide swiper-slide">
-                      <div className="reviews__card reviews-card">
-                        <div className="reviews-card__header">
-                          <div className="reviews-card__info-box">
-                            <div className="reviews-card__info-name">
-                              {review.name}
-                            </div>
-                            <div className="reviews-card__info-date">
-                              {review.date}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="reviews-card__rating">
-                          <div className="reviews-card__rating-value">
-                            {review.ratings}/5
-                          </div>
-                          <Rating
-                            initialRating={review.ratings}
-                            readonly={true}
-                            emptySymbol={"rating-item"}
-                            fullSymbol={"rating-item-fill"}
-                          />
-                        </div>
-                        <div className="reviews-card__text">
-                          <p>{review.text_review}</p>
-                        </div>
-                      </div>
+                      <ReviewCard review={review} key={review.id} />
                     </div>
                   );
                 })}

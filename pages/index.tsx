@@ -18,6 +18,7 @@ import Packages from "../components/Index/Packages";
 import { IPackage } from "../Interfaces/IPackage";
 import { GetServerSideProps } from "next";
 import Promotion from "../components/Index/Promotion";
+import { useEffect } from "react";
 
 const banners: IBanners = {
   banners: [
@@ -46,7 +47,16 @@ const banners: IBanners = {
   ],
 };
 
-export default function Index({ news, reviews, analysis, packages }) {
+export default function Index({
+  news,
+  reviews,
+  analysis,
+  packages,
+  promotions,
+}) {
+  useEffect(() => {
+    console.log(news, analysis, reviews, packages, promotions);
+  }, []);
   return (
     <>
       <Head>
@@ -57,7 +67,7 @@ export default function Index({ news, reviews, analysis, packages }) {
       <div className="wrapper">
         <MainLayout>
           <FirstScreen />
-          <Promotion />
+          <Promotion promotions={promotions} />
           <Packages packages={packages} />
           <Popular analysis={analysis} />
           <Catalog analysis={analysis} />
@@ -73,28 +83,40 @@ export default function Index({ news, reviews, analysis, packages }) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const response = await fetch("http://srllab.kz/api/front/news/allNews");
+    const response = await fetch(
+      process.env.API_HOST + "/api/front/news/allNews"
+    );
     const news: INews = (await response.json())?.results ?? [];
+
     const responseReviews = await fetch(
-      "http://srllab.kz/api/front/review/allReviews"
+      process.env.API_HOST + "/api/front/review/allReviews"
     );
     const reviews: IReview[] = (await responseReviews.json())?.results ?? [];
+
     const responseAnalysis = await fetch(
-      "http://srllab.kz/api/front/analyse/allAnalyse"
+      process.env.API_HOST + "/api/front/analyse/allAnalyse"
     );
     const analysis: IAnalys[] | any =
       (await responseAnalysis.json())?.results ?? [];
+
     const responsePackages = await fetch(
-      "http://srllab.kz/api/front/package/allPackages"
+      process.env.API_HOST + "/api/front/package/allPackages"
     );
     const packages: IPackage[] | any =
       (await responsePackages.json())?.results ?? [];
+
+    const responsePromotions = await fetch(
+      process.env.API_HOST + "/api/front/promotion/allPromotions"
+    );
+    const promotions: IPackage[] | any =
+      (await responsePromotions.json())?.results ?? [];
     return {
       props: {
         news,
         analysis,
         reviews,
         packages,
+        promotions,
       },
     };
   } catch (e) {

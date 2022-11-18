@@ -1,6 +1,8 @@
 import React from "react";
 import { INews } from "../../Interfaces/INews";
 import Swiper, { Autoplay, Navigation } from "swiper";
+import Link from "next/link";
+import NewsCard from "../common/NewsCard";
 interface Props {
   news: INews[];
 }
@@ -71,39 +73,8 @@ class News extends React.Component<Props, any> {
             </div>
             <div className="news__slider news-swiper">
               <div className="news__wrapper swiper-wrapper">
-                {this.props.news.map((news) => {
-                  return (
-                    <div key={news.id} className="news__slide swiper-slide">
-                      <div className="news__card card">
-                        <div className="card__img-ibg">
-                          <img src={news.img_news} alt="" />
-                        </div>
-                        <div className="card__text">
-                          <div className="card__desc">
-                            <div className="card__desc-item">{news.date}</div>
-                          </div>
-                          <h3 className="card__title">
-                            <a
-                              href={"/news/" + news.link}
-                              className="card__title-link"
-                            >
-                              {news.title}
-                            </a>
-                          </h3>
-                        </div>
-                        <div className="card__info">
-                          <div className="card__info-item">
-                            <a
-                              href={"/news/" + news.link}
-                              className="card__info-link baner__button"
-                            >
-                              Узнать подробнее
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
+                {this.props.news.map((news: INews) => {
+                  return <NewsCard key={news.id} news={news} />;
                 })}
               </div>
               <div className={"news__slider-buttons swiper-buttons"}>

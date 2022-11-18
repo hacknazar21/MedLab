@@ -6,7 +6,6 @@
     }
     font-family: 'Gilroy';
     gap: rem(21);
-    margin-bottom: rem(60);
   }
 }
 
@@ -41,7 +40,6 @@
   }
 
   &__content-header-action {
-    border-radius: 10px;
     padding: rem(18) 0;
     @include adaptiveValue("width", 301, 100);
     @media(max-width:$tablet){
@@ -71,6 +69,10 @@
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
     }
+    &.border{
+      border-radius: 10px !important;
+    }
+
   }
 
   &__content-main {
@@ -191,6 +193,11 @@
       font-weight: 600;
       font-size: rem(30);
       line-height: math.div(37,30);
+    }
+    &_margin{
+      &_top{
+        margin-top: rem(40);
+      }
     }
   }
   &__add{

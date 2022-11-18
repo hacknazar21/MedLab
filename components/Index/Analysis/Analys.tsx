@@ -5,7 +5,6 @@ import Link from "next/link";
 interface Props {
   research: IAnalys;
   buttonClick: (event: any) => void;
-  id: number;
 }
 export function Analys(props: Props) {
   return (

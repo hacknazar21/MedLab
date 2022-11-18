@@ -1,6 +1,5 @@
 .page {
   &__catalog {
-    min-height: rem(200);
   }
 }
 
@@ -12,11 +11,5 @@
   }
 
   &__items-container {
-  }
-
-  &__items {
-    display: grid;
-    gap: rem(20);
-    grid-template-columns: repeat(4, 1fr);
   }
 }

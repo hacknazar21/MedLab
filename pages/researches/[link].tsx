@@ -6,6 +6,7 @@ import { MainLayout } from "../../layouts/mainLayout";
 import ResearchSlider from "../../components/Research/ResearchSlider";
 import ResearchMain from "../../components/Research/ResearchMain";
 import ResearchPopular from "../../components/Research/ResearchPopular";
+import { GetServerSideProps } from "next";
 
 interface Props {
   oneAnalysis: IAnalys;
@@ -23,7 +24,7 @@ export default function AnalysisOne(props: Props) {
           <Sugar
             sugar={[
               { title: "Главная", href: "/" },
-              { title: "Обычные анализы", href: "/catalog" },
+              { title: "Каталог", href: "/researches" },
               { title: props.oneAnalysis.long_title, href: "" },
             ]}
           />
@@ -55,17 +56,16 @@ export default function AnalysisOne(props: Props) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const link = context.query.id;
-  let oneAnalysis = {};
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const { link } = query;
   try {
     const responseOneAnalysis = await fetch(
-      `http://srllab.kz/api/front/analyse/${link}`
+      `${process.env.API_HOST}/api/front/analyse/${link}`
     );
-    oneAnalysis = await responseOneAnalysis.json();
-    console.log(oneAnalysis);
+    const oneAnalysis = await responseOneAnalysis.json();
+    return { props: { oneAnalysis } };
   } catch (e) {
     console.log(e.message);
+    return { props: { oneAnalysis: {} } };
   }
-  return { props: { oneAnalysis } };
-}
+};

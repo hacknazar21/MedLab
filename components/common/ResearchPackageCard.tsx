@@ -1,12 +1,9 @@
-import React, { PureComponent, useContext, useState } from "react";
-import { IAnalys } from "../../Interfaces/IAnalys";
-import Link from "next/link";
-import { HeaderContext } from "../../context/HeaderContext";
+import React from "react";
 import { IPackage } from "../../Interfaces/IPackage";
+import Link from "next/link";
 
 interface Props {
   package: IPackage;
-  id: number;
 }
 export function ResearchPackageCard(props: Props) {
   return (
@@ -16,14 +13,16 @@ export function ResearchPackageCard(props: Props) {
         className="analysis-package__item analysis-package"
       >
         <div className="analysis-package__image">
-          <img src="" alt="" />
+          <img src={props.package.main_img} alt="" />
         </div>
         <div className="analysis-package__number">
           Анализов: <span>{props.package.package.length}</span>
         </div>
-        <a href="" className="analysis-package__title">
-          <h3>{props.package.name_of_package}</h3>
-        </a>
+        <h3 className="analysis-package__title">
+          <Link href={"/researches/packages/" + props.package.link}>
+            <a>{props.package.name_of_package}</a>
+          </Link>
+        </h3>
         <div className="analysis-package__date">
           <span>2 — 4 дня</span>
         </div>
@@ -31,9 +30,9 @@ export function ResearchPackageCard(props: Props) {
           <div className="analysis-package__price">
             <p>{props.package.price_of_package} тг</p>
           </div>
-          <a href={""} className="analysis-package__more more-card">
-            Подробнее
-          </a>
+          <Link href={"/researches/packages/" + props.package.link}>
+            <a className="analysis-package__more more-card">Подробнее</a>
+          </Link>
         </div>
       </article>
     </>

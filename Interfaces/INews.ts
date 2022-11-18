@@ -6,4 +6,5 @@ export interface INews {
   date: string;
   createdat: string;
   updatedat: string;
+  text: string;
 }
