@@ -8,7 +8,9 @@ from front.models import API_Analyses, API_News, API_QaA, API_AboutUs, \
 
 from front.serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutUsSerializer, \
     ContactSerializer, PromotionSerializer, ReviewSerializer, PackageAnalysesSerializer, CategoryAnalysesSerializer, \
-    PartnersSerializer
+    PartnersSerializer, BaseCategoryAnalysesSerializer, BiomaterialSerializer
+
+from front.paginator import CustomPaginationEight, CustomPaginationFour
 
 
 #
@@ -31,7 +33,7 @@ from front.serializer import AnalyseSerializer, NewsSerializer, QaASerializer, A
 class AnalyseListView(generics.ListCreateAPIView):
     queryset = API_Analyses.objects.prefetch_related('biomaterial', 'category', 'terms_of_analyzes')
     serializer_class = AnalyseSerializer
-
+    pagination_class = CustomPaginationEight
 
 class AnalyseDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = API_Analyses.objects.all()
@@ -43,12 +45,12 @@ class AnalyseDetailView(generics.RetrieveUpdateDestroyAPIView):
 class PackageListView(generics.ListCreateAPIView):
     queryset = API_PackageAnalyses.objects.prefetch_related('package')
     serializer_class = PackageAnalysesSerializer
-
+    pagination_class = CustomPaginationEight
 
 class NewsListView(generics.ListCreateAPIView):
     queryset = API_News.objects.all()
     serializer_class = NewsSerializer
-
+    pagination_class = CustomPaginationEight
 
 class NewsDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = API_News.objects.all()
@@ -60,7 +62,7 @@ class NewsDetailView(generics.RetrieveUpdateDestroyAPIView):
 class QaAListView(generics.ListCreateAPIView):
     queryset = API_QaA.objects.all()
     serializer_class = QaASerializer
-
+    pagination_class = CustomPaginationEight
 
 class QaADetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = API_QaA.objects.all()
@@ -96,7 +98,7 @@ class ContactsDetailView(generics.RetrieveUpdateDestroyAPIView):
 class PromotionListView(generics.ListCreateAPIView):
     queryset = API_Promotions.objects.all()
     serializer_class = PromotionSerializer
-
+    pagination_class = CustomPaginationFour
 
 class PromotionDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = API_Promotions.objects.all()
@@ -108,7 +110,7 @@ class PromotionDetailView(generics.RetrieveUpdateDestroyAPIView):
 class ReviewListView(generics.ListCreateAPIView):
     queryset = API_Review.objects.all()
     serializer_class = ReviewSerializer
-
+    pagination_class = CustomPaginationEight
 
 class ReviewdDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = API_Review.objects.all()
@@ -124,19 +126,24 @@ class SearchForAnalyzes(generics.ListAPIView):
     filter_backends = (filters.SearchFilter,)
 
 class CategoryListView(generics.ListCreateAPIView):
-    queryset = API_CategoryAnalyses.objects.prefetch_related('child_category')
-    serializer_class = CategoryAnalysesSerializer
+    queryset = API_CategoryAnalyses.objects.filter(parent__isnull=True).prefetch_related('child_category')
+    serializer_class = BaseCategoryAnalysesSerializer
     permission_classes = (AllowAny,)
 
-class CategoryDetailView(generics.RetrieveDestroyAPIView):
+
+class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset =  API_CategoryAnalyses.objects.prefetch_related('child_category')
     serializer_class = CategoryAnalysesSerializer
     permission_classes = (AllowAny,)
-    lookup_field = 'title'
-    lookup_url_kwarg = 'title'
+    lookup_field = 'executor_ptr_id'
+    lookup_url_kwarg = 'id'
 
 
 class PartnersListView(generics.ListCreateAPIView):
     queryset = API_Partners.objects.all()
     serializer_class = PartnersSerializer
     permission_classes = (AllowAny,)
+
+
+class BiomaterialListView():
+    pass

@@ -71,6 +71,7 @@ class API_Analyses(Executor, LinkModel):
         db_table = 'API_Analyses'
         verbose_name = _('Анализ')
         verbose_name_plural = _('Анализы')
+        ordering = ['-createdat',]
 
     def __str__(self):
         return self.title
@@ -102,6 +103,7 @@ class API_PackageAnalyses(Executor, LinkModel):
         db_table = 'API_PackageAnalyses'
         verbose_name = _('Пакет анализа')
         verbose_name_plural = _('Пакеты анализов')
+        ordering = ['-createdat',]
 
     def __str__(self):
         return self.name_of_package
@@ -119,12 +121,14 @@ class API_Image(Executor):
                                 null=True, verbose_name=_('Анализы'))
 
     banner_image = models.ImageField(upload_to='imgAnalyse', verbose_name=_('Картинка для баннера'))
+    createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
+    updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
 
     class Meta:
         db_table = 'API_Image'
         verbose_name = _('Картинка')
         verbose_name_plural = _('Картинки')
-
+        ordering = ['-createdat',]
 
 class API_CategoryAnalyses(Executor):
     title = models.CharField(max_length=250, blank=True, null=True, verbose_name=_('Название'))
@@ -157,7 +161,7 @@ class API_TermsAnalyses(Executor):
         db_table = 'API_TermsAnalyses'
         verbose_name = _('Срок анализа')
         verbose_name_plural = _('Сроки анализов')
-
+        ordering = ['-createdat',]
     def __str__(self):
         return self.title
 
@@ -171,7 +175,7 @@ class API_Biomaterial(Executor):
         db_table = 'API_Biomaterial'
         verbose_name = _('Биоматериал')
         verbose_name_plural = _('Биоматериалы')
-
+        ordering = ['-createdat',]
 
     def __str__(self):
         return self.title
@@ -179,8 +183,8 @@ class API_Biomaterial(Executor):
 
 class API_News(Executor, LinkModel):
     img_news = models.ImageField(max_length=255, blank=True, null=True, upload_to='imgNews', verbose_name=_('Картинка новости'))
-    title = models.CharField(max_length=1000, blank=True, null=True, verbose_name=_('Заголовок новости'))
-    href = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Ссылка"))
+    title = models.CharField(max_length=500, blank=True, null=True, verbose_name=_('Заголовок новости'))
+    text = models.TextField(blank=True, null=True, verbose_name=_('Текст новости'))
     date = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Дата"))
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
@@ -190,6 +194,7 @@ class API_News(Executor, LinkModel):
         db_table = 'API_News'
         verbose_name = _('Новость')
         verbose_name_plural = _('Новости')
+        ordering = ['-createdat', ]
 
     def __str__(self):
         return self.title
@@ -209,6 +214,7 @@ class API_Contacts(Executor, LinkModel):
         db_table = 'API_Contacts'
         verbose_name = _('Контакт')
         verbose_name_plural = _('Контакты')
+        ordering = ['-createdat', ],
 
     def __str__(self):
         return '{} {} {}'.format(self.address, self.phone_number, self.map)
@@ -228,6 +234,7 @@ class API_Promotions(Executor, LinkModel):
         db_table = 'API_Promotions'
         verbose_name = _('Скидка')
         verbose_name_plural = _('Скидки')
+        ordering = ['-createdat', ]
 
     def __str__(self):
         return self.title
@@ -248,6 +255,7 @@ class API_Review(Executor, LinkModel):
         db_table = 'API_Reviews'
         verbose_name = _('Отзыв')
         verbose_name_plural = _('Отзывы')
+        ordering = ['-createdat', ]
 
     def __str__(self):
         return '{} {}'.format(self.name, self.date)
@@ -260,6 +268,7 @@ class API_QaA(Executor, LinkModel):
     answer = models.CharField(max_length=1000, blank=True, null=True, verbose_name=_('Ответ'))
     createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
+    ordering = ['-createdat', ]
 
     class Meta:
         db_table = 'API_QaA'
@@ -284,6 +293,7 @@ class API_AboutUs(Executor, LinkModel):
         db_table = 'API_AboutUs'
         verbose_name = _('О нас')
         verbose_name_plural = _('О нас')
+        ordering = ['-createdat', ]
 
     def __str__(self):
         return self.title
@@ -295,11 +305,14 @@ class API_AboutUs(Executor, LinkModel):
 class API_Partners(models.Model):
     images = models.ImageField(upload_to='imgPartners', verbose_name=_('Картинка'))
     url = models.URLField(max_length=250, verbose_name=_("Ссылка"))
+    createdat = models.DateTimeField(db_column='createdAt', auto_now=True)  # Field name made lowercase.
+    updatedat = models.DateTimeField(db_column='updatedAt', auto_now_add=True)  # Field name made lowercase.
 
     class Meta:
         db_table = 'API_Partners'
         verbose_name = _('Партнер')
         verbose_name_plural = _('Партнеры')
+        ordering = ['-createdat', ]
 
     def __str__(self):
         return self.url

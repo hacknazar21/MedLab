@@ -28,6 +28,8 @@ class BaseCategoryAnalysesSerializer(serializers.ModelSerializer):
 class CategoryAnalysesSerializer(BaseCategoryAnalysesSerializer):
     parent = BaseCategoryAnalysesSerializer(read_only=True)
 
+
+
 class TermsAnalysesSerializer(serializers.ModelSerializer):
     class Meta:
         model = API_TermsAnalyses

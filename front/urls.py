@@ -51,7 +51,8 @@ search_patterns = [
 
 categoty_patterns = [
     path('allCategories/', CategoryListView.as_view(), name='allCategory'),
-    path('delete/<str:title>', CategoryDetailView.as_view(), name='delete')
+
+    path('delete/<str:id>', CategoryDetailView.as_view(), name='delete')
 ]
 
 partners_patterns = [
