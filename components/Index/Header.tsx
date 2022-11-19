@@ -120,10 +120,7 @@ export function Header(props: Props) {
             </div>
             <div className="header__action search br10">
               <form action="" className="search__form">
-                <input
-                  className="input search__input"
-                  placeholder="Поиск по сайту"
-                />
+                <input className="search__input" placeholder="Поиск по сайту" />
                 <button type="submit" className="_icon-finder">
                   <svg
                     width="21"

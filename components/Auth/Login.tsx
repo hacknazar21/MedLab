@@ -10,113 +10,78 @@ import useHttp from "../../hooks/hooks.http";
 import { Loading } from "../Loading";
 import { AuthContext } from "../../context/AuthContext";
 import { useRouter } from "next/router";
+import useForm from "../../hooks/hooks.form";
 
 interface OwnProps {}
 
 type Props = OwnProps;
 
 const Login: FunctionComponent<Props> = (props) => {
-  const { request, error, clearError, clearSuccess, success, loading } =
-    useHttp();
   const { login } = useContext(AuthContext);
   const router = useRouter();
-  const [formLogin, setFormLogin] = useState({
-    phone_number: "",
-    password: "",
-  });
-  const inputChangeHandler = (event) => {
-    setFormLogin((prev) => {
-      prev[event.target.name] = event.target.value;
-      return { ...prev };
-    });
-  };
-  const changeInputState = (name, value) => {
-    setFormLogin((prev) => {
-      prev[name] = value;
-      return { ...prev };
-    });
-  };
-  const formSubmitHandler = async (event) => {
-    for (const formLoginKey in formLogin) {
-      if (formLogin[formLoginKey] === "") {
-        return;
-      } else if (formLoginKey === "phone_number") {
-        setFormLogin((prevState) => ({
-          ...prevState,
-          phone_number: formLogin[formLoginKey]
-            .replaceAll("(", "")
-            .replaceAll(")", "")
-            .replaceAll(" ", "")
-            .replaceAll("-", ""),
-        }));
-      }
-    }
-    try {
-      const data = await request("/api/auth/login", "POST", formLogin, {
-        "Content-Type": "application/json",
-      });
-      if (data.token) {
-        await login(data.token, data.userId);
-        router.push("/profile/personal");
-      }
-    } catch (e) {
-      setTimeout(() => {
-        clearError();
-      }, 2000);
-    }
-  };
+  const { formSubmitHandler, formChangeHandler, loading } =
+    useForm(onSubmitHandler);
+  function onSubmitHandler(data) {
+    console.log(data);
+  }
   return (
     <>
-      {error !== null ? <div className="bar error">{error}</div> : ""}
       <section className="page__auth auth">
         <div className="auth__container">
-          <div className="auth__form auth-form">
+          <form
+            action="/api/front/review/allReviews"
+            method="POST"
+            data-method="POST"
+            onSubmit={formSubmitHandler}
+            className="auth__form auth-form"
+          >
             <div className="auth-form__wrapper">
-              <h2 className="auth-form__title"></h2>
-              <div className="auth-form__inputs">
-                <div className="auth-form__input-box">
-                  <InputMask
-                    changeHandler={changeInputState}
-                    type="text"
-                    id="mobile"
-                    name="mobile"
-                    className="auth-form__input"
-                    placeholder="+ 7 (___) ___ __ __"
-                  />
-                  <label htmlFor="mobile" className="auth-form__label">
-                    Номер телефона
-                  </label>
-                </div>
-                <div className="auth-form__input-box">
-                  <input
-                    onChange={inputChangeHandler}
-                    type="password"
-                    id="password"
-                    name="password"
-                    className="auth-form__input"
-                    placeholder="Введите пароль"
-                  />
-                  <label htmlFor="password" className="auth-form__label">
-                    {" "}
-                    Пароль{" "}
-                  </label>
-                </div>
-                <div className="auth-form__submit-box">
-                  <button
-                    onClick={formSubmitHandler}
-                    type="submit"
-                    className="auth-form__submit"
-                  >
-                    Логин
-                    {loading ? <Loading /> : ""}
-                  </button>
-                  <Link href="/registration">
-                    <a className="auth-form__link">У меня нет аккаунта</a>
-                  </Link>
-                </div>
+              <h2 className="form-title">Войти в аккаунт</h2>
+              <div className="input-box">
+                <label htmlFor="mobile" className="label">
+                  Номер телефона
+                </label>
+                <InputMask
+                  changeHandler={(value) => {
+                    formChangeHandler({
+                      target: {
+                        name: "tel",
+                        type: "text",
+                        value,
+                      },
+                    });
+                  }}
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  className="input"
+                  placeholder="+ 7 (___) ___ __ __"
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="password" className="label">
+                  Пароль
+                </label>
+                <input
+                  onChange={formChangeHandler}
+                  type="password"
+                  id="password"
+                  name="password"
+                  className="input"
+                  placeholder="Введите пароль"
+                />
+              </div>
+              <div className="input-box">
+                <button type="submit" className="submit">
+                  Войти
+                  {loading ? <Loading /> : ""}
+                </button>
+                <Link href="/registration">
+                  <a className="auth-form__link">У меня нет аккаунта</a>
+                </Link>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </section>
     </>

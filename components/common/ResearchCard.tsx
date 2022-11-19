@@ -46,7 +46,7 @@ export function ResearchCard(props: Props) {
   return (
     <>
       <div
-        data-item-id={props.research.research_id}
+        data-item-id={props.research.id}
         className="analysis__item analysis-item"
       >
         <h3 className="analysis-item__title">

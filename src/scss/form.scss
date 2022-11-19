@@ -1,0 +1,51 @@
+.form {
+  @include adaptiveValue("width", 617, 320);
+}
+.form-title {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+  letter-spacing: 0.02em;
+  color: #363B48;
+  margin-bottom: rem(30);
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(5);
+  &:not(:last-child){
+    margin-bottom: rem(30);
+  }
+}
+.label {
+  font-weight: 600;
+  font-size: rem(14);
+  line-height: math.div(17,14);
+
+  letter-spacing: 0.02em;
+  color: #363B48;
+}
+.input {
+  background: #F4F6F9;
+  border: 1px solid #D0D6E4;
+  border-radius: 5px;
+  padding: rem(16.5) rem(15);
+  font-weight: 500;
+  font-size: rem(16);
+  line-height: math.div(17,14);
+  letter-spacing: 0.02em;
+  color: #717C97;
+  &_type_textarea {
+  }
+}
+.submit{
+  position: relative;
+  font-weight: 600;
+  font-size: rem(14);
+  line-height: math.div(17,14);
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  background: #1E4AE4;
+  border-radius: 5px;
+  padding: rem(16.5) 0;
+}

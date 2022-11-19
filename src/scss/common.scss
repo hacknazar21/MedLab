@@ -398,7 +398,32 @@
     content: "★";
     font-size: 20px;
   }
+  &_size{
+    &_big{
+      &:before{
+        font-size: rem(35);
+      }
+    }
+  }
 }
 .rating-item-fill {
   color:  #E4AD1E;
+}
+.add-button{
+  padding: rem(18) rem(57);
+  border: 1px solid #337FF9;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: rem(14);
+  line-height: math.div(24,14);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #337FF9;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  @media(any-hover: hover){
+    &:hover{
+      background-color: #337FF9;
+      color: #fff;
+    }
+  }
 }
