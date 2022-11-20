@@ -1,0 +1,126 @@
+.checkout {
+  &__info {
+    @include adaptiveValue("padding", 50, 10);
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.checkout-info {
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: rem(15);
+    margin-bottom: rem(30);
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__count {
+    font-weight: 600;
+    font-size: rem(14);
+    line-height: math.div(17,14);
+    
+    letter-spacing: 0.02em;
+    color: #717C97;
+  }
+
+  &__products {
+    max-height: rem(440);
+    overflow-y: auto;
+    padding: 0 rem(15);
+    margin: 0 rem(-15);
+  }
+
+  &__product {
+    &:not(:last-child){
+      margin-bottom: rem(10);
+    }
+    background-color: #FFFFFF;
+    border: 1px solid #D0D6E4;
+    border-radius: 10px;
+    padding: rem(10);
+    position: relative;
+  }
+
+  &__price-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: rem(22);
+    line-height: math.div(20,22);
+    letter-spacing: 0.02em;
+    color: #363B48;
+    margin-top: auto;
+    padding: rem(15) 0;
+    @media(max-width:$tablet){
+      margin-top: rem(30);
+    }
+  }
+
+  &__price-title {
+
+  }
+
+  &__price {
+  }
+}
+
+.checkout-product {
+  &__delete {
+    @extend .modal__close;
+    background: none;
+    top: rem(3);
+    right: rem(8);
+    span{
+      background-color: #717C97;
+    }
+  }
+
+  &__sku {
+    font-weight: 600;
+    font-size: rem(14);
+    line-height: math.div(17,14);
+    letter-spacing: 0.02em;
+    color: #717C97;
+    padding: rem(3.5) 0;
+    margin-bottom: rem(10);
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: math.div(20,16);
+    letter-spacing: 0.02em;
+    color: #363B48;
+    margin-bottom: rem(12);
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: math.div(17,14);
+    letter-spacing: 0.02em;
+    color: #717C97;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: rem(432);
+    margin-bottom: rem(10);
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: math.div(20,16);
+    
+    letter-spacing: 0.02em;
+    color: #363B48;
+  }
+}

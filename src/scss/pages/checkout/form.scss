@@ -1,0 +1,82 @@
+.checkout {
+  &__form {
+    @include adaptiveValue("padding-left", 100, 10);
+    @include adaptiveValue("padding-right", 100, 10);
+    @include adaptiveValue("padding-top", 50, 10);
+    @include adaptiveValue("padding-bottom", 50, 10);
+  }
+}
+
+.checkout-form {
+  &__title {
+  }
+
+  &__inputs {
+    margin-bottom: rem(73);
+  }
+
+  &__radio {
+  }
+
+  &__input-box {
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__back {
+  }
+
+  &__submit {
+    padding-left: rem(77);
+    padding-right: rem(77);
+  }
+}
+
+.radio {
+  &__title {
+    font-weight: 600;
+    font-size: rem(14);
+    line-height: math.div(17,14);
+    letter-spacing: 0.02em;
+    color: #717C97;
+    margin-bottom: rem(10);
+  }
+
+  &__items {
+    display: flex;
+    border: 1px solid #D0D6E4;
+    border-radius: 5px;
+  }
+
+  &__item {
+  }
+
+  &__input {
+    position: absolute;
+    left: -2000px;
+    top: -2000px;
+    opacity: 0;
+    transform: scale(0);
+    &:checked + label{
+      background-color: rgba(30, 74, 228, 0.1);
+      border: 1px solid #1E4AE4;
+      box-shadow: 0px 0px 8px rgba(30, 74, 228, 0.25);
+      border-radius: 5px;
+    }
+  }
+
+  &__label {
+    display: block;
+    padding: rem(16.5) 0;
+    @include adaptiveValue("padding-left", 83, 24);
+    @include adaptiveValue("padding-right", 83, 24);
+    @media(any-hover: hover){
+      &:hover{
+            cursor: pointer;
+      }
+    }
+  }
+}

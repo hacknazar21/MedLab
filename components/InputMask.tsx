@@ -53,7 +53,12 @@ const InputMask = (props: any) => {
 
   return (
     <>
-      <input {...props} ref={inputCard} onChange={handleChange} />
+      <input
+        {...props}
+        ref={inputCard}
+        defaultValue={"+7"}
+        onChange={handleChange}
+      />
     </>
   );
 };

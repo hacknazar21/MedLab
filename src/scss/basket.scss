@@ -26,6 +26,8 @@
   &__items {
     padding-bottom: rem(15);
     border-bottom: 1px solid #D0D6E4;
+    max-height: rem(400);
+    overflow-y: auto;
   }
 
   &__item {

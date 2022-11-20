@@ -30,15 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/promotions/[link]": [
+    "/checkout": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/promotions/[link].js"
-    ],
-    "/researches": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/researches.js"
+      "static/chunks/pages/checkout.js"
     ]
   },
   "ampFirstPages": []

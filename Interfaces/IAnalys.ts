@@ -28,4 +28,5 @@ export interface IAnalys {
   updatedat: string;
   vendor_code: string;
   hidden?: boolean;
+  count: number;
 }
