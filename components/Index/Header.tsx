@@ -65,12 +65,16 @@ export function Header(props: Props) {
   const basketRef = useRef(null);
   const headerRef = useRef(null);
   const [scroll, setScroll] = useState(false);
+  let scrollPos = 0;
   useEffect(() => {
     dynamicRefs.current = new Array(0);
   }, []);
 
   useEffect(() => {
     if (headerRef !== null) window.addEventListener("scroll", scrollHandler);
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
   }, [headerRef]);
   useEffect(() => {
     addDynamicRefs(dynamicRefs.current);
@@ -82,12 +86,23 @@ export function Header(props: Props) {
     }
   }, [basketRef]);
   const scrollHandler = async (event: any) => {
+    const st = window.scrollY;
+    if (st > scrollPos) {
+      headerRef?.current?.classList.remove("scroll-up");
+      headerRef?.current?.classList.add("scroll-down");
+    } else {
+      headerRef?.current?.classList.remove("scroll-down");
+      headerRef?.current?.classList.add("scroll-up");
+    }
+    scrollPos = st;
     if (window.scrollY > 0 && !scroll) {
       await setScroll(true);
       headerRef?.current?.classList.add("scroll");
     } else if (window.scrollY <= 0) {
       await setScroll(false);
       headerRef?.current?.classList.remove("scroll");
+      headerRef?.current?.classList.remove("scroll-down");
+      headerRef?.current?.classList.remove("scroll-up");
     }
   };
   const basketClickHandler = (event: any) => {

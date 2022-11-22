@@ -34,7 +34,7 @@
   }
 
   &__text {
-    @include adaptiveValue("margin-bottom", 91, 80);
+    @include adaptiveValue("margin-bottom", 91, 40);
     max-width: rem(881);
   }
 

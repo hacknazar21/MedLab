@@ -6,8 +6,17 @@
   background-color: #FFFFFF;
   z-index: 9998;
   width: 100%;
+  &.scroll{
+    transition: transform 0.3s ease;
+  }
+  &.scroll-down{
+    transform: translateY(-100%);
+  }
+  &.scroll-up{
+    transform: translateY(0%);
+  }
   & + section{
-    margin-top: rem(155);
+    @include adaptiveValue("margin-top", 155, 130);
   }
   &__container {
   }

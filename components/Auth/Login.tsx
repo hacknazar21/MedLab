@@ -51,7 +51,7 @@ const Login: FunctionComponent<Props> = (props) => {
                       },
                     });
                   }}
-                  type="text"
+                  type="tel"
                   id="mobile"
                   name="mobile"
                   className="input"

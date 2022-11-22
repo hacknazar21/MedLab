@@ -420,6 +420,9 @@
   text-transform: uppercase;
   color: #337FF9;
   transition: background-color 0.3s ease, color 0.3s ease;
+  @media(max-width:$tablet){
+    width: 100%;
+  }
   @media(any-hover: hover){
     &:hover{
       background-color: #337FF9;

@@ -82,12 +82,13 @@
 
   &__image {
     position: absolute;
-    width: rem(550);
+    width: rem(400);
+    @include adaptiveValue("width", 400, 0);
     @media(max-width: $tablet) {
       width: rem(325);
       top: initial;
-      right: rem(-10);
-      bottom: rem(-68);
+      right: rem(-30);
+      bottom: rem(-50);
     }
     height: 100%;
     top: 0;
@@ -105,6 +106,7 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      object-position: bottom;
     }
   }
 

@@ -9,6 +9,7 @@
   &__first {
     display: flex;
     gap: rem(80);
+    @include adaptiveValue("gap", 80, 0);
     padding-bottom: rem(66);
     @media(max-width: $tablet) {
       flex-direction: column;
@@ -21,7 +22,7 @@
     position: relative;
     padding-bottom: rem(64);
     @media(max-width: $tablet) {
-      flex: 0 0 auto;
+      flex: 1 1 100px;
       padding-bottom: rem(64);
     }
 
@@ -79,14 +80,18 @@
   }
 
   &__social {
+
   }
 
   &__social-title {
     font-weight: 600;
-    @include adaptiveValue("font-size", 18, 14);
+    @include adaptiveValue("font-size", 18, 16);
     line-height: math.div(35, 18);
 
     color: #4C4D54;
+    @media(max-width:$tablet){
+      color: #3282FA;
+    }
   }
 
   &__social-items {
