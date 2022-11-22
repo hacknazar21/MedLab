@@ -24,8 +24,19 @@ const Promotions: FunctionComponent<Props> = ({
 }) => {
   const router = useRouter();
   const [openModal, setOpenModal] = useState(false);
-  const { formSubmitHandler, formChangeHandler, form, loading } =
-    useForm(onSubmitHandler);
+  const { formSubmitHandler, formChangeHandler, form, loading } = useForm(
+    onSubmitHandler,
+    {
+      text: {
+        date:
+          new Date().getDate() +
+          "/" +
+          (new Date().getMonth() + 1) +
+          "/" +
+          new Date().getFullYear(),
+      },
+    }
+  );
   function onSubmitHandler(data) {
     router.reload();
   }
@@ -70,7 +81,7 @@ const Promotions: FunctionComponent<Props> = ({
                   type="text"
                   onInput={formChangeHandler}
                   required={true}
-                  placeholder="Мистер Гротмир"
+                  placeholder="Введите имя"
                   name="name"
                   id="name"
                   className="input review__input"

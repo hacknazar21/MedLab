@@ -3,6 +3,8 @@
   background: #FFFFFF;
   border: 1px solid #D0D6E4;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
   &__image {
     position: relative;
     padding-bottom: rem(150);
@@ -27,7 +29,7 @@
   }
 
   &__more {
-    max-width: rem(250);
     text-align: center;
+    margin-top: auto;
   }
 }

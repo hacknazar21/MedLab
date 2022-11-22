@@ -12,8 +12,8 @@ const Promotion: FunctionComponent<Props> = (props) => {
   return (
     <section className="page__promotion promotion">
       <div className="promotion__container promotion__container_grid">
-        {props.promotions?.map((promotion: IPromotion) => {
-          return <PromotionCard promotion={promotion} />;
+        {props.promotions?.map((promotion: IPromotion, id: number) => {
+          if (id < 4) return <PromotionCard promotion={promotion} />;
         })}
       </div>
     </section>

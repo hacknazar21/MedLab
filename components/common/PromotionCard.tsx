@@ -16,10 +16,7 @@ const PromotionCard: FunctionComponent<Props> = (props) => {
       </div>
       <h3 className="promotion-card__title">
         <Link href={"/promotions/" + props.promotion.link}>
-          <a>
-            Клинический анализ крови: общий анализ, лейкоформула, СОЭ (с
-            микроскопией мазка крови при наличии патологических сдвигов)
-          </a>
+          <a>{props.promotion.title}</a>
         </Link>
       </h3>
       <Link href={"/promotions/" + props.promotion.link}>
