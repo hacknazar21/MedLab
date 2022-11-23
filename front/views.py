@@ -1,10 +1,12 @@
-from rest_framework import generics, filters
+from rest_framework import generics, filters, status
 from rest_framework.permissions import AllowAny
 
 from rest_framework.response import Response
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 from front.models import API_Analyses, API_News, API_QaA, API_AboutUs, \
-    API_Contacts, API_Promotions, API_Review, API_PackageAnalyses, API_CategoryAnalyses, API_Partners
+    API_Contacts, API_Promotions, API_Review, API_PackageAnalyses, API_CategoryAnalyses, API_Partners, API_Biomaterial
 
 from front.serializer import AnalyseSerializer, NewsSerializer, QaASerializer, AboutUsSerializer, \
     ContactSerializer, PromotionSerializer, ReviewSerializer, PackageAnalysesSerializer, CategoryAnalysesSerializer, \
@@ -12,6 +14,7 @@ from front.serializer import AnalyseSerializer, NewsSerializer, QaASerializer, A
 
 from front.paginator import CustomPaginationEight, CustomPaginationFour
 
+from front.filters import AnalyseFilter
 
 #
 # class RetrieveAnalyse(viewsets.ModelViewSet):
@@ -30,10 +33,12 @@ from front.paginator import CustomPaginationEight, CustomPaginationFour
 #         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-class AnalyseListView(generics.ListCreateAPIView):
+class AnalyseListView(generics.ListAPIView):
     queryset = API_Analyses.objects.prefetch_related('biomaterial', 'category', 'terms_of_analyzes')
     serializer_class = AnalyseSerializer
     pagination_class = CustomPaginationEight
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['biomaterial', 'category']
 
 class AnalyseDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = API_Analyses.objects.all()
@@ -132,7 +137,7 @@ class SearchForAnalyzes(generics.ListAPIView):
     search_fields = ['title']
     filter_backends = (filters.SearchFilter,)
 
-class CategoryListView(generics.ListCreateAPIView):
+class CategoryListView(generics.ListAPIView):
     queryset = API_CategoryAnalyses.objects.filter(parent__isnull=True).prefetch_related('child_category')
     serializer_class = BaseCategoryAnalysesSerializer
     permission_classes = (AllowAny,)
@@ -152,5 +157,6 @@ class PartnersListView(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
 
 
-class BiomaterialListView():
-    pass
+class BiomaterialListView(generics.GenericAPIView):
+    serializer_class = AnalyseSerializer
+
