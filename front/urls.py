@@ -49,8 +49,8 @@ packageanalyse_patterns = [
 
 
 
-filter_patterns = [
-    path('biomaterial', BiomaterialListView.as_view(), name='filterBiomaterial')
+biomaterial_patterns = [
+    path('allBiomaterials', BiomaterialListView.as_view(), name='filterBiomaterial')
 ]
 
 categoty_patterns = [
@@ -75,5 +75,5 @@ urlpatterns = [
     path('package/', include(packageanalyse_patterns)),
     path('category/', include(categoty_patterns)),
     path('partners/', include(partners_patterns)),
-    path('filter/', include(filter_patterns)),
+    path('biomaterial/', include(biomaterial_patterns)),
 ]

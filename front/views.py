@@ -155,7 +155,7 @@ class PartnersListView(generics.ListCreateAPIView):
 
 
 class BiomaterialListView(generics.ListAPIView):
-    serializer_class = AnalyseSerializer
+    serializer_class = BiomaterialSerializer
     queryset = API_Biomaterial.objects.all()
     permission_classes = (AllowAny,)
 
