@@ -3,7 +3,7 @@ from django.urls import path, include
 from front.views import AnalyseListView, AnalyseDetailView, NewsListView, NewsDetailView, QaAListView, QaADetailView, \
     AboutUsListView, AboutUsDetailView, ContactsListView, ContactsDetailView, PromotionListView, PromotionDetailView, \
     ReviewListView, ReviewdDetailView, PackageListView, SearchForAnalyzes, CategoryListView, PartnersListView, \
-    CategoryDetailView, PackageDetailView
+    CategoryDetailView, PackageDetailView, BiomaterialListView
 
 
 analyse_patterns = [
@@ -51,15 +51,20 @@ search_patterns = [
     path('', SearchForAnalyzes.as_view(), name='search')
 ]
 
+filter_patterns = [
+    path('biomaterial', BiomaterialListView.as_view(), name='filterBiomaterial')
+]
+
 categoty_patterns = [
-    path('allCategories/', CategoryListView.as_view(), name='allCategory'),
+    path('allCategories', CategoryListView.as_view(), name='allCategory'),
 
     path('delete/<str:id>', CategoryDetailView.as_view(), name='delete')
 ]
 
 partners_patterns = [
-    path('allPartners/', PartnersListView.as_view(), name='allPartners')
+    path('allPartners', PartnersListView.as_view(), name='allPartners')
 ]
+
 
 urlpatterns = [
     path('analyse/', include(analyse_patterns)),
@@ -73,4 +78,5 @@ urlpatterns = [
     path('search/', include(search_patterns)),
     path('category/', include(categoty_patterns)),
     path('partners/', include(partners_patterns)),
+    path('filter/', include(filter_patterns)),
 ]

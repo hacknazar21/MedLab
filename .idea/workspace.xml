@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="">
+    <list default="true" id="d41dc722-1d58-47c0-9ec5-9a1b92b50cbc" name="Changes" comment="fix descrpition packageanalyze">
+      <change afterPath="$PROJECT_DIR$/authenticate/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MedLab_Django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedLab_Django/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedLab_Django/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedLab_Django/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticate/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticate/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticate/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticate/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticate/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticate/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/views.py" afterDir="false" />
     </list>
@@ -72,7 +78,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="file.status.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -135,6 +141,10 @@
       <workItem from="1666930919559" duration="2992000" />
       <workItem from="1667052499517" duration="320000" />
       <workItem from="1667189240853" duration="3516000" />
+      <workItem from="1668747475236" duration="20234000" />
+      <workItem from="1669009118164" duration="1877000" />
+      <workItem from="1669096475723" duration="7623000" />
+      <workItem from="1669179689638" duration="1819000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD for Analyse">
       <created>1665389030230</created>
@@ -227,7 +237,42 @@
       <option name="project" value="LOCAL" />
       <updated>1666675729932</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="subcategory for category, search for analyzes">
+      <created>1668666261442</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668666261442</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix json-response in categorylistview, retrieve by id in categorydetail, api_news text field">
+      <created>1668759103414</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668759103414</updated>
+    </task>
+    <task id="LOCAL-00016" summary="package detail view">
+      <created>1668763042688</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668763042688</updated>
+    </task>
+    <task id="LOCAL-00017" summary="package detail view">
+      <created>1668764594153</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668764594153</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix descrpition packageanalyze">
+      <created>1668764746070</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668764746070</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +289,10 @@
     <MESSAGE value="added gitignore" />
     <MESSAGE value="fix link in models" />
     <MESSAGE value="fix models from test_medlab" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix models from test_medlab" />
+    <MESSAGE value="subcategory for category, search for analyzes" />
+    <MESSAGE value="fix json-response in categorylistview, retrieve by id in categorydetail, api_news text field" />
+    <MESSAGE value="package detail view" />
+    <MESSAGE value="fix descrpition packageanalyze" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix descrpition packageanalyze" />
   </component>
 </project>
