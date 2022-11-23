@@ -77,7 +77,7 @@ export default function Filter(props: Props) {
     (async () => {
       try {
         const data: ICategories = await request(
-          "/api/front/category/allCategories/",
+          "/api/front/category/allCategories",
           "GET",
           null,
           {
@@ -85,7 +85,7 @@ export default function Filter(props: Props) {
           }
         );
         const dataBio = await request(
-          "/api/front/biomaterial/allBiomaterials/",
+          "/api/front/biomaterial/allBiomaterials",
           "GET",
           null,
           {
