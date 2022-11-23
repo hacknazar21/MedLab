@@ -37,8 +37,10 @@ class AnalyseListView(generics.ListAPIView):
     queryset = API_Analyses.objects.prefetch_related('biomaterial', 'category', 'terms_of_analyzes')
     serializer_class = AnalyseSerializer
     pagination_class = CustomPaginationEight
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['biomaterial', 'category']
+    search_fields = ['title']
+
 
 class AnalyseDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = API_Analyses.objects.all()
@@ -130,12 +132,7 @@ class ReviewdDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'link'
     lookup_url_kwarg = 'review_link'
 
-class SearchForAnalyzes(generics.ListAPIView):
-    permission_classes = (AllowAny,)
-    queryset = API_Analyses.objects.all()
-    serializer_class = AnalyseSerializer
-    search_fields = ['title']
-    filter_backends = (filters.SearchFilter,)
+
 
 class CategoryListView(generics.ListAPIView):
     queryset = API_CategoryAnalyses.objects.filter(parent__isnull=True).prefetch_related('child_category')
