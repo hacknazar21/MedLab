@@ -8,7 +8,8 @@ import PageTitle from "../../components/common/PageTitle";
 import { useState } from "react";
 
 export default function CatalogPage({ analysis }) {
-  const [researches, setResearches] = useState([...analysis.results]);
+  const [researches, setResearches] = useState({ ...analysis });
+
   return (
     <>
       <Head>
@@ -27,7 +28,7 @@ export default function CatalogPage({ analysis }) {
           <PageTitle title={"Каталог анализов"} />
           <Catalog
             setter={setResearches}
-            pageCount={analysis.count}
+            pageCount={researches.count}
             researches={researches}
           />
         </MainLayout>

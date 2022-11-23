@@ -12,7 +12,6 @@ const SingleNews: FunctionComponent<Props> = ({ news }) => {
     <section className="page__news news single-record">
       <div className="news__container">
         <div className="news__box single-record-box">
-          <h1 className="news__title single-record-title">{news.title}</h1>
           <time dateTime={news.date} className="single-record-time">
             {news.date}
           </time>

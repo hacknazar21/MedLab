@@ -15,7 +15,9 @@ export default function CheckoutInfo() {
       for (const productsGetElement of productsGet) {
         setPrice(
           (prevState) =>
-            prevState + productsGetElement.price * productsGetElement.count
+            prevState +
+            (productsGetElement.price || productsGetElement.price_of_package) *
+              productsGetElement.count
         );
       }
     }
@@ -43,16 +45,22 @@ export default function CheckoutInfo() {
                   <span />
                 </button>
                 <div className="checkout-product__sku">
-                  {product.vendor_code}
+                  {product.vendor_code || "Пакет анализов"}
                 </div>
                 <h3 className="checkout-product__title">
-                  {product.title} x {product.count}
+                  {product.title || product.name_of_package} x {product.count}
                 </h3>
                 <div className="checkout-product__text">
-                  <p>{product.description_patient}</p>
+                  <p>
+                    {product.description_patient ||
+                      product.package
+                        .map((packageItem: IAnalys) => packageItem.title)
+                        .join(", ")}
+                  </p>
                 </div>
                 <div className="checkout-product__price">
-                  {product.price * product.count} ₸
+                  {(product.price || product.price_of_package) * product.count}{" "}
+                  ₸
                 </div>
               </article>
             );

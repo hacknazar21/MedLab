@@ -15,8 +15,7 @@ export default function Pagination(props: Props) {
   const handlePageClick = async ({ selected }) => {
     try {
       const data = await request(props.link + (selected + 1));
-      console.log(data.results);
-      props.setter(data.results);
+      if (data) props.setter(data);
     } catch (e) {
       console.log(e.message);
     }

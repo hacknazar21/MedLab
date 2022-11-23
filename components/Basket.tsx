@@ -19,7 +19,7 @@ export function Basket(props: Props) {
     if (products !== null) {
       let newPrice = 0;
       for (const product of products) {
-        newPrice += product.price * product.count;
+        newPrice += (product.price || product.price_of_package) * product.count;
       }
       setTotalPrice(newPrice.toLocaleString("en").replaceAll(",", " "));
     }
@@ -85,9 +85,12 @@ export function Basket(props: Props) {
                 <div className="basket-item__text">
                   <div className="basket-item__id">{product.vendor_code}</div>
                   <div className="basket-item__title">
-                    {product.title} -{" "}
-                    {product.price.toLocaleString("en").replace(",", " ")} тг x{" "}
-                    {product.count}
+                    {product.title || product.name_of_package} -{" "}
+                    {product.price?.toLocaleString("en").replace(",", " ") ||
+                      product.price_of_package
+                        ?.toLocaleString("en")
+                        .replace(",", " ")}{" "}
+                    тг x {product.count}
                   </div>
                 </div>
                 <button

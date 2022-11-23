@@ -94,6 +94,16 @@
 }
 
 .analysis-filter {
+  position: relative;
+  .lds-roller{
+    z-index: 100;
+    top: 100%;
+    right: initial;
+    left: -1%;
+    & div:after{
+      background-color: #1C43C1;
+    }
+  }
   &__header {
     display: flex;
     justify-content: space-between;

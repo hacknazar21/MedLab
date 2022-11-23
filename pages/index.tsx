@@ -28,7 +28,7 @@ export default function Index({
   packages,
   promotions,
 }) {
-  const [researches, setResearches] = useState([...analysis.results]);
+  const [researches, setResearches] = useState({ ...analysis });
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function Index({
           <Packages packages={packages} />
           <Popular analysis={analysis.results} />
           <Catalog
-            pageCount={analysis.count}
+            pageCount={researches.count}
             setter={setResearches}
             analysis={researches}
           />

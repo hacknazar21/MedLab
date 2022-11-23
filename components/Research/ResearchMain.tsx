@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Swiper, { Autoplay } from "swiper";
 import { IAnalys } from "../../Interfaces/IAnalys";
+import { HeaderContext } from "../../context/HeaderContext";
 
 interface OwnProps {
   research: IAnalys;
@@ -10,9 +11,10 @@ type Props = OwnProps;
 
 export default function ResearchMain(props: Props) {
   const [isPatient, setIsPatient] = useState(true);
+  const { add } = useContext(HeaderContext);
   return (
     <div className="research__main research-main">
-      <div data-item-id={1} className="research-main__aside research-aside">
+      <div className="research-main__aside research-aside">
         <div className="research-aside__header">
           <h2 className="research-aside__title">{props.research.long_title}</h2>
           <div className="research-aside__subtitile">
@@ -90,7 +92,14 @@ export default function ResearchMain(props: Props) {
             <p>стоимость:</p>
             <span>{props.research.price} тг</span>
           </div>
-          <button className="research-aside__add">Добавить в корзину</button>
+          <button
+            onClick={() => {
+              add(props.research);
+            }}
+            className="research-aside__add"
+          >
+            Добавить в корзину
+          </button>
         </div>
       </div>
       <div className="research-main__content-box">

@@ -7,20 +7,16 @@
 
 .contacts {
   &__container {
-    display: flex;
-    @media(max-width:$tablet){
-        flex-direction: column;
-    }
-    gap: rem(10);
-    & > *{
-      flex: 1 1 auto;
-    }
   }
 
   &__items {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media(max-width:$tablet){
+      grid-template-columns: 1fr;
+    }
     gap: rem(10);
+    margin-bottom: rem(30);
   }
 
   &__item {
@@ -28,11 +24,22 @@
     padding: rem(20);
     background-color: #EDF0F6;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(25);
   }
+  &__box{
 
+  }
   &__map {
+    border-radius: 20px;
+    overflow: hidden;
     min-height: rem(274);
     @include adaptiveValue("min-height", 274, 0);
+    display: flex;
+    iframe{
+      height: 500px;
+    }
   }
 }
 
@@ -62,7 +69,7 @@
     font-weight: 600;
     font-size: rem(22);
     line-height: math.div(27,22);
-    color: #363B48;
+    color: #3282FA;
 
   }
 

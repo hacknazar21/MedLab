@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { IAnalys } from "../../Interfaces/IAnalys";
-import Filter from "./Analysis/Filter";
 import { ResearchCard } from "../common/ResearchCard";
 import Pagination from "../common/Pagination";
+import Filter from "../common/Filter";
 interface OwnProps {
-  analysis: IAnalys[];
+  analysis: {
+    results: IAnalys[];
+  };
   pageCount: number;
   setter: Function;
 }
@@ -12,29 +14,28 @@ interface OwnProps {
 type Props = OwnProps;
 
 export function Catalog(props: Props) {
-  const [number, setNumber] = useState(props.analysis.length);
-  const callback = () => {};
-  useEffect(() => {
-    console.log("render");
-  }, []);
-
+  const [filterUrl, setFilterUrl] = useState(
+    "/api/front/analyse/allAnalyse?smt=hhp"
+  );
   return (
     <section className="page__catalog catalog">
       <div className="catalog__container">
         <h2 className="catalog__title">Каталог анализов</h2>
-        <Filter callback={callback} number={number} />
+        <Filter setFilterUrl={setFilterUrl} setter={props.setter} />
         <div className="catalog__box">
           <div className="catalog__grid">
-            {props.analysis.map((research) => {
+            {props.analysis.results?.map((research: IAnalys) => {
               return <ResearchCard research={research} key={research.id} />;
             })}
+            {props.analysis.results?.length === 0 &&
+              "Ничего не найдено, попробуйте изменить запрос"}
           </div>
           <Pagination
             pageCount={Math.ceil(props.pageCount) / 8}
             setter={(data) => {
-              props.setter([...data]);
+              props.setter({ ...data });
             }}
-            link={"/api/front/analyse/allAnalyse?page="}
+            link={filterUrl + "&page="}
           />
         </div>
       </div>

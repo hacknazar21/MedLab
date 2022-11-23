@@ -13,9 +13,6 @@ const Promotion: FunctionComponent<Props> = (props) => {
     <section className="page__promotion promotion single-record">
       <div className="promotion__container">
         <div className="promotion__box single-record-box">
-          <h1 className="promotion__title single-record-title">
-            {props.promotion.title}
-          </h1>
           <div className="promotion__image single-record-image">
             <img src={props.promotion.image} alt={props.promotion.title} />
           </div>

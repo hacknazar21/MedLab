@@ -1,8 +1,7 @@
-import React, { FunctionComponent } from "react";
-import { IPromotion } from "../../Interfaces/IPromotion";
-import { IAnalys } from "../../Interfaces/IAnalys";
+import React, { FunctionComponent, useContext } from "react";
 import { IPackage } from "../../Interfaces/IPackage";
 import { ResearchCard } from "../common/ResearchCard";
+import { HeaderContext } from "../../context/HeaderContext";
 
 interface OwnProps {
   packageItem: IPackage;
@@ -11,6 +10,7 @@ interface OwnProps {
 type Props = OwnProps;
 
 const Package: FunctionComponent<Props> = ({ packageItem }) => {
+  const { add } = useContext(HeaderContext);
   return (
     <>
       <section className="page__package package">
@@ -27,7 +27,12 @@ const Package: FunctionComponent<Props> = ({ packageItem }) => {
                   <p>стоимость:</p>
                   <span>{packageItem.price_of_package} тг</span>
                 </div>
-                <button className="research-aside__add">
+                <button
+                  onClick={() => {
+                    add(packageItem);
+                  }}
+                  className="research-aside__add"
+                >
                   Добавить в корзину
                 </button>
               </div>
