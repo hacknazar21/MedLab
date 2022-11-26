@@ -216,7 +216,7 @@ class API_Contacts(Executor, LinkModel):
         db_table = 'API_Contacts'
         verbose_name = _('Контакт')
         verbose_name_plural = _('Контакты')
-        ordering = ['-createdat', ],
+        ordering = ['-createdat', ]
 
     def __str__(self):
         return '{} {} {}'.format(self.address, self.phone_number, self.map)
