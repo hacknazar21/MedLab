@@ -18,6 +18,8 @@ from django.urls import path, include
 
 from drf_spectacular.views import SpectacularSwaggerView, SpectacularRedocView, SpectacularAPIView
 
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+
 spectacular_patterns = [
     path('', SpectacularAPIView.as_view(), name='schema'),
     path('swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
@@ -28,10 +30,19 @@ spectacular_patterns = [
 from django.conf import settings
 from django.conf.urls.static import static
 
+token_patterns = [
+    path('', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('verify/', TokenVerifyView.as_view(), name='token_verify'),
+]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/front/', include('front.urls')),
-    path('api/schema/', include(spectacular_patterns))
+    path('api/schema/', include(spectacular_patterns)),
+    path('api/token/', include(token_patterns)),
+    path('api/account/', include('authenticate.urls'))
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

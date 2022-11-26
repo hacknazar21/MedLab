@@ -88,7 +88,7 @@ class API_PackageAnalyses(Executor, LinkModel):
     package = models.ManyToManyField(API_Analyses,
                                       related_name='packages', verbose_name='Какие анализы входят')
     name_of_package = models.CharField(max_length=250, verbose_name='Название пакетов анализов')
-    description = models.CharField(max_length=1000, blank=True, null=True, verbose_name=_(''))
+    description = models.CharField(max_length=1000, blank=True, null=True, verbose_name=_('Описание'))
     price_of_package = models.FloatField(verbose_name='Цена пакетов')
     main_img = models.ImageField(max_length=1000, blank=True, null=True, upload_to='imgAnalyse',
                                     verbose_name='Главная картинка')
@@ -102,13 +102,13 @@ class API_PackageAnalyses(Executor, LinkModel):
 
     class Meta:
         db_table = 'API_PackageAnalyses'
-        verbose_name = _('Пакет анализа')
-        verbose_name_plural = _('Пакеты анализов')
+        verbose_name = ('Пакет анализа')
+        verbose_name_plural = ('Пакеты анализов')
         ordering = ['-createdat',]
 
     def __str__(self):
-
         return self.name_of_package
+
 
     def get_link_base(self):
         return self.name_of_package
