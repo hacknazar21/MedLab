@@ -20,7 +20,7 @@ const Promotions: FunctionComponent<Props> = ({
     <section className="page__promotions promotions single-page">
       <div className="promotions__container">
         <div className="promotions__box single-page-box">
-          <div className="promotions__items single-page-items single-page-items_number_2">
+          <div className="promotions__items single-page-items single-page-items_number_4">
             {promotions?.map((promotion: IPromotion) => {
               return <PromotionCard key={promotion.id} promotion={promotion} />;
             })}

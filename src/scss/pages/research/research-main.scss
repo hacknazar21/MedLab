@@ -146,6 +146,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     @include adaptiveValue("padding-bottom", 40, 20);
     border-bottom: 1px solid #3B5FD9;
     @include adaptiveValue("margin-bottom", 40, 20);
@@ -160,10 +161,15 @@
   &__info-item {
     font-weight: 400;
     font-size:rem(18);
+    @include adaptiveValue("font-size", 18, 10);
+    @media(max-width:$tablet){
+      font-size:rem(18);
+    }
     line-height: math.div(22,18);
     letter-spacing: 0.02em;
     color: #FFFFFF;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     span:first-child{
       @include adaptiveValue("margin-right", 17, 5);

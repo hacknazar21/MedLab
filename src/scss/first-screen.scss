@@ -26,8 +26,9 @@
     flex-direction: column;
     padding: rem(50);
     padding-top: rem(40);
-    z-index: 1;
+    z-index: 2;
     position: relative;
+    flex: 0 0 80%;
     @media(max-width: $mobile) {
       padding: rem(20);
     }
@@ -86,6 +87,7 @@
     width: rem(687);
     right: 0;
     height: 100%;
+    z-index: 1;
     @media(max-width:$tablet){
       width: 100%;
       opacity: 0.2;
