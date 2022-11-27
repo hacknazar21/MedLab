@@ -66,7 +66,7 @@ const Promotions: FunctionComponent<Props> = ({
           />
           <Popup active={openModal} setActive={setOpenModal}>
             <form
-              action="/api/front/review/allReviews"
+              action="/api/front/review/allReviews/"
               method={"POST"}
               data-method={"POST"}
               className="form review__form"
