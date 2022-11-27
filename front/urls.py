@@ -7,60 +7,60 @@ from front.views import AnalyseListView, AnalyseDetailView, NewsListView, NewsDe
 
 
 analyse_patterns = [
-    path('allAnalyse', AnalyseListView.as_view(), name='allAnalyses'),
-    path('<str:title_analyse_link>', AnalyseDetailView.as_view(), name='analyse-RUD')
+    path('allAnalyse/', AnalyseListView.as_view(), name='allAnalyses'),
+    path('<str:title_analyse_link>/', AnalyseDetailView.as_view(), name='analyse-RUD')
 ]
 
 news_patterns = [
-    path('allNews', NewsListView.as_view(), name='allNews'),
-    path('<str:title_news_link>', NewsDetailView.as_view(), name='news-RUD')
+    path('allNews/', NewsListView.as_view(), name='allNews'),
+    path('<str:title_news_link>/', NewsDetailView.as_view(), name='news-RUD')
 ]
 
 qaa_patterns = [
-    path('allQaA', QaAListView.as_view(), name='allQaA'),
-    path('<str:question_link>', QaADetailView.as_view(), name='QaA-RUD')
+    path('allQaA/', QaAListView.as_view(), name='allQaA'),
+    path('<str:question_link>/', QaADetailView.as_view(), name='QaA-RUD')
 ]
 
 aboutus_patterns = [
-    path('allAboutUs', AboutUsListView.as_view(), name='allAboutUs'),
-    path('<str:aboutus_link>', AboutUsDetailView.as_view(), name='AboutUs-RUD')
+    path('allAboutUs/', AboutUsListView.as_view(), name='allAboutUs'),
+    path('<str:aboutus_link>/', AboutUsDetailView.as_view(), name='AboutUs-RUD')
 ]
 
 contacts_patterns = [
-    path('allContacts', ContactsListView.as_view(), name='allContacts'),
-    path('<str:contacts_link>', ContactsDetailView.as_view(), name='Contacts-RUD')
+    path('allContacts/', ContactsListView.as_view(), name='allContacts'),
+    path('<str:contacts_link>/', ContactsDetailView.as_view(), name='Contacts-RUD')
 ]
 
 promotion_patterns = [
-    path('allPromotions', PromotionListView.as_view(), name='allPromotions'),
-    path('<str:promotion_link>', PromotionDetailView.as_view(), name='Promotion-RUD')
+    path('allPromotions/', PromotionListView.as_view(), name='allPromotions'),
+    path('<str:promotion_link>/', PromotionDetailView.as_view(), name='Promotion-RUD')
 ]
 
 review_patterns = [
-    path('allReviews', ReviewListView.as_view(), name='allReviews'),
-    path('<str:review_link>', ReviewdDetailView.as_view(), name='Review-RUD')
+    path('allReviews/', ReviewListView.as_view(), name='allReviews'),
+    path('<str:review_link>/', ReviewdDetailView.as_view(), name='Review-RUD')
 ]
 
 
 packageanalyse_patterns = [
-    path('allPackages', PackageListView.as_view(), name='allPackages'),
-    path('<str:name_of_package_link>', PackageDetailView.as_view(), name='Package-RUD')
+    path('allPackages/', PackageListView.as_view(), name='allPackages'),
+    path('<str:name_of_package_link>/', PackageDetailView.as_view(), name='Package-RUD')
 ]
 
 
 
 biomaterial_patterns = [
-    path('allBiomaterials', BiomaterialListView.as_view(), name='filterBiomaterial')
+    path('allBiomaterials/', BiomaterialListView.as_view(), name='filterBiomaterial')
 ]
 
 categoty_patterns = [
-    path('allCategories', CategoryListView.as_view(), name='allCategory'),
+    path('allCategories/', CategoryListView.as_view(), name='allCategory'),
 
-    path('delete/<str:id>', CategoryDetailView.as_view(), name='delete')
+    path('delete/<str:id>/', CategoryDetailView.as_view(), name='delete')
 ]
 
 partners_patterns = [
-    path('allPartners', PartnersListView.as_view(), name='allPartners')
+    path('allPartners/', PartnersListView.as_view(), name='allPartners')
 ]
 
 
