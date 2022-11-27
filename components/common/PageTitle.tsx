@@ -10,7 +10,7 @@ function PageTitle({ title }) {
           onClick={() => {
             router.back();
           }}
-          className="main__back"
+          className="main__button"
         >
           <span>
             <svg
@@ -26,10 +26,10 @@ function PageTitle({ title }) {
                 fillOpacity="0.8"
               />
             </svg>
+            <p>Назад</p>
           </span>
-          Назад
+          {title}
         </button>
-        <div className="main__button">{title}</div>
       </div>
     </section>
   );

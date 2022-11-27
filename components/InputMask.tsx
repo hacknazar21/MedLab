@@ -47,7 +47,13 @@ const InputMask = (props: any) => {
         formattedInputValue = "+" + inputNumbersValue.substring(0, 16);
       }
       input.value = formattedInputValue;
-      props.changeHandler(formattedInputValue);
+      props.changeHandler(
+        formattedInputValue
+          .replaceAll("-", "")
+          .replaceAll(" ", "")
+          .replaceAll("(", "")
+          .replaceAll(")", "")
+      );
     }
   };
 

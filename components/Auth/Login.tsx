@@ -22,14 +22,14 @@ const Login: FunctionComponent<Props> = (props) => {
   const { formSubmitHandler, formChangeHandler, loading } =
     useForm(onSubmitHandler);
   function onSubmitHandler(data) {
-    console.log(data);
+    if (data) login(data.token, data.refresh);
   }
   return (
     <>
       <section className="page__auth auth">
         <div className="auth__container">
           <form
-            action="/api/front/review/allReviews"
+            action="/api/account/login/"
             method="POST"
             data-method="POST"
             onSubmit={formSubmitHandler}
@@ -45,7 +45,7 @@ const Login: FunctionComponent<Props> = (props) => {
                   changeHandler={(value) => {
                     formChangeHandler({
                       target: {
-                        name: "tel",
+                        name: "phone_number",
                         type: "text",
                         value,
                       },
@@ -53,7 +53,7 @@ const Login: FunctionComponent<Props> = (props) => {
                   }}
                   type="tel"
                   id="mobile"
-                  name="mobile"
+                  name="phone_number"
                   className="input"
                   placeholder="+ 7 (___) ___ __ __"
                 />

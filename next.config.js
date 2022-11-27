@@ -10,7 +10,7 @@ module.exports = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://srllab.kz/api/:path*",
+        destination: "https://srllab.kz/api/:path*/",
       },
     ];
   },
